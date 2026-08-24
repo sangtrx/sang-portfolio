@@ -80,12 +80,7 @@ While the custom domain is pending, this repository is configured to publish fro
 
 `https://sangtrx.github.io/sang-portfolio/`
 
-After creating the GitHub repository:
-
-1. Push this repository to `sangtrx/sang-portfolio`.
-2. Open **Settings → Pages**.
-3. Set **Source** to **GitHub Actions**.
-4. Push to `main` (or run the `Deploy to GitHub Pages` workflow manually).
+This repository deploys `main` through GitHub Actions. If Pages is not enabled automatically on the first run, open **Settings → Pages** and set **Source** to **GitHub Actions**, then rerun the deployment workflow.
 
 The workflow builds with `SITE_URL=https://sangtrx.github.io` and `BASE_PATH=/sang-portfolio`, so internal navigation, metadata, and assets work correctly under a GitHub project-page subpath.
 

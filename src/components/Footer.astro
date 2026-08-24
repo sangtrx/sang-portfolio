@@ -1,0 +1,16 @@
+---
+import { profile } from '../data/site';
+---
+<footer class="footer container">
+  <div>
+    <p class="footer-title">Build something difficult.</p>
+    <p class="muted">AI systems, reliable agents, research infrastructure, and product engineering.</p>
+  </div>
+  <div class="footer-links">
+    <a href={`mailto:${profile.email}`}>Email</a>
+    <a href={profile.github} rel="me">GitHub</a>
+    <a href={profile.linkedin} rel="me">LinkedIn</a>
+    <a href={profile.scholar}>Scholar</a>
+  </div>
+  <p class="footer-meta">© {new Date().getFullYear()} Sang Truong · Built for clarity, speed, and evidence.</p>
+</footer>

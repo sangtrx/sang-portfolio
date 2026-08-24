@@ -1,0 +1,11 @@
+:8080 {
+  root * /srv
+  encode zstd gzip
+  header {
+    X-Content-Type-Options nosniff
+    Referrer-Policy strict-origin-when-cross-origin
+    Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  }
+  try_files {path} {path}.html {path}/index.html
+  file_server
+}

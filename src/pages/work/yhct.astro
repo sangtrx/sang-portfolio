@@ -1,0 +1,75 @@
+---
+import { withBase } from '../../lib/paths';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="YHCT Clinical AI Platform — Sang Truong"
+  description="Case study: governed clinical AI with deterministic authority, retrieval grounding, citations, provenance, auditability, and hospital-oriented deployment controls."
+>
+  <article class="case container section">
+    <a class="back-link" href={withBase('#work')}>← Selected work</a>
+    <header class="case-hero">
+      <p class="eyebrow">Case Study 01 · Clinical AI · 2026</p>
+      <h1>YHCT Clinical AI Platform</h1>
+      <p class="case-lede">Clinical decision support designed around governed evidence rather than unconstrained generation.</p>
+      <div class="case-meta">
+        <div><span>Role</span><strong>AI Architect / Lead Builder</strong></div>
+        <div><span>Stack</span><strong>FastAPI · Next.js · PostgreSQL · RAG</strong></div>
+        <div><span>Stage</span><strong>Prepared for hospital UAT</strong></div>
+      </div>
+    </header>
+
+    <section class="case-section visual-panel clinical-visual" aria-label="System architecture illustration">
+      <div class="arch-node arch-user">Clinician</div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node arch-core">Clinical API<br /><small>policy + orchestration</small></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-stack">
+        <span>Deterministic authority</span>
+        <span>Governed retrieval</span>
+        <span>Bounded LLM reasoning</span>
+        <span>Audit + provenance</span>
+      </div>
+    </section>
+
+    <section class="case-section case-grid">
+      <div>
+        <p class="eyebrow">Problem</p>
+        <h2>Clinical AI cannot rely on fluent answers alone.</h2>
+      </div>
+      <div class="case-copy">
+        <p>The product has to answer natural-language questions while preserving clinical authority, source traceability, release-pinned rules, user roles, and an auditable record of what evidence was available at decision time.</p>
+        <p>The architecture therefore treats the model as a bounded reasoning component rather than the final source of truth.</p>
+      </div>
+    </section>
+
+    <section class="case-section section-rule">
+      <p class="eyebrow">Architecture decisions</p>
+      <div class="decision-grid">
+        <article><span>01</span><h3>Authority separation</h3><p>Deterministic clinical rules and governed sources remain authoritative; model output cannot silently override them.</p></article>
+        <article><span>02</span><h3>Evidence-first retrieval</h3><p>Answers are grounded in approved knowledge with exact citations and provenance carried through the response path.</p></article>
+        <article><span>03</span><h3>Role-scoped state</h3><p>Conversation state, access, history, and audit trails are designed around explicit user and system boundaries.</p></article>
+        <article><span>04</span><h3>Deployment controls</h3><p>Identity, HIS integration, monitoring, recovery, security, and acceptance checks are treated as product requirements.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section section-rule case-grid">
+      <div>
+        <p class="eyebrow">What this demonstrates</p>
+        <h2>AI engineering beyond the prompt.</h2>
+      </div>
+      <div class="pill-list">
+        <span>Clinical safety boundaries</span><span>RAG architecture</span><span>FastAPI APIs</span><span>PostgreSQL durable state</span><span>Provenance</span><span>Auditability</span><span>On-prem readiness</span><span>Production acceptance</span>
+      </div>
+    </section>
+
+    <section class="case-section demo-placeholder">
+      <div>
+        <p class="eyebrow">Live demo</p>
+        <h2>Sanitized interactive demo is the next release gate.</h2>
+        <p>The public version should use synthetic patient/prescription data, a sanitized knowledge base, no hospital credentials, no admin surface, and strict rate limits.</p>
+      </div>
+      <span class="status-pill">Not public yet</span>
+    </section>
+  </article>
+</BaseLayout>

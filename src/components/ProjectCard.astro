@@ -1,0 +1,39 @@
+---
+import { withBase } from '../lib/paths';
+
+interface Props {
+  project: {
+    index: string;
+    title: string;
+    kicker: string;
+    summary: string;
+    role: string;
+    year: string;
+    tags: string[];
+    href: string;
+    accent: string;
+  };
+}
+const { project } = Astro.props;
+---
+<a class={`project-card accent-${project.accent}`} href={withBase(project.href)}>
+  <div class="project-topline">
+    <span>{project.index}</span>
+    <span>{project.year}</span>
+  </div>
+  <div class="project-visual" aria-hidden="true">
+    <span class="visual-orb"></span>
+    <span class="visual-grid"></span>
+    <span class="visual-label">SYSTEM / {project.index}</span>
+  </div>
+  <div class="project-copy">
+    <p class="eyebrow">{project.role}</p>
+    <h3>{project.title}</h3>
+    <p class="project-kicker">{project.kicker}</p>
+    <p class="muted">{project.summary}</p>
+    <div class="tag-row" aria-label="Technologies and domains">
+      {project.tags.map((tag) => <span class="tag">{tag}</span>)}
+    </div>
+    <span class="text-link">Open case study <span aria-hidden="true">↗</span></span>
+  </div>
+</a>

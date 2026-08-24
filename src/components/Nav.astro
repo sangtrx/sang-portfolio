@@ -1,0 +1,28 @@
+---
+import { withBase } from '../lib/paths';
+
+const path = Astro.url.pathname;
+const links = [
+  { href: withBase('#work'), label: 'Work' },
+  { href: withBase('#experience'), label: 'Experience' },
+  { href: withBase('/resume'), label: 'Résumé' },
+];
+---
+<header class="nav-wrap">
+  <nav class="nav container" aria-label="Primary navigation">
+    <a class="brand" href={withBase()} aria-label="Sang Truong home">
+      <span class="brand-mark" aria-hidden="true">ST</span>
+      <span>Sang Truong</span>
+    </a>
+    <div class="nav-actions">
+      <div class="nav-links">
+        {links.map((link) => (
+          <a href={link.href} aria-current={path === link.href ? 'page' : undefined}>{link.label}</a>
+        ))}
+      </div>
+      <button class="icon-button" type="button" data-theme-toggle aria-label="Toggle color theme">
+        <span aria-hidden="true">◐</span>
+      </button>
+    </div>
+  </nav>
+</header>

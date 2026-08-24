@@ -1,0 +1,71 @@
+---
+import { withBase } from '../../lib/paths';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Curren — Quant Research & Trading Intelligence — Sang Truong"
+  description="Case study: point-in-time crypto research, structural and divergence hypotheses, leakage-aware validation, signal lifecycle, and guarded execution."
+>
+  <article class="case container section">
+    <a class="back-link" href={withBase('#work')}>← Selected work</a>
+    <header class="case-hero">
+      <p class="eyebrow">Case Study 02 · Quant Systems · 2025 — Present</p>
+      <h1>Curren</h1>
+      <p class="case-lede">A systematic research and trading intelligence platform built around point-in-time evidence and reproducible validation.</p>
+      <div class="case-meta">
+        <div><span>Role</span><strong>Founder & Solo Builder</strong></div>
+        <div><span>Focus</span><strong>Research · Data · Signals · Lifecycle</strong></div>
+        <div><span>Markets</span><strong>Crypto futures</strong></div>
+      </div>
+    </header>
+
+    <section class="case-section visual-panel quant-visual" aria-label="Research pipeline illustration">
+      <div class="pipeline">
+        <span>RAW</span><i>→</i><span>PIT DATA</span><i>→</i><span>FEATURES</span><i>→</i><span>HYPOTHESES</span><i>→</i><span>OOS</span><i>→</i><span>SIGNALS</span>
+      </div>
+      <div class="sparkline" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </section>
+
+    <section class="case-section case-grid">
+      <div>
+        <p class="eyebrow">Problem</p>
+        <h2>Most trading research fails before the backtest.</h2>
+      </div>
+      <div class="case-copy">
+        <p>The hard part is not drawing a signal on a chart. It is proving that every feature existed at decision time, testing many structural hypotheses without fooling yourself, keeping research releases reproducible, and connecting validated signals to a restart-safe lifecycle.</p>
+        <p>Curren treats point-in-time data, leakage control, and research diagnostics as first-class system contracts.</p>
+      </div>
+    </section>
+
+    <section class="case-section section-rule">
+      <p class="eyebrow">Research architecture</p>
+      <div class="decision-grid">
+        <article><span>01</span><h3>Point-in-time data</h3><p>Features obey availability constraints so research does not use information that was unknowable when a signal fired.</p></article>
+        <article><span>02</span><h3>Hypothesis families</h3><p>Market structure, multi-timeframe momentum/divergence, and regime-aware features are evaluated as explicit event families.</p></article>
+        <article><span>03</span><h3>Leakage-aware validation</h3><p>Independent baselines, multiple-testing control, sequential-bootstrap uniqueness, and CSCV/PBO diagnostics reduce false confidence.</p></article>
+        <article><span>04</span><h3>Operational lifecycle</h3><p>Validated signals flow into explicit risk logic, restart-safe lifecycle/P&amp;L tracking, and guarded exchange execution.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section section-rule case-grid">
+      <div>
+        <p class="eyebrow">Core contract</p>
+        <h2>No look-ahead by construction.</h2>
+      </div>
+      <div class="code-card" role="img" aria-label="Point-in-time invariant">
+        <span class="code-comment">// every feature must be knowable at signal time</span>
+        <strong>available_time ≤ event_time</strong>
+        <span class="code-comment">// validation happens after this invariant holds</span>
+      </div>
+    </section>
+
+    <section class="case-section demo-placeholder">
+      <div>
+        <p class="eyebrow">Public showcase</p>
+        <h2>Expose evidence, not private alpha.</h2>
+        <p>The portfolio demo should replay historical signals, research reports, charts, and lifecycle states while keeping exchange credentials, execution controls, and sensitive strategy parameters private.</p>
+      </div>
+      <span class="status-pill">Showcase planned</span>
+    </section>
+  </article>
+</BaseLayout>
