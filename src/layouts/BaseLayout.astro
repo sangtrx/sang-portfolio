@@ -18,7 +18,7 @@ interface Props {
 const {
   title = 'Sang Truong — Senior AI/LLM Engineer & Technical Lead',
   description = 'Portfolio of Sang Truong: production AI systems, reliable agents, clinical AI, quantitative research infrastructure, and end-to-end technical ownership.',
-  image = 'og.png',
+  image = 'og.svg',
   imageAlt = 'Sang Truong — Senior AI/LLM Engineer and Technical Lead',
   pageType = 'website',
   jsonLd,
@@ -33,6 +33,7 @@ const relativePath = Astro.url.pathname.startsWith(buildBase)
   ? Astro.url.pathname.slice(buildBase.length).replace(/^\/+|\/+$/g, '')
   : Astro.url.pathname.replace(/^\/+|\/+$/g, '');
 const markdownPath = relativePath ? `${relativePath}.md` : 'index.md';
+const imageType = image.endsWith('.svg') ? 'image/svg+xml' : 'image/png';
 const schema = Array.isArray(jsonLd)
   ? { '@context': 'https://schema.org', '@graph': jsonLd }
   : jsonLd;
@@ -62,7 +63,7 @@ const schema = Array.isArray(jsonLd)
     <meta property="og:type" content={pageType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage} />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:type" content={imageType} />
     <meta property="og:image:alt" content={imageAlt} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
