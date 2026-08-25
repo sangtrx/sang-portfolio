@@ -22,7 +22,7 @@ const { project } = Astro.props;
 <a class={`project-card accent-${project.accent}`} href={withBase(project.href)} aria-label={`Open ${project.title} case study`}>
   <div class={`project-visual project-visual-${project.slug}`} aria-hidden="true">
     <span class="visual-grid"></span>
-    <span class="visual-label">SYSTEM / {project.index}</span>
+    <span class="visual-label">SYSTEM / {project.slug.toUpperCase()}</span>
     {project.slug === 'yhct' ? (
       <div class="visual-flow">
         <span>CLINICIAN</span><i>→</i><span class="hot">AGENT</span><i>→</i><span>TOOLS</span><i>→</i><span>EVIDENCE</span>
@@ -35,8 +35,8 @@ const { project } = Astro.props;
     <div class="visual-status">{project.status}</div>
   </div>
   <div class="project-copy">
-    <div class="project-topline-visible"><span>{project.index}</span><span>{project.year}</span></div>
-    <p class="eyebrow">{project.role}</p>
+    <div class="project-topline-visible"><span>Case study</span><span>{project.year}</span></div>
+    <p class="project-role">{project.role}</p>
     <h3>{project.title}</h3>
     <p class="project-kicker">{project.kicker}</p>
     <p class="muted">{project.summary}</p>
