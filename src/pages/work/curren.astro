@@ -1,71 +1,130 @@
 ---
-import { withBase } from '../../lib/paths';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/paths';
+
+const source = 'https://github.com/sangtrx/curren';
+const canonical = new URL(withBase('/work/curren'), Astro.site).href;
+const jsonLd = [
+  {
+    '@type': 'Article',
+    '@id': `${canonical}#case-study`,
+    headline: 'Curren — point-in-time quant research and verifiable distribution',
+    description: 'Case study of Curren: point-in-time quantitative research, leakage-aware validation, private signal lifecycle, immutable publication proofs, and public API/CLI/MCP interfaces.',
+    dateModified: '2026-08-25T10:30:00+07:00',
+    author: { '@type': 'Person', name: 'Sang Truong', url: new URL(withBase('/about'), Astro.site).href },
+    mainEntityOfPage: canonical,
+    isBasedOn: source,
+    about: ['Quantitative research', 'Point-in-time data', 'Backtesting', 'Trading systems', 'FastAPI', 'MCP', 'AI agents'],
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: new URL(withBase('/'), Astro.site).href },
+      { '@type': 'ListItem', position: 2, name: 'Curren', item: canonical },
+    ],
+  },
+];
 ---
 <BaseLayout
-  title="Curren — Quant Research & Trading Intelligence — Sang Truong"
-  description="Case study: point-in-time crypto research, structural and divergence hypotheses, leakage-aware validation, signal lifecycle, and guarded execution."
+  title="Curren — Quant Research, Trading Intelligence & MCP Case Study | Sang Truong"
+  description="Deep technical case study: point-in-time quant research, leakage-aware validation, private trading lifecycle, immutable public results, FastAPI, CLI, MCP, and one-way publication boundaries."
+  image="og-curren.png"
+  pageType="article"
+  jsonLd={jsonLd}
 >
   <article class="case container section">
     <a class="back-link" href={withBase('#work')}>← Selected work</a>
     <header class="case-hero">
       <p class="eyebrow">Case Study 02 · Quant Systems · 2025 — Present</p>
       <h1>Curren</h1>
-      <p class="case-lede">A systematic research and trading intelligence platform built around point-in-time evidence and reproducible validation.</p>
+      <p class="case-lede">A quantitative research and trading-intelligence system built around two contracts: research must be point-in-time, and public results must be independently inspectable without exposing private execution or alpha.</p>
       <div class="case-meta">
         <div><span>Role</span><strong>Founder & Solo Builder</strong></div>
-        <div><span>Focus</span><strong>Research · Data · Signals · Lifecycle</strong></div>
-        <div><span>Markets</span><strong>Crypto futures</strong></div>
+        <div><span>Layers</span><strong>Research · lifecycle · public API / CLI / MCP</strong></div>
+        <div><span>Public status</span><strong>v0.4.0 alpha · production feed not claimed</strong></div>
       </div>
+      <p class="case-verified">Last verified against current project state: <time datetime="2026-08-25">25 Aug 2026</time></p>
+      <div class="hero-actions case-actions"><a class="button primary" href={source}>View public source ↗</a></div>
     </header>
 
-    <section class="case-section visual-panel quant-visual" aria-label="Research pipeline illustration">
-      <div class="pipeline">
-        <span>RAW</span><i>→</i><span>PIT DATA</span><i>→</i><span>FEATURES</span><i>→</i><span>HYPOTHESES</span><i>→</i><span>OOS</span><i>→</i><span>SIGNALS</span>
+    <section class="case-section visual-panel quant-architecture" aria-label="Curren two-layer system architecture">
+      <div class="layer-stack">
+        <div class="layer private-layer"><small>PRIVATE INTELLIGENCE LAYER</small><strong>market data → PIT features → hypotheses → OOS validation → signal lifecycle / execution</strong></div>
+        <span class="layer-arrow">↓ strict sanitized PublicationBatch</span>
+        <div class="layer public-layer"><small>PUBLIC DISTRIBUTION LAYER</small><strong>immutable read model → API · CLI · MCP · Omarchy</strong></div>
       </div>
-      <div class="sparkline" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     </section>
 
     <section class="case-section case-grid">
-      <div>
-        <p class="eyebrow">Problem</p>
-        <h2>Most trading research fails before the backtest.</h2>
-      </div>
+      <div><p class="eyebrow">Problem</p><h2>Most trading systems can look correct without being reproducible.</h2></div>
       <div class="case-copy">
-        <p>The hard part is not drawing a signal on a chart. It is proving that every feature existed at decision time, testing many structural hypotheses without fooling yourself, keeping research releases reproducible, and connecting validated signals to a restart-safe lifecycle.</p>
-        <p>Curren treats point-in-time data, leakage control, and research diagnostics as first-class system contracts.</p>
-      </div>
-    </section>
-
-    <section class="case-section section-rule">
-      <p class="eyebrow">Research architecture</p>
-      <div class="decision-grid">
-        <article><span>01</span><h3>Point-in-time data</h3><p>Features obey availability constraints so research does not use information that was unknowable when a signal fired.</p></article>
-        <article><span>02</span><h3>Hypothesis families</h3><p>Market structure, multi-timeframe momentum/divergence, and regime-aware features are evaluated as explicit event families.</p></article>
-        <article><span>03</span><h3>Leakage-aware validation</h3><p>Independent baselines, multiple-testing control, sequential-bootstrap uniqueness, and CSCV/PBO diagnostics reduce false confidence.</p></article>
-        <article><span>04</span><h3>Operational lifecycle</h3><p>Validated signals flow into explicit risk logic, restart-safe lifecycle/P&amp;L tracking, and guarded exchange execution.</p></article>
+        <p>A chart can show a convincing signal even when the research accidentally used future information. A live result can look convincing even when its initial plan or terminal outcome can later be rewritten. A public API can be useful while still leaking the private strategy or execution path.</p>
+        <p>Curren treats those as separate engineering problems: point-in-time research, operational signal lifecycle, and a one-way public verification surface.</p>
       </div>
     </section>
 
     <section class="case-section section-rule case-grid">
-      <div>
-        <p class="eyebrow">Core contract</p>
-        <h2>No look-ahead by construction.</h2>
+      <div><p class="eyebrow">My ownership</p><h2>Research protocol to developer surface.</h2></div>
+      <div class="ownership-list">
+        <article><strong>Research architecture</strong><p>Designed the point-in-time data contract, multi-timeframe hypothesis families, event-study workflow, leakage controls, OOS validation, and research-release discipline.</p></article>
+        <article><strong>Signal lifecycle</strong><p>Connected validated signals to explicit risk and lifecycle state, restart-safe tracking, result projection, and guarded execution boundaries.</p></article>
+        <article><strong>Public platform</strong><p>Built a strict private-to-public publication contract, read-only FastAPI service, entitlement-aware views, CLI, MCP server, and desktop integration surface.</p></article>
+        <article><strong>Integrity & security</strong><p>Designed immutable plan/result records, append-only lifecycle identity, stale-replay protection, delayed public visibility, trusted-proxy handling, and no public execution path.</p></article>
       </div>
-      <div class="code-card" role="img" aria-label="Point-in-time invariant">
-        <span class="code-comment">// every feature must be knowable at signal time</span>
-        <strong>available_time ≤ event_time</strong>
-        <span class="code-comment">// validation happens after this invariant holds</span>
+    </section>
+
+    <section class="case-section section-rule">
+      <p class="eyebrow">Research layer</p>
+      <div class="research-flow" aria-label="Quant research flow">
+        <span>RAW</span><i>→</i><span>PIT DATA</span><i>→</i><span>FEATURES</span><i>→</i><span>HYPOTHESES</span><i>→</i><span>OOS</span><i>→</i><span>SIGNALS</span>
+      </div>
+      <div class="contract-grid contract-grid-spaced">
+        <div class="code-card"><span class="code-comment">// every feature must be knowable at signal time</span><strong>available_time ≤ event_time</strong><span class="code-comment">// validation happens after this invariant holds</span></div>
+        <div class="principle-card"><span>RESEARCH GOAL</span><strong>reduce false confidence before optimizing returns</strong><span>DIAGNOSTICS</span><strong>OOS · multiple-testing controls · uniqueness · CSCV/PBO</strong></div>
+      </div>
+    </section>
+
+    <section class="case-section section-rule">
+      <p class="eyebrow">Public distribution layer</p>
+      <div class="decision-grid decision-grid-3">
+        <article><span>01</span><h3>One-way publication</h3><p>The private runtime publishes a strict sanitized projection. Public clients never connect directly to the trading database or execution controls.</p></article>
+        <article><span>02</span><h3>Immutable initial plan</h3><p>The first accepted signal plan is hashed and retained so entry, stop, targets, side, and publication context cannot be silently rewritten later.</p></article>
+        <article><span>03</span><h3>Append-only lifecycle</h3><p>Lifecycle identities are append-only, conflict-checked, and protected by per-signal source timestamps so stale retries cannot roll state backward.</p></article>
+        <article><span>04</span><h3>Frozen terminal outcome</h3><p>Terminal results and proof-backed track record derive only from immutable outcome records, not mutable presentation state.</p></article>
+        <article><span>05</span><h3>Entitlement-aware visibility</h3><p>Public active context can be delayed/hidden while Premium and Agent views receive allowed realtime fields; the server enforces the minimum delay.</p></article>
+        <article><span>06</span><h3>Read-only agent interface</h3><p>MCP exposes six read-only tools. Remote unauthenticated MCP is deliberately refused; no tool places orders or changes private trading controls.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section section-rule case-grid">
+      <div><p class="eyebrow">Public developer surface</p><h2>One read model, multiple clients.</h2></div>
+      <div class="capability-grid">
+        <article><h3>FastAPI</h3><p>Summary, signals, lifecycle, results, track record, and verification endpoints over a public read model.</p></article>
+        <article><h3>CLI</h3><p>Human-readable and JSON access to signals, lifecycle, results, track record, and verification without reconstructing hidden fields.</p></article>
+        <article><h3>MCP</h3><p>Six read-only tools for MCP-compatible AI agents to inspect active signals, lifecycle, results, track record, and proofs.</p></article>
+        <article><h3>Omarchy</h3><p>A native Quattro widget/panel using delayed anonymous/public context only, with no private key or execution capability embedded in QML.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section section-rule">
+      <p class="eyebrow">Current public-platform status · v0.4.0 alpha</p>
+      <div class="status-table" role="table" aria-label="Curren public platform status">
+        <div role="row"><span role="cell">API / SQLite-WAL read model / entitlements</span><strong role="cell" class="status-ok">Implemented</strong></div>
+        <div role="row"><span role="cell">CLI / async client / read-only MCP / Omarchy plugin</span><strong role="cell" class="status-ok">Implemented</strong></div>
+        <div role="row"><span role="cell">Immutable plan / lifecycle / terminal proof controls</span><strong role="cell" class="status-ok">Implemented</strong></div>
+        <div role="row"><span role="cell">Private runtime publication projector</span><strong role="cell" class="status-wip">Pending integration</strong></div>
+        <div role="row"><span role="cell">api.curren.tech production deployment</span><strong role="cell" class="status-wip">Pending</strong></div>
+        <div role="row"><span role="cell">Live public signal feed</span><strong role="cell">Not claimed</strong></div>
       </div>
     </section>
 
     <section class="case-section demo-placeholder">
       <div>
-        <p class="eyebrow">Public showcase</p>
-        <h2>Expose evidence, not private alpha.</h2>
-        <p>The portfolio demo should replay historical signals, research reports, charts, and lifecycle states while keeping exchange credentials, execution controls, and sensitive strategy parameters private.</p>
+        <p class="eyebrow">Public evidence boundary</p>
+        <h2>Expose proofs, not private alpha.</h2>
+        <p>The public repository intentionally excludes private strategy/research logic, raw-source ingestion, AI guard internals, exchange credentials, execution runtime, accounts, and the production trading database. The portfolio can show architecture, historical evidence, public contracts, and verification behavior without publishing the edge itself.</p>
       </div>
-      <span class="status-pill">Showcase planned</span>
+      <a class="button ghost" href={source}>GitHub source ↗</a>
     </section>
   </article>
 </BaseLayout>
