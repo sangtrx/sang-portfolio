@@ -20,8 +20,10 @@ const escapeXml = (value: string) => value
 
 export const GET: APIRoute = ({ site }) => {
   const root = site ?? new URL('https://sangtruong.me');
+  const buildBase = import.meta.env.BASE_URL || '/';
   const entries = routes.map(({ path, lastmod }) => {
-    const loc = new URL(withBase(path), root).href;
+    let loc = new URL(withBase(path), root).href;
+    if (path === '/' && buildBase !== '/' && loc.endsWith('/')) loc = loc.slice(0, -1);
     return `<url><loc>${escapeXml(loc)}</loc><lastmod>${lastmod}</lastmod></url>`;
   }).join('');
   const xml = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${entries}</urlset>`;
