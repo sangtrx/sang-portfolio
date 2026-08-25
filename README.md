@@ -2,6 +2,8 @@
 
 Public proof-of-work portfolio for **Sang Truong** — Senior AI/LLM Engineer & Technical Lead.
 
+**Live preview:** https://sangtrx.github.io/sang-portfolio/
+
 Target canonical domain: **https://sangtruong.me**
 
 ## Purpose
@@ -30,11 +32,13 @@ The repository includes:
 - unique per-page title/description/canonical metadata;
 - Open Graph + Twitter PNG social cards;
 - `Person`, `ProfilePage`, `Article`, `WebSite`, and `BreadcrumbList` JSON-LD where appropriate;
-- static-generated `/sitemap.xml`;
+- static-generated `/sitemap.xml` containing canonical HTML URLs only;
 - static-generated `/robots.txt` with OAI-SearchBot access;
-- `/llms.txt` as a concise machine-readable site map for systems that use the emerging convention;
+- `/llms.txt` as a concise discovery map pointing to canonical HTML pages;
+- entity disambiguation for `Sang Truong` / `sangtrx` / Ho Chi Minh City, Vietnam;
 - an entity-focused `/about` page;
-- semantic case studies with explicit evidence and non-claims.
+- semantic case studies with explicit evidence and non-claims;
+- IndexNow notification after successful GitHub Pages deployment.
 
 See `docs/SEO_GEO.md` for the implementation rationale and launch checklist.
 
