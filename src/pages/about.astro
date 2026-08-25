@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { education, profile, publications, skillGroups } from '../data/site';
+import { withBase } from '../lib/paths';
+
+const personId = new URL(withBase('/about#person'), Astro.site).href;
+const jsonLd = [
+  {
+    '@type': 'ProfilePage',
+    '@id': new URL(withBase('/about#profile'), Astro.site).href,
+    url: new URL(withBase('/about'), Astro.site).href,
+    name: 'About Sang Truong — Senior AI/LLM Engineer & Technical Lead',
+    dateModified: '2026-08-25T10:30:00+07:00',
+    mainEntity: { '@id': personId },
+  },
+  {
+    '@type': 'Person',
+    '@id': personId,
+    name: profile.name,
+    jobTitle: 'Senior AI/LLM Engineer and Technical Lead',
+    description: profile.intro,
+    url: new URL(withBase('/about'), Astro.site).href,
+    sameAs: [profile.github, profile.linkedin, profile.scholar],
+    alumniOf: [
+      { '@type': 'CollegeOrUniversity', name: 'University of Arkansas' },
+      { '@type': 'CollegeOrUniversity', name: 'International University — VNU HCMC' },
+    ],
+    knowsAbout: ['AI agents', 'RAG', 'LLM evaluation', 'clinical AI', 'computer vision', 'time series', 'quantitative research', 'backend systems', 'MLOps'],
+  },
+];
+---
+<BaseLayout
+  title="About Sang Truong — Senior AI/LLM Engineer & Technical Lead"
+  description="About Sang Truong: senior AI/LLM engineer, technical lead, applied AI researcher, and end-to-end builder of production AI and quantitative systems."
+  image="og-about.png"
+  pageType="profile"
+  jsonLd={jsonLd}
+>
+  <article class="about-page container section">
+    <header class="about-hero">
+      <p class="eyebrow">About</p>
+      <h1>Research rigor. Production ownership.</h1>
+      <p class="about-lede">I work at the boundary between model capability and real software systems: the place where prompts become runtime contracts, prototypes become products, and “it works” has to be backed by evidence.</p>
+    </header>
+
+    <section class="about-grid section-rule">
+      <div>
+        <p class="eyebrow">What I do</p>
+        <h2>Own the path from architecture to acceptance.</h2>
+      </div>
+      <div class="prose-stack">
+        <p>My work spans AI/LLM architecture, agent runtimes, retrieval and knowledge systems, backend APIs, data pipelines, evaluation, deployment, and the product behavior around them. I am most useful when a system is technically ambiguous, operationally constrained, or too important to leave as a model demo.</p>
+        <p>I prefer explicit boundaries over architecture theater: which component owns facts, which data was available at decision time, what happens when dependencies fail, what has actually been validated, and what the product deliberately does not claim.</p>
+      </div>
+    </section>
+
+    <section class="section-rule about-grid">
+      <div>
+        <p class="eyebrow">How I think</p>
+        <h2>Good AI systems are contracts, not vibes.</h2>
+      </div>
+      <div class="decision-list">
+        <article><strong>Bound the model.</strong><p>Give the model room to reason where it helps, while keeping authority, tools, permissions, and failure behavior explicit.</p></article>
+        <article><strong>Make evidence inspectable.</strong><p>Separate a fluent answer from the source, tool output, experiment, or runtime observation that supports it.</p></article>
+        <article><strong>Design for the operator.</strong><p>Deployment, restart behavior, auditability, handoff, and observability are product requirements, not cleanup tasks.</p></article>
+        <article><strong>State the boundary.</strong><p>Implemented, tested, deployed, accepted, and production-ready are different claims. I try to keep those states honest.</p></article>
+      </div>
+    </section>
+
+    <section class="section-rule">
+      <div class="section-heading compact-heading">
+        <div><p class="eyebrow">Technical focus</p><h2>Breadth with a system center.</h2></div>
+        <p class="section-note">Tools change; the durable skill is composing them into a coherent, testable system.</p>
+      </div>
+      <div class="skill-grid">
+        {skillGroups.map((group) => (
+          <article><h3>{group.title}</h3><p>{group.items.join(' · ')}</p></article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-rule about-grid">
+      <div><p class="eyebrow">Education</p><h2>Research-trained engineering.</h2></div>
+      <div class="resume-list">
+        {education.map((item) => <article><span>{item.period}</span><div><h3>{item.title} · {item.institution}</h3><p>{item.detail}</p></div></article>)}
+      </div>
+    </section>
+
+    <section class="section-rule about-grid">
+      <div><p class="eyebrow">Selected research</p><h2>Peer-reviewed work.</h2></div>
+      <div class="publication-list">
+        {publications.map((publication) => (
+          <a class="publication" href={publication.href}>
+            <span>{publication.year}</span>
+            <span><strong>{publication.title}</strong><br />{publication.detail}</span>
+            <span>{publication.venue}</span>
+          </a>
+        ))}
+        <a class="text-link" href={profile.scholar}>Full Google Scholar profile <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="section-rule about-cta">
+      <div><p class="eyebrow">Explore</p><h2>See the systems, not just the biography.</h2></div>
+      <div class="hero-actions"><a class="button primary" href={withBase('/#work')}>Selected work</a><a class="button ghost" href={withBase('/resume')}>Résumé</a></div>
+    </section>
+  </article>
+</BaseLayout>
