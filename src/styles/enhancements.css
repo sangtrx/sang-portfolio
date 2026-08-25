@@ -86,6 +86,10 @@
 .resume-status { font-size:.82rem; font-weight:650; color:var(--text)!important; }
 .resume-source { border-bottom:0; }
 .resume-skill-grid { margin-top:4px; }
+.resume-bullets { margin:12px 0 0; padding-left:1.15rem; color:var(--muted); }
+.resume-bullets li { margin:7px 0; }
+.detailed-resume-list article { padding-block:24px; }
+.detailed-resume-list h3 { font-size:1.02rem; }
 
 @media (max-width: 1000px) {
   .ownership-grid { grid-template-columns:repeat(2,1fr); }
