@@ -1,20 +1,50 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { experience, profile, projects, publications } from '../data/site';
+import { experience, ownership, profile, projects, publications } from '../data/site';
 import { withBase } from '../lib/paths';
+
+const jsonLd = [
+  {
+    '@type': 'Person',
+    '@id': new URL(withBase('/about#person'), Astro.site).href,
+    name: profile.name,
+    url: new URL(withBase('/about'), Astro.site).href,
+    jobTitle: 'Senior AI/LLM Engineer and Technical Lead',
+    description: profile.intro,
+    sameAs: [profile.github, profile.linkedin, profile.scholar],
+    alumniOf: [
+      { '@type': 'CollegeOrUniversity', name: 'University of Arkansas' },
+      { '@type': 'CollegeOrUniversity', name: 'International University — VNU HCMC' },
+    ],
+    knowsAbout: [
+      'Artificial intelligence', 'Large language models', 'AI agents', 'Retrieval-augmented generation',
+      'Clinical AI', 'Machine learning', 'Quantitative research', 'Backend engineering', 'MLOps',
+    ],
+  },
+  {
+    '@type': 'WebSite',
+    '@id': new URL(withBase('/#website'), Astro.site).href,
+    url: new URL(withBase('/'), Astro.site).href,
+    name: 'Sang Truong — AI Engineering Portfolio',
+    description: 'Proof-of-work portfolio covering production AI, agent systems, clinical AI, quantitative research, and technical leadership.',
+    inLanguage: 'en',
+    author: { '@id': new URL(withBase('/about#person'), Astro.site).href },
+  },
+];
 ---
-<BaseLayout>
+<BaseLayout jsonLd={jsonLd}>
   <section class="hero container section">
     <div class="hero-grid">
       <div>
-        <p class="eyebrow hero-eyebrow">{profile.eyebrow}</p>
+        <p class="eyebrow hero-eyebrow">{profile.title}</p>
         <h1>I build AI systems that have to work.</h1>
       </div>
       <div class="hero-side">
         <p class="hero-intro">{profile.intro}</p>
         <div class="hero-actions">
           <a class="button primary" href="#work">View selected systems</a>
+          <a class="button ghost" href={withBase('/about')}>About</a>
           <a class="button ghost" href={withBase('/resume')}>Résumé</a>
         </div>
       </div>
@@ -22,8 +52,8 @@ import { withBase } from '../lib/paths';
     <div class="signal-strip" aria-label="Profile highlights">
       <span><strong>6+ yrs</strong> building AI products</span>
       <span><strong>M.S. 4.0</strong> Computer Engineering</span>
-      <span><strong>Research</strong> AAAI · IJCV · IEEE JBHI</span>
-      <span><strong>Ownership</strong> model → production</span>
+      <span><strong>4 selected papers</strong> AAAI · IJCV · IEEE JBHI · Poultry Science</span>
+      <span><strong>Ownership</strong> model → product → production</span>
     </div>
   </section>
 
@@ -33,10 +63,29 @@ import { withBase } from '../lib/paths';
         <p class="eyebrow">Selected work</p>
         <h2>Systems, not demos.</h2>
       </div>
-      <p class="section-note">Two flagship case studies selected for depth, architecture, and real operational constraints.</p>
+      <p class="section-note">Two flagship case studies selected for architecture depth, measurable validation, and real operational constraints.</p>
     </div>
     <div class="project-list">
       {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section class="container section section-rule">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Ownership</p>
+        <h2>AI engineering beyond the model call.</h2>
+      </div>
+      <p class="section-note">The recurring work is turning probabilistic model capability into a bounded product with explicit data, evidence, failure, and deployment contracts.</p>
+    </div>
+    <div class="ownership-grid">
+      {ownership.map((item, index) => (
+        <article class="ownership-card">
+          <span>0{index + 1}</span>
+          <h3>{item.title}</h3>
+          <p>{item.detail}</p>
+        </article>
+      ))}
     </div>
   </section>
 
@@ -46,7 +95,7 @@ import { withBase } from '../lib/paths';
         <p class="eyebrow">Experience</p>
         <h2>From research to production ownership.</h2>
       </div>
-      <p class="section-note">Agentic AI, retrieval, speech, forecasting, computer vision, distributed workloads, and deployment.</p>
+      <p class="section-note">Agentic AI, retrieval, speech, forecasting, computer vision, distributed workloads, and production delivery.</p>
     </div>
     <div class="timeline">
       {experience.map((item) => (
@@ -66,7 +115,7 @@ import { withBase } from '../lib/paths';
     <div>
       <p class="eyebrow">Research</p>
       <h2>Peer-reviewed foundations.</h2>
-      <p class="section-note wide">My academic work spans multimodal learning, temporal reasoning, computer vision, and medical time-series analysis.</p>
+      <p class="section-note wide">Academic work across multimodal learning, temporal reasoning, computer vision, and medical time-series analysis.</p>
       <a class="text-link" href={profile.scholar}>Google Scholar <span aria-hidden="true">↗</span></a>
     </div>
     <div class="publication-list">
@@ -80,13 +129,20 @@ import { withBase } from '../lib/paths';
     </div>
   </section>
 
+  <section class="container section section-rule principle-panel">
+    <p class="eyebrow">Engineering principle</p>
+    <blockquote>Make the contract explicit: what the model may decide, what data is authoritative, what was actually validated, and what remains unclaimed.</blockquote>
+    <p class="muted">That principle shows up in both clinical AI and quantitative systems, where a plausible-looking output is not enough evidence that the system is correct.</p>
+  </section>
+
   <section class="container section contact-panel">
     <p class="eyebrow">Contact</p>
     <h2>Need someone who can own the whole system?</h2>
-    <p>I'm interested in senior/lead AI engineering, AI product architecture, and technically demanding systems where reliability and evidence matter.</p>
+    <p>I'm interested in senior/lead AI engineering, AI product architecture, and technically demanding systems where reliability, evidence, and shipping discipline matter.</p>
     <div class="hero-actions">
       <a class="button primary" href={`mailto:${profile.email}`}>Start a conversation</a>
       <a class="button ghost" href={profile.github}>GitHub</a>
+      <a class="button ghost" href={profile.linkedin}>LinkedIn</a>
     </div>
   </section>
 </BaseLayout>

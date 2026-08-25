@@ -3,110 +3,68 @@
 ## Decision
 Build a proof-of-work portfolio, not an online CV clone.
 
-The strongest pattern across current developer portfolios and hiring guidance is:
+The strongest pattern for a senior/lead technical profile is:
 
-**positioning -> 2–3 flagship projects -> deep case studies -> experience -> evidence -> contact**
+**positioning → 2 flagship systems → deep case studies → experience → research → contact**
 
-For a senior/lead profile, the differentiator is not a grid of technologies. It is the ability to explain architecture, trade-offs, operational constraints, validation, and outcomes.
+The differentiator is not a grid of technologies. It is the ability to explain architecture, ownership, trade-offs, operational constraints, evidence, and outcomes without overstating system status.
 
 ## Reference patterns
 
 ### Brittany Chiang — recruiter clarity
-https://brittanychiang.com
-
-Useful ideas:
-- role and value proposition are visible immediately;
-- work and experience are easy to scan;
-- accessible, restrained interaction;
-- links to deeper proof without making the landing page dense.
+Useful ideas: immediate role/value proposition, fast scan, restrained interaction, clear path to deeper proof.
 
 ### Rauno Freiberg — craft and restraint
-https://rauno.me
+Useful idea: minimal interfaces feel senior when typography, spacing, and interaction details are deliberate.
 
-Useful ideas:
-- minimal text can feel premium when typography and interaction details are deliberate;
-- the site itself demonstrates taste without turning into an effects demo.
+### Lee Robinson — signal density
+Useful idea: concise biography plus durable technical writing/proof is stronger than an oversized skill cloud.
 
-### Lee Robinson — senior credibility through signal density
-https://leerob.com
+### Josh Comeau — explanation as proof
+Useful idea: interaction and visuals are valuable when they teach something about the work, not when they merely decorate it.
 
-Useful ideas:
-- concise biography;
-- writing/notes as durable proof of technical thinking;
-- no need for an oversized “skills cloud”.
+### Bruno Simon — spectacle as the product
+Useful idea: highly interactive/WebGL portfolios work when creative frontend engineering is itself the role being sold. That level of spectacle would distract from Sang's AI/technical-lead positioning.
 
-### Josh Comeau — interactive teaching as proof
-https://www.joshwcomeau.com
-
-Useful idea:
-- interaction is valuable when it teaches or demonstrates expertise, not when it merely decorates the page.
-
-### Bruno Simon — memorable technical spectacle
-https://bruno-simon.com
-
-Useful idea:
-- an interactive portfolio can itself be the proof of skill, but this approach is appropriate mainly when creative/WebGL engineering is the role being sold.
-- For Sang's AI/technical-lead positioning, borrowing this level of spectacle would reduce clarity and increase load/maintenance risk.
-
-## Hiring evidence synthesized
-
-Recent 2026 hiring-oriented portfolio guides consistently favor:
-- a clear above-the-fold role/value proposition;
-- 2–5 strong projects rather than many shallow cards;
-- live/deployed proof where possible;
-- project narratives covering problem, role, decisions, and result;
-- code links when public, otherwise architecture/evidence when source is private;
-- fast load, mobile responsiveness, keyboard navigation, accessible contrast;
-- a visible contact path.
-
-References:
-- https://soychristian.com/contents/developer-portfolio-guide/
-- https://designtocodes.com/blog/developer-portfolio-website-that-gets-you-hired/
-- https://showproof.io/guides/how-recruiters-read-developer-portfolios/
-- https://www.w3.org/TR/WCAG22/
-
-## Why Astro
-
-Astro is a strong fit because this site is primarily content and case studies, with small islands of optional interaction. Astro 7 focuses heavily on build speed and static/content workloads, while keeping the default client-JS footprint low.
-
-Reference:
-- https://astro.build/blog/astro-7/
-- https://astro.build/blog/astro-720/
-
-## Content strategy for Sang
+## Portfolio-specific content decisions
 
 ### Homepage
-1. “I build AI systems that have to work.”
-2. Short positioning statement.
-3. YHCT + Curren as flagship systems.
-4. Work history.
-5. Selected research publications.
-6. Contact.
+- Keep “I build AI systems that have to work.”
+- Make the job function explicit: Senior AI/LLM Engineer · Technical Lead.
+- Use YHCT + Curren only as flagship systems.
+- Add ownership/evidence, not extra shallow projects.
+- Keep selected peer-reviewed research visible.
 
 ### YHCT case study
-Emphasize:
-- bounded LLM assistance;
-- deterministic clinical authority;
-- governed retrieval and exact citations;
-- provenance/audit;
-- identity/HIS/security/recovery acceptance controls;
-- safe sanitized demo only.
+Current canonical framing:
+- bounded interleaved agent loop;
+- `FINAL / CALL_TOOLS / ASK_USER` application contract;
+- model owns workflow/synthesis, tools/sources own returned facts;
+- governed local corpus at clinician runtime;
+- OpenAI and fully-local provider portability through the same application contract;
+- durable bounded conversation state;
+- explicit UAT validation and production non-claims.
 
 ### Curren case study
+Present two layers:
+1. private point-in-time research / signal lifecycle;
+2. public verifiable distribution surface.
+
 Emphasize:
-- point-in-time data contracts;
-- structural/divergence hypothesis families;
-- leakage-aware validation;
-- multiple-testing / uniqueness / PBO diagnostics;
-- restart-safe signal lifecycle;
-- historical showcase without exposing private alpha or credentials.
+- `available_time <= event_time` research invariant;
+- OOS/leakage-aware validation;
+- one-way sanitized publication;
+- immutable plan/lifecycle/outcome proofs;
+- read-only API, CLI, MCP, and Omarchy clients;
+- public-platform alpha status and pending production integration.
 
 ## Explicitly avoid
 - skill percentage bars;
 - 10+ project grids;
-- “passionate developer who loves solving problems” filler;
+- generic “passionate developer” copy;
 - fake usage metrics;
 - generic cyberpunk/crypto visuals;
 - autoplay video/audio;
-- 3D/WebGL hero that delays proof of work;
-- exposing internal production systems as the public demo.
+- WebGL hero that delays proof of work;
+- exposing internal production systems as portfolio demos;
+- confusing “implemented” with “production accepted”.

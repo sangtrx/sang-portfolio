@@ -3,12 +3,15 @@ import { withBase } from '../lib/paths';
 
 interface Props {
   project: {
+    slug: string;
     index: string;
     title: string;
     kicker: string;
     summary: string;
     role: string;
     year: string;
+    status: string;
+    proof: string[];
     tags: string[];
     href: string;
     accent: string;
@@ -16,21 +19,30 @@ interface Props {
 }
 const { project } = Astro.props;
 ---
-<a class={`project-card accent-${project.accent}`} href={withBase(project.href)}>
-  <div class="project-topline">
-    <span>{project.index}</span>
-    <span>{project.year}</span>
-  </div>
-  <div class="project-visual" aria-hidden="true">
-    <span class="visual-orb"></span>
+<a class={`project-card accent-${project.accent}`} href={withBase(project.href)} aria-label={`Open ${project.title} case study`}>
+  <div class={`project-visual project-visual-${project.slug}`} aria-hidden="true">
     <span class="visual-grid"></span>
     <span class="visual-label">SYSTEM / {project.index}</span>
+    {project.slug === 'yhct' ? (
+      <div class="visual-flow">
+        <span>CLINICIAN</span><i>→</i><span class="hot">AGENT</span><i>→</i><span>TOOLS</span><i>→</i><span>EVIDENCE</span>
+      </div>
+    ) : (
+      <div class="visual-flow">
+        <span>PIT DATA</span><i>→</i><span class="hot">OOS</span><i>→</i><span>SIGNAL</span><i>→</i><span>API · MCP</span>
+      </div>
+    )}
+    <div class="visual-status">{project.status}</div>
   </div>
   <div class="project-copy">
+    <div class="project-topline-visible"><span>{project.index}</span><span>{project.year}</span></div>
     <p class="eyebrow">{project.role}</p>
     <h3>{project.title}</h3>
     <p class="project-kicker">{project.kicker}</p>
     <p class="muted">{project.summary}</p>
+    <div class="proof-row" aria-label="Project evidence">
+      {project.proof.map((item) => <span>{item}</span>)}
+    </div>
     <div class="tag-row" aria-label="Technologies and domains">
       {project.tags.map((tag) => <span class="tag">{tag}</span>)}
     </div>

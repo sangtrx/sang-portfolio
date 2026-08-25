@@ -1,11 +1,12 @@
 ---
 import { withBase } from '../lib/paths';
 
-const path = Astro.url.pathname;
+const path = Astro.url.pathname.replace(/\/$/, '');
 const links = [
-  { href: withBase('#work'), label: 'Work' },
-  { href: withBase('#experience'), label: 'Experience' },
-  { href: withBase('/resume'), label: 'Résumé' },
+  { href: withBase('#work'), label: 'Work', current: false, compact: false },
+  { href: withBase('#experience'), label: 'Experience', current: false, compact: true },
+  { href: withBase('/about'), label: 'About', current: path.endsWith('/about'), compact: false },
+  { href: withBase('/resume'), label: 'Résumé', current: path.endsWith('/resume'), compact: false },
 ];
 ---
 <header class="nav-wrap">
@@ -17,10 +18,10 @@ const links = [
     <div class="nav-actions">
       <div class="nav-links">
         {links.map((link) => (
-          <a href={link.href} aria-current={path === link.href ? 'page' : undefined}>{link.label}</a>
+          <a class:list={{ 'nav-compact': link.compact }} href={link.href} aria-current={link.current ? 'page' : undefined}>{link.label}</a>
         ))}
       </div>
-      <button class="icon-button" type="button" data-theme-toggle aria-label="Toggle color theme">
+      <button class="icon-button" type="button" data-theme-toggle aria-label="Toggle color theme" title="Toggle color theme">
         <span aria-hidden="true">◐</span>
       </button>
     </div>
