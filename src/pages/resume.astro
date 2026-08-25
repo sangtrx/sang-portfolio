@@ -1,30 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { achievements, additionalExperience, education, experience, profile, projects, publications, skillGroups } from '../data/site';
+import { personId, personSchema, publicIdentity, websiteId, websiteSchema } from '../lib/identity';
 import { withBase } from '../lib/paths';
 
-const canonical = new URL(withBase('/resume'), Astro.site).href;
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfilePage',
-  '@id': `${canonical}#profile`,
-  name: 'Résumé — Sang Truong',
-  url: canonical,
-  dateModified: '2026-08-25T11:00:00+07:00',
-  mainEntity: {
-    '@type': 'Person',
-    '@id': new URL(withBase('/about#person'), Astro.site).href,
-    name: profile.name,
-    jobTitle: 'Senior AI/LLM Engineer and Technical Lead',
-    sameAs: [profile.github, profile.linkedin, profile.scholar],
-    alumniOf: education.map((item) => ({ '@type': 'CollegeOrUniversity', name: item.institution })),
-    knowsAbout: skillGroups.flatMap((group) => group.items),
+const root = Astro.site ?? new URL('https://sangtruong.me');
+const canonical = new URL(withBase('/resume'), root).href;
+const jsonLd = [
+  personSchema(root),
+  websiteSchema(root),
+  {
+    '@type': 'ProfilePage',
+    '@id': `${canonical}#profile`,
+    name: 'Résumé — Sang Truong',
+    url: canonical,
+    description: `Résumé for Sang Truong (${publicIdentity.handle}), senior AI/LLM engineer and technical lead in ${publicIdentity.location}.`,
+    inLanguage: 'en',
+    dateModified: '2026-08-25T20:51:00+07:00',
+    isPartOf: { '@id': websiteId(root) },
+    mainEntity: { '@id': personId(root) },
+    about: { '@id': personId(root) },
   },
-};
+];
 ---
 <BaseLayout
   title="Résumé — Sang Truong | Senior AI/LLM Engineer & Technical Lead"
-  description="Web résumé of Sang Truong: senior AI/LLM engineer and technical lead with 6+ years across production agents and RAG, voice AI, computer vision, forecasting, quantitative research, backend systems, MLOps, and technical leadership."
+  description="Résumé of Sang Truong (sangtrx), senior AI/LLM engineer and technical lead in Ho Chi Minh City, Vietnam, with 6+ years across production agents, RAG, voice AI, computer vision, forecasting, quantitative research, backend systems, and MLOps."
   image="og-resume.png"
   imageAlt="Résumé of Sang Truong — Senior AI/LLM Engineer and Technical Lead"
   pageType="profile"
@@ -36,12 +37,13 @@ const jsonLd = {
         <p class="eyebrow">Résumé</p>
         <h1>Sang Truong</h1>
         <p class="resume-title">{profile.title}</p>
+        <p class="muted">{publicIdentity.location} · GitHub @{publicIdentity.handle}</p>
       </div>
       <div class="resume-contact">
         <a href={`mailto:${profile.email}`}>{profile.email}</a>
-        <a href={profile.github}>github.com/sangtrx</a>
-        <a href={profile.linkedin}>linkedin.com/in/tqsang</a>
-        <a href={profile.scholar}>Google Scholar</a>
+        <a href={profile.github} rel="me">github.com/sangtrx</a>
+        <a href={profile.linkedin} rel="me">linkedin.com/in/tqsang</a>
+        <a href={profile.scholar} rel="me">Google Scholar</a>
       </div>
     </header>
 
@@ -108,7 +110,7 @@ const jsonLd = {
 
     <section class="resume-block resume-source">
       <h2>Source & evidence</h2>
-      <p>The résumé source is versioned separately. The YHCT and Curren case studies carry deeper architecture, validation state, deliberate non-claims, and public evidence without exposing confidential hospital data, credentials, or private trading alpha.</p>
+      <p>The résumé source is versioned separately. The YHCT and Curren case studies carry deeper architecture, validation state, deliberate non-claims, and public evidence without exposing confidential hospital data, credentials, internal infrastructure labels, or private trading alpha.</p>
       <div class="hero-actions"><a class="button ghost" href={profile.resumeSource}>Résumé source on GitHub ↗</a><a class="button ghost" href={withBase('/#work')}>Project case studies</a></div>
     </section>
   </article>
