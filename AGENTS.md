@@ -21,6 +21,7 @@ It is not a playground or a generic developer template. Every change should impr
 - Do not expose hospital data, patient data, private source documents, exchange credentials, execution controls, or private alpha parameters.
 
 ## Design rules
+- Read `DESIGN.md` before changing layout, typography, color, motion, cards, or visual assets.
 - Editorial, premium, restrained. Avoid generic neon-hacker/crypto styling.
 - Large typography, strong hierarchy, generous whitespace, and diagrams that explain real system behavior.
 - Animation must be optional, purposeful, and respect `prefers-reduced-motion`.
