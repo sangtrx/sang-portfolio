@@ -1,37 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { education, profile, publications, skillGroups } from '../data/site';
+import { personId, personSchema, publicIdentity, websiteId, websiteSchema } from '../lib/identity';
 import { withBase } from '../lib/paths';
 
-const personId = new URL(withBase('/about#person'), Astro.site).href;
+const root = Astro.site ?? new URL('https://sangtruong.me');
+const canonical = new URL(withBase('/about'), root).href;
 const jsonLd = [
+  personSchema(root),
+  websiteSchema(root),
   {
     '@type': 'ProfilePage',
-    '@id': new URL(withBase('/about#profile'), Astro.site).href,
-    url: new URL(withBase('/about'), Astro.site).href,
-    name: 'About Sang Truong — Senior AI/LLM Engineer & Technical Lead',
-    dateModified: '2026-08-25T10:30:00+07:00',
-    mainEntity: { '@id': personId },
-  },
-  {
-    '@type': 'Person',
-    '@id': personId,
-    name: profile.name,
-    jobTitle: 'Senior AI/LLM Engineer and Technical Lead',
-    description: profile.intro,
-    url: new URL(withBase('/about'), Astro.site).href,
-    sameAs: [profile.github, profile.linkedin, profile.scholar],
-    alumniOf: [
-      { '@type': 'CollegeOrUniversity', name: 'University of Arkansas' },
-      { '@type': 'CollegeOrUniversity', name: 'International University — VNU HCMC' },
-    ],
-    knowsAbout: ['AI agents', 'RAG', 'LLM evaluation', 'clinical AI', 'computer vision', 'time series', 'quantitative research', 'backend systems', 'MLOps'],
+    '@id': `${canonical}#profile`,
+    url: canonical,
+    name: 'About Sang Truong | Senior AI/LLM Engineer & Technical Lead',
+    description: `Public profile for Sang Truong (${publicIdentity.handle}), a senior AI/LLM engineer and technical lead based in ${publicIdentity.location}.`,
+    inLanguage: 'en',
+    dateModified: '2026-08-25T20:51:00+07:00',
+    isPartOf: { '@id': websiteId(root) },
+    mainEntity: { '@id': personId(root) },
+    about: { '@id': personId(root) },
   },
 ];
 ---
 <BaseLayout
-  title="About Sang Truong — Senior AI/LLM Engineer & Technical Lead"
-  description="About Sang Truong: senior AI/LLM engineer, technical lead, applied AI researcher, and end-to-end builder of production AI and quantitative systems."
+  title="About Sang Truong | Senior AI/LLM Engineer & Technical Lead"
+  description="About Sang Truong (sangtrx), a senior AI/LLM engineer and technical lead based in Ho Chi Minh City, Vietnam, with production AI, agent systems, clinical AI, quant research, backend, and MLOps experience."
   image="og-about.png"
   pageType="profile"
   jsonLd={jsonLd}
@@ -40,7 +34,7 @@ const jsonLd = [
     <header class="about-hero">
       <p class="eyebrow">About</p>
       <h1>Research rigor. Production ownership.</h1>
-      <p class="about-lede">I work at the boundary between model capability and real software systems: the place where prompts become runtime contracts, prototypes become products, and “it works” has to be backed by evidence.</p>
+      <p class="about-lede">I'm Sang Truong (<a href={profile.github}>@{publicIdentity.handle}</a>), a senior AI/LLM engineer and technical lead based in {publicIdentity.location}. I work at the boundary between model capability and real software systems: the place where prompts become runtime contracts, prototypes become products, and “it works” has to be backed by evidence.</p>
     </header>
 
     <section class="about-grid section-rule">
