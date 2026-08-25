@@ -1,26 +1,48 @@
 export const profile = {
   name: 'Sang Truong',
-  title: 'AI/LLM Engineer · Technical Lead',
-  eyebrow: 'Production AI · Reliable Agents · Quant Research',
+  title: 'Senior AI/LLM Engineer · Technical Lead',
+  eyebrow: 'Production AI · Reliable Agents · Quant Systems',
   intro:
-    'I build reliable AI systems end to end — from model and retrieval architecture through APIs, data pipelines, deployment, safety controls, and production verification.',
+    'I design and ship AI systems end to end — model and retrieval architecture, agent runtimes, APIs, data, evaluation, deployment, safety boundaries, and production verification.',
   email: 'tqsang97@gmail.com',
   github: 'https://github.com/sangtrx',
   linkedin: 'https://linkedin.com/in/tqsang',
   scholar: 'https://scholar.google.com/citations?user=JG2yzhgAAAAJ',
+  resumeSource: 'https://github.com/sangtrx/Sang_Resume',
 };
+
+export const ownership = [
+  {
+    title: 'AI & system architecture',
+    detail: 'Turn ambiguous product goals into explicit runtime, data, safety, and acceptance contracts.',
+  },
+  {
+    title: 'Backend & product engineering',
+    detail: 'Build the application path around the model: APIs, durable state, integrations, user-facing behavior, and operational controls.',
+  },
+  {
+    title: 'Evaluation & reliability',
+    detail: 'Define what “working” means, separate implemented from validated, and make failure modes visible instead of hiding them.',
+  },
+  {
+    title: 'Deployment ownership',
+    detail: 'Carry systems through containerization, environment profiles, observability, browser/runtime checks, and handoff boundaries.',
+  },
+];
 
 export const projects = [
   {
     slug: 'yhct',
     index: '01',
     title: 'YHCT Clinical AI Platform',
-    kicker: 'Clinical decision support under governed evidence',
+    kicker: 'Bounded agentic clinical AI with explicit fact ownership',
     summary:
-      'A hospital-facing clinical AI system that combines bounded LLM assistance, deterministic clinical authority, governed retrieval, exact citations, provenance, role-scoped state, and auditability.',
+      'A clinician-facing AI platform with an interleaved agent loop, governed local-corpus research, clinical tools, durable conversation state, OpenAI/local provider portability, and explicit evidence boundaries.',
     role: 'AI Architect / Lead Builder',
     year: '2026',
-    tags: ['Clinical AI', 'FastAPI', 'Next.js', 'PostgreSQL', 'RAG', 'Safety'],
+    status: 'Deployed UAT · clinician acceptance pending',
+    proof: ['855 backend tests passed', 'BigLinux UAT validated', 'OpenAI ↔ local contract'],
+    tags: ['Clinical AI', 'Agents', 'FastAPI', 'Next.js', 'PostgreSQL', 'RAG'],
     href: '/work/yhct',
     accent: 'blue',
   },
@@ -28,12 +50,14 @@ export const projects = [
     slug: 'curren',
     index: '02',
     title: 'Curren',
-    kicker: 'Point-in-time quant research & trading intelligence',
+    kicker: 'Point-in-time research + verifiable public distribution',
     summary:
-      'A systematic crypto research and signal platform spanning point-in-time market data, multi-timeframe structural hypotheses, leakage-aware validation, risk logic, lifecycle tracking, and guarded execution.',
+      'A quant research and trading-intelligence system spanning point-in-time data contracts, leakage-aware validation, private signal lifecycle, and a public read model exposed through API, CLI, MCP, and desktop integrations.',
     role: 'Independent Founder & Solo Builder',
     year: '2025 — Present',
-    tags: ['Quant Research', 'PIT Data', 'Backtesting', 'Python', 'ML', 'Trading Systems'],
+    status: 'Public platform v0.4 alpha',
+    proof: ['PIT research contract', 'Read-only API / CLI / MCP', 'Immutable result proofs'],
+    tags: ['Quant Research', 'PIT Data', 'FastAPI', 'MCP', 'Python', 'Trading Systems'],
     href: '/work/curren',
     accent: 'cyan',
   },
@@ -67,6 +91,40 @@ export const experience = [
     company: 'University of Arkansas',
     summary:
       'Multimodal video understanding, medical time-series learning, computer vision, and real-time edge deployment research.',
+  },
+];
+
+export const skillGroups = [
+  {
+    title: 'LLM & agent systems',
+    items: ['Agent runtimes', 'RAG', 'tool orchestration', 'evaluation', 'guardrails', 'provider abstraction'],
+  },
+  {
+    title: 'Backend & data',
+    items: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'RabbitMQ', 'REST/SSE', 'data pipelines'],
+  },
+  {
+    title: 'ML & research',
+    items: ['PyTorch', 'computer vision', 'time series', 'multimodal learning', 'experimental design'],
+  },
+  {
+    title: 'Infrastructure',
+    items: ['Docker', 'Linux', 'Kubernetes', 'Azure', 'AWS', 'CI/CD', 'on-prem deployment'],
+  },
+];
+
+export const education = [
+  {
+    period: '2021 — 2023',
+    title: 'M.S. Computer Engineering',
+    institution: 'University of Arkansas',
+    detail: 'GPA 4.0/4.0 · research in computer vision, multimodal AI, and medical time-series analysis.',
+  },
+  {
+    period: '2015 — 2019',
+    title: 'B.S. Automation and Control Engineering',
+    institution: 'International University — VNU HCMC',
+    detail: 'Top 1% of class · half-tuition scholarship recipient.',
   },
 ];
 
