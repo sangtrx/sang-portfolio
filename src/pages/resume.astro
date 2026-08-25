@@ -1,25 +1,32 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { education, experience, profile, projects, publications, skillGroups } from '../data/site';
+import { achievements, additionalExperience, education, experience, profile, projects, publications, skillGroups } from '../data/site';
 import { withBase } from '../lib/paths';
 
+const canonical = new URL(withBase('/resume'), Astro.site).href;
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
+  '@id': `${canonical}#profile`,
   name: 'Résumé — Sang Truong',
-  url: new URL(withBase('/resume'), Astro.site).href,
+  url: canonical,
+  dateModified: '2026-08-25T11:00:00+07:00',
   mainEntity: {
     '@type': 'Person',
+    '@id': new URL(withBase('/about#person'), Astro.site).href,
     name: profile.name,
     jobTitle: 'Senior AI/LLM Engineer and Technical Lead',
     sameAs: [profile.github, profile.linkedin, profile.scholar],
+    alumniOf: education.map((item) => ({ '@type': 'CollegeOrUniversity', name: item.institution })),
+    knowsAbout: skillGroups.flatMap((group) => group.items),
   },
 };
 ---
 <BaseLayout
   title="Résumé — Sang Truong | Senior AI/LLM Engineer & Technical Lead"
-  description="Web résumé of Sang Truong: senior AI/LLM engineer and technical lead with production AI, agentic systems, RAG, computer vision, forecasting, research, and deployment experience."
+  description="Web résumé of Sang Truong: senior AI/LLM engineer and technical lead with 6+ years across production agents and RAG, voice AI, computer vision, forecasting, quantitative research, backend systems, MLOps, and technical leadership."
   image="og-resume.png"
+  imageAlt="Résumé of Sang Truong — Senior AI/LLM Engineer and Technical Lead"
   pageType="profile"
   jsonLd={jsonLd}
 >
@@ -39,13 +46,39 @@ const jsonLd = {
     </header>
 
     <section class="resume-block">
-      <h2>Summary</h2>
-      <p>Senior AI/LLM engineer and technical lead with 6+ years of experience building production AI products across agentic and retrieval systems, voice AI, computer vision, time-series forecasting, clinical AI, and quantitative research infrastructure. End-to-end ownership from model and retrieval architecture through APIs, data, distributed workloads, deployment, safety controls, evaluation, and production verification.</p>
+      <h2>Professional summary</h2>
+      <p>Senior AI/LLM engineer and technical lead with 6+ years of experience building production AI products across agentic and RAG systems, voice AI, computer vision, time-series forecasting, clinical AI, and quantitative research. I deliver end-to-end systems from model and retrieval architecture through APIs, distributed workloads, cloud/edge deployment, safety guardrails, evaluation, and production verification. M.S. in Computer Engineering (4.0/4.0) and co-author of peer-reviewed research in leading AI and engineering venues.</p>
     </section>
 
     <section class="resume-block">
-      <h2>Experience</h2>
-      <div class="resume-list">{experience.map((item) => <article><span>{item.period}</span><div><h3>{item.role} · {item.company}</h3><p>{item.summary}</p></div></article>)}</div>
+      <h2>Work experience</h2>
+      <div class="resume-list detailed-resume-list">
+        {experience.map((item) => (
+          <article>
+            <span>{item.period}</span>
+            <div>
+              <h3>{item.role} · {item.company}</h3>
+              <p>{item.summary}</p>
+              <ul class="resume-bullets">{item.details.map((detail) => <li>{detail}</li>)}</ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="resume-block">
+      <h2>Additional experience</h2>
+      <div class="resume-list detailed-resume-list">
+        {additionalExperience.map((item) => (
+          <article>
+            <span>{item.period}</span>
+            <div>
+              <h3>{item.role} · {item.company}</h3>
+              <ul class="resume-bullets">{item.details.map((detail) => <li>{detail}</li>)}</ul>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section class="resume-block">
@@ -54,7 +87,7 @@ const jsonLd = {
     </section>
 
     <section class="resume-block">
-      <h2>Technical focus</h2>
+      <h2>Technical skills</h2>
       <div class="skill-grid resume-skill-grid">{skillGroups.map((group) => <article><h3>{group.title}</h3><p>{group.items.join(' · ')}</p></article>)}</div>
     </section>
 
@@ -64,13 +97,18 @@ const jsonLd = {
     </section>
 
     <section class="resume-block">
+      <h2>Selected achievements</h2>
+      <div class="resume-list">{achievements.map((item) => <article><span>{item.year}</span><div><h3>{item.title}</h3><p>{item.institution}</p></div></article>)}</div>
+    </section>
+
+    <section class="resume-block">
       <h2>Selected publications</h2>
       <div class="resume-list">{publications.map((item) => <article><span>{item.year}</span><div><h3><a href={item.href}>{item.title}</a> · {item.venue}</h3><p>{item.detail}</p></div></article>)}</div>
     </section>
 
     <section class="resume-block resume-source">
-      <h2>Source & detail</h2>
-      <p>This web résumé is intentionally concise. Project case studies carry the current system boundaries and validation status; the résumé source is versioned separately.</p>
+      <h2>Source & evidence</h2>
+      <p>The résumé source is versioned separately. The YHCT and Curren case studies carry deeper architecture, validation state, deliberate non-claims, and public evidence without exposing confidential hospital data, credentials, or private trading alpha.</p>
       <div class="hero-actions"><a class="button ghost" href={profile.resumeSource}>Résumé source on GitHub ↗</a><a class="button ghost" href={withBase('/#work')}>Project case studies</a></div>
     </section>
   </article>
