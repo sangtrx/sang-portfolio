@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/enhancements.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { withBase } from '../lib/paths';
@@ -8,15 +9,26 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  pageType?: 'website' | 'article' | 'profile';
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
 }
 
 const {
-  title = 'Sang Truong — AI/LLM Engineer & Technical Lead',
-  description = 'Portfolio of Sang Truong: production AI, reliable agentic systems, clinical AI, and quantitative research infrastructure.',
-  image = 'og.svg',
+  title = 'Sang Truong — Senior AI/LLM Engineer & Technical Lead',
+  description = 'Portfolio of Sang Truong: production AI systems, reliable agents, clinical AI, quantitative research infrastructure, and end-to-end technical ownership.',
+  image = 'og.png',
+  pageType = 'website',
+  jsonLd,
+  noindex = false,
 } = Astro.props;
+
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(withBase(image), Astro.site);
+const robots = noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+const schema = Array.isArray(jsonLd)
+  ? { '@context': 'https://schema.org', '@graph': jsonLd }
+  : jsonLd;
 ---
 <!doctype html>
 <html lang="en">
@@ -24,22 +36,45 @@ const socialImage = new URL(withBase(image), Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="author" content="Sang Truong" />
+    <meta name="robots" content={robots} />
+    <meta name="googlebot" content={robots} />
     <meta name="theme-color" content="#090b0f" />
     <meta name="color-scheme" content="dark light" />
+    <meta name="generator" content={Astro.generator} />
+
     <link rel="canonical" href={canonical} />
     <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={withBase('favicon-32.png')} sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href={withBase('apple-touch-icon.png')} />
+    <link rel="sitemap" href={withBase('sitemap.xml')} type="application/xml" />
+
+    <meta property="og:site_name" content="Sang Truong" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={pageType === 'article' ? 'article' : 'website'} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+
     <title>{title}</title>
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
     <script is:inline>
       (() => {
-        const saved = localStorage.getItem('theme');
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.dataset.theme = saved || (systemDark ? 'dark' : 'light');
+        try {
+          const saved = localStorage.getItem('theme');
+          const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.dataset.theme = saved || (systemDark ? 'dark' : 'light');
+        } catch {
+          document.documentElement.dataset.theme = 'dark';
+        }
       })();
     </script>
   </head>
@@ -55,7 +90,7 @@ const socialImage = new URL(withBase(image), Astro.site);
       button?.addEventListener('click', () => {
         const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
         document.documentElement.dataset.theme = next;
-        localStorage.setItem('theme', next);
+        try { localStorage.setItem('theme', next); } catch {}
       });
     </script>
   </body>
