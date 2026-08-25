@@ -2,83 +2,90 @@
 
 ## Goal
 
-Make the portfolio easy to discover, understand, and cite without turning it into search-engine filler.
+Make the portfolio easy to discover, identify, understand, and cite without producing search-engine filler.
 
-The strategy is **entity clarity + useful original evidence + clean crawlability + truthful structured metadata**.
+The strategy is **one canonical content surface + entity clarity + first-hand evidence + clean crawlability + truthful structured metadata + explicit indexing submission**.
 
-## Current principles
+## What matters in 2026
 
-### 1. SEO remains the foundation for generative search
-Google's 2026 guidance on generative AI features explicitly says normal SEO best practices remain relevant and warns against common “AEO/GEO” myths. There is no magic AI-only markup that replaces useful content, crawlability, internal linking, or technical SEO.
+### 1. Generative search still starts with SEO
+Google's current guidance says its generative AI features use the core Search index and ranking systems. The durable work is still crawlability, indexing, useful original content, internal linking, page experience, and accurate structured data. Google specifically advises against treating AEO/GEO as a bag of AI-only hacks.
 
-### 2. Non-commodity content matters
-The portfolio emphasizes information that is difficult to synthesize from generic sources:
-- actual system boundaries;
-- architecture decisions;
-- explicit ownership;
-- validation evidence;
+### 2. First-hand, non-commodity content is the strongest asset
+The portfolio should emphasize information that cannot be cheaply reproduced from generic sources:
+- real system boundaries and architecture decisions;
+- what Sang personally owned;
+- validation evidence and current status;
+- trade-offs, rejected approaches, and failure boundaries;
 - deliberate non-claims;
-- trade-offs and failure boundaries.
+- public source where it is safe to expose.
 
-### 3. Structured data clarifies entities; it does not manufacture authority
-JSON-LD makes visible page meaning machine-readable:
-- `Person` / `ProfilePage` for Sang;
-- `WebSite` for the portfolio;
-- `Article` and `BreadcrumbList` for technical case studies.
+Do not create thin pages for keyword variants such as “best AI engineer Vietnam”. Authority should come from real work, not doorway pages.
 
-Markup must match visible content. No fake ratings, organizations, employers, testimonials, or usage metrics.
+### 3. Entity disambiguation matters for a common name
+`Sang Truong` is not globally unique. Canonical pages therefore repeat a small set of truthful corroborating signals where useful:
+- name: Sang Truong;
+- public handle: `sangtrx`;
+- role: Senior AI/LLM Engineer and Technical Lead;
+- location: Ho Chi Minh City, Vietnam;
+- GitHub, LinkedIn, and Google Scholar links;
+- education, current organizations, publications, and selected systems.
 
-### 4. ChatGPT search discovery requires crawl access
-OpenAI's publisher guidance says public content can appear in ChatGPT search and recommends not blocking `OAI-SearchBot` when a publisher wants content included in summaries and snippets. The generated `robots.txt` explicitly allows it.
+The same identity is represented in Schema.org `Person` JSON-LD and visible page content. Structured data clarifies an entity; it does not manufacture authority.
 
-`GPTBot` is also allowed because the published portfolio is intentionally public. This is a policy choice, not a requirement for ChatGPT search discovery; OpenAI documents `OAI-SearchBot` separately from training controls.
+### 4. One indexable representation per page
+The canonical HTML pages are the authoritative public content. Earlier Markdown mirrors were removed from the public routing surface because static GitHub Pages cannot reliably attach `X-Robots-Tag` headers to prerendered alternate files. Duplicate machine-readable copies add more indexing ambiguity than value.
 
-### 5. `llms.txt` is supplementary, not a Google ranking feature
-Google clarified in June 2026 that Google Search does not use `llms.txt` as a special optimization and that it does not positively or negatively affect Search visibility or ranking. The site still supports the community llms.txt v2 proposal because some agents and documentation tools use it; this is supplementary to normal crawlable HTML, not a substitute for SEO.
+AI systems can read the same semantic HTML used by humans, and the pages already contain JSON-LD. `/llms.txt` remains a concise optional discovery map pointing only to canonical HTML URLs.
 
-The v2 proposal adds standard discovery links, so indexable HTML pages expose:
-- `rel="describedby"` → the covering `/llms.txt`;
-- `rel="alternate" type="text/markdown"` → a clean Markdown representation of the page.
+### 5. ChatGPT Search needs crawl access, not special AI pages
+OpenAI's publisher guidance says public sites can appear in ChatGPT Search and recommends allowing `OAI-SearchBot` when content should be discoverable, summarized, cited, and linked. `robots.txt` explicitly allows it.
+
+`GPTBot` is also allowed because the published portfolio is intentionally public. This is separate from ChatGPT Search discovery and can be changed independently later.
+
+### 6. `llms.txt` is supplementary
+Google explicitly says unnecessary AI text files such as `llms.txt` are not required for generative Search optimization. The site keeps `/llms.txt` only as a lightweight convention for automated readers. It points to canonical HTML rather than duplicate Markdown pages.
+
+### 7. Discovery and indexing submission are separate from ranking
+A technically excellent page cannot rank before search engines discover and index it. The deployment workflow therefore notifies IndexNow after a successful GitHub Pages deploy. This helps Bing and other participating search engines discover changed canonical URLs faster; it does not guarantee crawling, indexing, or ranking.
+
+Google does not use IndexNow. Google indexing should be managed through Search Console and the canonical sitemap.
 
 ## Implemented technical surface
 
+- One canonical indexable HTML URL for each public content page.
 - Self-referencing canonical URL on every indexable HTML page.
-- Unique page titles and descriptions.
+- Unique titles and descriptions centered on the real subject of each page.
 - Static-rendered primary content; no client-only content dependency.
+- Shared Schema.org identity graph for `Person` and `WebSite` on primary profile surfaces.
+- `ProfilePage` entities for About and Résumé; `Article` + `BreadcrumbList` for case studies.
+- Visible disambiguation using `Sang Truong`, `sangtrx`, role, location, and corroborating identity links.
 - Open Graph and Twitter PNG social cards at 1200×630.
-- SVG favicon.
 - Semantic headings, keyboard navigation, focus states, reduced-motion support, and responsive layouts.
-- Stable `/about` entity/profile page.
-- Generated `/sitemap.xml` from canonical routes.
-- Generated `/robots.txt` from build-time `site` + `base`, including explicit OAI-SearchBot access.
-- Generated `/llms.txt` from the same canonical URL configuration.
-- Markdown alternatives for the home, about, résumé, and both case studies.
-- `rel="alternate" type="text/markdown"` from HTML pages to Markdown alternatives.
-- `rel="describedby"` from indexable HTML pages to `/llms.txt`.
-- Internal links from home → case studies → about/résumé and back.
+- Generated `/sitemap.xml` containing only canonical HTML URLs and meaningful `lastmod` values.
+- Generated `/robots.txt`, including explicit `OAI-SearchBot` access.
+- Generated `/llms.txt` pointing only to canonical HTML pages.
+- Internal links from home → case studies → About/Résumé and back.
 - `max-image-preview:large`, unlimited snippet/video preview directives for indexable pages.
-- JSON-LD aligned with visible content and current project truth.
-- Security/referrer/permissions headers for hosts that support `_headers`, with equivalent Caddy headers for self-hosted deployment.
+- `rel="author"` and `rel="me"` identity links where applicable.
+- IndexNow ownership key plus post-deploy URL notification for the GitHub Pages host.
+- Security/referrer/permissions headers for hosts that support them.
 
-## Content strategy
+## Canonical page strategy
 
 ### Homepage
-Answer immediately:
-- Who is Sang?
-- What does he build?
-- What are the two strongest systems?
-- What proof exists?
+Immediately establish:
+- Sang Truong / `sangtrx`;
+- Senior AI/LLM Engineer and Technical Lead;
+- Ho Chi Minh City, Vietnam;
+- flagship systems and proof;
+- professional/research authority.
 
 ### About
-Create a stable entity page that explains:
-- technical positioning;
-- engineering philosophy;
-- technical skills;
-- education and achievements;
-- research and external identity links.
+This is the canonical person/entity page. It should contain identity, positioning, engineering principles, technical focus, education, research, and external corroborating profiles.
 
 ### Résumé
-Keep chronology and skills aligned with the versioned `Sang_Resume` source while exposing more detail than the homepage. Do not duplicate every case-study detail into the résumé.
+Expose enough chronology and skills for recruiters and search systems while linking to deeper case studies. Keep claims aligned with the versioned résumé source.
 
 ### Case studies
 Each case study should answer:
@@ -89,40 +96,52 @@ Each case study should answer:
 5. What was actually implemented and validated?
 6. What remains pending or deliberately unclaimed?
 
-This format is useful to recruiters, interviewers, search engines, and answer engines without writing separate keyword-stuffed bot prose.
+This is the portfolio's strongest SEO/GEO content because it is first-hand and non-commodity.
+
+## Indexing launch checklist
+
+### Google
+1. Prefer the custom domain `sangtruong.me` before building long-term authority.
+2. Verify it as a Domain property in Google Search Console.
+3. Submit `https://sangtruong.me/sitemap.xml`.
+4. Use URL Inspection → Request indexing for `/`, `/about`, `/resume`, `/work/yhct`, and `/work/curren` after launch or material changes.
+5. Monitor Page Indexing, Search performance, and Generative AI reporting where available.
+
+### Bing / participating IndexNow engines
+1. Verify the site in Bing Webmaster Tools (or import verification from Google Search Console where supported).
+2. Submit the sitemap.
+3. Confirm IndexNow submissions are received after deploy.
+4. Inspect any URLs that remain crawled-but-not-indexed.
 
 ## Custom-domain migration checklist
 
 When `sangtruong.me` is attached:
+1. Set `SITE_URL=https://sangtruong.me` and `BASE_PATH=/` in the production build.
+2. Keep stable route slugs: `/about`, `/resume`, `/work/yhct`, `/work/curren`.
+3. Make the custom domain the only intended canonical origin.
+4. Redirect old GitHub Pages URLs to the matching custom-domain URLs if the host setup permits it; otherwise avoid promoting the preview once the domain is live.
+5. Change the IndexNow workflow `host`, key location, and URL list to `sangtruong.me`.
+6. Update GitHub, LinkedIn, résumé, Google Scholar homepage (if editable), and other public profiles to link to the custom domain.
+7. Confirm CDN/bot protection does not return 403 to Googlebot, Bingbot, or OAI-SearchBot.
 
-1. Set `SITE_URL=https://sangtruong.me` and `BASE_PATH=/` in the production build. Cloudflare preview URLs can use the injected `CF_PAGES_URL`, but the custom domain should override it once launched.
-2. Keep stable route slugs: `/about`, `/resume`, `/work/yhct`, `/work/curren` and their Markdown alternatives.
-3. Ensure only the custom-domain copy is intended as canonical.
-4. Redirect old preview URLs to their new equivalents if the old host supports it; otherwise remove or de-index duplicate previews where practical.
-5. Verify the domain in Google Search Console.
-6. Submit `https://sangtruong.me/sitemap.xml`.
-7. Inspect the home page and both case-study URLs.
-8. Update GitHub, LinkedIn, résumé, and other profile links to the custom domain.
-9. Confirm CDN/bot protection does not return 403 to legitimate crawlers such as Googlebot and OAI-SearchBot.
-10. Monitor Search Console indexing/generative-AI reporting where available and referral traffic from ChatGPT/search surfaces.
+## Authority work outside the repository
 
-## Things intentionally not added
+On-page optimization cannot create reputation by itself. High-value corroboration includes:
+- custom-domain links from GitHub and LinkedIn profiles;
+- Google Scholar homepage/profile alignment where available;
+- links from public project repositories back to the relevant portfolio case study;
+- legitimate employer/project/publication mentions where appropriate;
+- original technical write-ups only when there is real first-hand material worth publishing.
 
-- Keyword-stuffed landing pages.
-- Generated blog filler.
-- Hidden text for crawlers.
-- Fake experience metrics or testimonials.
-- FAQ schema merely to chase a rich result: the portfolio is not an FAQ and structured data must match visible content.
-- `llms.txt` claims as an SEO ranking trick.
-- AI-specific meta tags with no recognized standard or documented consumer.
-- Heavy client-side frameworks for static content.
+Avoid paid link schemes, fake mentions, mass directory submissions, and generated filler content.
 
 ## Primary references
 
 - Google Search Central — AI optimization guide: https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
 - Google Search Central — AI features and websites: https://developers.google.com/search/docs/appearance/ai-features
-- Google Search Central — Search documentation updates: https://developers.google.com/search/updates
-- Google Search Central — structured data guidelines: https://developers.google.com/search/docs/appearance/structured-data/sd-policies
+- Google Search Central — sitemap guidance: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
+- Google Search Central — structured data policies: https://developers.google.com/search/docs/appearance/structured-data/sd-policies
 - OpenAI — Publishers and Developers FAQ: https://help.openai.com/en/articles/12627856-publishers-and-developers-faq
-- llms.txt v2 proposal: https://llmstxt.org/
-- Schema.org — Person, ProfilePage, Article, WebSite, BreadcrumbList: https://schema.org/
+- Bing Webmaster Tools — URL submission / IndexNow: https://www.bing.com/webmasters/help/URL-Submission-62f2860b
+- IndexNow protocol: https://www.indexnow.org/documentation
+- Schema.org: https://schema.org/

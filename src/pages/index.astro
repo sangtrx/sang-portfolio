@@ -2,46 +2,42 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { experience, ownership, profile, projects, publications } from '../data/site';
+import { personId, personSchema, publicIdentity, websiteId, websiteSchema } from '../lib/identity';
 import { withBase } from '../lib/paths';
 
+const root = Astro.site ?? new URL('https://sangtruong.me');
+const canonical = new URL(withBase('/'), root).href;
 const jsonLd = [
+  personSchema(root),
+  websiteSchema(root),
   {
-    '@type': 'Person',
-    '@id': new URL(withBase('/about#person'), Astro.site).href,
-    name: profile.name,
-    url: new URL(withBase('/about'), Astro.site).href,
-    jobTitle: 'Senior AI/LLM Engineer and Technical Lead',
-    description: profile.intro,
-    sameAs: [profile.github, profile.linkedin, profile.scholar],
-    alumniOf: [
-      { '@type': 'CollegeOrUniversity', name: 'University of Arkansas' },
-      { '@type': 'CollegeOrUniversity', name: 'International University — VNU HCMC' },
-    ],
-    knowsAbout: [
-      'Artificial intelligence', 'Large language models', 'AI agents', 'Retrieval-augmented generation',
-      'Clinical AI', 'Machine learning', 'Quantitative research', 'Backend engineering', 'MLOps',
-    ],
-  },
-  {
-    '@type': 'WebSite',
-    '@id': new URL(withBase('/#website'), Astro.site).href,
-    url: new URL(withBase('/'), Astro.site).href,
-    name: 'Sang Truong — AI Engineering Portfolio',
-    description: 'Proof-of-work portfolio covering production AI, agent systems, clinical AI, quantitative research, and technical leadership.',
+    '@type': 'WebPage',
+    '@id': `${canonical}#webpage`,
+    url: canonical,
+    name: 'Sang Truong | Senior AI/LLM Engineer & Technical Lead',
+    description: 'Proof-of-work portfolio for Sang Truong (sangtrx), a senior AI/LLM engineer and technical lead based in Ho Chi Minh City, Vietnam.',
     inLanguage: 'en',
-    author: { '@id': new URL(withBase('/about#person'), Astro.site).href },
+    dateModified: '2026-08-25T20:51:00+07:00',
+    isPartOf: { '@id': websiteId(root) },
+    about: { '@id': personId(root) },
+    mainEntity: { '@id': personId(root) },
   },
 ];
 ---
-<BaseLayout jsonLd={jsonLd}>
+<BaseLayout
+  title="Sang Truong | Senior AI/LLM Engineer & Technical Lead"
+  description="Sang Truong (sangtrx) is a senior AI/LLM engineer and technical lead in Ho Chi Minh City, Vietnam, building production agents, clinical AI, quant systems, APIs, data, evaluation, and deployment infrastructure."
+  jsonLd={jsonLd}
+>
   <section class="hero container section">
     <div class="hero-grid">
       <div>
-        <p class="role-line">{profile.title}</p>
+        <p class="role-line">{profile.name} · {profile.title}</p>
         <h1>I build AI systems that have to work.</h1>
       </div>
       <div class="hero-side">
         <p class="hero-intro">{profile.intro}</p>
+        <p class="muted hero-identity">{publicIdentity.location} · GitHub <a href={profile.github}>@{publicIdentity.handle}</a></p>
         <div class="hero-actions">
           <a class="button primary" href="#work">View selected systems</a>
           <a class="hero-text-link" href={withBase('/about')}>About</a>

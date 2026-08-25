@@ -18,7 +18,7 @@ interface Props {
 }
 
 const {
-  title = 'Sang Truong — Senior AI/LLM Engineer & Technical Lead',
+  title = 'Sang Truong | Senior AI/LLM Engineer & Technical Lead',
   description = 'Portfolio of Sang Truong: production AI systems, reliable agents, clinical AI, quantitative research infrastructure, and end-to-end technical ownership.',
   image = 'og.png',
   imageAlt = 'Sang Truong — Senior AI/LLM Engineer and Technical Lead',
@@ -29,12 +29,8 @@ const {
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(withBase(image), Astro.site);
+const authorProfile = new URL(withBase('/about'), Astro.site);
 const robots = noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
-const buildBase = import.meta.env.BASE_URL || '/';
-const relativePath = Astro.url.pathname.startsWith(buildBase)
-  ? Astro.url.pathname.slice(buildBase.length).replace(/^\/+|\/+$/g, '')
-  : Astro.url.pathname.replace(/^\/+|\/+$/g, '');
-const markdownPath = relativePath ? `${relativePath}.md` : 'index.md';
 const schema = Array.isArray(jsonLd)
   ? { '@context': 'https://schema.org', '@graph': jsonLd }
   : jsonLd;
@@ -46,6 +42,7 @@ const schema = Array.isArray(jsonLd)
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="author" content="Sang Truong" />
+    <meta name="application-name" content="Sang Truong — AI Engineering Portfolio" />
     <meta name="robots" content={robots} />
     <meta name="googlebot" content={robots} />
     <meta name="theme-color" content="#0b0e14" />
@@ -53,10 +50,10 @@ const schema = Array.isArray(jsonLd)
     <meta name="generator" content={Astro.generator} />
 
     <link rel="canonical" href={canonical} />
+    <link rel="author" href={authorProfile} />
     <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
     <link rel="sitemap" href={withBase('sitemap.xml')} type="application/xml" />
     <link rel="describedby" href={withBase('llms.txt')} type="text/plain" />
-    {!noindex && <link rel="alternate" href={withBase(markdownPath)} type="text/markdown" />}
 
     <meta property="og:site_name" content="Sang Truong" />
     <meta property="og:title" content={title} />
@@ -69,6 +66,7 @@ const schema = Array.isArray(jsonLd)
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_US" />
+    {pageType === 'profile' && <meta property="profile:username" content="sangtrx" />}
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />

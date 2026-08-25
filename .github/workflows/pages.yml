@@ -54,3 +54,32 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  notify-indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify IndexNow of canonical page updates
+        env:
+          INDEXNOW_KEY: 0b35f26e9c8b65fc18b0a63de6a7d930
+          ORIGIN: https://sangtrx.github.io
+          BASE_PATH: /sang-portfolio
+        run: |
+          cat > /tmp/indexnow.json <<EOF
+          {
+            "host": "sangtrx.github.io",
+            "key": "${INDEXNOW_KEY}",
+            "keyLocation": "${ORIGIN}${BASE_PATH}/${INDEXNOW_KEY}.txt",
+            "urlList": [
+              "${ORIGIN}${BASE_PATH}/",
+              "${ORIGIN}${BASE_PATH}/about",
+              "${ORIGIN}${BASE_PATH}/resume",
+              "${ORIGIN}${BASE_PATH}/work/yhct",
+              "${ORIGIN}${BASE_PATH}/work/curren"
+            ]
+          }
+          EOF
+          curl --fail-with-body --retry 3 --retry-all-errors \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            --data-binary @/tmp/indexnow.json \
+            https://api.indexnow.org/indexnow
