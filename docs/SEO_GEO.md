@@ -58,7 +58,7 @@ The v2 proposal adds standard discovery links, so indexable HTML pages expose:
 - Internal links from home → case studies → about/résumé and back.
 - `max-image-preview:large`, unlimited snippet/video preview directives for indexable pages.
 - JSON-LD aligned with visible content and current project truth.
-- Security/referrer/permissions headers for hosts that support `_headers`, with equivalent Caddy headers for BigLinux.
+- Security/referrer/permissions headers for hosts that support `_headers`, with equivalent Caddy headers for self-hosted deployment.
 
 ## Content strategy
 
