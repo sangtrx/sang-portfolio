@@ -1,26 +1,46 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { experience, profile, projects, publications } from '../data/site';
+import { education, experience, profile, projects, publications, skillGroups } from '../data/site';
 import { withBase } from '../lib/paths';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  name: 'Résumé — Sang Truong',
+  url: new URL(withBase('/resume'), Astro.site).href,
+  mainEntity: {
+    '@type': 'Person',
+    name: profile.name,
+    jobTitle: 'Senior AI/LLM Engineer and Technical Lead',
+    sameAs: [profile.github, profile.linkedin, profile.scholar],
+  },
+};
 ---
-<BaseLayout title="Résumé — Sang Truong" description="Résumé of Sang Truong, AI/LLM engineer, technical lead, researcher, and builder.">
+<BaseLayout
+  title="Résumé — Sang Truong | Senior AI/LLM Engineer & Technical Lead"
+  description="Web résumé of Sang Truong: senior AI/LLM engineer and technical lead with production AI, agentic systems, RAG, computer vision, forecasting, research, and deployment experience."
+  image="og-resume.png"
+  pageType="profile"
+  jsonLd={jsonLd}
+>
   <article class="resume-page container section">
     <header class="resume-header">
       <div>
         <p class="eyebrow">Résumé</p>
         <h1>Sang Truong</h1>
-        <p class="resume-title">Senior AI/LLM Engineer · Technical Lead</p>
+        <p class="resume-title">{profile.title}</p>
       </div>
       <div class="resume-contact">
         <a href={`mailto:${profile.email}`}>{profile.email}</a>
         <a href={profile.github}>github.com/sangtrx</a>
         <a href={profile.linkedin}>linkedin.com/in/tqsang</a>
+        <a href={profile.scholar}>Google Scholar</a>
       </div>
     </header>
 
     <section class="resume-block">
       <h2>Summary</h2>
-      <p>Senior AI/LLM engineer and technical lead with 6+ years of experience building production AI products across agentic and RAG systems, voice AI, computer vision, and time-series forecasting. End-to-end ownership from model and retrieval architecture through APIs, distributed workloads, deployment, guardrails, and production verification.</p>
+      <p>Senior AI/LLM engineer and technical lead with 6+ years of experience building production AI products across agentic and retrieval systems, voice AI, computer vision, time-series forecasting, clinical AI, and quantitative research infrastructure. End-to-end ownership from model and retrieval architecture through APIs, data, distributed workloads, deployment, safety controls, evaluation, and production verification.</p>
     </section>
 
     <section class="resume-block">
@@ -29,21 +49,29 @@ import { withBase } from '../lib/paths';
     </section>
 
     <section class="resume-block">
-      <h2>Selected projects</h2>
-      <div class="resume-list">{projects.map((item) => <article><span>{item.year}</span><div><h3><a href={withBase(item.href)}>{item.title}</a></h3><p>{item.summary}</p></div></article>)}</div>
+      <h2>Selected systems</h2>
+      <div class="resume-list">{projects.map((item) => <article><span>{item.year}</span><div><h3><a href={withBase(item.href)}>{item.title}</a></h3><p>{item.summary}</p><p class="resume-status">{item.status}</p></div></article>)}</div>
+    </section>
+
+    <section class="resume-block">
+      <h2>Technical focus</h2>
+      <div class="skill-grid resume-skill-grid">{skillGroups.map((group) => <article><h3>{group.title}</h3><p>{group.items.join(' · ')}</p></article>)}</div>
     </section>
 
     <section class="resume-block">
       <h2>Education</h2>
-      <div class="resume-list">
-        <article><span>2021 — 2023</span><div><h3>M.S. Computer Engineering · University of Arkansas</h3><p>GPA 4.0/4.0. Research in computer vision, multimodal AI, and medical time-series analysis.</p></div></article>
-        <article><span>2015 — 2019</span><div><h3>B.S. Automation and Control Engineering · International University — VNU HCMC</h3><p>Top 1% of class; half-tuition scholarship recipient.</p></div></article>
-      </div>
+      <div class="resume-list">{education.map((item) => <article><span>{item.period}</span><div><h3>{item.title} · {item.institution}</h3><p>{item.detail}</p></div></article>)}</div>
     </section>
 
     <section class="resume-block">
       <h2>Selected publications</h2>
       <div class="resume-list">{publications.map((item) => <article><span>{item.year}</span><div><h3><a href={item.href}>{item.title}</a> · {item.venue}</h3><p>{item.detail}</p></div></article>)}</div>
+    </section>
+
+    <section class="resume-block resume-source">
+      <h2>Source & detail</h2>
+      <p>This web résumé is intentionally concise. Project case studies carry the current system boundaries and validation status; the résumé source is versioned separately.</p>
+      <div class="hero-actions"><a class="button ghost" href={profile.resumeSource}>Résumé source on GitHub ↗</a><a class="button ghost" href={withBase('/#work')}>Project case studies</a></div>
     </section>
   </article>
 </BaseLayout>
