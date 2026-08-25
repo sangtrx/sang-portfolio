@@ -41,7 +41,7 @@ export const projects = [
     role: 'AI Architect / Lead Builder',
     year: '2026',
     status: 'Deployed UAT · clinician acceptance pending',
-    proof: ['855 backend tests passed', 'BigLinux UAT validated', 'OpenAI ↔ local contract'],
+    proof: ['855 backend tests passed', 'BigLinux UAT validated', 'OpenAI/local application contract'],
     tags: ['Clinical AI', 'Agents', 'FastAPI', 'Next.js', 'PostgreSQL', 'RAG'],
     href: '/work/yhct',
     accent: 'blue',
@@ -65,51 +65,117 @@ export const projects = [
 
 export const experience = [
   {
-    period: '2025 — Present',
+    period: 'Jun 2025 — Present',
     role: 'Head of Artificial Intelligence',
     company: 'EPIC TECHNOLOGY',
     summary:
       'Leading architecture and delivery across clinical AI, education, and industrial monitoring; translating ambiguous product requirements into testable safety, data, and system contracts.',
+    details: [
+      'Led architecture and delivery of AI products across clinical workflows, education, and industrial monitoring.',
+      'Built an AI-powered Open edX platform with AI Course Generator and real-time AI Teacher workflows that turn textbooks and syllabi into teacher-reviewable lessons, exercises, quizzes, and OLX packages.',
+      'Implemented course-grounded tutoring with LangChain and Milvus, secure context handoff, answer-key protection, pedagogical planning, Vietnamese ASR/TTS, WebSockets, and Live2D interaction.',
+      'Owned Tutor/Docker/Nginx delivery, HTTPS, SSO, CSRF/CORS, role provisioning, deployment automation, and Playwright smoke coverage across LMS, Studio, and Learning MFE.',
+    ],
   },
   {
-    period: '2024 — Present',
+    period: 'Jun 2024 — Present',
     role: 'AI Tech Lead · Part-time / Consulting',
     company: 'A9 IOT',
     summary:
       'Real-time forecasting systems for environmental IoT streams, including continuous preprocessing, training, inference, and stakeholder-facing evaluation.',
+    details: [
+      'Led real-time forecasting for environmental IoT streams using LSTM, XGBoost, ARIMA, and Prophet with RMSE/MAE evaluation and stakeholder-facing reporting.',
+      'Built continuous preprocessing, training, and inference pipelines for real-time sensor workloads.',
+    ],
   },
   {
-    period: '2024 — 2025',
+    period: 'Oct 2024 — Jun 2025',
     role: 'AI Engineer',
     company: 'FPT Software',
     summary:
       'Enterprise conversational AI with agentic orchestration, RAG, model routing, speech services, distributed workloads, guardrails, and production APIs.',
+    details: [
+      'Developed AI4U, an enterprise conversational AI agent using Azure OpenAI, LangChain, and LangGraph for multi-stage tool orchestration, Qdrant-backed RAG, content safety, and context-aware generation.',
+      'Added code interpretation, Mermaid generation, web search, automated unit-test generation, token-aware memory trimming, model routing, and conversation-history management.',
+      'Built multilingual recording/transcription and speech-evaluation services with Azure Speech/OpenAI, FastAPI, Celery, RabbitMQ, and Redis; integrated NeMo Guardrails, retry/sensitive-topic controls, distributed crawling, and service-health paths.',
+    ],
   },
   {
-    period: '2021 — 2024',
+    period: 'May 2021 — Jan 2024',
     role: 'Research Assistant & Teaching Assistant',
     company: 'University of Arkansas',
     summary:
       'Multimodal video understanding, medical time-series learning, computer vision, and real-time edge deployment research.',
+    details: [
+      'Built real-time poultry-defect inspection and optimized YOLOv8 with TensorRT, FP16, CUDA streams, and memory tuning for NVIDIA Jetson deployment.',
+      'Built a CVAT quality-control workflow, mentored three annotators, and co-authored research in multimodal video understanding, medical time-series learning, and computer vision.',
+    ],
   },
+];
+
+export const additionalExperience = [
+  {
+    period: 'Jan 2024 — Oct 2024',
+    role: 'Quantitative Researcher / Data Scientist',
+    company: 'Confidential Fund · NDA Project',
+    details: [
+      'Developed equity-prediction models using feature engineering, LightGBM/XGBoost ensembles, sentiment-analysis agents, and iterative backtesting across market datasets.',
+      'Scaled training and evaluation on constrained AWS infrastructure with parallel processing, MLflow experiment tracking, and disciplined validation cycles.',
+    ],
+  },
+  {
+    period: 'Mar 2024 — Jun 2024',
+    role: 'AI Engineer',
+    company: 'Crypto Communities Chatbot Development',
+    details: [
+      'Designed RAG community chatbots with LangChain and Pinecone for high-volume support workflows, including retrieval grounding, conversation context, and production API integration.',
+      'Partnered with stakeholders to refine chatbot behavior across social platforms and automate repetitive support workflows.',
+    ],
+  },
+  {
+    period: '2019 — 2020',
+    role: 'Quantitative Researcher / Data Scientist',
+    company: 'Bluebelt Group',
+    details: [
+      'Built a FastAPI service for cryptocurrency and FX trading signals that replaced an external signal provider and reduced dependency on third-party infrastructure.',
+    ],
+  },
+  {
+    period: 'Aug 2018 — Sep 2019',
+    role: 'AI Engineer',
+    company: '5D Agriculture Solutions JSC',
+    details: [
+      'Developed computer-vision systems for autonomous braking, face-recognition attendance, and contactless livestock weight estimation with Intel RealSense D435.',
+    ],
+  },
+];
+
+export const achievements = [
+  { year: '2023', title: 'Rodger S. Kline Chair in Computer Science and Computer Engineering Scholarship', institution: 'University of Arkansas' },
+  { year: '2022', title: 'Reginald R. “Barney” and Jameson A. Baxter Endowed Graduate Scholarship', institution: 'University of Arkansas' },
+  { year: '2021', title: 'Fully Funded Ph.D. Admission', institution: 'University of Arkansas' },
 ];
 
 export const skillGroups = [
   {
-    title: 'LLM & agent systems',
-    items: ['Agent runtimes', 'RAG', 'tool orchestration', 'evaluation', 'guardrails', 'provider abstraction'],
+    title: 'LLM & retrieval',
+    items: ['RAG', 'AI agents', 'prompt engineering', 'LangChain', 'LangGraph', 'Milvus', 'Qdrant', 'Pinecone', 'Azure OpenAI', 'NeMo Guardrails'],
+  },
+  {
+    title: 'AI / ML',
+    items: ['ASR/TTS', 'computer vision', 'time-series forecasting', 'PyTorch', 'TensorFlow', 'TensorRT', 'ONNX Runtime', 'XGBoost', 'LightGBM', 'Scikit-learn'],
   },
   {
     title: 'Backend & data',
-    items: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'RabbitMQ', 'REST/SSE', 'data pipelines'],
+    items: ['Python', 'FastAPI', 'AsyncIO', 'WebSockets', 'Celery', 'RabbitMQ', 'Redis', 'PostgreSQL', 'MongoDB', 'JavaScript/TypeScript', 'REST APIs'],
   },
   {
-    title: 'ML & research',
-    items: ['PyTorch', 'computer vision', 'time series', 'multimodal learning', 'experimental design'],
+    title: 'Cloud & MLOps',
+    items: ['Docker', 'Kubernetes', 'AWS', 'Azure', 'Linux', 'Nginx', 'MLflow', 'Prometheus', 'Grafana', 'Playwright', 'Git'],
   },
   {
-    title: 'Infrastructure',
-    items: ['Docker', 'Linux', 'Kubernetes', 'Azure', 'AWS', 'CI/CD', 'on-prem deployment'],
+    title: 'Languages',
+    items: ['English — professional working proficiency', 'Vietnamese — native'],
   },
 ];
 
