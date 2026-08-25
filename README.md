@@ -21,7 +21,7 @@ Flagship case studies:
 - TypeScript in Astro/config endpoints
 - Plain CSS, no UI framework
 - Minimal client JavaScript (theme preference only)
-- Optional Caddy container for BigLinux
+- Optional Caddy container for self-hosted Linux deployment
 
 ## SEO / GEO / AI discovery
 
@@ -70,9 +70,9 @@ SITE_URL=https://sangtruong.me
 BASE_PATH=/
 ```
 
-The same codebase can be deployed to GitHub Pages, Cloudflare Pages, or BigLinux. Avoid leaving multiple independently indexable copies online after `sangtruong.me` becomes canonical; redirect or de-index the old preview when practical.
+The same codebase can be deployed to GitHub Pages, Cloudflare Pages, or a self-hosted Linux origin. Avoid leaving multiple independently indexable copies online after `sangtruong.me` becomes canonical; redirect or de-index the old preview when practical.
 
-## BigLinux
+## Self-hosted deployment
 
 ```bash
 docker compose up -d --build

@@ -41,7 +41,7 @@ export const projects = [
     role: 'AI Architect / Lead Builder',
     year: '2026',
     status: 'Deployed UAT · clinician acceptance pending',
-    proof: ['855 backend tests passed', 'BigLinux UAT validated', 'OpenAI/local application contract'],
+    proof: ['855 backend tests passed', 'Self-hosted UAT validated', 'OpenAI/local application contract'],
     tags: ['Clinical AI', 'Agents', 'FastAPI', 'Next.js', 'PostgreSQL', 'RAG'],
     href: '/work/yhct',
     accent: 'blue',

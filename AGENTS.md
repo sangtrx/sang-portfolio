@@ -18,7 +18,7 @@ It is not a playground or a generic developer template. Every change should impr
 - Distinguish `implemented`, `tested`, `deployed`, `accepted`, `production-ready`, and `not claimed`.
 - YHCT current claims must be checked against the canonical `docs/v3/PROJECT_STATE.yaml` in `sangtrx/yhct-clinical-ai-platform` before changing status language.
 - Curren public-platform claims must be checked against `docs/PROJECT_STATUS.md` in `sangtrx/curren` before changing status language.
-- Do not expose hospital data, patient data, private source documents, exchange credentials, execution controls, or private alpha parameters.
+- Do not expose hospital data, patient data, private source documents, exchange credentials, execution controls, private alpha parameters, hostnames, machine nicknames, or other internal infrastructure labels.
 
 ## Design rules
 - Read `DESIGN.md` before changing layout, typography, color, motion, cards, or visual assets.
@@ -45,5 +45,5 @@ It is not a playground or a generic developer template. Every change should impr
 
 ## Deployment
 - The codebase must support a subpath preview (`/sang-portfolio/`) and a root custom-domain build (`/`).
-- BigLinux origin, when used, binds only to `127.0.0.1:3000` and should sit behind Cloudflare Tunnel or another deliberate ingress boundary.
+- A self-hosted origin, when used, binds only to `127.0.0.1:3000` and should sit behind Cloudflare Tunnel or another deliberate ingress boundary.
 - Cloudflare Pages or another static host may be used without changing public URL structure once the custom domain is attached.
