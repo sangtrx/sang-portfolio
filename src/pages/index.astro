@@ -17,7 +17,7 @@ const jsonLd = [
     name: 'Sang Truong | Senior AI/LLM Engineer & Technical Lead',
     description: 'Proof-of-work portfolio for Sang Truong (sangtrx), a senior AI/LLM engineer and technical lead based in Ho Chi Minh City, Vietnam.',
     inLanguage: 'en',
-    dateModified: '2026-08-25T20:51:00+07:00',
+    dateModified: '2026-08-26T23:35:00+07:00',
     isPartOf: { '@id': websiteId(root) },
     about: { '@id': personId(root) },
     mainEntity: { '@id': personId(root) },
@@ -26,7 +26,7 @@ const jsonLd = [
 ---
 <BaseLayout
   title="Sang Truong | Senior AI/LLM Engineer & Technical Lead"
-  description="Sang Truong (sangtrx) is a senior AI/LLM engineer and technical lead in Ho Chi Minh City, Vietnam, building production agents, clinical AI, quant systems, APIs, data, evaluation, and deployment infrastructure."
+  description="Sang Truong (sangtrx) is a senior AI/LLM engineer and technical lead in Ho Chi Minh City, Vietnam, with 6+ years across production agents, computer vision, multimodal AI, quantitative ML, forecasting, speech AI, edge inference, APIs, and deployment infrastructure."
   jsonLd={jsonLd}
 >
   <section class="hero container section">
@@ -46,10 +46,10 @@ const jsonLd = [
       </div>
     </div>
     <div class="credibility-rail" aria-label="Profile highlights">
-      <span><strong>Production ownership</strong> model → APIs → data → deployment</span>
-      <span><strong>6+ years</strong> building applied AI products</span>
-      <span><strong>Research background</strong> M.S. Computer Engineering · GPA 4.0/4.0</span>
-      <span><strong>Peer-reviewed</strong> AAAI · IJCV · IEEE JBHI · Poultry Science</span>
+      <span><strong>Production ownership</strong> research/data → models/tools → APIs → deployment</span>
+      <span><strong>6+ years</strong> building applied AI products and systems</span>
+      <span><strong>Research background</strong> MEng Computer Engineering · GPA 4.0/4.0</span>
+      <span><strong>Peer-reviewed</strong> IJCV · AAAI · IEEE JBHI · Poultry Science</span>
     </div>
   </section>
 
@@ -58,7 +58,7 @@ const jsonLd = [
       <div>
         <h2>Selected systems, not demos.</h2>
       </div>
-      <p class="section-note">Two flagship case studies selected for architecture depth, measurable validation, and real operational constraints.</p>
+      <p class="section-note">Two flagship case studies selected for architecture depth, measurable validation, and real operational constraints. YHCT was built under my Head of AI role at EPIC TECHNOLOGY; Curren is an independent side project.</p>
     </div>
     <div class="project-list">
       {projects.map((project) => <ProjectCard project={project} />)}
@@ -70,7 +70,7 @@ const jsonLd = [
       <div>
         <h2>What I own beyond the model call.</h2>
       </div>
-      <p class="section-note">The recurring work is turning probabilistic model capability into a bounded product with explicit data, evidence, failure, and deployment contracts.</p>
+      <p class="section-note">The recurring work is turning probabilistic model capability into a bounded product with explicit data, evidence, failure, authority, and deployment contracts.</p>
     </div>
     <div class="ownership-grid">
       {ownership.map((item) => (
@@ -87,7 +87,7 @@ const jsonLd = [
       <div>
         <h2>Experience from research to production.</h2>
       </div>
-      <p class="section-note">Agentic AI, retrieval, speech, forecasting, computer vision, distributed workloads, and production delivery.</p>
+      <p class="section-note">LLM/RAG/agents, speech AI, forecasting, computer vision, multimodal learning, edge inference, quantitative ML, distributed workloads, and production delivery.</p>
     </div>
     <div class="timeline">
       {experience.map((item) => (
@@ -106,7 +106,7 @@ const jsonLd = [
   <section class="container section section-rule split-section">
     <div>
       <h2>Peer-reviewed foundations.</h2>
-      <p class="section-note wide">Academic work across multimodal learning, temporal reasoning, computer vision, and medical time-series analysis.</p>
+      <p class="section-note wide">Research across multimodal/video understanding, temporal reasoning, computer vision, and medical time-series representation learning.</p>
       <a class="text-link" href={profile.scholar}>Google Scholar <span aria-hidden="true">↗</span></a>
     </div>
     <div class="publication-list">
@@ -127,7 +127,7 @@ const jsonLd = [
 
   <section class="container section contact-panel">
     <h2>Need someone who can own the whole system?</h2>
-    <p>I'm interested in senior/lead AI engineering, AI product architecture, and technically demanding systems where reliability, evidence, and shipping discipline matter.</p>
+    <p>I'm interested in senior/lead AI engineering, applied AI architecture, and technically demanding systems where reliability, evidence, and shipping discipline matter.</p>
     <div class="hero-actions">
       <a class="button primary" href={`mailto:${profile.email}`}>Start a conversation</a>
       <a class="button ghost" href={profile.github}>GitHub</a>
