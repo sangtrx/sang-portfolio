@@ -10,14 +10,17 @@ It is not a playground or a generic developer template. Every change should impr
 
 ## Positioning
 - Senior AI/LLM Engineer / Technical Lead.
-- Production AI, reliable agentic systems, retrieval, clinical AI, quantitative research infrastructure.
+- Production AI, reliable agentic systems, retrieval, computer vision, multimodal AI, clinical AI, quantitative research infrastructure.
 - Flagship case studies: YHCT Clinical AI Platform and Curren.
 
 ## Content truth rules
 - Never invent metrics, validation states, customer outcomes, users, revenue, uptime, or performance numbers.
 - Distinguish `implemented`, `tested`, `deployed`, `accepted`, `production-ready`, and `not claimed`.
-- YHCT current claims must be checked against the canonical `docs/v3/PROJECT_STATE.yaml` in `sangtrx/yhct-clinical-ai-platform` before changing status language.
-- Curren public-platform claims must be checked against `docs/PROJECT_STATUS.md` in `sangtrx/curren` before changing status language.
+- Biography, chronology, employment type, project ownership, education, teaching, honors, publications, and broad skills must be reconciled against the current canonical files in private `sangtrx/Sang_Resume`: `LINKEDIN_RESUME_SYNC.md`, `RESUME_RECONCILIATION_AUDIT.md`, `resume_master_3page.tex`, and `cv/canonical_blocks.tex`. Legacy generated résumé/SOP/interview files are not factual authorities.
+- Preserve the canonical boundaries from Sang_Resume: Curren starts Jun 2026 and is an independent side project / Solo Builder, A9 IOT is part-time / consulting, and YHCT/Shrimp Farm/Open edX are projects under EPIC TECHNOLOGY rather than separate employers.
+- The completed University of Arkansas degree is Master of Engineering (MEng) in Computer Engineering, Jul 2021–Sep 2023, GPA 4.0/4.0. Prior PhD-track research may be described separately but must never imply a completed PhD.
+- YHCT current implementation/validation/status claims must be checked against the canonical `docs/v3/PROJECT_STATE.yaml` in `sangtrx/yhct-clinical-ai-platform` before changing status language.
+- Curren public-platform implementation/validation/status claims must be checked against `docs/PROJECT_STATUS.md` in `sangtrx/curren` before changing status language.
 - Do not expose hospital data, patient data, private source documents, exchange credentials, execution controls, private alpha parameters, hostnames, machine nicknames, or other internal infrastructure labels.
 
 ## Design rules
