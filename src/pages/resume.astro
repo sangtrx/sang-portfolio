@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { achievements, additionalExperience, education, experience, profile, projects, publications, skillGroups } from '../data/site';
+import { achievements, additionalExperience, education, epicSystems, experience, profile, projects, publications, skillGroups, teachingExperience } from '../data/site';
 import { personId, personSchema, publicIdentity, websiteId, websiteSchema } from '../lib/identity';
 import { withBase } from '../lib/paths';
 
 const root = Astro.site ?? new URL('https://sangtruong.me');
 const canonical = new URL(withBase('/resume'), root).href;
+const currenProject = projects.find((item) => item.slug === 'curren');
 const jsonLd = [
   personSchema(root),
   websiteSchema(root),
@@ -16,7 +17,7 @@ const jsonLd = [
     url: canonical,
     description: `Résumé for Sang Truong (${publicIdentity.handle}), senior AI/LLM engineer and technical lead in ${publicIdentity.location}.`,
     inLanguage: 'en',
-    dateModified: '2026-08-25T20:51:00+07:00',
+    dateModified: '2026-08-26T23:35:00+07:00',
     isPartOf: { '@id': websiteId(root) },
     mainEntity: { '@id': personId(root) },
     about: { '@id': personId(root) },
@@ -25,7 +26,7 @@ const jsonLd = [
 ---
 <BaseLayout
   title="Résumé — Sang Truong | Senior AI/LLM Engineer & Technical Lead"
-  description="Résumé of Sang Truong (sangtrx), senior AI/LLM engineer and technical lead in Ho Chi Minh City, Vietnam, with 6+ years across production agents, RAG, voice AI, computer vision, forecasting, quantitative research, backend systems, and MLOps."
+  description="Résumé of Sang Truong (sangtrx), senior AI/LLM engineer and technical lead in Ho Chi Minh City, Vietnam, with 6+ years across LLM/RAG/agents, computer vision, multimodal AI, quantitative ML, forecasting, speech AI, edge inference, backend systems, and production delivery."
   image="og-resume.png"
   imageAlt="Résumé of Sang Truong — Senior AI/LLM Engineer and Technical Lead"
   pageType="profile"
@@ -49,11 +50,11 @@ const jsonLd = [
 
     <section class="resume-block">
       <h2>Professional summary</h2>
-      <p>Senior AI/LLM engineer and technical lead with 6+ years of experience building production AI products across agentic and RAG systems, voice AI, computer vision, time-series forecasting, clinical AI, and quantitative research. I deliver end-to-end systems from model and retrieval architecture through APIs, distributed workloads, cloud/edge deployment, safety guardrails, evaluation, and production verification. M.S. in Computer Engineering (4.0/4.0) and co-author of peer-reviewed research in leading AI and engineering venues.</p>
+      <p>Senior AI engineer and technical lead with 6+ years across LLM/RAG/agent systems, computer vision, multimodal and video understanding, quantitative ML, time-series forecasting, speech AI, edge inference, and production AI engineering. I own systems end to end from research and data acquisition through model/tool design, APIs, distributed workloads, GPU/edge optimization, product surfaces, deployment, observability, reliability, and stakeholder delivery. Master of Engineering (MEng) in Computer Engineering with a 4.0/4.0 GPA and peer-reviewed work across IJCV, AAAI, IEEE JBHI, Poultry Science, IEEE Access, ICIP, BMVC, and IEEE BHI.</p>
     </section>
 
     <section class="resume-block">
-      <h2>Work experience</h2>
+      <h2>Professional & research experience</h2>
       <div class="resume-list detailed-resume-list">
         {experience.map((item) => (
           <article>
@@ -68,8 +69,40 @@ const jsonLd = [
       </div>
     </section>
 
+    {currenProject && (
+      <section class="resume-block">
+        <h2>Selected independent side project</h2>
+        <div class="resume-list detailed-resume-list">
+          <article>
+            <span>{currenProject.year}</span>
+            <div>
+              <h3><a href={withBase(currenProject.href)}>{currenProject.title}</a> · {currenProject.role}</h3>
+              <p>{currenProject.summary}</p>
+              <p class="resume-status">{currenProject.status}</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    )}
+
     <section class="resume-block">
-      <h2>Additional experience</h2>
+      <h2>Selected flagship systems under EPIC TECHNOLOGY</h2>
+      <div class="resume-list detailed-resume-list">
+        {epicSystems.map((item) => (
+          <article>
+            <span>{item.period}</span>
+            <div>
+              <h3>{item.href ? <a href={withBase(item.href)}>{item.title}</a> : item.title}</h3>
+              <p class="resume-status">{item.role}</p>
+              <p>{item.summary}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="resume-block">
+      <h2>Additional industry experience</h2>
       <div class="resume-list detailed-resume-list">
         {additionalExperience.map((item) => (
           <article>
@@ -84,8 +117,18 @@ const jsonLd = [
     </section>
 
     <section class="resume-block">
-      <h2>Selected systems</h2>
-      <div class="resume-list">{projects.map((item) => <article><span>{item.year}</span><div><h3><a href={withBase(item.href)}>{item.title}</a></h3><p>{item.summary}</p><p class="resume-status">{item.status}</p></div></article>)}</div>
+      <h2>Teaching experience</h2>
+      <div class="resume-list detailed-resume-list">
+        {teachingExperience.map((item) => (
+          <article>
+            <span>{item.period}</span>
+            <div>
+              <h3>{item.role} · {item.company}</h3>
+              <p>{item.detail}</p>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section class="resume-block">
@@ -96,10 +139,11 @@ const jsonLd = [
     <section class="resume-block">
       <h2>Education</h2>
       <div class="resume-list">{education.map((item) => <article><span>{item.period}</span><div><h3>{item.title} · {item.institution}</h3><p>{item.detail}</p></div></article>)}</div>
+      <p class="muted">Prior Ph.D.-track research is represented in the University of Arkansas research role above; no completed Ph.D. is claimed.</p>
     </section>
 
     <section class="resume-block">
-      <h2>Selected achievements</h2>
+      <h2>Selected scholarships & early honors</h2>
       <div class="resume-list">{achievements.map((item) => <article><span>{item.year}</span><div><h3>{item.title}</h3><p>{item.institution}</p></div></article>)}</div>
     </section>
 
@@ -110,8 +154,8 @@ const jsonLd = [
 
     <section class="resume-block resume-source">
       <h2>Source & evidence</h2>
-      <p>The résumé source is versioned separately. The YHCT and Curren case studies carry deeper architecture, validation state, deliberate non-claims, and public evidence without exposing confidential hospital data, credentials, internal infrastructure labels, or private trading alpha.</p>
-      <div class="hero-actions"><a class="button ghost" href={profile.resumeSource}>Résumé source on GitHub ↗</a><a class="button ghost" href={withBase('/#work')}>Project case studies</a></div>
+      <p>This web résumé is synchronized from a versioned private résumé source. Public evidence is exposed through the case studies, GitHub activity, and Google Scholar while confidential project material, credentials, internal infrastructure labels, and private trading alpha remain excluded.</p>
+      <div class="hero-actions"><a class="button ghost" href={withBase('/#work')}>Project case studies</a><a class="button ghost" href={profile.scholar}>Google Scholar ↗</a></div>
     </section>
   </article>
 </BaseLayout>
