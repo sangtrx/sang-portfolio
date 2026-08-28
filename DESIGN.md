@@ -14,8 +14,8 @@ Design dials:
 
 1. **Artifact over decoration.** System diagrams, evidence, status, research, and real constraints carry more visual weight than abstract effects.
 2. **Hierarchy without kickers everywhere.** Headings should usually stand on their own. Use small metadata only when it adds real context such as role, year, stage, or verification status.
-3. **One accent family.** Cobalt is the portfolio accent. Project-specific visuals may vary in value and intensity but should not introduce a second competing brand color.
-4. **No generic AI glow language.** Avoid purple-to-blue mesh backgrounds, halo shadows, gradient text, neon cyber styling, and ornamental glass.
+3. **One accent family.** True cobalt blue is the portfolio accent. Project-specific visuals may vary in value and intensity but must remain inside the same blue family.
+4. **No generic AI glow language.** Avoid purple/periwinkle drift, purple-to-blue mesh backgrounds, halo shadows, gradient text, neon cyber styling, and ornamental glass.
 5. **Cards only when hierarchy needs a container.** Prefer editorial rows, rules, whitespace, and asymmetric grids over repeated bordered rounded rectangles.
 6. **Truthful visual emphasis.** Do not visually imply production maturity, scale, customer adoption, or performance beyond the written evidence.
 7. **Readability wins.** Body copy should remain near 65–75 characters per line; display type stays below roughly 6rem; large type uses restrained negative tracking.
@@ -42,25 +42,35 @@ Avoid:
 
 ## Color
 
+Direction: **midnight navy + true cobalt blue**. The accent must read as blue, never violet/periwinkle.
+
 Light:
 
-- Background: `#f3f5f7`
-- Surface: `#fbfcfd`
-- Secondary surface: `#e9edf2`
-- Text: `#11151b`
-- Muted: `#616a76`
-- Accent: `#3659d9`
+- Background: `#f5f8fc`
+- Surface: `#ffffff`
+- Secondary surface: `#eaf1fb`
+- Text: `#0d1726`
+- Muted: `#607087`
+- Accent: `#1f6feb`
+- Accent soft: `#e5efff`
 
 Dark:
 
-- Background: `#0b0e14`
-- Surface: `#11161e`
-- Secondary surface: `#171d27`
-- Text: `#f3f5f8`
-- Muted: `#9aa3b0`
-- Accent: `#8ba0ff`
+- Background: `#07101d`
+- Surface: `#0b1626`
+- Secondary surface: `#101e31`
+- Text: `#f4f8ff`
+- Muted: `#94a6bd`
+- Accent: `#4c8dff`
+- Accent soft: `#0d2a52`
 
-Use tinted neutrals consistently. Do not mix warm and cool gray systems on the same surface.
+Rules:
+
+- Do not reintroduce violet, purple, lavender, or periwinkle accents.
+- Do not add a competing cyan/teal brand family; `--cyan` aliases the cobalt accent.
+- Primary CTA, focus state, selection, active navigation, evidence markers, and technical hot nodes share the same cobalt family.
+- Dark technical panels use navy-black rather than neutral/purple black.
+- Use tinted neutrals consistently. Do not mix warm and cool gray systems on the same surface.
 
 ## Shape and depth
 
