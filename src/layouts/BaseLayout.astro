@@ -3,6 +3,7 @@ import '@fontsource-variable/geist';
 import '../styles/global.css';
 import '../styles/enhancements.css';
 import '../styles/taste-polish.css';
+import '../styles/depth.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { withBase } from '../lib/paths';
@@ -18,10 +19,10 @@ interface Props {
 }
 
 const {
-  title = 'Sang Truong | Senior AI/LLM Engineer & Technical Lead',
-  description = 'Portfolio of Sang Truong: production AI systems, reliable agents, clinical AI, quantitative research infrastructure, and end-to-end technical ownership.',
+  title = 'Sang Truong | Senior AI Engineer & Applied AI Lead',
+  description = 'Portfolio of Sang Truong: production AI and agent systems, computer vision/video intelligence, multimodal research, quantitative ML/trading systems, distributed backends, edge inference, and end-to-end technical ownership.',
   image = 'og.png',
-  imageAlt = 'Sang Truong — Senior AI/LLM Engineer and Technical Lead',
+  imageAlt = 'Sang Truong — Senior AI Engineer and Applied AI Lead',
   pageType = 'website',
   jsonLd,
   noindex = false,
@@ -42,7 +43,7 @@ const schema = Array.isArray(jsonLd)
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="author" content="Sang Truong" />
-    <meta name="application-name" content="Sang Truong — AI Engineering Portfolio" />
+    <meta name="application-name" content="Sang Truong — Applied AI Engineering Portfolio" />
     <meta name="robots" content={robots} />
     <meta name="googlebot" content={robots} />
     <meta name="theme-color" content="#0b0e14" />
