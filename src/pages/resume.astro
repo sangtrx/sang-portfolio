@@ -1,6 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { achievements, additionalExperience, education, epicSystems, experience, profile, projects, publications, skillGroups, teachingExperience } from '../data/site';
+import {
+  achievements,
+  additionalExperience,
+  capabilityDomains,
+  education,
+  epicSystems,
+  experience,
+  profile,
+  projects,
+  publications,
+  researchTrajectory,
+  skillGroups,
+  teachingExperience,
+} from '../data/site';
 import { personId, personSchema, publicIdentity, websiteId, websiteSchema } from '../lib/identity';
 import { withBase } from '../lib/paths';
 
@@ -15,9 +28,9 @@ const jsonLd = [
     '@id': `${canonical}#profile`,
     name: 'Résumé — Sang Truong',
     url: canonical,
-    description: `Résumé for Sang Truong (${publicIdentity.handle}), senior AI/LLM engineer and technical lead in ${publicIdentity.location}.`,
+    description: `Résumé for Sang Truong (${publicIdentity.handle}), senior AI engineer and applied AI lead in ${publicIdentity.location}.`,
     inLanguage: 'en',
-    dateModified: '2026-08-26T23:35:00+07:00',
+    dateModified: '2026-08-28T14:50:00+07:00',
     isPartOf: { '@id': websiteId(root) },
     mainEntity: { '@id': personId(root) },
     about: { '@id': personId(root) },
@@ -25,10 +38,10 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="Résumé — Sang Truong | Senior AI/LLM Engineer & Technical Lead"
-  description="Résumé of Sang Truong (sangtrx), senior AI/LLM engineer and technical lead in Ho Chi Minh City, Vietnam, with 6+ years across LLM/RAG/agents, computer vision, multimodal AI, quantitative ML, forecasting, speech AI, edge inference, backend systems, and production delivery."
+  title="Résumé — Sang Truong | Senior AI Engineer & Applied AI Lead"
+  description="Résumé of Sang Truong (sangtrx), senior AI engineer and applied AI lead in Ho Chi Minh City, Vietnam, with 6+ years across LLM/RAG/agents, computer vision/video AI, multimodal research, quantitative ML, speech, edge inference, distributed backends, and production delivery."
   image="og-resume.png"
-  imageAlt="Résumé of Sang Truong — Senior AI/LLM Engineer and Technical Lead"
+  imageAlt="Résumé of Sang Truong — Senior AI Engineer and Applied AI Lead"
   pageType="profile"
   jsonLd={jsonLd}
 >
@@ -50,7 +63,21 @@ const jsonLd = [
 
     <section class="resume-block">
       <h2>Professional summary</h2>
-      <p>Senior AI engineer and technical lead with 6+ years across LLM/RAG/agent systems, computer vision, multimodal and video understanding, quantitative ML, time-series forecasting, speech AI, edge inference, and production AI engineering. I own systems end to end from research and data acquisition through model/tool design, APIs, distributed workloads, GPU/edge optimization, product surfaces, deployment, observability, reliability, and stakeholder delivery. Master of Engineering (MEng) in Computer Engineering with a 4.0/4.0 GPA and peer-reviewed work across IJCV, AAAI, IEEE JBHI, Poultry Science, IEEE Access, ICIP, BMVC, and IEEE BHI.</p>
+      <p>Senior AI engineer and technical lead with 6+ years across LLM/RAG/agent systems, computer vision and video intelligence, multimodal learning, quantitative ML, time-series forecasting, speech AI, edge inference, and production AI engineering. I own systems end to end from research and data acquisition through model/tool design, APIs, distributed workloads, GPU/edge optimization, product surfaces, deployment, observability, reliability, and stakeholder delivery. Master of Engineering (MEng) in Computer Engineering with a 4.0/4.0 GPA and peer-reviewed work across IJCV, AAAI, IEEE JBHI, Poultry Science, IEEE Access, ICIP, BMVC, and IEEE BHI.</p>
+    </section>
+
+    <section class="resume-block">
+      <h2>Domain depth</h2>
+      <div class="domain-grid resume-domain-grid">
+        {capabilityDomains.map((domain) => (
+          <article class="domain-card">
+            <div class="domain-head"><span>{domain.index}</span><h3>{domain.title}</h3></div>
+            <p class="domain-summary">{domain.summary}</p>
+            <ul>{domain.evidence.map((item) => <li>{item}</li>)}</ul>
+            <p class="domain-stack">{domain.stack}</p>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section class="resume-block">
@@ -93,7 +120,7 @@ const jsonLd = [
             <span>{item.period}</span>
             <div>
               <h3>{item.href ? <a href={withBase(item.href)}>{item.title}</a> : item.title}</h3>
-              <p class="resume-status">{item.role}</p>
+              <p class="resume-status">{item.owner}</p>
               <p>{item.summary}</p>
             </div>
           </article>
@@ -113,6 +140,13 @@ const jsonLd = [
             </div>
           </article>
         ))}
+      </div>
+    </section>
+
+    <section class="resume-block">
+      <h2>Research trajectory</h2>
+      <div class="resume-list">
+        {researchTrajectory.map((item) => <article><span>{item.period}</span><div><h3>{item.title}</h3><p>{item.detail}</p></div></article>)}
       </div>
     </section>
 
@@ -154,7 +188,7 @@ const jsonLd = [
 
     <section class="resume-block resume-source">
       <h2>Source & evidence</h2>
-      <p>This web résumé is synchronized from a versioned private résumé source. Public evidence is exposed through the case studies, GitHub activity, and Google Scholar while confidential project material, credentials, internal infrastructure labels, and private trading alpha remain excluded.</p>
+      <p>The public web résumé follows the current canonical résumé architecture: shared chronology and factual boundaries, plus separate depth layers for Applied AI/LLM systems, Computer Vision/Video AI, Quantitative Research/Trading Systems, and academic research. Public evidence is exposed through case studies, GitHub activity, and Google Scholar; confidential project material, credentials, internal infrastructure labels, patient data, and private trading alpha remain excluded.</p>
       <div class="hero-actions"><a class="button ghost" href={withBase('/#work')}>Project case studies</a><a class="button ghost" href={profile.scholar}>Google Scholar ↗</a></div>
     </section>
   </article>
