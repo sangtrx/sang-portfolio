@@ -1,0 +1,222 @@
+/* Domain-depth and system-portfolio presentation.
+   Keep this editorial and evidence-first: no decorative metric cards, no skill-logo wall. */
+
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.domain-card {
+  min-width: 0;
+  padding: clamp(28px, 4vw, 48px);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 68%, transparent);
+}
+
+.domain-head {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.domain-head > span {
+  color: var(--accent);
+  font: 650 .72rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .08em;
+  padding-top: .35rem;
+}
+
+.domain-card h3 {
+  margin: 0;
+  max-width: 18ch;
+  font-size: clamp(1.45rem, 2.6vw, 2.25rem);
+  line-height: 1.03;
+  letter-spacing: -.035em;
+}
+
+.domain-summary {
+  max-width: 60ch;
+  margin: 24px 0;
+  color: var(--muted);
+  font-size: .98rem;
+}
+
+.domain-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.domain-card li {
+  position: relative;
+  padding: 15px 0 15px 19px;
+  border-bottom: 1px solid var(--line);
+  color: color-mix(in srgb, var(--text) 84%, var(--muted));
+  font-size: .9rem;
+}
+
+.domain-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.35rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.domain-stack {
+  margin: 22px 0 0;
+  color: var(--muted);
+  font: 560 .76rem/1.65 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.system-portfolio {
+  border-top: 1px solid var(--line-strong);
+}
+
+.system-row {
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr) 210px;
+  gap: 30px;
+  align-items: start;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.system-row-link {
+  transition: padding .2s ease, background .2s ease;
+}
+
+.system-row-link:hover,
+.system-row-link:focus-visible {
+  padding-inline: 16px;
+  background: color-mix(in srgb, var(--accent) 4%, transparent);
+}
+
+.system-index {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.system-index span {
+  color: var(--accent);
+  font: 650 .8rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.system-index small,
+.system-owner,
+.system-signal {
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.system-owner {
+  margin: 0 0 8px;
+  font-weight: 620;
+  letter-spacing: .01em;
+}
+
+.system-main h3 {
+  margin: 0;
+  max-width: 34ch;
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  line-height: 1.15;
+  letter-spacing: -.025em;
+}
+
+.system-main > p:last-child {
+  max-width: 72ch;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.system-signal {
+  justify-self: end;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  max-width: 190px;
+  text-align: right;
+}
+
+.ownership-grid-expanded {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.resume-domain-grid {
+  margin-top: 26px;
+}
+
+.resume-domain-grid .domain-card {
+  padding: 28px;
+}
+
+.resume-domain-grid .domain-card h3 {
+  font-size: 1.35rem;
+}
+
+.resume-domain-grid .domain-summary,
+.resume-domain-grid .domain-card li,
+.resume-domain-grid .domain-stack {
+  font-size: .82rem;
+}
+
+@media (max-width: 900px) {
+  .domain-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .system-row {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+
+  .system-signal {
+    grid-column: 2;
+    justify-self: start;
+    text-align: left;
+  }
+
+  .ownership-grid-expanded {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .domain-card {
+    padding: 26px 20px;
+  }
+
+  .domain-head {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .system-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 24px 0;
+  }
+
+  .system-index {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .system-signal {
+    grid-column: auto;
+  }
+
+  .ownership-grid-expanded {
+    grid-template-columns: 1fr;
+  }
+}

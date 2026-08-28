@@ -1,6 +1,6 @@
 # sang-portfolio
 
-Public proof-of-work portfolio for **Sang Truong** — Senior AI/LLM Engineer & Technical Lead.
+Public proof-of-work portfolio for **Sang Truong** — Senior AI Engineer & Applied AI Lead.
 
 **Live preview:** https://sangtrx.github.io/sang-portfolio/
 
@@ -8,14 +8,31 @@ Target canonical domain: **https://sangtruong.me**
 
 ## Purpose
 
-This is intentionally not a generic “skills + project cards” portfolio. The site is built around a simple hiring path:
+This is intentionally not a generic “skills + project cards” portfolio. The hiring path is:
 
-**positioning → flagship systems → architecture/evidence → experience → research → contact**
+**positioning → domain depth → deep case studies → broader system portfolio → ownership/career → research → contact**
 
-Flagship case studies:
+The portfolio reflects the current `Sang_Resume` architecture: one canonical chronology with separate evidence layers for four technical domains instead of flattening the career into an LLM-only profile.
 
-- **YHCT Clinical AI Platform** — bounded agentic clinical AI, governed local-corpus research, explicit fact ownership, provider portability, durable conversation state, and UAT validation boundaries.
-- **Curren** — point-in-time quantitative research, leakage-aware validation, private signal lifecycle, and a verifiable public read model exposed through API, CLI, MCP, and desktop integrations.
+### Technical depth
+
+- **Applied AI / LLM / Agent Systems** — bounded agents, RAG/knowledge systems, tool/model routing, context/memory, guardrails, authority boundaries, distributed AI backends, UAT and production delivery.
+- **Computer Vision / Video / Edge AI** — camera/media pipelines, detection, ALPR/OCR, tracking, temporal events, video understanding, NVIDIA Jetson/TensorRT/CUDA, physical-world reliability and recovery.
+- **Quantitative Research / Trading Systems** — point-in-time data, feature/hypothesis pipelines, event studies/backtests, OOS/walk-forward validation, leakage/overfitting controls, ML selection, lifecycle/risk/execution/recovery.
+- **Research / Multimodal & Temporal ML** — ABN, AEI, AOE-Net, VLCAP, VLTinT, sCL-ST, CarcassFormer and peer-reviewed work across IJCV, AAAI, IEEE JBHI, Poultry Science, IEEE Access, ICIP, BMVC and IEEE BHI.
+
+### Deep case studies
+
+- **YHCT Clinical AI Platform** — EPIC TECHNOLOGY project for Ho Chi Minh City Traditional Medicine Hospital; bounded agentic clinical AI, deterministic release-pinned authority, governed local-corpus research, durable state, protected-UAT validation and clinician-feedback stabilization.
+- **Curren** — independent AI/quant side project; point-in-time research, leakage/overfitting controls, ML selection, durable signal/risk lifecycle, guarded execution boundaries, immutable public proofs, FastAPI, CLI and MCP.
+
+### Broader selected systems
+
+- Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform — EPIC TECHNOLOGY.
+- Production Multi-Camera Video Intelligence Platform — EPIC TECHNOLOGY.
+- AI-Powered Open edX Platform — EPIC TECHNOLOGY.
+- AI4U Enterprise Conversational Agent — FPT Software.
+- Curren Quant Research & Trading Systems — independent side project.
 
 ## Stack
 
@@ -34,13 +51,22 @@ The repository includes:
 - `Person`, `ProfilePage`, `Article`, `WebSite`, and `BreadcrumbList` JSON-LD where appropriate;
 - static-generated `/sitemap.xml` containing canonical HTML URLs only;
 - static-generated `/robots.txt` with OAI-SearchBot access;
-- `/llms.txt` as a concise discovery map pointing to canonical HTML pages;
+- `/llms.txt` as a concise discovery map pointing to canonical HTML pages and current domain evidence;
 - entity disambiguation for `Sang Truong` / `sangtrx` / Ho Chi Minh City, Vietnam;
 - an entity-focused `/about` page;
-- semantic case studies with explicit evidence and non-claims;
+- semantic case studies with explicit evidence, project ownership boundaries and non-claims;
 - IndexNow notification after successful GitHub Pages deployment.
 
 See `docs/SEO_GEO.md` for the implementation rationale and launch checklist.
+
+## Content authority
+
+Public biography and chronology are reconciled against the private `sangtrx/Sang_Resume` source. The current canonical resume is `resume_master.tex`; domain depth is expanded from `cv/ai_systems_blocks.tex`, `cv/computer_vision_blocks.tex`, `cv/quant_research_blocks.tex`, and `cv/academic_blocks.tex`.
+
+Project status is intentionally sourced separately:
+
+- YHCT implementation/validation status → `docs/v3/PROJECT_STATE.yaml` in the private YHCT repository.
+- Curren public-platform status → `docs/PROJECT_STATUS.md` in the public Curren repository.
 
 ## Local development
 
@@ -109,4 +135,4 @@ Future interactive demos for YHCT or Curren must be separate isolated deployment
 - exchange credentials or execution controls;
 - private alpha parameters or strategy internals.
 
-Read `AGENTS.md`, `docs/PORTFOLIO_RESEARCH.md`, and `docs/SEO_GEO.md` before major content or architecture changes.
+Read `AGENTS.md`, `DESIGN.md`, `docs/PORTFOLIO_RESEARCH.md`, and `docs/SEO_GEO.md` before major content or architecture changes.
