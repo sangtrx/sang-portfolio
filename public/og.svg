@@ -1,8 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#090b0f"/>
-  <circle cx="960" cy="70" r="320" fill="#2155ff" opacity=".18"/>
-  <text x="90" y="210" fill="#8ea7ff" font-family="Arial, sans-serif" font-size="26" font-weight="700">SANG TRUONG · AI/LLM ENGINEER · TECHNICAL LEAD</text>
-  <text x="90" y="315" fill="#f5f7fb" font-family="Arial, sans-serif" font-size="72" font-weight="700">I build AI systems</text>
-  <text x="90" y="400" fill="#f5f7fb" font-family="Arial, sans-serif" font-size="72" font-weight="700">that have to work.</text>
-  <text x="90" y="510" fill="#8d96a7" font-family="Arial, sans-serif" font-size="28">Production AI · Reliable Agents · Quant Systems</text>
+  <circle cx="960" cy="70" r="320" fill="#2155ff" opacity=".16"/>
+  <text x="90" y="195" fill="#8ea7ff" font-family="Arial, sans-serif" font-size="25" font-weight="700">SANG TRUONG · SENIOR AI ENGINEER · APPLIED AI LEAD</text>
+  <text x="90" y="310" fill="#f5f7fb" font-family="Arial, sans-serif" font-size="72" font-weight="700">I build AI systems</text>
+  <text x="90" y="395" fill="#f5f7fb" font-family="Arial, sans-serif" font-size="72" font-weight="700">that have to work.</text>
+  <text x="90" y="490" fill="#aab1bd" font-family="Arial, sans-serif" font-size="25">AI Systems · Computer Vision / Video · Quantitative ML</text>
+  <text x="90" y="535" fill="#7f8795" font-family="Arial, sans-serif" font-size="21">Research → models & tools → APIs → production / edge delivery</text>
 </svg>
