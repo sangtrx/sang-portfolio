@@ -8,8 +8,8 @@ const jsonLd = [
     '@type': 'Article',
     '@id': `${canonical}#case-study`,
     headline: 'YHCT Clinical AI Platform — bounded agentic clinical AI',
-    description: 'Case study of a clinician-facing AI chatbot and decision-support platform built under Sang Truong’s Head of AI role at EPIC TECHNOLOGY for Ho Chi Minh City Traditional Medicine Hospital, with an interleaved agent loop, governed local corpus, clinical tools, durable state, and explicit validation boundaries.',
-    dateModified: '2026-08-26T23:35:00+07:00',
+    description: 'Case study of a clinician-facing AI chatbot and decision-support platform built under Sang Truong’s Head of AI role at EPIC TECHNOLOGY for Ho Chi Minh City Traditional Medicine Hospital, with a bounded agent loop, governed local corpus, deterministic clinical authority, durable state, protected UAT validation, and explicit acceptance boundaries.',
+    dateModified: '2026-08-28T14:50:00+07:00',
     author: { '@type': 'Person', name: 'Sang Truong', url: new URL(withBase('/about'), Astro.site).href },
     mainEntityOfPage: canonical,
     about: ['Clinical AI', 'AI agents', 'RAG', 'FastAPI', 'Next.js', 'PostgreSQL', 'Qdrant', 'MLOps'],
@@ -25,7 +25,7 @@ const jsonLd = [
 ---
 <BaseLayout
   title="YHCT Clinical AI Platform — Agentic Clinical AI Case Study | Sang Truong"
-  description="Deep technical case study of the EPIC TECHNOLOGY project for Ho Chi Minh City Traditional Medicine Hospital: bounded agentic clinical AI, governed offline corpus research, clinical tool authority, provider portability, durable state, and self-hosted UAT validation."
+  description="Deep technical case study of the EPIC TECHNOLOGY project for Ho Chi Minh City Traditional Medicine Hospital: bounded agentic clinical AI, governed local corpus research, deterministic clinical authority, durable state, protected UAT validation, and clinician-feedback stabilization."
   image="og-yhct.png"
   pageType="article"
   jsonLd={jsonLd}
@@ -35,20 +35,20 @@ const jsonLd = [
     <header class="case-hero">
       <p class="eyebrow">Case Study 01 · EPIC TECHNOLOGY · Clinical AI · 2026</p>
       <h1>YHCT Clinical AI Platform</h1>
-      <p class="case-lede">Under my Head of Artificial Intelligence role at EPIC TECHNOLOGY, I architected and built the Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform so model flexibility and clinical authority can coexist without pretending they are the same thing.</p>
+      <p class="case-lede">Under my Head of Artificial Intelligence role at EPIC TECHNOLOGY, I architected and built the Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform: a clinician-facing system where model flexibility is useful, but clinical authority, provenance, durable state, and acceptance evidence remain explicit.</p>
       <div class="case-meta">
         <div><span>Role</span><strong>AI Architect / Lead Builder · EPIC TECHNOLOGY</strong></div>
-        <div><span>Runtime</span><strong>Agent · tools · local corpus · durable state</strong></div>
-        <div><span>Stage</span><strong>Deployed UAT · clinician acceptance pending</strong></div>
+        <div><span>Runtime</span><strong>Agent · clinical tools · governed corpus · durable state</strong></div>
+        <div><span>Stage</span><strong>Protected UAT · clinician-feedback stabilization</strong></div>
       </div>
-      <p class="case-verified">Last verified against current project state: <time datetime="2026-08-25">25 Aug 2026</time></p>
+      <p class="case-verified">Last verified against canonical project state: <time datetime="2026-08-27">27 Aug 2026</time></p>
     </header>
 
     <section class="evidence-band" aria-label="Recorded validation evidence">
-      <div><strong>855</strong><span>backend tests passed</span></div>
-      <div><strong>301</strong><span>source files under strict mypy</span></div>
-      <div><strong>30</strong><span>frontend rendering contracts passed</span></div>
-      <div><strong>Self-hosted UAT</strong><span>runtime + browser validation recorded</span></div>
+      <div><strong>7 turns</strong><span>repeated factual + provenance acceptance passed</span></div>
+      <div><strong>1,018</strong><span>backend tests collected · 59 external-resource skips</span></div>
+      <div><strong>303</strong><span>source files under strict mypy</span></div>
+      <div><strong>Protected UAT</strong><span>clinician-feedback fixes locally verified; controlled redeploy pending</span></div>
     </section>
 
     <section class="case-section visual-panel clinical-runtime" aria-label="YHCT agent runtime architecture">
@@ -68,25 +68,25 @@ const jsonLd = [
     <section class="case-section case-grid">
       <div><p class="eyebrow">Problem</p><h2>Clinical AI cannot rely on fluent answers alone.</h2></div>
       <div class="case-copy">
-        <p>A useful clinician assistant has to accept natural language, prescriptions, tables, and documents while keeping track of what it actually knows, which source or tool owns each fact, what conversation state should persist, and what happens when evidence is missing.</p>
-        <p>The hard problem was not “add an LLM to a hospital UI.” It was designing the boundary between flexible model reasoning and governed clinical facts so the system can remain useful without silently upgrading model prose into clinical authority.</p>
+        <p>A useful clinician assistant has to accept natural language, prescriptions, tables, and documents while keeping track of what it actually knows, which source or tool owns each fact, what conversation state should persist, and what happens when evidence is missing or inconsistent.</p>
+        <p>The hard problem was not “add an LLM to a hospital UI.” It was designing a useful agentic workflow without allowing probabilistic prose to silently become authoritative clinical logic.</p>
       </div>
     </section>
 
     <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">My ownership</p><h2>Architecture through acceptance.</h2></div>
+      <div><p class="eyebrow">My ownership</p><h2>Architecture through protected UAT.</h2></div>
       <div class="ownership-list">
-        <article><strong>AI/runtime architecture</strong><p>Defined the bounded interleaved agent loop, action contract, tool scheduling boundaries, context controls, and provider-neutral model port.</p></article>
-        <article><strong>Clinical authority model</strong><p>Separated model synthesis from authoritative tool/source facts so interaction severity, source identity, and structured findings cannot be silently rewritten by prose.</p></article>
-        <article><strong>Knowledge and retrieval</strong><p>Designed local-corpus acquisition, hybrid retrieval/reranking, source navigation, provenance, and the runtime ban on arbitrary live web fetches.</p></article>
-        <article><strong>Product and deployment</strong><p>Owned the clinician chat shape, durable state, file flows, environment profiles, evaluation gates, self-hosted execution checks, and handoff boundaries.</p></article>
+        <article><strong>AI/runtime architecture</strong><p>Defined the bounded interleaved agent loop, action contract, model-round limits, tool scheduling, context controls, retry/failure behavior, and provider-neutral model port.</p></article>
+        <article><strong>Clinical authority model</strong><p>Separated model synthesis from release-pinned clinical tool/source facts so interaction severity, source identity, and structured findings cannot be silently rewritten by assistant prose.</p></article>
+        <article><strong>Knowledge and retrieval</strong><p>Designed governed acquisition, local-corpus search, reranking/navigation, immutable source provenance, evidence reuse, and the runtime ban on arbitrary live web fetches.</p></article>
+        <article><strong>State, product and deployment</strong><p>Owned durable conversations, file flows, clinician UI behavior, role-scoped data/knowledge surfaces, environment profiles, UAT gates, runtime/browser verification, and recovery boundaries.</p></article>
       </div>
     </section>
 
     <section class="case-section section-rule">
       <p class="eyebrow">Core runtime contract</p>
       <div class="contract-grid">
-        <div class="code-card"><span class="code-comment">// one validated action each model round</span><strong>FINAL | CALL_TOOLS | ASK_USER</strong><span class="code-comment">// bounded rounds, tool calls, concurrency, and wall time</span></div>
+        <div class="code-card"><span class="code-comment">// one validated action each model round</span><strong>FINAL | CALL_TOOLS | ASK_USER</strong><span class="code-comment">// bounded rounds, total tool calls, concurrency and wall time</span></div>
         <div class="principle-card"><span>MODEL</span><strong>owns workflow + answer synthesis</strong><span>TOOLS / SOURCES</span><strong>own the facts they return</strong></div>
       </div>
     </section>
@@ -94,42 +94,50 @@ const jsonLd = [
     <section class="case-section section-rule">
       <p class="eyebrow">Architecture decisions</p>
       <div class="decision-grid decision-grid-3">
-        <article><span>01</span><h3>Bounded agent loop</h3><p>The model can choose to answer, call tools, or ask for missing information, but total rounds, tool calls, concurrency, repeat calls, and turn wall time are bounded.</p></article>
-        <article><span>02</span><h3>Explicit fact ownership</h3><p>Clinical tools and retrieved sources own the facts they return. Assistant prose remains context, not clinical authority.</p></article>
-        <article><span>03</span><h3>Offline corpus at runtime</h3><p>Public and hospital-approved sources are acquired ahead of time; clinician turns search the governed local corpus instead of arbitrary live URLs.</p></article>
-        <article><span>04</span><h3>Provider portability</h3><p>The same application-level action contract can run through OpenAI or a fully local OpenAI-compatible model path without silent cloud fallback.</p></article>
-        <article><span>05</span><h3>Resumable state</h3><p>Recent messages, rolling summaries, active clinical items, prior observations, attachments, and clarification checkpoints are kept durable and bounded.</p></article>
-        <article><span>06</span><h3>Pragmatic platform shape</h3><p>FastAPI + Next.js + PostgreSQL, with Qdrant, MinIO/S3, and Redis where they serve a concrete runtime boundary rather than architecture fashion.</p></article>
+        <article><span>01</span><h3>Bounded agent loop</h3><p>The model can answer, call tools, or request missing information, but rounds, total attempted calls, concurrency, repeated identical calls, and turn deadline are bounded.</p></article>
+        <article><span>02</span><h3>Explicit fact ownership</h3><p>Clinical tools and retrieved sources own the facts they return. Assistant prose remains synthesis/context, not a substitute for structured clinical truth.</p></article>
+        <article><span>03</span><h3>Governed offline corpus</h3><p>Approved or curated sources are ingested ahead of time; clinician turns search the controlled local corpus instead of arbitrary external URLs.</p></article>
+        <article><span>04</span><h3>Provider portability</h3><p>The same application-level action contract supports OpenAI and a fully local OpenAI-compatible model path without silent cloud fallback from the local profile.</p></article>
+        <article><span>05</span><h3>Durable, resumable state</h3><p>Conversation state, active clinical items, prior observations, attachments and clarification checkpoints are persisted and bounded so follow-up reasoning is inspectable.</p></article>
+        <article><span>06</span><h3>Operational recovery</h3><p>UAT validation covers not only model behavior but deployment composition, knowledge readiness, identity, media-independent ingress, state recovery and safe failure when release/runtime invariants are violated.</p></article>
       </div>
     </section>
 
     <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">Executable scope</p><h2>What the current UAT candidate actually supports.</h2></div>
+      <div><p class="eyebrow">Executable scope</p><h2>What the protected UAT system actually supports.</h2></div>
       <div class="capability-grid">
-        <article><h3>Clinical tools</h3><p>Drug/herb interaction checks, drug/herb lookup, prescription review.</p></article>
-        <article><h3>Corpus research</h3><p>Search corpus, open results, search within a source, and reformulate across bounded model rounds.</p></article>
-        <article><h3>Documents</h3><p>TXT, Markdown, text-extractable PDF, DOCX, CSV, XLS, XLSX, plus bounded attachment navigation.</p></article>
-        <article><h3>State & UI</h3><p>Protected clinician chat, conversation history, multi-file composer, SSE progress, evidence/source details, and role-gated data/knowledge administration.</p></article>
+        <article><h3>Clinical tools</h3><p>Drug/herb interaction checks and follow-up, drug/herb lookup, and prescription review with release-pinned structured authority.</p></article>
+        <article><h3>Corpus research</h3><p>Search the governed corpus, open results, search within a source, reuse prior evidence, and reformulate across bounded model rounds.</p></article>
+        <article><h3>Documents & compute</h3><p>TXT, Markdown, text-extractable PDF, DOCX, CSV, XLS/XLSX, attachment search/navigation, calculator, unit conversion, and optional bounded Python file analysis.</p></article>
+        <article><h3>State & UI</h3><p>Protected clinician chat, durable conversation history, multi-file composer, SSE progress, source/evidence details, rename/delete/title flows, and role-gated data/knowledge administration.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section section-rule case-grid">
+      <div><p class="eyebrow">Clinician-feedback stabilization</p><h2>UAT feedback is treated as release evidence, not cosmetic polish.</h2></div>
+      <div class="case-copy">
+        <p>After the protected-UAT provenance acceptance, clinician feedback exposed three concrete system-level issues: approved interaction pairs that needed deterministic source reconciliation, fine-detail source retrieval that needed better within-document coverage/deduplication, and conversation lifetime semantics that needed sliding expiry.</p>
+        <p>The fixes were implemented and locally verified with the larger backend/type suite. A deployment-composition invariant then correctly prevented the backend from starting against a stale active clinical release. The remaining work is a narrow UAT release-activation/redeploy step; production remains untouched.</p>
       </div>
     </section>
 
     <section class="case-section section-rule case-grid">
       <div><p class="eyebrow">Deliberate non-claims</p><h2>Scope is part of reliability.</h2></div>
       <div class="case-copy">
-        <p>The current candidate does <strong>not</strong> claim image vision, scanned-document OCR, audio/video input, live web freshness, provider-native token streaming, exhaustive black-box clinical evaluation, production deployment, or production acceptance.</p>
-        <p>Those boundaries matter because “source implemented,” “runtime validated,” “clinician tested,” and “production accepted” are different evidence levels.</p>
+        <p>The current protected-UAT system does <strong>not</strong> claim image vision, scanned-document OCR, audio/video input, live web freshness, arbitrary external actions, production deployment, or production acceptance.</p>
+        <p>Those boundaries matter because source implementation, local verification, protected-UAT acceptance, clinician feedback, hospital handoff, and production acceptance are different evidence levels.</p>
       </div>
     </section>
 
     <section class="case-section section-rule">
-      <p class="eyebrow">Recorded validation state · 2026-08-25</p>
+      <p class="eyebrow">Recorded validation state · 2026-08-27</p>
       <div class="status-table" role="table" aria-label="YHCT validation status">
-        <div role="row"><span role="cell">Source implementation</span><strong role="cell" class="status-ok">Validated candidate</strong></div>
-        <div role="row"><span role="cell">Backend / type / frontend build gates</span><strong role="cell" class="status-ok">Passed</strong></div>
-        <div role="row"><span role="cell">Self-hosted UAT execution</span><strong role="cell" class="status-ok">Passed</strong></div>
-        <div role="row"><span role="cell">Automated desktop/mobile browser matrix</span><strong role="cell" class="status-ok">Passed</strong></div>
-        <div role="row"><span role="cell">Manual clinician acceptance / hospital handoff</span><strong role="cell" class="status-wip">Pending</strong></div>
-        <div role="row"><span role="cell">Production deployment / production acceptance</span><strong role="cell">Not claimed</strong></div>
+        <div role="row"><span role="cell">Bounded agent + provenance acceptance</span><strong role="cell" class="status-ok">Passed in protected UAT</strong></div>
+        <div role="row"><span role="cell">Repeated factual turns using current corpus</span><strong role="cell" class="status-ok">7 / 7 accepted</strong></div>
+        <div role="row"><span role="cell">Clinician-feedback source fixes</span><strong role="cell" class="status-ok">Implemented + locally verified</strong></div>
+        <div role="row"><span role="cell">Backend/type verification</span><strong role="cell" class="status-ok">1,018 collected · strict mypy 303 files</strong></div>
+        <div role="row"><span role="cell">Protected-UAT feedback revision</span><strong role="cell" class="status-wip">Controlled release activation + redeploy pending</strong></div>
+        <div role="row"><span role="cell">Production deployment / production acceptance</span><strong role="cell">Not claimed · production untouched</strong></div>
       </div>
     </section>
 
@@ -137,7 +145,7 @@ const jsonLd = [
       <div>
         <p class="eyebrow">Public demo boundary</p>
         <h2>Sanitized proof, never hospital production.</h2>
-        <p>A future public demo should use synthetic prescriptions, sanitized knowledge, isolated credentials, no patient data, no production hospital integration, no admin surface, and explicit rate limits. The production/UAT system itself is not the portfolio demo.</p>
+        <p>A public demo should use synthetic prescriptions, sanitized knowledge, isolated credentials, no patient data, no production hospital integration, no private admin surface, and explicit rate limits. The protected hospital UAT environment itself is not the portfolio demo.</p>
       </div>
       <span class="status-pill">Demo not public yet</span>
     </section>
