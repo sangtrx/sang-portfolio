@@ -9,20 +9,21 @@ export const GET: APIRoute = ({ site }) => {
   const url = (path: string) => new URL(withBase(path), root).href;
   const text = `# Sang Truong (sangtrx)
 
-> Senior AI Engineer and Applied AI Lead based in ${publicIdentity.location}. 6+ years across production LLM/RAG/agent systems, computer vision and video intelligence, multimodal research, quantitative ML/trading systems, time-series forecasting, speech AI, edge inference, distributed backends, and cloud/on-premise delivery. Master of Engineering (MEng) in Computer Engineering, University of Arkansas, GPA 4.0/4.0.
+> Senior AI Engineer and AI Agent / Applied AI Lead based in ${publicIdentity.location}. 6+ years across production agentic AI, LLM/RAG systems, voice and real-time AI, computer vision and video intelligence, multimodal research, quantitative ML/trading systems, time-series forecasting, edge inference, distributed backends, and cloud/on-premise delivery. Master of Engineering (MEng) in Computer Engineering, University of Arkansas, GPA 4.0/4.0.
 
 Canonical human-readable HTML pages are the authoritative public content. Claims deliberately distinguish implemented, locally verified, protected-UAT validated, deployed, accepted, pending, and unclaimed states. Sensitive hospital data, credentials, internal infrastructure labels, and private trading alpha are not published.
 
 ## Technical depth
-- Applied AI / LLM / Agent Systems: agent orchestration, tool/model routing, RAG and knowledge systems, memory/context controls, guardrails, authority boundaries, distributed AI backends, UAT and production delivery.
+- Applied AI / Agent / Voice / RAG Systems: LangGraph/LangChain orchestration, tool/model routing, controlled code/tool execution, RAG and knowledge systems, memory/context controls, multilingual speech/transcription, speech evaluation, WebSockets/SSE, guardrails, authority boundaries, distributed AI backends, UAT and production delivery.
+- Browser / Tool Automation: Playwright-based browser verification, tool-driven web workflows, API integrations, state validation, retries, idempotent background work, and separation between model intent and side-effecting actions.
 - Computer Vision / Video / Edge AI: camera/media pipelines, detection, ALPR/OCR, tracking, temporal events, vision-language/video research, NVIDIA Jetson, TensorRT, CUDA, recovery under real camera/network constraints.
 - Quantitative Research / Trading Systems: point-in-time data, reusable feature/hypothesis pipelines, event studies/backtests, OOS/walk-forward validation, leakage and overfitting controls, ML selection, signal lifecycle, risk, execution/reconciliation/recovery.
 - Research / Multimodal ML: ABN, AEI, AOE-Net, VLCAP, VLTinT, sCL-ST, CarcassFormer; peer-reviewed work across IJCV, AAAI, IEEE JBHI, Poultry Science, IEEE Access, ICIP, BMVC, and IEEE BHI.
 
 ## Canonical chronology and ownership notes
-- EPIC TECHNOLOGY — Head of Artificial Intelligence — Jun 2025 to Present. Scope includes clinical AI, education AI, production computer vision/video intelligence, and AI platform engineering.
+- EPIC TECHNOLOGY — Head of Artificial Intelligence — Jun 2025 to Present. Scope includes clinical AI, education AI, production computer vision/video intelligence, agent/retrieval systems, voice AI, and AI platform engineering.
 - A9 IOT — AI Tech Lead — Jun 2024 to Present — part-time / consulting.
-- FPT Software — AI Engineer — Oct 2024 to Jun 2025 — enterprise AI4U agent, Qdrant RAG, multilingual speech and distributed AI workloads.
+- FPT Software — AI Engineer — Oct 2024 to Jun 2025 — AI4U enterprise agent, LangGraph/LangChain orchestration, Qdrant RAG, controlled tool workflows, multilingual Azure Speech transcription/evaluation, guardrails, and distributed AI workloads.
 - University of Arkansas — Graduate Researcher / PhD Student Researcher & Teaching Assistant — May 2021 to Jan 2024. A completed PhD is not claimed.
 - Curren — independent AI/quant side project, Solo Builder — Jun 2026 to Present. It is not presented as full-time employment.
 - YHCT Hospital Clinical AI, the Production Multi-Camera Video Intelligence Platform, and the AI-Powered Open edX Platform were built under the EPIC TECHNOLOGY Head of AI role.
@@ -40,7 +41,7 @@ Canonical human-readable HTML pages are the authoritative public content. Claims
 - Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform — EPIC TECHNOLOGY.
 - Production Multi-Camera Video Intelligence Platform — EPIC TECHNOLOGY.
 - AI-Powered Open edX Platform — EPIC TECHNOLOGY.
-- AI4U Enterprise Conversational Agent — FPT Software.
+- AI4U Enterprise Conversational Agent + multilingual voice workflows — FPT Software.
 - Curren Quant Research & Trading Systems — independent side project.
 
 ## Identity corroboration
