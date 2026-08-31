@@ -1,9 +1,9 @@
 export const profile = {
   name: 'Sang Truong',
-  title: 'Senior AI Engineer · Applied AI Lead',
-  eyebrow: 'AI Systems · Computer Vision · Quantitative ML',
+  title: 'Senior AI Engineer · AI Agent & Applied AI Lead',
+  eyebrow: 'Agentic AI · Voice & RAG · Computer Vision · Quantitative ML',
   intro:
-    'Senior AI engineer and technical lead with 6+ years across LLM/RAG/agent systems, computer vision and video intelligence, multimodal learning, quantitative ML, time-series forecasting, speech AI, edge inference, and production AI engineering. I own systems end to end from research and data acquisition through model/tool design, APIs, distributed workloads, product surfaces, deployment, observability, reliability, and stakeholder delivery.',
+    'Senior AI engineer and technical lead with 6+ years across agentic AI, LLM/RAG systems, voice and real-time AI, computer vision and video intelligence, multimodal learning, quantitative ML, time-series forecasting, edge inference, and production AI engineering. I own systems end to end from research and data acquisition through model/tool design, retrieval and orchestration, APIs, distributed workloads, product surfaces, deployment, observability, reliability, and stakeholder delivery.',
   email: 'tqsang97@gmail.com',
   github: 'https://github.com/sangtrx',
   linkedin: 'https://linkedin.com/in/tqsang',
@@ -25,7 +25,7 @@ export const ownership = [
   },
   {
     title: 'Model, tools & knowledge',
-    detail: 'Design agent orchestration, retrieval, tool/model routing, context and memory, structured outputs, guardrails, provenance, and explicit fact ownership.',
+    detail: 'Design agent orchestration, retrieval, tool/model routing, context and memory, browser/tool workflows, structured outputs, guardrails, provenance, and safe boundaries around side effects and fact ownership.',
   },
   {
     title: 'Backend & product engineering',
@@ -33,7 +33,7 @@ export const ownership = [
   },
   {
     title: 'Evaluation & reliability',
-    detail: 'Define what “working” means, separate implemented from validated, test failure behavior, and make evidence visible instead of hiding uncertainty behind fluent output.',
+    detail: 'Define what “working” means, separate implemented from validated, test retrieval/response/speech and failure behavior, and make evidence visible instead of hiding uncertainty behind fluent output.',
   },
   {
     title: 'Cloud, edge & deployment',
@@ -48,15 +48,15 @@ export const ownership = [
 export const capabilityDomains = [
   {
     index: '01',
-    title: 'Applied AI · LLM · Agent Systems',
+    title: 'Applied AI · Agents · Voice · RAG',
     summary:
-      'Production agent systems where retrieval, tools, memory, authority, safety, and distributed application state matter as much as the model call.',
+      'Production AI systems where retrieval, tools, memory, voice/real-time interaction, authority, safety, evaluation, and distributed application state matter as much as the model call.',
     evidence: [
-      'YHCT hospital clinical AI: bounded agent loop, governed corpus, deterministic clinical authority, durable state, UAT gates',
+      'YHCT hospital clinical AI: bounded agent loop, governed corpus, deterministic clinical authority, durable state, exact citations, UAT gates',
       'FPT AI4U: Azure OpenAI, LangGraph/LangChain, Qdrant RAG, tool/model routing, code execution, web search, memory controls, guardrails',
-      'Open edX AI platform: course generation, Milvus-backed tutoring, secure context handoff, Vietnamese ASR/TTS, WebSockets, Live2D',
+      'Voice and tool workflows: multilingual Azure Speech transcription/evaluation, Vietnamese ASR/TTS, WebSockets/SSE, Playwright-based browser verification and failure handling',
     ],
-    stack: 'FastAPI · LangGraph · LangChain · Qdrant · Milvus · pgvector · Celery · RabbitMQ · Redis · PostgreSQL · Docker',
+    stack: 'FastAPI · LangGraph · LangChain · Azure OpenAI · Azure Speech · Qdrant · Milvus · pgvector · Playwright · Celery · RabbitMQ · Redis · PostgreSQL · Docker',
   },
   {
     index: '02',
@@ -152,7 +152,7 @@ export const systemPortfolio = [
     title: 'AI-Powered Open edX Platform',
     owner: 'EPIC TECHNOLOGY · AI Architect / Lead Builder',
     summary:
-      'Teacher-reviewable course generation from textbooks/syllabi into lessons and OLX packages, plus Milvus-backed tutoring, secure answer-key handling, Vietnamese ASR/TTS, WebSockets, Live2D, and Tutor/Docker/Nginx operations.',
+      'Teacher-reviewable course generation from textbooks/syllabi into lessons and OLX packages, plus Milvus-backed tutoring, secure question context and answer-key handling, Vietnamese ASR/TTS, WebSockets, Live2D browser interaction, Playwright verification, and Tutor/Docker/Nginx operations.',
     signal: 'Education AI platform',
   },
   {
@@ -160,8 +160,8 @@ export const systemPortfolio = [
     title: 'AI4U Enterprise Conversational Agent',
     owner: 'FPT Software · AI Engineer',
     summary:
-      'Azure OpenAI agent with LangGraph/LangChain orchestration, Qdrant RAG, model/tool routing, code execution, web search, Mermaid generation, token-aware memory, content safety, and distributed speech/AI workloads.',
-    signal: 'Enterprise agent platform',
+      'Azure OpenAI agent with LangGraph/LangChain orchestration, Qdrant RAG, model/tool routing, controlled code/tool execution, web search, Mermaid generation, token-aware memory, content safety, multilingual speech/transcription evaluation, and distributed AI workloads.',
+    signal: 'Enterprise agent + voice platform',
   },
   {
     period: 'Jun 2026 — Present',
@@ -183,7 +183,7 @@ export const experience = [
       'Leading architecture and delivery across clinical AI, education AI, production computer vision/video intelligence, and AI platform engineering; owning requirements decomposition, data/model contracts, APIs, authority boundaries, deployment, testing, observability, and stakeholder acceptance.',
     details: [
       'Built the Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform for UAT, covering conversational drug/herb lookup, interaction analysis, prescription review, governed knowledge Q&A, contextual follow-up, exact citations, role-scoped state, and auditability.',
-      'Built an AI-powered Open edX platform with teacher-reviewable course generation, Milvus-backed AI tutoring, Vietnamese ASR/TTS, WebSockets, Live2D interaction, OLX automation, Tutor/Docker/Nginx operations, and Playwright verification.',
+      'Built an AI-powered Open edX platform with teacher-reviewable course generation, Milvus-backed AI tutoring, secure question context and answer-key handling, Vietnamese ASR/TTS, WebSockets, Live2D interaction, OLX automation, Tutor/Docker/Nginx operations, and Playwright verification.',
       'Built and operate a production multi-camera AI program with video acquisition, stream normalization, YOLO11 detection, Vietnamese ALPR, ByteTrack tracking, temporal event logic, evidence capture, monitoring, and automated recovery.',
       'Technologies include Python, FastAPI, AsyncIO, WebSockets/SSE, Next.js, React, PostgreSQL, pgvector, RabbitMQ, Celery, Open edX, Tutor/Django, Milvus, LangChain/LLMs, ASR/TTS, PyTorch, ONNX Runtime, OpenCV, YOLO11, Fast-ALPR, ByteTrack, MediaMTX, Docker, Nginx, Linux, and Playwright.',
     ],
@@ -204,10 +204,10 @@ export const experience = [
     role: 'AI Engineer',
     company: 'FPT Software',
     summary:
-      'Built enterprise conversational AI and multilingual speech systems with Azure OpenAI, LangGraph/LangChain, Qdrant RAG, tool/model routing, distributed workers, guardrails, and production APIs.',
+      'Built enterprise conversational agents and multilingual voice/real-time AI systems with Azure OpenAI, LangGraph/LangChain, Qdrant RAG, tool/model routing, distributed workers, guardrails, evaluation workflows, and production APIs.',
     details: [
-      'Developed AI4U with Azure OpenAI, LangGraph/LangChain orchestration, Qdrant-backed RAG, multi-stage dialogue state, model/tool routing, code execution, web search, diagram generation, memory controls, and content safety.',
-      'Built multilingual recording/transcription and speech-evaluation services with Azure Speech/OpenAI, FastAPI, Celery, RabbitMQ, Redis, distributed crawling, retries, and production controls.',
+      'Developed AI4U with Azure OpenAI, LangGraph/LangChain orchestration, Qdrant-backed RAG, multi-stage dialogue state, model/tool routing, controlled code/tool execution, web search, diagram generation, memory controls, and content safety.',
+      'Built multilingual recording/transcription and speech-evaluation services for English, Japanese, Korean, and Vietnamese with Azure Speech/OpenAI, FastAPI, Celery, RabbitMQ, Redis, distributed crawling, retries, and production controls.',
       'Technologies included Python, FastAPI, Azure OpenAI, Azure Speech, LangChain, LangGraph, Qdrant, NeMo Guardrails, RabbitMQ, Redis, Celery, MongoDB, Docker, Kubernetes, Playwright, and Azure Blob Storage.',
     ],
   },
@@ -297,11 +297,15 @@ export const achievements = [
 export const skillGroups = [
   {
     title: 'Applied AI / LLM / agents',
-    items: ['LLM/RAG/agents', 'tool/model routing', 'memory/context management', 'grounded generation', 'guardrails', 'human-review boundaries', 'evaluation', 'authority separation'],
+    items: ['LLM/RAG/agents', 'LangGraph/LangChain orchestration', 'tool/model routing', 'code/tool execution', 'web-search workflows', 'memory/context management', 'grounded generation', 'guardrails', 'human-review boundaries', 'evaluation', 'authority separation'],
   },
   {
     title: 'Retrieval & knowledge systems',
-    items: ['Qdrant', 'Milvus', 'Pinecone', 'pgvector', 'governed ingestion', 'metadata/permission filtering', 'exact citations', 'immutable provenance', 'retrieval failure handling'],
+    items: ['Qdrant', 'Milvus', 'Pinecone', 'pgvector', 'embeddings', 'chunking/metadata strategy', 'governed ingestion', 'metadata/permission filtering', 'exact citations', 'immutable provenance', 'retrieval evaluation', 'retrieval failure handling'],
+  },
+  {
+    title: 'Voice / real-time AI',
+    items: ['Azure Speech', 'multilingual ASR/transcription', 'Vietnamese ASR/TTS', 'speech evaluation', 'WebSockets/SSE', 'real-time conversation state', 'AsyncIO', 'background processing'],
   },
   {
     title: 'Computer vision / video / edge',
@@ -313,11 +317,11 @@ export const skillGroups = [
   },
   {
     title: 'Backend & distributed systems',
-    items: ['Python', 'FastAPI', 'AsyncIO', 'REST/SSE', 'WebSockets', 'Celery', 'RabbitMQ', 'Redis', 'PostgreSQL', 'SQLite', 'MongoDB', 'MinIO/S3', 'idempotency', 'durable state'],
+    items: ['Python', 'FastAPI', 'AsyncIO', 'REST/SSE', 'WebSockets', 'Celery', 'RabbitMQ', 'Redis', 'PostgreSQL', 'SQLite', 'MongoDB', 'MinIO/S3', 'retries', 'idempotency', 'durable state'],
   },
   {
-    title: 'Product, cloud & delivery',
-    items: ['Next.js', 'React', 'TypeScript/JavaScript', 'Open edX', 'Docker', 'Kubernetes', 'Linux', 'Windows', 'systemd', 'Nginx', 'AWS', 'Azure', 'Playwright', 'Prometheus', 'Grafana'],
+    title: 'Product, browser automation, cloud & delivery',
+    items: ['Next.js', 'React', 'TypeScript/JavaScript', 'Open edX', 'Playwright', 'browser/tool verification', 'Docker', 'Kubernetes', 'Linux', 'Windows', 'systemd', 'Nginx', 'AWS', 'Azure', 'Prometheus', 'Grafana'],
   },
   {
     title: 'Languages',
