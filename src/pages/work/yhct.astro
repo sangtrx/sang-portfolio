@@ -7,12 +7,12 @@ const jsonLd = [
   {
     '@type': 'Article',
     '@id': `${canonical}#case-study`,
-    headline: 'YHCT Clinical AI Platform — bounded agentic clinical AI',
-    description: 'Case study of a clinician-facing AI chatbot and decision-support platform built under Sang Truong’s Head of AI role at EPIC TECHNOLOGY for Ho Chi Minh City Traditional Medicine Hospital, with a bounded agent loop, governed local corpus, deterministic clinical authority, durable state, protected UAT validation, and explicit acceptance boundaries.',
-    dateModified: '2026-08-28T14:50:00+07:00',
+    headline: 'YHCT Clinical AI Platform — owned-orchestration clinical AI',
+    description: 'Case study of a clinician-facing AI chatbot and decision-support platform built under Sang Truong’s Head of AI role at EPIC TECHNOLOGY for Ho Chi Minh City Traditional Medicine Hospital, using a V4 owned-orchestration boundary, PostgreSQL Evidence Workspace, bounded local-corpus research, deterministic clinical authority, conditional claim/evidence verification, and protected-UAT acceptance.',
+    dateModified: '2026-09-01T16:04:00+07:00',
     author: { '@type': 'Person', name: 'Sang Truong', url: new URL(withBase('/about'), Astro.site).href },
     mainEntityOfPage: canonical,
-    about: ['Clinical AI', 'AI agents', 'RAG', 'FastAPI', 'Next.js', 'PostgreSQL', 'Qdrant', 'MLOps'],
+    about: ['Clinical AI', 'AI agents', 'RAG', 'FastAPI', 'Next.js', 'PostgreSQL', 'Qdrant', 'Protected UAT'],
   },
   {
     '@type': 'BreadcrumbList',
@@ -24,8 +24,8 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="YHCT Clinical AI Platform — Agentic Clinical AI Case Study | Sang Truong"
-  description="Deep technical case study of the EPIC TECHNOLOGY project for Ho Chi Minh City Traditional Medicine Hospital: bounded agentic clinical AI, governed local corpus research, deterministic clinical authority, durable state, protected UAT validation, and clinician-feedback stabilization."
+  title="YHCT Clinical AI Platform — V4 Clinical AI Architecture | Sang Truong"
+  description="Deep technical case study of the EPIC TECHNOLOGY project for Ho Chi Minh City Traditional Medicine Hospital: V4 owned orchestration, PostgreSQL Evidence Workspace, bounded local-corpus research, deterministic clinical authority, conditional verification, and protected-UAT acceptance."
   image="og-yhct.png"
   pageType="article"
   jsonLd={jsonLd}
@@ -35,109 +35,118 @@ const jsonLd = [
     <header class="case-hero">
       <p class="eyebrow">Case Study 01 · EPIC TECHNOLOGY · Clinical AI · 2026</p>
       <h1>YHCT Clinical AI Platform</h1>
-      <p class="case-lede">Under my Head of Artificial Intelligence role at EPIC TECHNOLOGY, I architected and built the Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform: a clinician-facing system where model flexibility is useful, but clinical authority, provenance, durable state, and acceptance evidence remain explicit.</p>
+      <p class="case-lede">Under my Head of Artificial Intelligence role at EPIC TECHNOLOGY, I architected and built the Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform: a clinician-facing system where the model owns semantic understanding and synthesis, while clinical facts, provenance, durable state, permissions, and publication safety remain explicit.</p>
       <div class="case-meta">
         <div><span>Role</span><strong>AI Architect / Lead Builder · EPIC TECHNOLOGY</strong></div>
-        <div><span>Runtime</span><strong>Agent · clinical tools · governed corpus · durable state</strong></div>
-        <div><span>Stage</span><strong>Protected UAT · clinician-feedback stabilization</strong></div>
+        <div><span>Architecture</span><strong>V4 Clinical Notebook · owned orchestration</strong></div>
+        <div><span>Stage</span><strong>Protected UAT accepted · clinician-feedback phase</strong></div>
       </div>
-      <p class="case-verified">Last verified against canonical project state: <time datetime="2026-08-27">27 Aug 2026</time></p>
+      <p class="case-verified">Architecture verified against the canonical V4 project state and architecture decision: <time datetime="2026-08-28">28 Aug 2026</time>.</p>
     </header>
 
     <section class="evidence-band" aria-label="Recorded validation evidence">
-      <div><strong>7 turns</strong><span>repeated factual + provenance acceptance passed</span></div>
-      <div><strong>1,018</strong><span>backend tests collected · 59 external-resource skips</span></div>
-      <div><strong>303</strong><span>source files under strict mypy</span></div>
-      <div><strong>Protected UAT</strong><span>clinician-feedback fixes locally verified; controlled redeploy pending</span></div>
+      <div><strong>338 passed</strong><span>focused backend validation on the owned-orchestration candidate</span></div>
+      <div><strong>301 passed</strong><span>full V4 backend test set recorded by project state</span></div>
+      <div><strong>Frontend green</strong><span>3 tests + lint + typecheck + production build</span></div>
+      <div><strong>Protected UAT</strong><span>accepted on V4 owned orchestration; production/HIS not authorized</span></div>
     </section>
 
-    <section class="case-section visual-panel clinical-runtime" aria-label="YHCT agent runtime architecture">
-      <div class="runtime-flow">
-        <div class="runtime-node"><small>INPUT</small><strong>Clinician + files + conversation</strong></div>
-        <span class="runtime-arrow">→</span>
-        <div class="runtime-node runtime-node-hot"><small>MAIN AGENT</small><strong>FINAL · CALL_TOOLS · ASK_USER</strong></div>
-        <span class="runtime-arrow">→</span>
-        <div class="runtime-tools">
-          <span>Clinical tools</span><span>Local corpus research</span><span>Files + compute</span>
+    <section class="case-section archify-section" aria-labelledby="architecture-map-title">
+      <div class="archify-heading">
+        <div>
+          <p class="eyebrow">Interactive architecture map</p>
+          <h2 id="architecture-map-title">The current V4 runtime, not the earlier graph wrapper.</h2>
         </div>
-        <span class="runtime-arrow runtime-return">↺</span>
-        <div class="runtime-node"><small>OUTPUT</small><strong>Grounded answer + durable state</strong></div>
+        <div class="archify-links">
+          <a href={withBase('/yhct-v4-architecture.html')} target="_blank" rel="noreferrer">Open fullscreen ↗</a>
+          <a href={withBase('/yhct-v4.architecture.json')} target="_blank" rel="noreferrer">Archify JSON ↗</a>
+        </div>
+      </div>
+      <p class="archify-note">Built from the current YHCT V4 architecture using the Archify v2.13 typed architecture contract. The embedded map exposes focused views for the primary clinician turn, evidence research, and clinical-authority path.</p>
+      <div class="archify-frame">
+        <iframe
+          src={withBase('/yhct-v4-architecture.html')}
+          title="Interactive YHCT V4 Clinical Notebook architecture map"
+          loading="lazy"
+          sandbox="allow-scripts"
+        ></iframe>
       </div>
     </section>
 
     <section class="case-section case-grid">
       <div><p class="eyebrow">Problem</p><h2>Clinical AI cannot rely on fluent answers alone.</h2></div>
       <div class="case-copy">
-        <p>A useful clinician assistant has to accept natural language, prescriptions, tables, and documents while keeping track of what it actually knows, which source or tool owns each fact, what conversation state should persist, and what happens when evidence is missing or inconsistent.</p>
-        <p>The hard problem was not “add an LLM to a hospital UI.” It was designing a useful agentic workflow without allowing probabilistic prose to silently become authoritative clinical logic.</p>
+        <p>A useful clinician assistant has to accept natural language, prescriptions, tables, and documents while keeping track of what it actually knows, which approved source or deterministic tool owns each fact, what state persists between turns, and what happens when evidence is incomplete or conflicting.</p>
+        <p>The hard problem was not “add an LLM to a hospital UI.” It was designing useful semantic freedom without letting probabilistic prose silently become authoritative clinical logic.</p>
       </div>
     </section>
 
     <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">My ownership</p><h2>Architecture through protected UAT.</h2></div>
+      <div><p class="eyebrow">My ownership</p><h2>One explicit intelligence boundary on top of a proven hospital platform.</h2></div>
       <div class="ownership-list">
-        <article><strong>AI/runtime architecture</strong><p>Defined the bounded interleaved agent loop, action contract, model-round limits, tool scheduling, context controls, retry/failure behavior, and provider-neutral model port.</p></article>
-        <article><strong>Clinical authority model</strong><p>Separated model synthesis from release-pinned clinical tool/source facts so interaction severity, source identity, and structured findings cannot be silently rewritten by assistant prose.</p></article>
-        <article><strong>Knowledge and retrieval</strong><p>Designed governed acquisition, local-corpus search, reranking/navigation, immutable source provenance, evidence reuse, and the runtime ban on arbitrary live web fetches.</p></article>
-        <article><strong>State, product and deployment</strong><p>Owned durable conversations, file flows, clinician UI behavior, role-scoped data/knowledge surfaces, environment profiles, UAT gates, runtime/browser verification, and recovery boundaries.</p></article>
+        <article><strong>V4 intelligence composition</strong><p>Consolidated model-visible wiring into <code>app.v4.composition</code>: Evidence Workspace context, research, observation recall, tool registry, model budget, and answer-publication policy. The shared platform chooses the V4 root but does not reassemble its internal intelligence pieces.</p></article>
+        <article><strong>Clinical authority model</strong><p>Kept interaction findings, prescription findings, entity mappings, severity/rating fields, and approved release identity deterministic. The model can decide when to call tools and explain results, but cannot invert or override those facts.</p></article>
+        <article><strong>Evidence and retrieval</strong><p>Made PostgreSQL canonical for conversation/evidence/audit state, with Qdrant treated as derived and rebuildable search state. Runtime research is bounded to the approved local corpus and selected evidence is rebound to canonical source/version metadata.</p></article>
+        <article><strong>Publication and operational safety</strong><p>Moved answer breadth into the main FINAL decision, retained conditional claim/evidence verification where source-grounded prose requires it, and kept deterministic grounding guards, exact-SHA gates, explicit rollback, and protected-UAT boundaries.</p></article>
       </div>
     </section>
 
     <section class="case-section section-rule">
-      <p class="eyebrow">Core runtime contract</p>
+      <p class="eyebrow">Current runtime path</p>
       <div class="contract-grid">
-        <div class="code-card"><span class="code-comment">// one validated action each model round</span><strong>FINAL | CALL_TOOLS | ASK_USER</strong><span class="code-comment">// bounded rounds, total tool calls, concurrency and wall time</span></div>
-        <div class="principle-card"><span>MODEL</span><strong>owns workflow + answer synthesis</strong><span>TOOLS / SOURCES</span><strong>own the facts they return</strong></div>
+        <div class="code-card"><span class="code-comment">// one model-visible composition root</span><strong>shared platform → app.v4.composition</strong><span class="code-comment">// mature bounded model → tool → observation → model kernel</span></div>
+        <div class="principle-card"><span>MODEL</span><strong>language · reference resolution · research planning · answer scope</strong><span>APPLICATION / APPROVED DATA</span><strong>contracts · permissions · persistence · provenance · clinical facts</strong></div>
       </div>
     </section>
 
     <section class="case-section section-rule">
       <p class="eyebrow">Architecture decisions</p>
       <div class="decision-grid decision-grid-3">
-        <article><span>01</span><h3>Bounded agent loop</h3><p>The model can answer, call tools, or request missing information, but rounds, total attempted calls, concurrency, repeated identical calls, and turn deadline are bounded.</p></article>
-        <article><span>02</span><h3>Explicit fact ownership</h3><p>Clinical tools and retrieved sources own the facts they return. Assistant prose remains synthesis/context, not a substitute for structured clinical truth.</p></article>
-        <article><span>03</span><h3>Governed offline corpus</h3><p>Approved or curated sources are ingested ahead of time; clinician turns search the controlled local corpus instead of arbitrary external URLs.</p></article>
-        <article><span>04</span><h3>Provider portability</h3><p>The same application-level action contract supports OpenAI and a fully local OpenAI-compatible model path without silent cloud fallback from the local profile.</p></article>
-        <article><span>05</span><h3>Durable, resumable state</h3><p>Conversation state, active clinical items, prior observations, attachments and clarification checkpoints are persisted and bounded so follow-up reasoning is inspectable.</p></article>
-        <article><span>06</span><h3>Operational recovery</h3><p>UAT validation covers not only model behavior but deployment composition, knowledge readiness, identity, media-independent ingress, state recovery and safe failure when release/runtime invariants are violated.</p></article>
+        <article><span>01</span><h3>Owned orchestration</h3><p><code>app.v4.composition</code> is the single V4 model-visible intelligence root. This removes overlapping control surfaces across Evidence Workspace, research, recall, publication, and verification.</p></article>
+        <article><span>02</span><h3>No ceremonial graph</h3><p>The former LangGraph runtime was only <code>START → execute_turn → END</code> and owned no meaningful branch, checkpoint, research, tool, or publication transition, so it was removed from the active protected-UAT path.</p></article>
+        <article><span>03</span><h3>PostgreSQL is canonical</h3><p>Conversations, durable turns, structured observations, Evidence Workspace state, claim/evidence references, publication metadata, audit, and ACL state remain canonical in PostgreSQL.</p></article>
+        <article><span>04</span><h3>Qdrant is derived</h3><p>Vector/hybrid search state is rebuildable and cannot become a competing clinical memory truth. Evidence published to clinicians is rebound to authorized canonical source/version metadata.</p></article>
+        <article><span>05</span><h3>Bounded local research</h3><p>Semantic planning can fan out across approved-corpus retrieval, dedupe and curate evidence, assess sufficiency, and perform at most one targeted refinement. Clinician runtime has no live-web fetch path.</p></article>
+        <article><span>06</span><h3>Single-pass answer scope</h3><p>Answer breadth is part of the original FINAL instruction. The old post-hoc answer-contract model round and verifier scope-repair loop are removed; source-grounded prose gets conditional claim/evidence verification only when needed.</p></article>
       </div>
     </section>
 
     <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">Executable scope</p><h2>What the protected UAT system actually supports.</h2></div>
+      <div><p class="eyebrow">Evidence Workspace</p><h2>Conversation prose is context; persisted typed evidence is authority.</h2></div>
+      <div class="case-copy">
+        <p>V4 treats persisted structured observations and exact evidence handles as the authoritative memory available to semantic follow-up. Generic recall remains owner/conversation scoped; the system does not introduce one phrase-specific tool for each Vietnamese wording pattern.</p>
+        <p>This is the key difference between “chat history as memory” and a clinical notebook: language remains flexible, while durable evidence and fact ownership stay inspectable.</p>
+      </div>
+    </section>
+
+    <section class="case-section section-rule case-grid">
+      <div><p class="eyebrow">Answer publication</p><h2>Extra model calls are conditional, not architectural ceremony.</h2></div>
       <div class="capability-grid">
-        <article><h3>Clinical tools</h3><p>Drug/herb interaction checks and follow-up, drug/herb lookup, and prescription review with release-pinned structured authority.</p></article>
-        <article><h3>Corpus research</h3><p>Search the governed corpus, open results, search within a source, reuse prior evidence, and reformulate across bounded model rounds.</p></article>
-        <article><h3>Documents & compute</h3><p>TXT, Markdown, text-extractable PDF, DOCX, CSV, XLS/XLSX, attachment search/navigation, calculator, unit conversion, and optional bounded Python file analysis.</p></article>
-        <article><h3>State & UI</h3><p>Protected clinician chat, durable conversation history, multi-file composer, SSE progress, source/evidence details, rename/delete/title flows, and role-gated data/knowledge administration.</p></article>
+        <article><h3>General / non-grounded</h3><p>The main-agent FINAL can go through deterministic application guards and publish without a second semantic classification round.</p></article>
+        <article><h3>Deterministic clinical support</h3><p>Pure clinical-tool or compute-supported answers retain a verifier zero-extra-model-call fast path before deterministic grounding guards.</p></article>
+        <article><h3>Corpus / document / mixed</h3><p>Source-grounded prose passes through the bounded claim/evidence verifier before publication when evidence semantics require it.</p></article>
+        <article><h3>Persisted output</h3><p>Published answers keep citations, exact provenance and durable state rather than treating the model response as the system of record.</p></article>
       </div>
     </section>
 
     <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">Clinician-feedback stabilization</p><h2>UAT feedback is treated as release evidence, not cosmetic polish.</h2></div>
+      <div><p class="eyebrow">Current phase</p><h2>Protected UAT accepted; clinician feedback continues on the simpler boundary.</h2></div>
       <div class="case-copy">
-        <p>After the protected-UAT provenance acceptance, clinician feedback exposed three concrete system-level issues: approved interaction pairs that needed deterministic source reconciliation, fine-detail source retrieval that needed better within-document coverage/deduplication, and conversation lifetime semantics that needed sliding expiry.</p>
-        <p>The fixes were implemented and locally verified with the larger backend/type suite. A deployment-composition invariant then correctly prevented the backend from starting against a stale active clinical release. The remaining work is a narrow UAT release-activation/redeploy step; production remains untouched.</p>
-      </div>
-    </section>
-
-    <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">Deliberate non-claims</p><h2>Scope is part of reliability.</h2></div>
-      <div class="case-copy">
-        <p>The current protected-UAT system does <strong>not</strong> claim image vision, scanned-document OCR, audio/video input, live web freshness, arbitrary external actions, production deployment, or production acceptance.</p>
-        <p>Those boundaries matter because source implementation, local verification, protected-UAT acceptance, clinician feedback, hospital handoff, and production acceptance are different evidence levels.</p>
+        <p>The project state records the V4 owned-orchestration candidate as BigLinux validated and accepted in protected UAT, with semantic Vietnamese understanding, follow-up reference resolution, bounded agentic research, evidence sufficiency/refinement, narrow-answer behavior, multi-source synthesis, claim-to-evidence grounding, exact provenance, deterministic clinical authority, and durable evidence memory all recorded as implemented and correct for the protected-UAT path.</p>
+        <p>Release-validation work such as a dedicated runtime cross-encoder reranker, full shadow-corpus reindex, broader benchmark campaigns, and post-stabilization optimization remains deliberately separate from the clinician runtime. Production and HIS remain out of scope.</p>
       </div>
     </section>
 
     <section class="case-section section-rule">
-      <p class="eyebrow">Recorded validation state · 2026-08-27</p>
-      <div class="status-table" role="table" aria-label="YHCT validation status">
-        <div role="row"><span role="cell">Bounded agent + provenance acceptance</span><strong role="cell" class="status-ok">Passed in protected UAT</strong></div>
-        <div role="row"><span role="cell">Repeated factual turns using current corpus</span><strong role="cell" class="status-ok">7 / 7 accepted</strong></div>
-        <div role="row"><span role="cell">Clinician-feedback source fixes</span><strong role="cell" class="status-ok">Implemented + locally verified</strong></div>
-        <div role="row"><span role="cell">Backend/type verification</span><strong role="cell" class="status-ok">1,018 collected · strict mypy 303 files</strong></div>
-        <div role="row"><span role="cell">Protected-UAT feedback revision</span><strong role="cell" class="status-wip">Controlled release activation + redeploy pending</strong></div>
-        <div role="row"><span role="cell">Production deployment / production acceptance</span><strong role="cell">Not claimed · production untouched</strong></div>
+      <p class="eyebrow">Recorded validation state · 2026-08-28</p>
+      <div class="status-table" role="table" aria-label="YHCT V4 validation status">
+        <div role="row"><span role="cell">Owned-orchestration protected UAT</span><strong role="cell" class="status-ok">Accepted</strong></div>
+        <div role="row"><span role="cell">Focused backend tests</span><strong role="cell" class="status-ok">338 passed</strong></div>
+        <div role="row"><span role="cell">Full V4 backend tests</span><strong role="cell" class="status-ok">301 passed</strong></div>
+        <div role="row"><span role="cell">Frontend validation</span><strong role="cell" class="status-ok">3 passed · lint · typecheck · production build</strong></div>
+        <div role="row"><span role="cell">Migration chain</span><strong role="cell" class="status-ok">0001 → 0025 · single head</strong></div>
+        <div role="row"><span role="cell">Semantic hardcode scan</span><strong role="cell" class="status-ok">Passed</strong></div>
+        <div role="row"><span role="cell">Production / HIS authorization</span><strong role="cell">Not authorized · not claimed</strong></div>
       </div>
     </section>
 
@@ -151,3 +160,25 @@ const jsonLd = [
     </section>
   </article>
 </BaseLayout>
+
+<style>
+  .archify-section { padding-top: 22px; }
+  .archify-heading { display:flex; justify-content:space-between; align-items:end; gap:28px; margin-bottom:12px; }
+  .archify-heading h2 { margin:7px 0 0; max-width:780px; }
+  .archify-links { display:flex; flex-wrap:wrap; gap:9px; justify-content:flex-end; }
+  .archify-links a { padding:9px 11px; border:1px solid var(--line); border-radius:10px; color:var(--muted); font-size:.76rem; font-weight:700; text-decoration:none; }
+  .archify-links a:hover { color:var(--text); border-color:rgba(32,184,255,.48); }
+  .archify-note { max-width:880px; margin:0 0 18px; color:var(--muted); }
+  .archify-frame { overflow:hidden; border:1px solid var(--line); border-radius:22px; background:#050913; box-shadow:0 28px 90px rgba(0,0,0,.24); }
+  .archify-frame iframe { display:block; width:100%; height:820px; border:0; background:#050913; }
+  code { font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:.92em; }
+  @media (max-width:900px) {
+    .archify-heading { align-items:flex-start; flex-direction:column; }
+    .archify-links { justify-content:flex-start; }
+    .archify-frame iframe { height:940px; }
+  }
+  @media (max-width:640px) {
+    .archify-frame { margin-inline:-8px; border-radius:16px; }
+    .archify-frame iframe { height:1120px; }
+  }
+</style>
