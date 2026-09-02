@@ -3,31 +3,32 @@
   "diagram_type": "architecture",
   "meta": {
     "title": "Hospital Clinical Intelligence Platform",
-    "subtitle": "Single semantic owner · bounded evidence research · deterministic clinical authority",
+    "subtitle": "Capability → responsibility → implementation technology",
     "quality_profile": "showcase",
     "visual_preset": "blueprint",
     "views": [
-      {"id":"turn-path","label":"Clinician turn","focus":["clinician","nextjs","fastapi","platform-shell","clinical-intelligence","main-agent","verifier","persist"],"note":"One clinician execution path; the main agent is the single semantic owner."},
-      {"id":"research","label":"Evidence research","focus":["clinical-intelligence","evidence-workspace","research","qdrant","main-agent"],"note":"Bounded approved-corpus research produces curated evidence; retrieved data never becomes instructions."},
-      {"id":"authority","label":"Clinical authority","focus":["platform-shell","clinical-tools","main-agent","verifier","persist"],"note":"Approved deterministic clinical facts remain non-redecidable."}
+      {"id":"turn-path","label":"Clinician turn","focus":["clinician","nextjs","fastapi","platform-shell","clinical-intelligence","main-agent","verifier","persist","runtime"],"note":"One clinician execution path; the main agent is the single semantic owner while application services retain deterministic authority."},
+      {"id":"research","label":"Evidence research","focus":["clinical-intelligence","evidence-workspace","research","qdrant","main-agent"],"note":"Bounded approved-corpus research produces curated evidence; PostgreSQL is canonical and retrieval indexes are derived."},
+      {"id":"authority","label":"Clinical authority","focus":["platform-shell","clinical-tools","main-agent","verifier","persist"],"note":"Approved deterministic clinical facts remain non-redecidable by the LLM."}
     ]
   },
   "components": [
     {"id":"clinician","type":"external","label":"Clinician","sublabel":"question · files · follow-up","pos":[40,310],"size":[125,66]},
-    {"id":"nextjs","type":"frontend","label":"Clinician web shell","sublabel":"Next.js UI","pos":[205,310],"size":[145,66]},
-    {"id":"fastapi","type":"backend","label":"Authenticated API","sublabel":"FastAPI conversation boundary","pos":[390,310],"size":[155,66]},
-    {"id":"platform-shell","type":"security","label":"Hospital platform shell","sublabel":"ACL · audit · durable turn state","pos":[585,300],"size":[170,86],"tag":"shared kernel"},
-    {"id":"clinical-intelligence","type":"backend","label":"Clinical intelligence composition","sublabel":"single model-visible root","pos":[805,295],"size":[180,96],"tag":"owned boundary"},
-    {"id":"evidence-workspace","type":"database","label":"Evidence Workspace","sublabel":"PostgreSQL canonical context","pos":[785,105],"size":[190,74]},
-    {"id":"clinical-tools","type":"security","label":"Clinical fact tools","sublabel":"deterministic approved facts","pos":[1030,105],"size":[180,74]},
-    {"id":"research","type":"backend","label":"Evidence research","sublabel":"bounded approved local corpus","pos":[785,510],"size":[190,74]},
-    {"id":"qdrant","type":"database","label":"Vector / hybrid search","sublabel":"derived · rebuildable state","pos":[1030,510],"size":[180,74]},
-    {"id":"main-agent","type":"backend","label":"Main clinical agent","sublabel":"single semantic owner · bounded loop","pos":[1030,295],"size":[180,96],"tag":"request · source · tool · scope"},
-    {"id":"verifier","type":"security","label":"Evidence verifier + guards","sublabel":"conditional exact-support check","pos":[1250,295],"size":[185,96],"tag":"not a second router"},
-    {"id":"persist","type":"database","label":"Answer + citations","sublabel":"persisted · auditable","pos":[1260,505],"size":[170,78]}
+    {"id":"nextjs","type":"frontend","label":"Clinician web shell","sublabel":"interaction · streaming UI","tech":"Next.js · React · TypeScript","pos":[205,305],"size":[145,76]},
+    {"id":"fastapi","type":"backend","label":"Authenticated API","sublabel":"conversation boundary","tech":"Python · FastAPI · SSE/WebSockets","pos":[390,305],"size":[155,76]},
+    {"id":"platform-shell","type":"security","label":"Hospital platform shell","sublabel":"ACL · audit · durable state","tech":"PostgreSQL · Python application kernel","pos":[585,295],"size":[170,96],"tag":"shared kernel"},
+    {"id":"clinical-intelligence","type":"backend","label":"Clinical intelligence","sublabel":"single model-visible root","tech":"Python · LLM tool orchestration","pos":[805,290],"size":[180,106],"tag":"owned boundary"},
+    {"id":"evidence-workspace","type":"database","label":"Evidence Workspace","sublabel":"canonical observations · provenance","tech":"PostgreSQL","pos":[785,105],"size":[190,82]},
+    {"id":"clinical-tools","type":"security","label":"Clinical fact tools","sublabel":"deterministic approved facts","tech":"Python · typed deterministic services","pos":[1030,105],"size":[180,82]},
+    {"id":"research","type":"backend","label":"Evidence research","sublabel":"bounded approved corpus","tech":"Python · hybrid retrieval","pos":[785,505],"size":[190,86]},
+    {"id":"qdrant","type":"database","label":"Vector / hybrid search","sublabel":"derived · rebuildable","tech":"Qdrant · pgvector","pos":[1030,505],"size":[180,86]},
+    {"id":"main-agent","type":"backend","label":"Main clinical agent","sublabel":"single semantic owner","tech":"LLM · Python bounded loop","pos":[1030,290],"size":[180,106],"tag":"bounded loop"},
+    {"id":"verifier","type":"security","label":"Evidence verifier + guards","sublabel":"conditional exact-support check","tech":"Python · deterministic guards","pos":[1250,290],"size":[185,106],"tag":"not a second router"},
+    {"id":"persist","type":"database","label":"Answer + citations","sublabel":"persisted · auditable","tech":"PostgreSQL · immutable provenance","pos":[1260,505],"size":[170,86]},
+    {"id":"runtime","type":"backend","label":"Async & deployment runtime","sublabel":"background work · protected/on-prem delivery","tech":"Celery · RabbitMQ · Docker · Linux · Nginx","pos":[390,505],"size":[310,86]}
   ],
   "boundaries": [
-    {"kind":"region","label":"Hospital application boundary","wraps":["nextjs","fastapi","platform-shell","clinical-intelligence","evidence-workspace","clinical-tools","research","qdrant","main-agent","verifier","persist"],"pad":24},
+    {"kind":"region","label":"Hospital application boundary","wraps":["nextjs","fastapi","platform-shell","clinical-intelligence","evidence-workspace","clinical-tools","research","qdrant","main-agent","verifier","persist","runtime"],"pad":24},
     {"kind":"security-group","label":"Model-visible clinical intelligence","wraps":["clinical-intelligence","evidence-workspace","clinical-tools","research","main-agent","verifier"],"pad":18}
   ],
   "connections": [
@@ -44,11 +45,12 @@
     {"id":"c11","from":"research","to":"qdrant","label":"retrieve","variant":"dashed"},
     {"id":"c12","from":"evidence-workspace","to":"main-agent","label":"observations + evidence"},
     {"id":"c13","from":"clinical-tools","to":"main-agent","label":"facts"},
-    {"id":"c14","from":"research","to":"main-agent","label":"curated evidence pack"}
+    {"id":"c14","from":"research","to":"main-agent","label":"curated evidence pack"},
+    {"id":"c15","from":"platform-shell","to":"runtime","label":"async/runtime","variant":"dashed"}
   ],
   "cards": [
-    {"dot":"cyan","title":"Single semantic owner","items":["The main agent owns request understanding, reference resolution, source/tool choice and answer scope","No separate semantic router competes with the main clinician turn"]},
-    {"dot":"emerald","title":"Evidence & authority","items":["PostgreSQL owns durable conversation, observation, evidence and audit truth","Search indexes are derived; approved clinical tool facts remain non-redecidable","Retrieved corpus/tool payloads are treated as data, never instructions"]},
-    {"dot":"rose","title":"Validation boundary","items":["A protected-UAT baseline has been accepted","The latest architecture update is source-complete and awaiting execution validation","Production and hospital-information-system integration remain unauthorized and are not claimed"]}
+    {"dot":"cyan","title":"Single semantic owner","items":["LLM reasoning is bounded inside a Python-owned tool loop","FastAPI/PostgreSQL application contracts retain permissions, durable state and provenance"]},
+    {"dot":"emerald","title":"Evidence & authority","items":["PostgreSQL owns durable clinical/evidence truth","Qdrant/pgvector retrieval is derived and rebuildable","Approved clinical services remain deterministic and non-redecidable"]},
+    {"dot":"rose","title":"Runtime depth","items":["Next.js/React provide the clinician surface and FastAPI owns the service boundary","Celery/RabbitMQ handle asynchronous work","Docker/Linux/Nginx support constrained protected deployment"]}
   ]
 }
