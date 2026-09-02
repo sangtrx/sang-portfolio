@@ -10,7 +10,7 @@ const jsonLd = [
     '@id': `${canonical}#case-study`,
     headline: 'Curren — quantitative research, signal intelligence and trading-systems platform',
     description: 'Case study of Curren, Sang Truong’s independent AI/quant side project spanning point-in-time research evidence, reusable causal event infrastructure, out-of-sample selection, real-time signal intelligence, ML quality gates, lifecycle/risk/execution, access and distribution, and a read-only public verification layer.',
-    dateModified: '2026-09-02T15:10:00+07:00',
+    dateModified: '2026-09-02T15:55:00+07:00',
     author: { '@type': 'Person', name: 'Sang Truong', url: new URL(withBase('/about'), Astro.site).href },
     mainEntityOfPage: canonical,
     isBasedOn: source,
@@ -73,6 +73,21 @@ const jsonLd = [
           loading="lazy"
           sandbox="allow-scripts"
         ></iframe>
+      </div>
+    </section>
+
+    <section class="case-section section-rule tech-section">
+      <div class="tech-heading">
+        <div><p class="eyebrow">Technology & system decisions</p><h2>Polyglot by boundary: fast research iteration without duplicating production semantics.</h2></div>
+        <p>The stack is split by workload instead of fashion. Rust owns reusable causal computation where deterministic speed matters; Python owns research, ML and orchestration; Arrow/Parquet bind both sides; production state and public product surfaces remain separate authorities.</p>
+      </div>
+      <div class="tech-grid">
+        <article><span>Causal research core</span><h3>Rust · Python · PyArrow/Arrow · Parquet</h3><p>Rust accelerates shared timeframe, primitive and event computation while Python keeps research iteration flexible. Typed Arrow/Parquet contracts prevent the language boundary from becoming a semantic fork.</p></article>
+        <article><span>Research analytics</span><h3>Polars · DuckDB · NumPy · SciPy · Statsmodels</h3><p>Columnar scans, local analytical SQL and statistical tooling keep hypothesis views cheap after expensive market-to-event computation has already been materialized.</p></article>
+        <article><span>ML & selection</span><h3>LightGBM · CatBoost · XGBoost · Scikit-learn · Optuna</h3><p>Models sit behind causal data and out-of-fold governance. They can rank or filter evidence but cannot bypass split discipline, multiplicity controls or hard trading rules.</p></article>
+        <article><span>Execution semantics</span><h3>NautilusTrader · Bybit/Binance adapters</h3><p>Simulation and live-adjacent execution share explicit order, fill, portfolio and risk semantics, with offline/streaming/restart parity treated as a release boundary.</p></article>
+        <article><span>Operational state & APIs</span><h3>FastAPI · PostgreSQL/SQLite · idempotent workers</h3><p>Signal lifecycle, P&amp;L, risk, execution intent and reconciliation are durable state machines rather than values inferred from charts or subscriber messages.</p></article>
+        <article><span>Product & operations</span><h3>TypeScript · Next.js · API/CLI/MCP · Docker · Linux · systemd</h3><p>Public/read-only clients and content surfaces consume sanitized projections, while long-running workers are operated independently from private alpha and execution authority.</p></article>
       </div>
     </section>
 
@@ -205,13 +220,24 @@ const jsonLd = [
   .archify-frame iframe { display:block; width:100%; height:980px; border:0; background:#07101d; }
   .research-flow-wide { gap:9px; padding-inline:20px; }
   .research-flow-wide span { font-size:.62rem; }
+  .tech-heading { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr); gap:36px; align-items:end; margin-bottom:22px; }
+  .tech-heading h2 { margin:7px 0 0; max-width:760px; }
+  .tech-heading > p { margin:0; color:var(--muted); line-height:1.7; }
+  .tech-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+  .tech-grid article { min-height:188px; padding:19px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(180deg,rgba(76,141,255,.035),transparent); }
+  .tech-grid span { display:block; margin-bottom:10px; color:var(--muted); font:700 .66rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.08em; text-transform:uppercase; }
+  .tech-grid h3 { margin:0 0 10px; font-size:1rem; }
+  .tech-grid p { margin:0; color:var(--muted); font-size:.85rem; line-height:1.62; }
   @media (max-width:900px) {
     .archify-heading { align-items:flex-start; flex-direction:column; }
     .archify-links { justify-content:flex-start; }
     .archify-frame iframe { height:1080px; }
+    .tech-heading { grid-template-columns:1fr; gap:14px; }
+    .tech-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
   }
   @media (max-width:640px) {
     .archify-frame { margin-inline:-8px; border-radius:16px; }
     .archify-frame iframe { height:1180px; }
+    .tech-grid { grid-template-columns:1fr; }
   }
 </style>
