@@ -9,8 +9,8 @@ const jsonLd = [
     '@type': 'Article',
     '@id': `${canonical}#case-study`,
     headline: 'Curren — quantitative research, signal intelligence and trading-systems platform',
-    description: 'Case study of Curren, Sang Truong’s independent AI/quant side project spanning V9 point-in-time research evidence, reusable causal event infrastructure, out-of-sample selection, real-time signal intelligence, ML quality gates, lifecycle/risk/execution, access and distribution, and a read-only public verification layer.',
-    dateModified: '2026-09-02T14:24:00+07:00',
+    description: 'Case study of Curren, Sang Truong’s independent AI/quant side project spanning point-in-time research evidence, reusable causal event infrastructure, out-of-sample selection, real-time signal intelligence, ML quality gates, lifecycle/risk/execution, access and distribution, and a read-only public verification layer.',
+    dateModified: '2026-09-02T15:10:00+07:00',
     author: { '@type': 'Person', name: 'Sang Truong', url: new URL(withBase('/about'), Astro.site).href },
     mainEntityOfPage: canonical,
     isBasedOn: source,
@@ -27,7 +27,7 @@ const jsonLd = [
 ---
 <BaseLayout
   title="Curren — Quant Research & Trading Intelligence Platform | Sang Truong"
-  description="Deep technical case study of Sang Truong’s Curren side project: V9 PIT research evidence, Rust/Python causal event infrastructure, OOF selection, signal intelligence, ML quality gates, risk/execution, distribution, and public API/CLI/MCP verification."
+  description="Deep technical case study of Sang Truong’s Curren side project: PIT research evidence, Rust/Python causal event infrastructure, OOF selection, signal intelligence, ML quality gates, risk/execution, distribution, and public API/CLI/MCP verification."
   image="og-curren.png"
   pageType="article"
   jsonLd={jsonLd}
@@ -40,8 +40,8 @@ const jsonLd = [
       <p class="case-lede">A solo-built quantitative intelligence platform spanning the full path from causal market research to operational signal state: reusable point-in-time evidence, hypothesis selection, research-to-streaming parity, real-time signal intelligence, ML quality control, lifecycle/risk/execution, subscriber and content distribution, access workflows, and a public verification surface that stays isolated from private alpha and trading controls.</p>
       <div class="case-meta">
         <div><span>Role</span><strong>Independent AI/Quant Side Project · Solo Builder</strong></div>
-        <div><span>Research authority</span><strong>V9 · reusable causal event evidence · locally verified through authority cutover</strong></div>
-        <div><span>Public boundary</span><strong>v0.4 read model / API / CLI / MCP · live public feed not claimed</strong></div>
+        <div><span>Research system</span><strong>Reusable causal event evidence · shared Rust/Python core · locally verified</strong></div>
+        <div><span>Public boundary</span><strong>Read model / API / CLI / MCP · live public feed not claimed</strong></div>
       </div>
       <p class="case-verified">System state reviewed across the current research, signal-runtime, access, content-distribution, product-policy, marketing, and public developer surfaces on <time datetime="2026-09-02">2 Sep 2026</time>.</p>
       <div class="hero-actions case-actions"><a class="button primary" href={source}>View public developer surface ↗</a></div>
@@ -49,9 +49,9 @@ const jsonLd = [
 
     <section class="evidence-band" aria-label="Curren recorded engineering evidence">
       <div><strong>45M+</strong><span>verified closed 1m bars in the current 30-instrument development/screening market; not final alpha authority</span></div>
-      <div><strong>V9-120</strong><span>research evidence authority cut over to the shared V9 causal core</span></div>
+      <div><strong>Causal core</strong><span>research evidence is generated through shared reusable timeframe, primitive and event semantics</span></div>
       <div><strong>10 / 10</strong><span>structural-level engines locally verified before event-store authority cutover</span></div>
-      <div><strong>No alpha claim</strong><span>next economic run remains separately authorization-gated; profitable strategy is not claimed</span></div>
+      <div><strong>No alpha claim</strong><span>the next economic run remains separately authorization-gated; profitable strategy is not claimed</span></div>
     </section>
 
     <section class="case-section archify-section" aria-labelledby="curren-map-title">
@@ -65,7 +65,7 @@ const jsonLd = [
           <a href={withBase('/curren-platform.architecture.json')} target="_blank" rel="noreferrer">Architecture JSON ↗</a>
         </div>
       </div>
-      <p class="archify-note">The diagram intentionally uses public capability names rather than internal repository, source-channel, host, or package identifiers. Use the focused views to isolate research, the private signal runtime, or product/distribution surfaces.</p>
+      <p class="archify-note">The diagram intentionally uses public capability names rather than internal repository, source-channel, host, package or release identifiers. Use the focused views to isolate research, the private signal runtime, or product/distribution surfaces.</p>
       <div class="archify-frame curren-archify-frame">
         <iframe
           src={withBase('/curren-platform-architecture.html')}
@@ -88,15 +88,15 @@ const jsonLd = [
       <div><p class="eyebrow">My ownership</p><h2>Research kernel, production runtime, and product system — without collapsing their responsibilities.</h2></div>
       <div class="ownership-list">
         <article><strong>Quant research architecture</strong><p>Designed the point-in-time data lifecycle, immutable releases, conjecture/hypothesis contracts, shared causal primitives/events, out-of-sample validation, multiple-testing controls, append-only research history, atomic selection boundaries, portfolio replay and terminal-holdout discipline.</p></article>
-        <article><strong>Research → production semantics</strong><p>Built the V9 Rust/Python shared core and versioned event architecture so historical research and streaming regeneration can converge on the same resampler, primitive, structural-level, divergence and event semantics instead of maintaining two versions of “alpha.”</p></article>
+        <article><strong>Research → production semantics</strong><p>Built a shared Rust/Python causal core and versioned event architecture so historical research and streaming regeneration can converge on the same resampler, primitive, structural-level, divergence and event semantics instead of maintaining two versions of “alpha.”</p></article>
         <article><strong>Signal / risk / execution runtime</strong><p>Built the operational path that normalizes external source observations into candidate signals, applies deterministic scoring and fail-closed ML quality gating, persists lifecycle/P&amp;L, applies hard risk boundaries, supports guarded execution, and reconciles restart-safe order/fill state.</p></article>
         <article><strong>Product and distribution</strong><p>Built or coordinated the supporting public read model, API/CLI/MCP clients, subscriber delivery, native social-content production, membership/support/optional checkout flows, and public web surface while keeping each downstream system failure-isolated from alpha and execution authority.</p></article>
       </div>
     </section>
 
     <section class="case-section section-rule">
-      <p class="eyebrow">V9 research architecture</p>
-      <div class="research-flow research-flow-wide" aria-label="Curren V9 research flow">
+      <p class="eyebrow">Research architecture</p>
+      <div class="research-flow research-flow-wide" aria-label="Curren research flow">
         <span>PIT MARKET</span><i>→</i><span>SHARED TIMEFRAMES</span><i>→</i><span>PRIMITIVES</span><i>→</i><span>CAUSAL EVENTS</span><i>→</i><span>EVENT STORE</span><i>→</i><span>HYPOTHESIS VIEWS</span><i>→</i><span>OOF / SELECTION</span><i>→</i><span>ALPHA HISTORY</span>
       </div>
       <div class="contract-grid contract-grid-spaced">
@@ -106,12 +106,12 @@ const jsonLd = [
     </section>
 
     <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">Why V9 matters</p><h2>Make market → evidence expensive once; make hypothesis → economics cheap.</h2></div>
+      <div><p class="eyebrow">Why this architecture matters</p><h2>Make market → evidence expensive once; make hypothesis → economics cheap.</h2></div>
       <div class="capability-grid">
-        <article><h3>Shared causal core</h3><p>Closed-timeframe resampling, ATR/RSI/OBV and other primitives, structural levels, divergences and source events are versioned reusable computations rather than regenerated inside every experiment.</p></article>
+        <article><h3>Shared causal core</h3><p>Closed-timeframe resampling, ATR/RSI/OBV and other primitives, structural levels, divergences and source events are reusable computations rather than regenerated inside every experiment.</p></article>
         <article><h3>Versioned event evidence</h3><p>Typed Arrow/Parquet boundaries, deterministic event identities, manifests and hashes turn event data into inspectable research evidence that hypotheses can query and join.</p></article>
         <article><h3>Hypothesis views</h3><p>Frozen hypotheses resolve required event identities plus predicates, joins, labels, split/cost/evaluation specifications; existing event partitions are reused instead of rescanning years of candles.</p></article>
-        <article><h3>Research/streaming parity</h3><p>The same versioned semantics are checked across clean replay, restart, catch-up, duplicate/gap handling and timeframe boundaries before a research definition is allowed to become a production regeneration rule.</p></article>
+        <article><h3>Research/streaming parity</h3><p>The same semantics are checked across clean replay, restart, catch-up, duplicate/gap handling and timeframe boundaries before a research definition is allowed to become a production regeneration rule.</p></article>
       </div>
     </section>
 
@@ -119,7 +119,7 @@ const jsonLd = [
       <div><p class="eyebrow">Research governance</p><h2>Keep failed ideas and make outcome peeking expensive.</h2></div>
       <div class="case-copy">
         <p>New ideas can enter through a prove-or-counterexample conjecture process: search prior research history, state mechanism and falsification conditions, include negative controls, then emit a planned finite hypothesis specification. The proposal itself has no execution or promotion authority.</p>
-        <p>An append-only Alpha History retains candidates, runs, exact spec/release/code identities, pass/fail observations and lineage — including rejected ideas. Final Layer-1 promotion requires a separately frozen full historical PIT-universe confirmation; representative screening cannot be relabeled as validated alpha.</p>
+        <p>An append-only Alpha History retains candidates, runs, exact spec/release/code identities, pass/fail observations and lineage — including rejected ideas. Final entry-alpha promotion requires a separately frozen full historical PIT-universe confirmation; representative screening cannot be relabeled as validated alpha.</p>
       </div>
     </section>
 
@@ -127,7 +127,7 @@ const jsonLd = [
       <p class="eyebrow">Decision layers</p>
       <div class="decision-grid decision-grid-3">
         <article><span>L1</span><h3>Entry alpha</h3><p>Discover entry evidence, screen on representative history, seal survivors, confirm on the complete historical PIT universe, then atomically promote or reject.</p></article>
-        <article><span>L2</span><h3>Take / skip quality</h3><p>A learned quality layer may consume genuine out-of-fold Layer-1 predictions only; it cannot train on in-sample upstream scores.</p></article>
+        <article><span>L2</span><h3>Take / skip quality</h3><p>A learned quality layer may consume genuine out-of-fold entry predictions only; it cannot train on in-sample upstream scores.</p></article>
         <article><span>L3</span><h3>Post-entry lifecycle</h3><p>Position-management actions are learned only after honest upstream trade episodes; first actions are monotonic risk reduction rather than leverage expansion.</p></article>
         <article><span>P</span><h3>Portfolio replay</h3><p>Concurrent positions share one global clock and hard capital/exposure constraints; independent-trade statistics are not treated as a portfolio equity curve.</p></article>
         <article><span>R</span><h3>Robustness</h3><p>Finalists face block/episode Monte Carlo, cost/delay/funding/capacity stress and execution ambiguity rather than iid trade shuffling.</p></article>
@@ -172,12 +172,12 @@ const jsonLd = [
     <section class="case-section section-rule">
       <p class="eyebrow">Current evidence state · 2026-09-02</p>
       <div class="status-table" role="table" aria-label="Curren current engineering status">
-        <div role="row"><span role="cell">V9 causal core / event-store evidence authority</span><strong role="cell" class="status-ok">Locally verified · authority active through V9-120</strong></div>
-        <div role="row"><span role="cell">Structural-level V9 program</span><strong role="cell" class="status-ok">10 / 10 engines locally verified</strong></div>
-        <div role="row"><span role="cell">Nautilus execution bridge + offline/streaming/restart parity</span><strong role="cell" class="status-ok">Locally verified</strong></div>
-        <div role="row"><span role="cell">Next representative V9 economic run</span><strong role="cell" class="status-wip">Awaiting separate authorization · outcome not inspected</strong></div>
-        <div role="row"><span role="cell">Public API / read model / CLI / read-only MCP contracts</span><strong role="cell" class="status-ok">Implemented · v0.4.0 alpha</strong></div>
-        <div role="row"><span role="cell">Live public signal projector / api.curren.tech live feed</span><strong role="cell" class="status-wip">Not yet connected / not claimed</strong></div>
+        <div role="row"><span role="cell">Shared causal core / event-store evidence authority</span><strong role="cell" class="status-ok">Locally verified · active research path</strong></div>
+        <div role="row"><span role="cell">Structural-level research program</span><strong role="cell" class="status-ok">10 / 10 engines locally verified</strong></div>
+        <div role="row"><span role="cell">Execution simulation bridge + offline/streaming/restart parity</span><strong role="cell" class="status-ok">Locally verified</strong></div>
+        <div role="row"><span role="cell">Next representative economic run</span><strong role="cell" class="status-wip">Awaiting separate authorization · outcome not inspected</strong></div>
+        <div role="row"><span role="cell">Public API / read model / CLI / read-only MCP contracts</span><strong role="cell" class="status-ok">Implemented</strong></div>
+        <div role="row"><span role="cell">Live public signal projector / public API feed</span><strong role="cell" class="status-wip">Not yet connected / not claimed</strong></div>
         <div role="row"><span role="cell">Validated profitable alpha / guaranteed performance</span><strong role="cell">Not claimed</strong></div>
       </div>
     </section>
@@ -186,7 +186,7 @@ const jsonLd = [
       <div>
         <p class="eyebrow">Public disclosure boundary</p>
         <h2>Show the engineering system, not the private edge.</h2>
-        <p>This case study intentionally abstracts private source identities, internal repository/package names, machine names, credentials, alpha parameters, model feature definitions and trading controls. What remains public is the part a technical reviewer can evaluate responsibly: authority boundaries, causal research methodology, system decomposition, reliability behavior, release evidence and public contracts.</p>
+        <p>This case study intentionally abstracts private source identities, internal repository/package names, machine names, credentials, alpha parameters, model feature definitions, release labels and trading controls. What remains public is the part a technical reviewer can evaluate responsibly: authority boundaries, causal research methodology, system decomposition, reliability behavior, validation evidence and public contracts.</p>
       </div>
       <a class="button ghost" href={source}>Public source ↗</a>
     </section>
