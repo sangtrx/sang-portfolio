@@ -4,11 +4,11 @@ import { withBase } from '../lib/paths';
 export const prerender = true;
 
 const routes = [
-  { path: '/', lastmod: '2026-08-28' },
+  { path: '/', lastmod: '2026-09-02' },
   { path: '/about', lastmod: '2026-08-28' },
-  { path: '/resume', lastmod: '2026-08-28' },
-  { path: '/work/yhct', lastmod: '2026-08-28' },
-  { path: '/work/curren', lastmod: '2026-08-28' },
+  { path: '/resume', lastmod: '2026-09-02' },
+  { path: '/work/yhct', lastmod: '2026-09-02' },
+  { path: '/work/curren', lastmod: '2026-09-02' },
 ];
 
 const escapeXml = (value: string) => value
