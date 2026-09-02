@@ -10,7 +10,7 @@ const jsonLd = [
     '@id': `${canonical}#case-study`,
     headline: 'Ho Chi Minh City Traditional Medicine Hospital — Clinical AI Platform',
     description: 'Case study of a clinician-facing AI chatbot and decision-support platform built under Sang Truong’s Head of AI role at EPIC TECHNOLOGY for Ho Chi Minh City Traditional Medicine Hospital, using a single semantic-owner clinical intelligence boundary, PostgreSQL Evidence Workspace, bounded approved-corpus research, deterministic clinical authority, exact citations, and explicit validation boundaries.',
-    dateModified: '2026-09-02T15:10:00+07:00',
+    dateModified: '2026-09-02T15:55:00+07:00',
     author: { '@type': 'Person', name: 'Sang Truong', url: new URL(withBase('/about'), Astro.site).href },
     mainEntityOfPage: canonical,
     about: ['Clinical AI', 'AI agents', 'RAG', 'FastAPI', 'Next.js', 'PostgreSQL', 'Qdrant', 'Clinical decision support'],
@@ -72,6 +72,21 @@ const jsonLd = [
           loading="lazy"
           sandbox="allow-scripts"
         ></iframe>
+      </div>
+    </section>
+
+    <section class="case-section section-rule tech-section">
+      <div class="tech-heading">
+        <div><p class="eyebrow">Technology & system decisions</p><h2>The stack follows authority boundaries, not a framework checklist.</h2></div>
+        <p>Each technology has a narrow job: clinician interaction, semantic reasoning, durable evidence, derived retrieval, asynchronous work, or deployability. The architecture deliberately avoids making the LLM, vector index, or orchestration framework the system of record.</p>
+      </div>
+      <div class="tech-grid">
+        <article><span>Interaction</span><h3>Next.js · React · TypeScript</h3><p>Clinician-facing UI, streaming interaction and document-oriented workflows stay separated from clinical intelligence and persistence concerns.</p></article>
+        <article><span>Application boundary</span><h3>Python · FastAPI · AsyncIO · SSE/WebSockets</h3><p>Typed API contracts, authenticated conversation state and bounded model/tool execution provide a controllable boundary around probabilistic behavior.</p></article>
+        <article><span>Clinical intelligence</span><h3>LLMs · owned tool loop · deterministic clinical services</h3><p>The model owns language and source/tool choice; approved clinical facts, permissions and publication rules remain application-owned rather than model-redecidable.</p></article>
+        <article><span>Evidence & retrieval</span><h3>PostgreSQL · vector/hybrid search · Qdrant</h3><p>PostgreSQL is canonical for turns, observations, evidence identity and audit. Vector search is derived and rebuildable, so retrieval cannot silently become a competing memory store.</p></article>
+        <article><span>Asynchronous workflows</span><h3>Celery · RabbitMQ</h3><p>Long-running ingestion and background workloads are isolated from the clinician request path with explicit retry and failure boundaries.</p></article>
+        <article><span>Delivery & verification</span><h3>Docker · Linux · Nginx · Playwright</h3><p>Portable on-prem-oriented deployment, reverse-proxy boundaries and browser-level verification support a protected hospital environment without coupling the design to one cloud runtime.</p></article>
       </div>
     </section>
 
@@ -177,14 +192,25 @@ const jsonLd = [
   .validation-note { margin:18px 0 0; font-size:.86rem; }
   .archify-frame { overflow:hidden; border:1px solid var(--line); border-radius:22px; background:#07101d; box-shadow:0 28px 90px rgba(0,0,0,.22); }
   .archify-frame iframe { display:block; width:100%; height:820px; border:0; background:#07101d; }
+  .tech-heading { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr); gap:36px; align-items:end; margin-bottom:22px; }
+  .tech-heading h2 { margin:7px 0 0; max-width:720px; }
+  .tech-heading > p { margin:0; color:var(--muted); line-height:1.7; }
+  .tech-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+  .tech-grid article { min-height:178px; padding:19px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(180deg,rgba(76,141,255,.035),transparent); }
+  .tech-grid span { display:block; margin-bottom:10px; color:var(--muted); font:700 .66rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.08em; text-transform:uppercase; }
+  .tech-grid h3 { margin:0 0 10px; font-size:1rem; }
+  .tech-grid p { margin:0; color:var(--muted); font-size:.85rem; line-height:1.62; }
   code { font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:.92em; }
   @media (max-width:900px) {
     .archify-heading { align-items:flex-start; flex-direction:column; }
     .archify-links { justify-content:flex-start; }
     .archify-frame iframe { height:940px; }
+    .tech-heading { grid-template-columns:1fr; gap:14px; }
+    .tech-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
   }
   @media (max-width:640px) {
     .archify-frame { margin-inline:-8px; border-radius:16px; }
     .archify-frame iframe { height:1080px; }
+    .tech-grid { grid-template-columns:1fr; }
   }
 </style>
