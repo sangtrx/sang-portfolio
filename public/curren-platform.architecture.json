@@ -3,42 +3,42 @@
   "diagram_type": "architecture",
   "meta": {
     "title": "Curren Quant Intelligence Platform",
-    "subtitle": "Research evidence → signal intelligence → risk/execution → distribution & verification",
+    "subtitle": "Capability → responsibility → implementation technology",
     "quality_profile": "showcase",
     "visual_preset": "blueprint",
     "views": [
-      {"id":"research","label":"Research core","focus":["market-data","canonical-market","timeframes","primitives","event-factory","event-store","hypothesis-view","oos-selection","alpha-history","nautilus-bridge","streaming-parity"],"note":"Reusable causal primitives/events, OOS selection, immutable evidence and streaming parity."},
-      {"id":"runtime","label":"Signal runtime","focus":["source-data","signal-runtime","ml-gate","lifecycle-risk","execution","reconciliation","publication"],"note":"Operational path from normalized source data to quality-gated signal state, guarded execution and publication."},
-      {"id":"product","label":"Product surface","focus":["publication","public-read-model","api-clients","subscriber-delivery","social-factory","access","marketing"],"note":"Failure-isolated product, access and distribution surfaces consume approved projections rather than private runtime state."},
-      {"id":"full","label":"Full system","focus":[],"note":"Cross-system platform view using public-safe capability names rather than internal repository identities."}
+      {"id":"research","label":"Research core","focus":["market-data","canonical-market","timeframes","primitives","event-factory","event-store","hypothesis-view","oos-selection","alpha-history","nautilus-bridge","streaming-parity"],"note":"Rust/Python causal computation, Arrow/Parquet evidence, DuckDB/Polars views, OOS selection and execution-simulation parity."},
+      {"id":"runtime","label":"Signal runtime","focus":["source-data","signal-runtime","ml-gate","lifecycle-risk","execution","reconciliation","publication"],"note":"Python/FastAPI signal orchestration, fail-closed ML quality, durable lifecycle state, guarded venue execution and reconciliation."},
+      {"id":"product","label":"Product surface","focus":["publication","public-read-model","api-clients","subscriber-delivery","social-factory","access","marketing"],"note":"Next.js/FastAPI/product services consume approved projections and remain isolated from private trading authority."},
+      {"id":"full","label":"Full system","focus":[],"note":"Cross-system platform view showing technology choices at the capability boundary rather than repository topology."}
     ]
   },
   "components": [
-    {"id":"market-data","type":"external","label":"Exchange market data","sublabel":"closed 1m · funding · PIT availability","pos":[40,110],"size":[170,74]},
-    {"id":"canonical-market","type":"database","label":"Canonical PIT market","sublabel":"immutable raw + Parquet manifests","pos":[250,110],"size":[185,74],"tag":"research truth"},
-    {"id":"timeframes","type":"backend","label":"Shared timeframe store","sublabel":"causal resampling","pos":[475,110],"size":[180,74]},
-    {"id":"primitives","type":"backend","label":"Shared primitive store","sublabel":"ATR · RSI · OBV · pivots · regimes","pos":[695,110],"size":[195,74]},
-    {"id":"event-factory","type":"backend","label":"Causal event factory","sublabel":"Rust/Python shared core","pos":[930,105],"size":[185,84],"tag":"shared core"},
-    {"id":"event-store","type":"database","label":"Versioned PIT event store","sublabel":"partitioned Parquet · manifests · hashes","pos":[1155,105],"size":[205,84]},
-    {"id":"hypothesis-view","type":"backend","label":"Hypothesis view engine","sublabel":"predicates · joins · DuckDB agent SQL","pos":[1155,250],"size":[205,84]},
-    {"id":"oos-selection","type":"security","label":"OOF / multiplicity selection","sublabel":"purge · embargo · holdout discipline","pos":[930,250],"size":[185,84]},
-    {"id":"alpha-history","type":"database","label":"Alpha History","sublabel":"append-only pass/fail lineage","pos":[695,250],"size":[195,84]},
-    {"id":"nautilus-bridge","type":"backend","label":"Execution simulation bridge","sublabel":"orders · fills · portfolio · risk","pos":[475,250],"size":[180,84]},
-    {"id":"streaming-parity","type":"security","label":"Offline ↔ streaming parity","sublabel":"replay · restart · catch-up · identity","pos":[250,250],"size":[185,84],"tag":"release gate"},
+    {"id":"market-data","type":"external","label":"Exchange market data","sublabel":"closed bars · funding · PIT availability","tech":"Binance · Bybit APIs","pos":[40,110],"size":[170,82]},
+    {"id":"canonical-market","type":"database","label":"Canonical PIT market","sublabel":"immutable market evidence","tech":"Arrow · Parquet","pos":[250,110],"size":[185,82],"tag":"research truth"},
+    {"id":"timeframes","type":"backend","label":"Shared timeframe store","sublabel":"causal resampling","tech":"Rust · Python","pos":[475,110],"size":[180,82]},
+    {"id":"primitives","type":"backend","label":"Shared primitive store","sublabel":"ATR · RSI · OBV · pivots · regimes","tech":"Rust · Python · NumPy","pos":[695,110],"size":[195,82]},
+    {"id":"event-factory","type":"backend","label":"Causal event factory","sublabel":"shared event semantics","tech":"Rust core · Python interface","pos":[930,105],"size":[185,90],"tag":"shared core"},
+    {"id":"event-store","type":"database","label":"Versioned PIT event store","sublabel":"partitions · manifests · hashes","tech":"Arrow · Parquet","pos":[1155,105],"size":[205,90]},
+    {"id":"hypothesis-view","type":"backend","label":"Hypothesis view engine","sublabel":"predicates · joins · windows","tech":"DuckDB · Polars · Python","pos":[1155,250],"size":[205,92]},
+    {"id":"oos-selection","type":"security","label":"OOF / multiplicity selection","sublabel":"purge · embargo · holdout discipline","tech":"Python · SciPy · Statsmodels","pos":[930,250],"size":[185,92]},
+    {"id":"alpha-history","type":"database","label":"Alpha History","sublabel":"append-only pass/fail lineage","tech":"Python · Parquet manifests","pos":[695,250],"size":[195,92]},
+    {"id":"nautilus-bridge","type":"backend","label":"Execution simulation bridge","sublabel":"orders · fills · portfolio · risk","tech":"NautilusTrader","pos":[475,250],"size":[180,92]},
+    {"id":"streaming-parity","type":"security","label":"Offline ↔ streaming parity","sublabel":"replay · restart · catch-up · identity","tech":"Rust/Python replay contracts","pos":[250,250],"size":[185,92],"tag":"release gate"},
 
-    {"id":"source-data","type":"external","label":"External alpha-source data","sublabel":"normalized source observations","pos":[40,470],"size":[190,74]},
-    {"id":"signal-runtime","type":"backend","label":"Signal intelligence runtime","sublabel":"candidate parsing · scoring · state","pos":[280,465],"size":[200,84],"tag":"production"},
-    {"id":"ml-gate","type":"security","label":"ML quality gate","sublabel":"accept / block · fail closed","pos":[530,465],"size":[180,84]},
-    {"id":"lifecycle-risk","type":"backend","label":"Lifecycle & risk state","sublabel":"entry · targets · SL · P&L · recovery","pos":[760,465],"size":[195,84]},
-    {"id":"execution","type":"backend","label":"Guarded execution lane","sublabel":"intent · venue adapter · hard risk gates","pos":[1005,465],"size":[190,84]},
-    {"id":"reconciliation","type":"database","label":"Durable reconciliation","sublabel":"orders · fills · restart-safe state","pos":[1245,465],"size":[185,84]},
-    {"id":"publication","type":"security","label":"Sanitized publication boundary","sublabel":"approved read-only projection","pos":[1005,620],"size":[190,84],"tag":"one-way"},
-    {"id":"public-read-model","type":"database","label":"Public verification read model","sublabel":"immutable plan · lifecycle · outcome","pos":[1245,620],"size":[195,84]},
-    {"id":"api-clients","type":"frontend","label":"API · CLI · MCP","sublabel":"human + AI read-only clients","pos":[1245,765],"size":[195,74]},
-    {"id":"subscriber-delivery","type":"frontend","label":"Subscriber delivery","sublabel":"tiered realtime/delayed distribution","pos":[760,620],"size":[195,84]},
-    {"id":"social-factory","type":"frontend","label":"Content production pipeline","sublabel":"canonical contract → native social media","pos":[530,620],"size":[180,84]},
-    {"id":"access","type":"security","label":"Access & membership","sublabel":"onboarding · referrals · optional checkout","pos":[280,620],"size":[200,84]},
-    {"id":"marketing","type":"frontend","label":"Public web surface","sublabel":"product narrative · discovery","pos":[40,620],"size":[190,84]}
+    {"id":"source-data","type":"external","label":"External alpha-source data","sublabel":"normalized source observations","tech":"Python adapters","pos":[40,470],"size":[190,82]},
+    {"id":"signal-runtime","type":"backend","label":"Signal intelligence runtime","sublabel":"candidate parsing · scoring · state","tech":"Python · FastAPI","pos":[280,465],"size":[200,90],"tag":"production"},
+    {"id":"ml-gate","type":"security","label":"ML quality gate","sublabel":"accept / block · fail closed","tech":"LightGBM · Scikit-learn","pos":[530,465],"size":[180,90]},
+    {"id":"lifecycle-risk","type":"backend","label":"Lifecycle & risk state","sublabel":"entry · targets · SL · P&L · recovery","tech":"PostgreSQL · SQLite","pos":[760,465],"size":[195,90]},
+    {"id":"execution","type":"backend","label":"Guarded execution lane","sublabel":"intent · venue adapter · hard risk gates","tech":"Exchange APIs · idempotent workers","pos":[1005,465],"size":[190,90]},
+    {"id":"reconciliation","type":"database","label":"Durable reconciliation","sublabel":"orders · fills · restart-safe state","tech":"PostgreSQL · SQLite","pos":[1245,465],"size":[185,90]},
+    {"id":"publication","type":"security","label":"Sanitized publication boundary","sublabel":"approved read-only projection","tech":"Python · typed contracts","pos":[1005,620],"size":[190,90],"tag":"one-way"},
+    {"id":"public-read-model","type":"database","label":"Public verification read model","sublabel":"immutable plan · lifecycle · outcome","tech":"FastAPI · PostgreSQL/SQLite","pos":[1245,620],"size":[195,90]},
+    {"id":"api-clients","type":"frontend","label":"API · CLI · MCP","sublabel":"human + AI read-only clients","tech":"Python · FastAPI · MCP","pos":[1245,765],"size":[195,70]},
+    {"id":"subscriber-delivery","type":"frontend","label":"Subscriber delivery","sublabel":"tiered realtime/delayed distribution","tech":"Python · durable scheduling","pos":[760,620],"size":[195,90]},
+    {"id":"social-factory","type":"frontend","label":"Content production pipeline","sublabel":"canonical result → native social media","tech":"Python · native renderers","pos":[530,620],"size":[180,90]},
+    {"id":"access","type":"security","label":"Access & membership","sublabel":"onboarding · referrals · optional checkout","tech":"FastAPI · PostgreSQL","pos":[280,620],"size":[200,90]},
+    {"id":"marketing","type":"frontend","label":"Public web surface","sublabel":"product narrative · discovery","tech":"Next.js · TypeScript","pos":[40,620],"size":[190,90]}
   ],
   "boundaries": [
     {"kind":"region","label":"Quant research & evidence system","wraps":["market-data","canonical-market","timeframes","primitives","event-factory","event-store","hypothesis-view","oos-selection","alpha-history","nautilus-bridge","streaming-parity"],"pad":22},
@@ -72,8 +72,8 @@
     {"id":"p12","from":"marketing","to":"access","label":"conversion"}
   ],
   "cards": [
-    {"dot":"cyan","title":"Research authority","items":["Market → reusable causal primitives/events is the expensive shared step","Hypotheses query versioned event evidence instead of rescanning years of candles","No profitable strategy is claimed; new economic runs remain separately gated"]},
-    {"dot":"emerald","title":"Production boundary","items":["External alpha-source data is normalized into signal candidates without exposing source-specific internals","ML quality gating, lifecycle/risk, guarded execution and reconciliation are separate durable concerns","Research semantics and streaming regeneration are parity-gated rather than copied"]},
-    {"dot":"rose","title":"Public boundary","items":["Product/access/social clients consume approved projections only","Public API/CLI/MCP cannot place orders or reach private runtime state","Membership and payment truth do not own alpha or execution"]}
+    {"dot":"cyan","title":"Research architecture","items":["Rust handles reusable causal computation while Python remains the research/ML control plane","Arrow/Parquet form the typed cross-language evidence boundary and DuckDB/Polars query it cheaply","NautilusTrader owns execution-simulation semantics rather than notebook-specific fills"]},
+    {"dot":"emerald","title":"Production architecture","items":["FastAPI/Python own signal orchestration and LightGBM is a fail-closed quality filter, not signal authority","PostgreSQL/SQLite persist lifecycle and reconciliation state","Exchange adapters sit behind idempotent intent and hard-risk boundaries"]},
+    {"dot":"rose","title":"Product boundary","items":["Next.js/TypeScript, access services and content pipelines consume approved projections only","FastAPI API/CLI/MCP surfaces are read-only","Technology choice follows authority ownership rather than repository topology"]}
   ]
 }
