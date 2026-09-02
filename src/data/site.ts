@@ -52,7 +52,7 @@ export const capabilityDomains = [
     summary:
       'Production AI systems where retrieval, tools, memory, voice/real-time interaction, authority, safety, evaluation, and distributed application state matter as much as the model call.',
     evidence: [
-      'YHCT clinical AI: one semantic owner for request/reference/source/tool/scope, bounded approved-corpus research, durable Evidence Workspace, deterministic clinical authority and exact citations',
+      'Ho Chi Minh City Traditional Medicine Hospital clinical AI: one semantic owner for request/reference/source/tool/scope, bounded approved-corpus research, durable Evidence Workspace, deterministic clinical authority and exact citations',
       'FPT AI4U: Azure OpenAI, LangGraph/LangChain, Qdrant RAG, tool/model routing, code execution, web search, memory controls and guardrails',
       'Voice and tool workflows: multilingual Azure Speech transcription/evaluation, Vietnamese ASR/TTS, WebSockets/SSE, Playwright-based browser verification and failure handling',
     ],
@@ -76,7 +76,7 @@ export const capabilityDomains = [
     summary:
       'A research-to-production stack built around point-in-time evidence, reusable causal computation, leakage/multiplicity control, durable signal/risk state, execution/reconciliation, and public verification boundaries.',
     evidence: [
-      'Curren V9: Rust/Python causal core, Arrow/Parquet PIT evidence, shared timeframes/primitives/events, versioned event store, hypothesis views, global OOF and append-only Alpha History',
+      'Curren research: Rust/Python causal core, Arrow/Parquet PIT evidence, shared timeframes/primitives/events, versioned event store, hypothesis views, global OOF and append-only Alpha History',
       'Curren production path: normalized external alpha-source data, fail-closed ML quality gate, restart-safe lifecycle/risk, guarded execution, reconciliation and research↔streaming parity',
       'Confidential Fund + Bluebelt: equity/crypto/FX quantitative research, ML ensembles, sentiment-derived signals, AWS execution and MLflow experimentation',
     ],
@@ -100,13 +100,13 @@ export const projects = [
   {
     slug: 'yhct',
     index: '01',
-    title: 'Hospital Clinical AI Platform',
-    kicker: 'EPIC TECHNOLOGY · Ho Chi Minh City Traditional Medicine Hospital',
+    title: 'Ho Chi Minh City Traditional Medicine Hospital',
+    kicker: 'EPIC TECHNOLOGY · Clinical AI & Decision Support',
     summary:
       'A clinician-facing AI chatbot and decision-support platform with a single semantic-owner clinical-agent path, bounded approved-corpus evidence research, deterministic clinical fact authority, durable evidence state, exact citations, and explicit validation/production boundaries.',
     role: 'AI Architect / Lead Builder · EPIC TECHNOLOGY',
     year: '2026',
-    status: 'Prior protected-UAT baseline accepted · newer source-complete candidate validation pending',
+    status: 'Protected-UAT baseline accepted · latest architecture update validation pending',
     proof: ['Single semantic owner', 'PostgreSQL evidence truth', 'Deterministic clinical authority'],
     tags: ['Clinical AI', 'Agents', 'FastAPI', 'Next.js', 'PostgreSQL', 'Qdrant', 'RAG'],
     href: '/work/yhct',
@@ -118,11 +118,11 @@ export const projects = [
     title: 'Curren',
     kicker: 'Independent quantitative intelligence & trading-systems project',
     summary:
-      'A solo-built multi-system platform spanning V9 point-in-time research evidence, shared Rust/Python causal event infrastructure, OOF/multiplicity governance, real-time signal intelligence, fail-closed ML quality filtering, lifecycle/risk/execution, access/distribution, and an isolated public verification layer.',
+      'A solo-built multi-system platform spanning point-in-time research evidence, shared Rust/Python causal event infrastructure, OOF/multiplicity governance, real-time signal intelligence, fail-closed ML quality filtering, lifecycle/risk/execution, access/distribution, and an isolated public verification layer.',
     role: 'Independent AI/Quant Side Project · Solo Builder',
     year: 'Jun 2026 — Present',
-    status: 'V9 research authority active · public platform v0.4 alpha · live feed/profitable alpha not claimed',
-    proof: ['V9 causal event authority', 'Research↔streaming parity', 'Read-only API · CLI · MCP'],
+    status: 'Research evidence path active · live public feed/profitable alpha not claimed',
+    proof: ['Shared causal event evidence', 'Research↔streaming parity', 'Read-only API · CLI · MCP'],
     tags: ['Quant Research', 'Rust', 'PIT Data', 'NautilusTrader', 'MCP', 'Trading Systems'],
     href: '/work/curren',
     accent: 'cyan',
@@ -136,7 +136,7 @@ export const systemPortfolio = [
     owner: 'EPIC TECHNOLOGY · AI Architect / Lead Builder',
     summary:
       'Clinical assistant for drug/herb lookup, interaction analysis, prescription review and governed knowledge Q&A using a single semantic-owner agent path, bounded local evidence research, deterministic clinical authority, durable observation/evidence state, exact citations and auditability.',
-    signal: 'Protected-UAT baseline accepted · newer candidate validation pending',
+    signal: 'Protected-UAT baseline accepted · latest architecture update validation pending',
     href: '/work/yhct',
   },
   {
@@ -168,7 +168,7 @@ export const systemPortfolio = [
     title: 'Curren Quant Intelligence & Trading Systems',
     owner: 'Independent side project · Solo Builder',
     summary:
-      'V9 causal research evidence, versioned event/hypothesis infrastructure, OOF/selection governance, signal intelligence, ML quality gating, durable lifecycle/risk/execution, reconciliation, access/distribution, and public API/CLI/MCP verification boundaries.',
+      'Causal research evidence, versioned event/hypothesis infrastructure, OOF/selection governance, signal intelligence, ML quality gating, durable lifecycle/risk/execution, reconciliation, access/distribution, and public API/CLI/MCP verification boundaries.',
     signal: 'Research evidence → production state → public verification',
     href: '/work/curren',
   },
