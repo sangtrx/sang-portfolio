@@ -16,15 +16,15 @@ The portfolio reflects the current `Sang_Resume` architecture: one canonical chr
 
 ### Technical depth
 
-- **Applied AI / LLM / Agent Systems** — bounded agents, RAG/knowledge systems, tool/model routing, context/memory, guardrails, authority boundaries, distributed AI backends, UAT and production delivery.
+- **Applied AI / LLM / Agent Systems** — single-owner and multi-stage agents, RAG/knowledge systems, tool/model routing, durable evidence/context, guardrails, authority boundaries, distributed AI backends, UAT and production delivery.
 - **Computer Vision / Video / Edge AI** — camera/media pipelines, detection, ALPR/OCR, tracking, temporal events, video understanding, NVIDIA Jetson/TensorRT/CUDA, physical-world reliability and recovery.
-- **Quantitative Research / Trading Systems** — point-in-time data, feature/hypothesis pipelines, event studies/backtests, OOS/walk-forward validation, leakage/overfitting controls, ML selection, lifecycle/risk/execution/recovery.
+- **Quantitative Research / Trading Systems** — Rust/Python causal research cores, point-in-time Arrow/Parquet evidence, shared event stores, OOF/multiplicity controls, research/streaming parity, ML quality gates, lifecycle/risk/execution/reconciliation, and public verification boundaries.
 - **Research / Multimodal & Temporal ML** — ABN, AEI, AOE-Net, VLCAP, VLTinT, sCL-ST, CarcassFormer and peer-reviewed work across IJCV, AAAI, IEEE JBHI, Poultry Science, IEEE Access, ICIP, BMVC and IEEE BHI.
 
 ### Deep case studies
 
-- **YHCT Clinical AI Platform** — EPIC TECHNOLOGY project for Ho Chi Minh City Traditional Medicine Hospital; bounded agentic clinical AI, deterministic release-pinned authority, governed local-corpus research, durable state, protected-UAT validation and clinician-feedback stabilization.
-- **Curren** — independent AI/quant side project; point-in-time research, leakage/overfitting controls, ML selection, durable signal/risk lifecycle, guarded execution boundaries, immutable public proofs, FastAPI, CLI and MCP.
+- **YHCT Clinical AI Platform** — EPIC TECHNOLOGY project for Ho Chi Minh City Traditional Medicine Hospital; one main semantic owner for the clinician turn, bounded approved-corpus evidence research, durable PostgreSQL evidence state, deterministic clinical authority, and explicit separation between the last accepted protected-UAT baseline and a newer source-complete candidate awaiting execution validation.
+- **Curren** — independent AI/quant side project and multi-system quantitative intelligence platform; V9 causal evidence infrastructure, hypothesis/OOF/multiplicity governance, append-only Alpha History, research-to-streaming parity, signal intelligence, fail-closed ML quality gating, lifecycle/risk/execution/reconciliation, access/content distribution, and isolated API/CLI/MCP public verification. Live public feed and profitable alpha are not claimed.
 
 ### Broader selected systems
 
@@ -32,14 +32,14 @@ The portfolio reflects the current `Sang_Resume` architecture: one canonical chr
 - Production Multi-Camera Video Intelligence Platform — EPIC TECHNOLOGY.
 - AI-Powered Open edX Platform — EPIC TECHNOLOGY.
 - AI4U Enterprise Conversational Agent — FPT Software.
-- Curren Quant Research & Trading Systems — independent side project.
+- Curren Quant Intelligence & Trading Systems — independent side project.
 
 ## Stack
 
 - Astro 7 (static output)
 - TypeScript in Astro/config endpoints
 - Plain CSS, no UI framework
-- Minimal client JavaScript (theme preference only)
+- Minimal client JavaScript (theme preference plus isolated architecture-map interactions)
 - Optional Caddy container for self-hosted Linux deployment
 
 ## SEO / GEO / AI discovery
@@ -63,10 +63,22 @@ See `docs/SEO_GEO.md` for the implementation rationale and launch checklist.
 
 Public biography and chronology are reconciled against the private `sangtrx/Sang_Resume` source. The current canonical resume is `resume_master.tex`; domain depth is expanded from `cv/ai_systems_blocks.tex`, `cv/computer_vision_blocks.tex`, `cv/quant_research_blocks.tex`, and `cv/academic_blocks.tex`.
 
-Project status is intentionally sourced separately:
+Project truth is intentionally cross-checked rather than inferred from one default branch:
 
-- YHCT implementation/validation status → `docs/v3/PROJECT_STATE.yaml` in the private YHCT repository.
-- Curren public-platform status → `docs/PROJECT_STATUS.md` in the public Curren repository.
+- **YHCT** — inspect the current default branch plus the newest active candidate/PR/source path that represents the latest worktree-equivalent architecture. Separate the last validated/UAT baseline from any newer source-complete but unvalidated candidate. Current code/invariants override stale prose when they disagree.
+- **Curren** — treat the system as a cross-repository platform: canonical quant research/evidence, private signal/lifecycle/risk runtime, access/membership, content production, product-policy contracts, marketing, and public developer/read-model surfaces. Public copy describes capability/data/authority roles rather than private repository, channel, host, or package identifiers.
+- **Curren public platform** — `docs/PROJECT_STATUS.md` in the public Curren repository remains the source for API/read-model/CLI/MCP production-connectivity claims.
+
+## Public abstraction policy
+
+The public portfolio should expose enough architecture to prove senior ownership without leaking implementation trivia or private edge. Prefer stable system concepts such as:
+
+- `external alpha-source observations` instead of a named private transport/channel;
+- `signal intelligence runtime` instead of a private repository/package name;
+- `content production pipeline` instead of an internal social repository name;
+- `access & membership` instead of payment/support implementation internals.
+
+Never publish patient data, private corpus material, source-channel identities, internal host/machine names, exchange credentials, private alpha parameters, model feature definitions, operator controls, or private trading database details.
 
 ## Local development
 
