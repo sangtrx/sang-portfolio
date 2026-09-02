@@ -7,10 +7,10 @@
     "quality_profile": "showcase",
     "visual_preset": "blueprint",
     "views": [
-      {"id":"research","label":"Research core","focus":["market-data","canonical-market","timeframes","primitives","event-factory","event-store","hypothesis-view","oos-selection","alpha-history","nautilus-bridge","streaming-parity"],"note":"V9 research authority: reusable causal primitives/events, OOS selection, immutable evidence and streaming parity."},
+      {"id":"research","label":"Research core","focus":["market-data","canonical-market","timeframes","primitives","event-factory","event-store","hypothesis-view","oos-selection","alpha-history","nautilus-bridge","streaming-parity"],"note":"Reusable causal primitives/events, OOS selection, immutable evidence and streaming parity."},
       {"id":"runtime","label":"Signal runtime","focus":["source-data","signal-runtime","ml-gate","lifecycle-risk","execution","reconciliation","publication"],"note":"Operational path from normalized source data to quality-gated signal state, guarded execution and publication."},
       {"id":"product","label":"Product surface","focus":["publication","public-read-model","api-clients","subscriber-delivery","social-factory","access","marketing"],"note":"Failure-isolated product, access and distribution surfaces consume approved projections rather than private runtime state."},
-      {"id":"full","label":"Full system","focus":[],"note":"Cross-repository platform view using public-safe capability names rather than internal repository identities."}
+      {"id":"full","label":"Full system","focus":[],"note":"Cross-system platform view using public-safe capability names rather than internal repository identities."}
     ]
   },
   "components": [
@@ -18,7 +18,7 @@
     {"id":"canonical-market","type":"database","label":"Canonical PIT market","sublabel":"immutable raw + Parquet manifests","pos":[250,110],"size":[185,74],"tag":"research truth"},
     {"id":"timeframes","type":"backend","label":"Shared timeframe store","sublabel":"causal resampling","pos":[475,110],"size":[180,74]},
     {"id":"primitives","type":"backend","label":"Shared primitive store","sublabel":"ATR · RSI · OBV · pivots · regimes","pos":[695,110],"size":[195,74]},
-    {"id":"event-factory","type":"backend","label":"Causal event factory","sublabel":"Rust/Python shared core","pos":[930,105],"size":[185,84],"tag":"V9 core"},
+    {"id":"event-factory","type":"backend","label":"Causal event factory","sublabel":"Rust/Python shared core","pos":[930,105],"size":[185,84],"tag":"shared core"},
     {"id":"event-store","type":"database","label":"Versioned PIT event store","sublabel":"partitioned Parquet · manifests · hashes","pos":[1155,105],"size":[205,84]},
     {"id":"hypothesis-view","type":"backend","label":"Hypothesis view engine","sublabel":"predicates · joins · DuckDB agent SQL","pos":[1155,250],"size":[205,84]},
     {"id":"oos-selection","type":"security","label":"OOF / multiplicity selection","sublabel":"purge · embargo · holdout discipline","pos":[930,250],"size":[185,84]},
@@ -56,7 +56,7 @@
     {"id":"r8","from":"oos-selection","to":"alpha-history","variant":"security"},
     {"id":"r9","from":"oos-selection","to":"nautilus-bridge","label":"finalists"},
     {"id":"r10","from":"nautilus-bridge","to":"streaming-parity","variant":"security"},
-    {"id":"r11","from":"streaming-parity","to":"signal-runtime","label":"versioned strategy/event semantics","variant":"dashed"},
+    {"id":"r11","from":"streaming-parity","to":"signal-runtime","label":"shared strategy/event semantics","variant":"dashed"},
 
     {"id":"p1","from":"source-data","to":"signal-runtime","variant":"emphasis"},
     {"id":"p2","from":"signal-runtime","to":"ml-gate"},
@@ -72,7 +72,7 @@
     {"id":"p12","from":"marketing","to":"access","label":"conversion"}
   ],
   "cards": [
-    {"dot":"cyan","title":"Research authority","items":["V9 makes market → reusable causal primitives/events the expensive shared step","Hypotheses query versioned event evidence instead of rescanning years of candles","No profitable strategy is claimed; new economic runs remain authorization-gated"]},
+    {"dot":"cyan","title":"Research authority","items":["Market → reusable causal primitives/events is the expensive shared step","Hypotheses query versioned event evidence instead of rescanning years of candles","No profitable strategy is claimed; new economic runs remain separately gated"]},
     {"dot":"emerald","title":"Production boundary","items":["External alpha-source data is normalized into signal candidates without exposing source-specific internals","ML quality gating, lifecycle/risk, guarded execution and reconciliation are separate durable concerns","Research semantics and streaming regeneration are parity-gated rather than copied"]},
     {"dot":"rose","title":"Public boundary","items":["Product/access/social clients consume approved projections only","Public API/CLI/MCP cannot place orders or reach private runtime state","Membership and payment truth do not own alpha or execution"]}
   ]
