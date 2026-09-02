@@ -7,12 +7,12 @@ const jsonLd = [
   {
     '@type': 'Article',
     '@id': `${canonical}#case-study`,
-    headline: 'YHCT Clinical AI Platform — owned-orchestration clinical AI',
-    description: 'Case study of a clinician-facing AI chatbot and decision-support platform built under Sang Truong’s Head of AI role at EPIC TECHNOLOGY for Ho Chi Minh City Traditional Medicine Hospital, using a V4 owned-orchestration boundary, PostgreSQL Evidence Workspace, bounded local-corpus research, deterministic clinical authority, conditional claim/evidence verification, and protected-UAT acceptance.',
-    dateModified: '2026-09-01T16:04:00+07:00',
+    headline: 'YHCT Clinical AI Platform — single-owner clinical intelligence architecture',
+    description: 'Case study of a clinician-facing AI chatbot and decision-support platform built under Sang Truong’s Head of AI role at EPIC TECHNOLOGY for Ho Chi Minh City Traditional Medicine Hospital, using a single semantic-owner V4 intelligence boundary, PostgreSQL Evidence Workspace, bounded local-corpus research, deterministic clinical authority, exact citations, and explicit validation boundaries.',
+    dateModified: '2026-09-02T14:24:00+07:00',
     author: { '@type': 'Person', name: 'Sang Truong', url: new URL(withBase('/about'), Astro.site).href },
     mainEntityOfPage: canonical,
-    about: ['Clinical AI', 'AI agents', 'RAG', 'FastAPI', 'Next.js', 'PostgreSQL', 'Qdrant', 'Protected UAT'],
+    about: ['Clinical AI', 'AI agents', 'RAG', 'FastAPI', 'Next.js', 'PostgreSQL', 'Qdrant', 'Clinical decision support'],
   },
   {
     '@type': 'BreadcrumbList',
@@ -24,8 +24,8 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="YHCT Clinical AI Platform — V4 Clinical AI Architecture | Sang Truong"
-  description="Deep technical case study of the EPIC TECHNOLOGY project for Ho Chi Minh City Traditional Medicine Hospital: V4 owned orchestration, PostgreSQL Evidence Workspace, bounded local-corpus research, deterministic clinical authority, conditional verification, and protected-UAT acceptance."
+  title="YHCT Clinical AI Platform — Clinical Agent Architecture | Sang Truong"
+  description="Deep technical case study of the EPIC TECHNOLOGY project for Ho Chi Minh City Traditional Medicine Hospital: single-owner V4 clinical intelligence, bounded evidence research, deterministic clinical authority, durable evidence state, and explicit UAT/validation boundaries."
   image="og-yhct.png"
   pageType="article"
   jsonLd={jsonLd}
@@ -35,38 +35,38 @@ const jsonLd = [
     <header class="case-hero">
       <p class="eyebrow">Case Study 01 · EPIC TECHNOLOGY · Clinical AI · 2026</p>
       <h1>YHCT Clinical AI Platform</h1>
-      <p class="case-lede">Under my Head of Artificial Intelligence role at EPIC TECHNOLOGY, I architected and built the Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform: a clinician-facing system where the model owns semantic understanding and synthesis, while clinical facts, provenance, durable state, permissions, and publication safety remain explicit.</p>
+      <p class="case-lede">Under my Head of Artificial Intelligence role at EPIC TECHNOLOGY, I architected and built the Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform. The latest V4 design gives one main clinical agent semantic ownership of the clinician turn while keeping clinical facts, evidence, permissions, persistence, provenance and publication safety under deterministic application control.</p>
       <div class="case-meta">
         <div><span>Role</span><strong>AI Architect / Lead Builder · EPIC TECHNOLOGY</strong></div>
-        <div><span>Architecture</span><strong>V4 Clinical Notebook · owned orchestration</strong></div>
-        <div><span>Stage</span><strong>Protected UAT accepted · clinician-feedback phase</strong></div>
+        <div><span>Architecture</span><strong>Single semantic owner · bounded evidence research · deterministic clinical authority</strong></div>
+        <div><span>Validation</span><strong>Prior protected-UAT baseline accepted · newer source-complete candidate awaiting exact-candidate execution validation</strong></div>
       </div>
-      <p class="case-verified">Architecture verified against the canonical V4 project state and architecture decision: <time datetime="2026-08-28">28 Aug 2026</time>.</p>
+      <p class="case-verified">Reviewed against the latest active V4 source candidate and current implementation boundary on <time datetime="2026-09-02">2 Sep 2026</time>. Source completeness and runtime validation are deliberately reported separately.</p>
     </header>
 
-    <section class="evidence-band" aria-label="Recorded validation evidence">
-      <div><strong>338 passed</strong><span>focused backend validation on the owned-orchestration candidate</span></div>
-      <div><strong>301 passed</strong><span>full V4 backend test set recorded by project state</span></div>
-      <div><strong>Frontend green</strong><span>3 tests + lint + typecheck + production build</span></div>
-      <div><strong>Protected UAT</strong><span>accepted on V4 owned orchestration; production/HIS not authorized</span></div>
+    <section class="evidence-band" aria-label="YHCT current evidence boundary">
+      <div><strong>UAT baseline</strong><span>the prior owned-orchestration V4 baseline was accepted in protected clinician UAT</span></div>
+      <div><strong>Source complete</strong><span>a newer V4 candidate consolidates the single-semantic-owner path; execution validation is still pending</span></div>
+      <div><strong>One owner</strong><span>the main clinical agent owns request, reference, source/tool choice and answer scope semantics</span></div>
+      <div><strong>No production claim</strong><span>production and hospital-information-system integration remain outside the authorized boundary</span></div>
     </section>
 
     <section class="case-section archify-section" aria-labelledby="architecture-map-title">
       <div class="archify-heading">
         <div>
           <p class="eyebrow">Interactive architecture map</p>
-          <h2 id="architecture-map-title">The current V4 runtime, not the earlier graph wrapper.</h2>
+          <h2 id="architecture-map-title">Semantic freedom inside a deliberately narrow authority boundary.</h2>
         </div>
         <div class="archify-links">
           <a href={withBase('/yhct-v4-architecture.html')} target="_blank" rel="noreferrer">Open fullscreen ↗</a>
-          <a href={withBase('/yhct-v4.architecture.json')} target="_blank" rel="noreferrer">Archify JSON ↗</a>
+          <a href={withBase('/yhct-v4.architecture.json')} target="_blank" rel="noreferrer">Architecture JSON ↗</a>
         </div>
       </div>
-      <p class="archify-note">Built from the current YHCT V4 architecture using the Archify v2.13 typed architecture contract. The embedded map exposes focused views for the primary clinician turn, evidence research, and clinical-authority path.</p>
+      <p class="archify-note">The public map uses capability-level names instead of internal PR, branch, host or operator identifiers. Focused views isolate the clinician turn, evidence-research path and deterministic clinical-authority path.</p>
       <div class="archify-frame">
         <iframe
           src={withBase('/yhct-v4-architecture.html')}
-          title="Interactive YHCT V4 Clinical Notebook architecture map"
+          title="Interactive YHCT V4 clinical intelligence architecture"
           loading="lazy"
           sandbox="allow-scripts"
         ></iframe>
@@ -74,103 +74,105 @@ const jsonLd = [
     </section>
 
     <section class="case-section case-grid">
-      <div><p class="eyebrow">Problem</p><h2>Clinical AI cannot rely on fluent answers alone.</h2></div>
+      <div><p class="eyebrow">Problem</p><h2>A hospital assistant cannot let fluent prose become clinical truth.</h2></div>
       <div class="case-copy">
-        <p>A useful clinician assistant has to accept natural language, prescriptions, tables, and documents while keeping track of what it actually knows, which approved source or deterministic tool owns each fact, what state persists between turns, and what happens when evidence is incomplete or conflicting.</p>
-        <p>The hard problem was not “add an LLM to a hospital UI.” It was designing useful semantic freedom without letting probabilistic prose silently become authoritative clinical logic.</p>
+        <p>A useful clinician assistant must understand natural Vietnamese follow-ups, prescriptions, tables and documents while remembering exactly what was observed, which approved source or clinical service owns each fact, what evidence remains valid across turns, and what happens when evidence is missing or inconsistent.</p>
+        <p>The difficult architecture problem is therefore not “add an LLM to a medical UI.” It is deciding where probabilistic semantic reasoning is valuable and where it must stop.</p>
       </div>
     </section>
 
     <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">My ownership</p><h2>One explicit intelligence boundary on top of a proven hospital platform.</h2></div>
+      <div><p class="eyebrow">My ownership</p><h2>One clinician-intelligence path on top of a proven hospital application shell.</h2></div>
       <div class="ownership-list">
-        <article><strong>V4 intelligence composition</strong><p>Consolidated model-visible wiring into <code>app.v4.composition</code>: Evidence Workspace context, research, observation recall, tool registry, model budget, and answer-publication policy. The shared platform chooses the V4 root but does not reassemble its internal intelligence pieces.</p></article>
-        <article><strong>Clinical authority model</strong><p>Kept interaction findings, prescription findings, entity mappings, severity/rating fields, and approved release identity deterministic. The model can decide when to call tools and explain results, but cannot invert or override those facts.</p></article>
-        <article><strong>Evidence and retrieval</strong><p>Made PostgreSQL canonical for conversation/evidence/audit state, with Qdrant treated as derived and rebuildable search state. Runtime research is bounded to the approved local corpus and selected evidence is rebound to canonical source/version metadata.</p></article>
-        <article><strong>Publication and operational safety</strong><p>Moved answer breadth into the main FINAL decision, retained conditional claim/evidence verification where source-grounded prose requires it, and kept deterministic grounding guards, exact-SHA gates, explicit rollback, and protected-UAT boundaries.</p></article>
+        <article><strong>Clinical intelligence composition</strong><p>Consolidated model-visible context, research, exact-handle observation recall, executable tools, model-round budgets, deadline policy and answer publication into one V4-owned composition boundary rather than spreading semantic decisions across multiple framework layers.</p></article>
+        <article><strong>Single semantic owner</strong><p>The current candidate removes a separate contextual-intent preflight from the V4 path. The main agent resolves clinician intent, references, source needs, tool choice and answer scope itself, avoiding two semantic components that can disagree about the same turn.</p></article>
+        <article><strong>Clinical fact authority</strong><p>Interaction findings, prescription findings, approved entity mappings, severity/rating fields and release identity remain deterministic. The agent may decide when to call a clinical tool and how to explain the result, but it cannot invert or override approved facts.</p></article>
+        <article><strong>Evidence, publication and reliability</strong><p>Made durable evidence state canonical in PostgreSQL, kept vector search derived and rebuildable, bounded local-corpus research, treated retrieved content as data rather than instructions, and retained conditional exact-support verification plus deterministic guards before publication.</p></article>
       </div>
     </section>
 
     <section class="case-section section-rule">
-      <p class="eyebrow">Current runtime path</p>
+      <p class="eyebrow">Runtime contract</p>
       <div class="contract-grid">
-        <div class="code-card"><span class="code-comment">// one model-visible composition root</span><strong>shared platform → app.v4.composition</strong><span class="code-comment">// mature bounded model → tool → observation → model kernel</span></div>
-        <div class="principle-card"><span>MODEL</span><strong>language · reference resolution · research planning · answer scope</strong><span>APPLICATION / APPROVED DATA</span><strong>contracts · permissions · persistence · provenance · clinical facts</strong></div>
+        <div class="code-card"><span class="code-comment">// one semantic owner per clinician turn</span><strong>clinician → main agent ↔ approved tools/evidence → guarded publication</strong><span class="code-comment">// bounded rounds, bounded research, bounded deadline</span></div>
+        <div class="principle-card"><span>MODEL</span><strong>language · references · research planning · tool/source choice · answer scope</strong><span>APPLICATION / APPROVED DATA</span><strong>permissions · persistence · provenance · contracts · deterministic clinical facts</strong></div>
       </div>
     </section>
 
     <section class="case-section section-rule">
       <p class="eyebrow">Architecture decisions</p>
       <div class="decision-grid decision-grid-3">
-        <article><span>01</span><h3>Owned orchestration</h3><p><code>app.v4.composition</code> is the single V4 model-visible intelligence root. This removes overlapping control surfaces across Evidence Workspace, research, recall, publication, and verification.</p></article>
-        <article><span>02</span><h3>No ceremonial graph</h3><p>The former LangGraph runtime was only <code>START → execute_turn → END</code> and owned no meaningful branch, checkpoint, research, tool, or publication transition, so it was removed from the active protected-UAT path.</p></article>
-        <article><span>03</span><h3>PostgreSQL is canonical</h3><p>Conversations, durable turns, structured observations, Evidence Workspace state, claim/evidence references, publication metadata, audit, and ACL state remain canonical in PostgreSQL.</p></article>
-        <article><span>04</span><h3>Qdrant is derived</h3><p>Vector/hybrid search state is rebuildable and cannot become a competing clinical memory truth. Evidence published to clinicians is rebound to authorized canonical source/version metadata.</p></article>
-        <article><span>05</span><h3>Bounded local research</h3><p>Semantic planning can fan out across approved-corpus retrieval, dedupe and curate evidence, assess sufficiency, and perform at most one targeted refinement. Clinician runtime has no live-web fetch path.</p></article>
-        <article><span>06</span><h3>Single-pass answer scope</h3><p>Answer breadth is part of the original FINAL instruction. The old post-hoc answer-contract model round and verifier scope-repair loop are removed; source-grounded prose gets conditional claim/evidence verification only when needed.</p></article>
+        <article><span>01</span><h3>One semantic owner</h3><p>The main agent owns the semantic turn. A separate intent classifier/router no longer constrains V4 before the main decision, reducing control-loop disagreement.</p></article>
+        <article><span>02</span><h3>Owned composition boundary</h3><p>V4 owns its context projection, research executor, recall contract, executable tool surface, model budget and publication behavior; shared application code stays focused on transport, auth, persistence and mature bounded kernels.</p></article>
+        <article><span>03</span><h3>No ceremonial graph</h3><p>A previous graph wrapper added no meaningful state transition beyond delegating one turn, so the active design prefers the simpler bounded application kernel unless a future multi-transition state machine earns the complexity.</p></article>
+        <article><span>04</span><h3>PostgreSQL is canonical</h3><p>Conversation turns, typed clinical observations, evidence references, source/version metadata, audit and owner/ACL state remain canonical durable truth.</p></article>
+        <article><span>05</span><h3>Search is derived</h3><p>Vector/hybrid retrieval accelerates approved-corpus research but cannot become competing clinical memory. Published evidence is rebound to canonical authorized source/version identity.</p></article>
+        <article><span>06</span><h3>Evidence is data</h3><p>Retrieved documents and tool payloads can inform the model but never act as instructions that override the system’s tool, permission, clinical-authority or publication contracts.</p></article>
       </div>
     </section>
 
     <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">Evidence Workspace</p><h2>Conversation prose is context; persisted typed evidence is authority.</h2></div>
+      <div><p class="eyebrow">Evidence Workspace</p><h2>Chat history is linguistic context; persisted observations are the clinical notebook.</h2></div>
       <div class="case-copy">
-        <p>V4 treats persisted structured observations and exact evidence handles as the authoritative memory available to semantic follow-up. Generic recall remains owner/conversation scoped; the system does not introduce one phrase-specific tool for each Vietnamese wording pattern.</p>
-        <p>This is the key difference between “chat history as memory” and a clinical notebook: language remains flexible, while durable evidence and fact ownership stay inspectable.</p>
+        <p>V4 projects typed prior observations and exact evidence into the next clinician turn. Follow-up resolution stays generic and owner/conversation scoped rather than adding a phrase-specific function for every Vietnamese wording pattern.</p>
+        <p>This lets the model understand “cái thuốc lúc nãy” or a narrow follow-up semantically while the system still knows which persisted observation and source handle can actually support the answer.</p>
       </div>
     </section>
 
     <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">Answer publication</p><h2>Extra model calls are conditional, not architectural ceremony.</h2></div>
+      <div><p class="eyebrow">Bounded evidence research</p><h2>Search enough to answer; stop before research becomes an uncontrolled agent.</h2></div>
+      <div class="case-copy">
+        <p>For knowledge-grounded questions, the main turn can delegate a bounded research objective over the approved local corpus. The research path plans a small set of semantic queries, retrieves in parallel, deduplicates and curates evidence, assesses sufficiency, and permits at most one targeted refinement before returning a compact evidence pack.</p>
+        <p>The clinician runtime does not browse arbitrary live websites. This makes provenance, latency, source governance and reproducibility explicit rather than mixing them with open-ended web exploration.</p>
+      </div>
+    </section>
+
+    <section class="case-section section-rule case-grid">
+      <div><p class="eyebrow">Answer publication</p><h2>Verification supports the main decision; it does not become another semantic brain.</h2></div>
       <div class="capability-grid">
-        <article><h3>General / non-grounded</h3><p>The main-agent FINAL can go through deterministic application guards and publish without a second semantic classification round.</p></article>
-        <article><h3>Deterministic clinical support</h3><p>Pure clinical-tool or compute-supported answers retain a verifier zero-extra-model-call fast path before deterministic grounding guards.</p></article>
-        <article><h3>Corpus / document / mixed</h3><p>Source-grounded prose passes through the bounded claim/evidence verifier before publication when evidence semantics require it.</p></article>
-        <article><h3>Persisted output</h3><p>Published answers keep citations, exact provenance and durable state rather than treating the model response as the system of record.</p></article>
-      </div>
-    </section>
-
-    <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">Current phase</p><h2>Protected UAT accepted; clinician feedback continues on the simpler boundary.</h2></div>
-      <div class="case-copy">
-        <p>The project state records the V4 owned-orchestration candidate as BigLinux validated and accepted in protected UAT, with semantic Vietnamese understanding, follow-up reference resolution, bounded agentic research, evidence sufficiency/refinement, narrow-answer behavior, multi-source synthesis, claim-to-evidence grounding, exact provenance, deterministic clinical authority, and durable evidence memory all recorded as implemented and correct for the protected-UAT path.</p>
-        <p>Release-validation work such as a dedicated runtime cross-encoder reranker, full shadow-corpus reindex, broader benchmark campaigns, and post-stabilization optimization remains deliberately separate from the clinician runtime. Production and HIS remain out of scope.</p>
+        <article><h3>Main FINAL owns scope</h3><p>Narrow questions stay narrow and bounded lists stay bounded in the original main-agent response rather than being reclassified by a second semantic controller.</p></article>
+        <article><h3>Deterministic fast path</h3><p>Pure clinical-tool or compute-supported answers can pass deterministic grounding/application guards without an unnecessary extra model round.</p></article>
+        <article><h3>Source-grounded verification</h3><p>Corpus/document/mixed prose can receive a bounded exact-support check before publication where evidence semantics actually require it.</p></article>
+        <article><h3>Durable answer record</h3><p>Published output retains citations, source identity and durable state; the assistant’s prose is not itself the system of record.</p></article>
       </div>
     </section>
 
     <section class="case-section section-rule">
-      <p class="eyebrow">Recorded validation state · 2026-08-28</p>
-      <div class="status-table" role="table" aria-label="YHCT V4 validation status">
-        <div role="row"><span role="cell">Owned-orchestration protected UAT</span><strong role="cell" class="status-ok">Accepted</strong></div>
-        <div role="row"><span role="cell">Focused backend tests</span><strong role="cell" class="status-ok">338 passed</strong></div>
-        <div role="row"><span role="cell">Full V4 backend tests</span><strong role="cell" class="status-ok">301 passed</strong></div>
-        <div role="row"><span role="cell">Frontend validation</span><strong role="cell" class="status-ok">3 passed · lint · typecheck · production build</strong></div>
-        <div role="row"><span role="cell">Migration chain</span><strong role="cell" class="status-ok">0001 → 0025 · single head</strong></div>
-        <div role="row"><span role="cell">Semantic hardcode scan</span><strong role="cell" class="status-ok">Passed</strong></div>
+      <p class="eyebrow">Validation state · reviewed 2026-09-02</p>
+      <div class="status-table" role="table" aria-label="YHCT validation status">
+        <div role="row"><span role="cell">Prior owned-orchestration protected-UAT baseline</span><strong role="cell" class="status-ok">Accepted</strong></div>
+        <div role="row"><span role="cell">Newer single-semantic-owner source candidate</span><strong role="cell" class="status-wip">Source complete · exact-candidate execution validation pending</strong></div>
+        <div role="row"><span role="cell">Semantic ownership</span><strong role="cell" class="status-ok">Main agent owns request / reference / source / tool / scope</strong></div>
+        <div role="row"><span role="cell">Clinical authority</span><strong role="cell" class="status-ok">Deterministic approved facts remain non-redecidable</strong></div>
+        <div role="row"><span role="cell">Evidence state</span><strong role="cell" class="status-ok">PostgreSQL canonical · vector search derived</strong></div>
         <div role="row"><span role="cell">Production / HIS authorization</span><strong role="cell">Not authorized · not claimed</strong></div>
       </div>
+      <p class="validation-note">Historical test counts from the accepted baseline are intentionally not presented as proof for the newer candidate because validation evidence does not transfer across a changed source revision.</p>
     </section>
 
     <section class="case-section demo-placeholder">
       <div>
-        <p class="eyebrow">Public demo boundary</p>
-        <h2>Sanitized proof, never hospital production.</h2>
-        <p>A public demo should use synthetic prescriptions, sanitized knowledge, isolated credentials, no patient data, no production hospital integration, no private admin surface, and explicit rate limits. The protected hospital UAT environment itself is not the portfolio demo.</p>
+        <p class="eyebrow">Public disclosure boundary</p>
+        <h2>Show architecture and evidence, never hospital internals.</h2>
+        <p>The portfolio omits patient data, private corpus contents, credentials, internal hosts, exact deployment identifiers, transient candidate SHAs and operator-only runbooks. A future public demo should use synthetic prescriptions, sanitized knowledge and isolated credentials rather than exposing the protected hospital environment.</p>
       </div>
-      <span class="status-pill">Demo not public yet</span>
+      <span class="status-pill">Protected environment is not a public demo</span>
     </section>
   </article>
 </BaseLayout>
 
 <style>
-  .archify-section { padding-top: 22px; }
+  .archify-section { padding-top:22px; }
   .archify-heading { display:flex; justify-content:space-between; align-items:end; gap:28px; margin-bottom:12px; }
   .archify-heading h2 { margin:7px 0 0; max-width:780px; }
   .archify-links { display:flex; flex-wrap:wrap; gap:9px; justify-content:flex-end; }
   .archify-links a { padding:9px 11px; border:1px solid var(--line); border-radius:10px; color:var(--muted); font-size:.76rem; font-weight:700; text-decoration:none; }
-  .archify-links a:hover { color:var(--text); border-color:rgba(32,184,255,.48); }
-  .archify-note { max-width:880px; margin:0 0 18px; color:var(--muted); }
-  .archify-frame { overflow:hidden; border:1px solid var(--line); border-radius:22px; background:#050913; box-shadow:0 28px 90px rgba(0,0,0,.24); }
-  .archify-frame iframe { display:block; width:100%; height:820px; border:0; background:#050913; }
+  .archify-links a:hover { color:var(--text); border-color:rgba(76,141,255,.48); }
+  .archify-note,.validation-note { max-width:900px; color:var(--muted); }
+  .archify-note { margin:0 0 18px; }
+  .validation-note { margin:18px 0 0; font-size:.86rem; }
+  .archify-frame { overflow:hidden; border:1px solid var(--line); border-radius:22px; background:#07101d; box-shadow:0 28px 90px rgba(0,0,0,.22); }
+  .archify-frame iframe { display:block; width:100%; height:820px; border:0; background:#07101d; }
   code { font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:.92em; }
   @media (max-width:900px) {
     .archify-heading { align-items:flex-start; flex-direction:column; }
@@ -179,6 +181,6 @@ const jsonLd = [
   }
   @media (max-width:640px) {
     .archify-frame { margin-inline:-8px; border-radius:16px; }
-    .archify-frame iframe { height:1120px; }
+    .archify-frame iframe { height:1080px; }
   }
 </style>
