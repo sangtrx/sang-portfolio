@@ -52,8 +52,8 @@ export const capabilityDomains = [
     summary:
       'Production AI systems where retrieval, tools, memory, voice/real-time interaction, authority, safety, evaluation, and distributed application state matter as much as the model call.',
     evidence: [
-      'YHCT hospital clinical AI: bounded agent loop, governed corpus, deterministic clinical authority, durable state, exact citations, UAT gates',
-      'FPT AI4U: Azure OpenAI, LangGraph/LangChain, Qdrant RAG, tool/model routing, code execution, web search, memory controls, guardrails',
+      'YHCT clinical AI: one semantic owner for request/reference/source/tool/scope, bounded approved-corpus research, durable Evidence Workspace, deterministic clinical authority and exact citations',
+      'FPT AI4U: Azure OpenAI, LangGraph/LangChain, Qdrant RAG, tool/model routing, code execution, web search, memory controls and guardrails',
       'Voice and tool workflows: multilingual Azure Speech transcription/evaluation, Vietnamese ASR/TTS, WebSockets/SSE, Playwright-based browser verification and failure handling',
     ],
     stack: 'FastAPI · LangGraph · LangChain · Azure OpenAI · Azure Speech · Qdrant · Milvus · pgvector · Playwright · Celery · RabbitMQ · Redis · PostgreSQL · Docker',
@@ -74,13 +74,13 @@ export const capabilityDomains = [
     index: '03',
     title: 'Quantitative Research · Trading Systems',
     summary:
-      'Research infrastructure built around point-in-time data, reproducible hypotheses, leakage-aware validation, ML selection, portfolio/risk evaluation, and durable live-system state.',
+      'A research-to-production stack built around point-in-time evidence, reusable causal computation, leakage/multiplicity control, durable signal/risk state, execution/reconciliation, and public verification boundaries.',
     evidence: [
-      'Curren: point-in-time data lineage, reusable feature/hypothesis pipelines, event studies/backtests, OOS validation, lifecycle/risk/recovery, public API/CLI/MCP',
-      'Confidential Fund: equity alpha research with LightGBM/XGBoost ensembles, sentiment-derived signals, AWS execution, MLflow tracking',
-      'Bluebelt Group: cryptocurrency/FX signal infrastructure and market-data ML experimentation',
+      'Curren V9: Rust/Python causal core, Arrow/Parquet PIT evidence, shared timeframes/primitives/events, versioned event store, hypothesis views, global OOF and append-only Alpha History',
+      'Curren production path: normalized external alpha-source data, fail-closed ML quality gate, restart-safe lifecycle/risk, guarded execution, reconciliation and research↔streaming parity',
+      'Confidential Fund + Bluebelt: equity/crypto/FX quantitative research, ML ensembles, sentiment-derived signals, AWS execution and MLflow experimentation',
     ],
-    stack: 'Python · Polars · Pandas · PyArrow/Parquet · DuckDB · LightGBM · CatBoost · XGBoost · SciPy · Statsmodels · Optuna · NautilusTrader',
+    stack: 'Rust · Python · Arrow · PyArrow/Parquet · Polars · DuckDB · LightGBM · CatBoost · XGBoost · SciPy · Statsmodels · Optuna · NautilusTrader',
   },
   {
     index: '04',
@@ -103,11 +103,11 @@ export const projects = [
     title: 'Hospital Clinical AI Platform',
     kicker: 'EPIC TECHNOLOGY · Ho Chi Minh City Traditional Medicine Hospital',
     summary:
-      'A clinician-facing AI chatbot and decision-support platform with a bounded interleaved agent loop, governed local-corpus research, clinical tools, deterministic release-pinned clinical authority, durable conversation state, provider portability, and explicit provenance/evidence boundaries.',
+      'A clinician-facing AI chatbot and decision-support platform with a single semantic-owner clinical-agent path, bounded approved-corpus evidence research, deterministic clinical fact authority, durable evidence state, exact citations, and explicit validation/production boundaries.',
     role: 'AI Architect / Lead Builder · EPIC TECHNOLOGY',
     year: '2026',
-    status: 'Protected UAT · clinician-feedback stabilization',
-    proof: ['7-turn provenance acceptance passed', '1,018-test backend suite collected', '303 source files under strict mypy'],
+    status: 'Prior protected-UAT baseline accepted · newer source-complete candidate validation pending',
+    proof: ['Single semantic owner', 'PostgreSQL evidence truth', 'Deterministic clinical authority'],
     tags: ['Clinical AI', 'Agents', 'FastAPI', 'Next.js', 'PostgreSQL', 'Qdrant', 'RAG'],
     href: '/work/yhct',
     accent: 'blue',
@@ -116,14 +116,14 @@ export const projects = [
     slug: 'curren',
     index: '02',
     title: 'Curren',
-    kicker: 'Independent quantitative research & trading-systems project',
+    kicker: 'Independent quantitative intelligence & trading-systems project',
     summary:
-      'A solo-built multi-repository research and trading-systems stack spanning point-in-time market data, reusable feature/hypothesis pipelines, leakage-controlled validation, ML quality filtering, signal lifecycle, guarded execution, access/product surfaces, and a verifiable public API/CLI/MCP layer.',
+      'A solo-built multi-system platform spanning V9 point-in-time research evidence, shared Rust/Python causal event infrastructure, OOF/multiplicity governance, real-time signal intelligence, fail-closed ML quality filtering, lifecycle/risk/execution, access/distribution, and an isolated public verification layer.',
     role: 'Independent AI/Quant Side Project · Solo Builder',
     year: 'Jun 2026 — Present',
-    status: 'Public platform v0.4 alpha · live public feed not claimed',
-    proof: ['PIT research contract', 'Read-only API · CLI · MCP', 'Immutable plan/result proofs'],
-    tags: ['Quant Research', 'PIT Data', 'FastAPI', 'MCP', 'Python', 'Trading Systems'],
+    status: 'V9 research authority active · public platform v0.4 alpha · live feed/profitable alpha not claimed',
+    proof: ['V9 causal event authority', 'Research↔streaming parity', 'Read-only API · CLI · MCP'],
+    tags: ['Quant Research', 'Rust', 'PIT Data', 'NautilusTrader', 'MCP', 'Trading Systems'],
     href: '/work/curren',
     accent: 'cyan',
   },
@@ -135,8 +135,8 @@ export const systemPortfolio = [
     title: 'Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform',
     owner: 'EPIC TECHNOLOGY · AI Architect / Lead Builder',
     summary:
-      'Clinical assistant for drug/herb lookup, interaction analysis, prescription review, governed knowledge Q&A, contextual follow-up, exact citations, role-scoped state, auditability, and explicit clinical authority boundaries.',
-    signal: 'Protected hospital UAT',
+      'Clinical assistant for drug/herb lookup, interaction analysis, prescription review and governed knowledge Q&A using a single semantic-owner agent path, bounded local evidence research, deterministic clinical authority, durable observation/evidence state, exact citations and auditability.',
+    signal: 'Protected-UAT baseline accepted · newer candidate validation pending',
     href: '/work/yhct',
   },
   {
@@ -165,11 +165,11 @@ export const systemPortfolio = [
   },
   {
     period: 'Jun 2026 — Present',
-    title: 'Curren Quant Research & Trading Systems',
+    title: 'Curren Quant Intelligence & Trading Systems',
     owner: 'Independent side project · Solo Builder',
     summary:
-      'Point-in-time research factory, reproducible validation, ML quality selection, monitored signal lifecycle and guarded execution, plus FastAPI, CLI, MCP, access/payment, and proof/distribution surfaces.',
-    signal: 'Research → production → public verification',
+      'V9 causal research evidence, versioned event/hypothesis infrastructure, OOF/selection governance, signal intelligence, ML quality gating, durable lifecycle/risk/execution, reconciliation, access/distribution, and public API/CLI/MCP verification boundaries.',
+    signal: 'Research evidence → production state → public verification',
     href: '/work/curren',
   },
 ];
@@ -182,10 +182,10 @@ export const experience = [
     summary:
       'Leading architecture and delivery across clinical AI, education AI, production computer vision/video intelligence, and AI platform engineering; owning requirements decomposition, data/model contracts, APIs, authority boundaries, deployment, testing, observability, and stakeholder acceptance.',
     details: [
-      'Built the Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform for UAT, covering conversational drug/herb lookup, interaction analysis, prescription review, governed knowledge Q&A, contextual follow-up, exact citations, role-scoped state, and auditability.',
+      'Built the Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform, including a single semantic-owner clinical-agent path, bounded approved-corpus research, deterministic clinical authority, durable evidence state, exact citations, role-scoped access and auditability.',
       'Built an AI-powered Open edX platform with teacher-reviewable course generation, Milvus-backed AI tutoring, secure question context and answer-key handling, Vietnamese ASR/TTS, WebSockets, Live2D interaction, OLX automation, Tutor/Docker/Nginx operations, and Playwright verification.',
       'Built and operate a production multi-camera AI program with video acquisition, stream normalization, YOLO11 detection, Vietnamese ALPR, ByteTrack tracking, temporal event logic, evidence capture, monitoring, and automated recovery.',
-      'Technologies include Python, FastAPI, AsyncIO, WebSockets/SSE, Next.js, React, PostgreSQL, pgvector, RabbitMQ, Celery, Open edX, Tutor/Django, Milvus, LangChain/LLMs, ASR/TTS, PyTorch, ONNX Runtime, OpenCV, YOLO11, Fast-ALPR, ByteTrack, MediaMTX, Docker, Nginx, Linux, and Playwright.',
+      'Technologies include Python, FastAPI, AsyncIO, WebSockets/SSE, Next.js, React, PostgreSQL, pgvector/Qdrant, RabbitMQ, Celery, Open edX, Tutor/Django, Milvus, LangChain/LLMs, ASR/TTS, PyTorch, ONNX Runtime, OpenCV, YOLO11, Fast-ALPR, ByteTrack, MediaMTX, Docker, Nginx, Linux, and Playwright.',
     ],
   },
   {
@@ -313,7 +313,7 @@ export const skillGroups = [
   },
   {
     title: 'Quantitative ML & research data',
-    items: ['Point-in-time data', 'event studies/backtesting', 'OOS/walk-forward validation', 'LightGBM', 'CatBoost', 'XGBoost', 'Scikit-learn', 'Polars', 'PyArrow/Parquet', 'DuckDB', 'SciPy', 'Statsmodels', 'Optuna', 'MLflow'],
+    items: ['Rust/Python causal core', 'Point-in-time data', 'Arrow/PyArrow/Parquet', 'versioned event stores', 'global OOF', 'purge/embargo', 'multiple-testing controls', 'Alpha History', 'LightGBM', 'CatBoost', 'XGBoost', 'Scikit-learn', 'Polars', 'DuckDB', 'SciPy', 'Statsmodels', 'Optuna', 'NautilusTrader'],
   },
   {
     title: 'Backend & distributed systems',
