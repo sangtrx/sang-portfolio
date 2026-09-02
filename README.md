@@ -23,8 +23,8 @@ The portfolio reflects the current `Sang_Resume` architecture: one canonical chr
 
 ### Deep case studies
 
-- **YHCT Clinical AI Platform** — EPIC TECHNOLOGY project for Ho Chi Minh City Traditional Medicine Hospital; one main semantic owner for the clinician turn, bounded approved-corpus evidence research, durable PostgreSQL evidence state, deterministic clinical authority, and explicit separation between the last accepted protected-UAT baseline and a newer source-complete candidate awaiting execution validation.
-- **Curren** — independent AI/quant side project and multi-system quantitative intelligence platform; V9 causal evidence infrastructure, hypothesis/OOF/multiplicity governance, append-only Alpha History, research-to-streaming parity, signal intelligence, fail-closed ML quality gating, lifecycle/risk/execution/reconciliation, access/content distribution, and isolated API/CLI/MCP public verification. Live public feed and profitable alpha are not claimed.
+- **Ho Chi Minh City Traditional Medicine Hospital — Clinical AI & Decision Support** — EPIC TECHNOLOGY project for https://www.yhct.vn/; one main semantic owner for the clinician turn, bounded approved-corpus evidence research, durable PostgreSQL evidence state, deterministic clinical authority, and explicit separation between an accepted protected-UAT baseline and a newer source-complete architecture update awaiting execution validation.
+- **Curren** — independent AI/quant side project and multi-system quantitative intelligence platform; causal evidence infrastructure, hypothesis/OOF/multiplicity governance, append-only Alpha History, research-to-streaming parity, signal intelligence, fail-closed ML quality gating, lifecycle/risk/execution/reconciliation, access/content distribution, and isolated API/CLI/MCP public verification. Live public feed and profitable alpha are not claimed.
 
 ### Broader selected systems
 
@@ -65,20 +65,22 @@ Public biography and chronology are reconciled against the private `sangtrx/Sang
 
 Project truth is intentionally cross-checked rather than inferred from one default branch:
 
-- **YHCT** — inspect the current default branch plus the newest active candidate/PR/source path that represents the latest worktree-equivalent architecture. Separate the last validated/UAT baseline from any newer source-complete but unvalidated candidate. Current code/invariants override stale prose when they disagree.
-- **Curren** — treat the system as a cross-repository platform: canonical quant research/evidence, private signal/lifecycle/risk runtime, access/membership, content production, product-policy contracts, marketing, and public developer/read-model surfaces. Public copy describes capability/data/authority roles rather than private repository, channel, host, or package identifiers.
+- **Hospital Clinical AI** — inspect the current default branch plus the newest active candidate/PR/source path that represents the latest worktree-equivalent architecture. Separate the last validated/UAT baseline from any newer source-complete but unvalidated source state. Current code/invariants override stale prose when they disagree.
+- **Curren** — treat the system as a cross-repository platform: canonical quant research/evidence, private signal/lifecycle/risk runtime, access/membership, content production, product-policy contracts, marketing, and public developer/read-model surfaces. Public copy describes capability/data/authority roles rather than private repository, channel, host, package, branch, or release identifiers.
 - **Curren public platform** — `docs/PROJECT_STATUS.md` in the public Curren repository remains the source for API/read-model/CLI/MCP production-connectivity claims.
 
 ## Public abstraction policy
 
-The public portfolio should expose enough architecture to prove senior ownership without leaking implementation trivia or private edge. Prefer stable system concepts such as:
+The public portfolio should expose enough architecture to prove senior ownership without leaking implementation trivia or internal release language. Prefer stable system concepts such as:
 
 - `external alpha-source observations` instead of a named private transport/channel;
 - `signal intelligence runtime` instead of a private repository/package name;
 - `content production pipeline` instead of an internal social repository name;
-- `access & membership` instead of payment/support implementation internals.
+- `access & membership` instead of payment/support implementation internals;
+- `shared causal research core` instead of an internal research version label;
+- `single semantic-owner clinical architecture` instead of an internal hospital-system version label.
 
-Never publish patient data, private corpus material, source-channel identities, internal host/machine names, exchange credentials, private alpha parameters, model feature definitions, operator controls, or private trading database details.
+Never publish patient data, private corpus material, source-channel identities, internal host/machine names, exchange credentials, private alpha parameters, model feature definitions, operator controls, internal release identifiers, or private trading database details.
 
 ## Local development
 
@@ -139,7 +141,7 @@ sangtruong.me
 
 ## Public demo policy
 
-Future interactive demos for YHCT or Curren must be separate isolated deployments. Never publish:
+Future interactive demos for the hospital platform or Curren must be separate isolated deployments. Never publish:
 
 - patient/hospital production data;
 - uncleared hospital source material;
