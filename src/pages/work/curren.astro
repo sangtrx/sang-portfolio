@@ -8,13 +8,13 @@ const jsonLd = [
   {
     '@type': 'Article',
     '@id': `${canonical}#case-study`,
-    headline: 'Curren — point-in-time quantitative research and verifiable trading-system distribution',
-    description: 'Case study of Curren, an independent AI/quant side project spanning point-in-time market data, hypothesis research, leakage/overfitting controls, production signal lifecycle, guarded execution boundaries, immutable publication proofs, and public API/CLI/MCP interfaces.',
-    dateModified: '2026-08-28T14:50:00+07:00',
+    headline: 'Curren — quantitative research, signal intelligence and trading-systems platform',
+    description: 'Case study of Curren, Sang Truong’s independent AI/quant side project spanning V9 point-in-time research evidence, reusable causal event infrastructure, out-of-sample selection, real-time signal intelligence, ML quality gates, lifecycle/risk/execution, access and distribution, and a read-only public verification layer.',
+    dateModified: '2026-09-02T14:24:00+07:00',
     author: { '@type': 'Person', name: 'Sang Truong', url: new URL(withBase('/about'), Astro.site).href },
     mainEntityOfPage: canonical,
     isBasedOn: source,
-    about: ['Quantitative research', 'Point-in-time data', 'Backtesting', 'Out-of-sample validation', 'Trading systems', 'FastAPI', 'MCP', 'AI agents'],
+    about: ['Quantitative research', 'Point-in-time data', 'Rust', 'Arrow', 'Parquet', 'Out-of-sample validation', 'NautilusTrader', 'Trading systems', 'FastAPI', 'MCP'],
   },
   {
     '@type': 'BreadcrumbList',
@@ -26,8 +26,8 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="Curren — Quant Research, Trading Systems & MCP Case Study | Sang Truong"
-  description="Deep technical case study of Sang Truong's independent Curren project: point-in-time market data, hypothesis research, leakage-aware OOS validation, ML selection, signal lifecycle, guarded execution, immutable public proofs, FastAPI, CLI, and MCP."
+  title="Curren — Quant Research & Trading Intelligence Platform | Sang Truong"
+  description="Deep technical case study of Sang Truong’s Curren side project: V9 PIT research evidence, Rust/Python causal event infrastructure, OOF selection, signal intelligence, ML quality gates, risk/execution, distribution, and public API/CLI/MCP verification."
   image="og-curren.png"
   pageType="article"
   jsonLd={jsonLd}
@@ -35,106 +35,183 @@ const jsonLd = [
   <article class="case container section">
     <a class="back-link" href={withBase('#work')}>← Selected work</a>
     <header class="case-hero">
-      <p class="eyebrow">Case Study 02 · Independent Quant / Trading Systems · Jun 2026 — Present</p>
+      <p class="eyebrow">Case Study 02 · Independent AI/Quant Side Project · Jun 2026 — Present</p>
       <h1>Curren</h1>
-      <p class="case-lede">A solo-built quantitative research and trading-systems project designed around a full research lifecycle rather than one strategy: point-in-time data, reusable hypothesis generation, disciplined validation, production signal/risk state, guarded execution, and a public verification surface that does not expose private alpha.</p>
+      <p class="case-lede">A solo-built quantitative intelligence platform spanning the full path from causal market research to operational signal state: reusable point-in-time evidence, hypothesis selection, research-to-streaming parity, real-time signal intelligence, ML quality control, lifecycle/risk/execution, subscriber and content distribution, access workflows, and a public verification surface that stays isolated from private alpha and trading controls.</p>
       <div class="case-meta">
         <div><span>Role</span><strong>Independent AI/Quant Side Project · Solo Builder</strong></div>
-        <div><span>Layers</span><strong>Research · ML selection · lifecycle/risk · API / CLI / MCP</strong></div>
-        <div><span>Public status</span><strong>v0.4.0 alpha · live public feed not claimed</strong></div>
+        <div><span>Research authority</span><strong>V9 · reusable causal event evidence · locally verified through authority cutover</strong></div>
+        <div><span>Public boundary</span><strong>v0.4 read model / API / CLI / MCP · live public feed not claimed</strong></div>
       </div>
-      <p class="case-verified">Public-platform boundary last verified: <time datetime="2026-08-23">23 Aug 2026</time></p>
-      <div class="hero-actions case-actions"><a class="button primary" href={source}>View public source ↗</a></div>
+      <p class="case-verified">System state reviewed across the current research, signal-runtime, access, content-distribution, product-policy, marketing, and public developer surfaces on <time datetime="2026-09-02">2 Sep 2026</time>.</p>
+      <div class="hero-actions case-actions"><a class="button primary" href={source}>View public developer surface ↗</a></div>
     </header>
 
-    <section class="case-section visual-panel quant-architecture" aria-label="Curren two-layer system architecture">
-      <div class="layer-stack">
-        <div class="layer private-layer"><small>PRIVATE RESEARCH + TRADING LAYER</small><strong>PIT data → features/hypotheses → OOS validation → ML quality → lifecycle / risk / execution</strong></div>
-        <span class="layer-arrow">↓ strict sanitized PublicationBatch</span>
-        <div class="layer public-layer"><small>PUBLIC VERIFICATION LAYER</small><strong>immutable read model → API · CLI · MCP · Omarchy</strong></div>
+    <section class="evidence-band" aria-label="Curren recorded engineering evidence">
+      <div><strong>45M+</strong><span>verified closed 1m bars in the current 30-instrument development/screening market; not final alpha authority</span></div>
+      <div><strong>V9-120</strong><span>research evidence authority cut over to the shared V9 causal core</span></div>
+      <div><strong>10 / 10</strong><span>structural-level engines locally verified before event-store authority cutover</span></div>
+      <div><strong>No alpha claim</strong><span>next economic run remains separately authorization-gated; profitable strategy is not claimed</span></div>
+    </section>
+
+    <section class="case-section archify-section" aria-labelledby="curren-map-title">
+      <div class="archify-heading">
+        <div>
+          <p class="eyebrow">Interactive system map</p>
+          <h2 id="curren-map-title">One platform, three authority planes.</h2>
+        </div>
+        <div class="archify-links">
+          <a href={withBase('/curren-platform-architecture.html')} target="_blank" rel="noreferrer">Open fullscreen ↗</a>
+          <a href={withBase('/curren-platform.architecture.json')} target="_blank" rel="noreferrer">Architecture JSON ↗</a>
+        </div>
+      </div>
+      <p class="archify-note">The diagram intentionally uses public capability names rather than internal repository, source-channel, host, or package identifiers. Use the focused views to isolate research, the private signal runtime, or product/distribution surfaces.</p>
+      <div class="archify-frame curren-archify-frame">
+        <iframe
+          src={withBase('/curren-platform-architecture.html')}
+          title="Interactive Curren quantitative intelligence platform architecture"
+          loading="lazy"
+          sandbox="allow-scripts"
+        ></iframe>
       </div>
     </section>
 
     <section class="case-section case-grid">
-      <div><p class="eyebrow">Problem</p><h2>A trading system can look convincing while being methodologically wrong.</h2></div>
+      <div><p class="eyebrow">System thesis</p><h2>The hard part is not generating a signal. It is preserving evidence and authority end to end.</h2></div>
       <div class="case-copy">
-        <p>A backtest can accidentally use future information. Repeated hypothesis search can turn noise into an impressive chart. A live result can look good even if the original plan can later be rewritten. And a public API can be useful while still leaking strategy or execution state.</p>
-        <p>Curren treats research validity, live operational state, and public verification as separate engineering contracts. The goal is to make false confidence harder to manufacture before optimizing headline returns.</p>
+        <p>A quant platform can fail long before an order reaches an exchange: future information can leak into research, repeated search can manufacture a winner, production can regenerate a strategy differently from historical evaluation, runtime state can drift after restart, and public presentation can silently rewrite the original plan.</p>
+        <p>Curren separates those failure modes into explicit authority planes. Research owns causal evidence and promotion. The private operational runtime owns signal, risk, lifecycle, execution and reconciliation state. Product surfaces receive only approved projections and cannot become trading authority.</p>
       </div>
     </section>
 
     <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">My ownership</p><h2>Research protocol to production and public developer surface.</h2></div>
+      <div><p class="eyebrow">My ownership</p><h2>Research kernel, production runtime, and product system — without collapsing their responsibilities.</h2></div>
       <div class="ownership-list">
-        <article><strong>Research architecture</strong><p>Designed point-in-time raw-to-canonical lineage, reusable feature/hypothesis generation, event studies/backtests, walk-forward/OOS evaluation, leakage checks, multiple-testing/overfitting diagnostics, experiment tracking, and reproducible research releases.</p></article>
-        <article><strong>Modeling & selection</strong><p>Built ML quality/trade-selection layers with LightGBM/CatBoost/XGBoost-class tooling and portfolio/risk evaluation around research outputs instead of optimizing one prediction metric.</p></article>
-        <article><strong>Live trading-system state</strong><p>Connected selected outputs to durable signal/lifecycle/P&L state, risk gates, guarded execution, reconciliation, idempotency, restart recovery, and operator controls while keeping live state separate from offline research artifacts.</p></article>
-        <article><strong>Product & verification surfaces</strong><p>Built supporting FastAPI/public read-model contracts, CLI/MCP tooling, access/product surfaces, and immutable publication controls without presenting the project as primary employment or claiming validated profitable alpha.</p></article>
+        <article><strong>Quant research architecture</strong><p>Designed the point-in-time data lifecycle, immutable releases, conjecture/hypothesis contracts, shared causal primitives/events, out-of-sample validation, multiple-testing controls, append-only research history, atomic selection boundaries, portfolio replay and terminal-holdout discipline.</p></article>
+        <article><strong>Research → production semantics</strong><p>Built the V9 Rust/Python shared core and versioned event architecture so historical research and streaming regeneration can converge on the same resampler, primitive, structural-level, divergence and event semantics instead of maintaining two versions of “alpha.”</p></article>
+        <article><strong>Signal / risk / execution runtime</strong><p>Built the operational path that normalizes external source observations into candidate signals, applies deterministic scoring and fail-closed ML quality gating, persists lifecycle/P&amp;L, applies hard risk boundaries, supports guarded execution, and reconciles restart-safe order/fill state.</p></article>
+        <article><strong>Product and distribution</strong><p>Built or coordinated the supporting public read model, API/CLI/MCP clients, subscriber delivery, native social-content production, membership/support/optional checkout flows, and public web surface while keeping each downstream system failure-isolated from alpha and execution authority.</p></article>
       </div>
     </section>
 
     <section class="case-section section-rule">
-      <p class="eyebrow">Research methodology</p>
-      <div class="research-flow" aria-label="Quant research flow">
-        <span>RAW</span><i>→</i><span>PIT CANONICAL</span><i>→</i><span>FEATURES</span><i>→</i><span>HYPOTHESES</span><i>→</i><span>EVENT STUDY</span><i>→</i><span>OOS</span><i>→</i><span>PORTFOLIO</span>
+      <p class="eyebrow">V9 research architecture</p>
+      <div class="research-flow research-flow-wide" aria-label="Curren V9 research flow">
+        <span>PIT MARKET</span><i>→</i><span>SHARED TIMEFRAMES</span><i>→</i><span>PRIMITIVES</span><i>→</i><span>CAUSAL EVENTS</span><i>→</i><span>EVENT STORE</span><i>→</i><span>HYPOTHESIS VIEWS</span><i>→</i><span>OOF / SELECTION</span><i>→</i><span>ALPHA HISTORY</span>
       </div>
       <div class="contract-grid contract-grid-spaced">
-        <div class="code-card"><span class="code-comment">// every feature must be knowable at decision time</span><strong>available_time ≤ event_time</strong><span class="code-comment">// research validity starts before model selection</span></div>
-        <div class="principle-card"><span>VALIDATION</span><strong>walk-forward / OOS · leakage checks · purging/embargo concepts</strong><span>OVERFITTING CONTROL</span><strong>multiple testing · robustness · reproducible releases · holdout discipline</strong></div>
+        <div class="code-card"><span class="code-comment">// compute market structure once; reuse it across hypotheses</span><strong>market → versioned primitives/events → cheap predicates & joins</strong><span class="code-comment">// immutable manifests bind upstream data, code, partitions and hashes</span></div>
+        <div class="principle-card"><span>CAUSALITY</span><strong>closed bars · available-time rules · causal next-open labels</strong><span>SELECTION</span><strong>global OOF · purge/embargo · multiplicity · one-shot terminal holdout</strong></div>
       </div>
     </section>
 
     <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">Research data & modeling</p><h2>A reusable research environment, not a single notebook strategy.</h2></div>
+      <div><p class="eyebrow">Why V9 matters</p><h2>Make market → evidence expensive once; make hypothesis → economics cheap.</h2></div>
       <div class="capability-grid">
-        <article><h3>Data lineage</h3><p>Point-in-time market data, immutable raw history, canonical Parquet-oriented datasets, repeatable releases, and explicit availability-time rules.</p></article>
-        <article><h3>Feature & hypothesis factory</h3><p>Reusable factor/event families across price, volume, market structure and derived signals rather than one hard-coded strategy path.</p></article>
-        <article><h3>Modeling</h3><p>LightGBM, CatBoost, XGBoost, Scikit-learn and supporting numerical/statistical tooling for quality selection and research diagnostics.</p></article>
-        <article><h3>Research engineering</h3><p>Polars/Pandas, PyArrow/Parquet, DuckDB, NumPy, SciPy, Statsmodels, Numba, Optuna and experiment/release discipline.</p></article>
+        <article><h3>Shared causal core</h3><p>Closed-timeframe resampling, ATR/RSI/OBV and other primitives, structural levels, divergences and source events are versioned reusable computations rather than regenerated inside every experiment.</p></article>
+        <article><h3>Versioned event evidence</h3><p>Typed Arrow/Parquet boundaries, deterministic event identities, manifests and hashes turn event data into inspectable research evidence that hypotheses can query and join.</p></article>
+        <article><h3>Hypothesis views</h3><p>Frozen hypotheses resolve required event identities plus predicates, joins, labels, split/cost/evaluation specifications; existing event partitions are reused instead of rescanning years of candles.</p></article>
+        <article><h3>Research/streaming parity</h3><p>The same versioned semantics are checked across clean replay, restart, catch-up, duplicate/gap handling and timeframe boundaries before a research definition is allowed to become a production regeneration rule.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section section-rule case-grid">
+      <div><p class="eyebrow">Research governance</p><h2>Keep failed ideas and make outcome peeking expensive.</h2></div>
+      <div class="case-copy">
+        <p>New ideas can enter through a prove-or-counterexample conjecture process: search prior research history, state mechanism and falsification conditions, include negative controls, then emit a planned finite hypothesis specification. The proposal itself has no execution or promotion authority.</p>
+        <p>An append-only Alpha History retains candidates, runs, exact spec/release/code identities, pass/fail observations and lineage — including rejected ideas. Final Layer-1 promotion requires a separately frozen full historical PIT-universe confirmation; representative screening cannot be relabeled as validated alpha.</p>
       </div>
     </section>
 
     <section class="case-section section-rule">
-      <p class="eyebrow">Public distribution layer</p>
+      <p class="eyebrow">Decision layers</p>
       <div class="decision-grid decision-grid-3">
-        <article><span>01</span><h3>One-way publication</h3><p>The private runtime publishes a strict sanitized projection. Public clients never connect directly to the trading database or execution controls.</p></article>
-        <article><span>02</span><h3>Immutable initial plan</h3><p>The first accepted signal plan is hashed and retained so entry, stop, targets, side, and publication context cannot be silently rewritten later.</p></article>
-        <article><span>03</span><h3>Append-only lifecycle</h3><p>Lifecycle identities are append-only, conflict-checked, and protected by per-signal source timestamps so stale retries cannot roll state backward.</p></article>
-        <article><span>04</span><h3>Frozen terminal outcome</h3><p>Terminal results and proof-backed track record derive only from immutable outcome records, not mutable presentation state.</p></article>
-        <article><span>05</span><h3>Entitlement-aware visibility</h3><p>Public active context can be delayed/hidden while Premium and Agent views receive only allowed fields; server-side policy enforces the minimum visibility boundary.</p></article>
-        <article><span>06</span><h3>Read-only agent interface</h3><p>MCP exposes six read-only tools. Remote unauthenticated MCP is deliberately refused; no public tool places orders or changes trading controls.</p></article>
+        <article><span>L1</span><h3>Entry alpha</h3><p>Discover entry evidence, screen on representative history, seal survivors, confirm on the complete historical PIT universe, then atomically promote or reject.</p></article>
+        <article><span>L2</span><h3>Take / skip quality</h3><p>A learned quality layer may consume genuine out-of-fold Layer-1 predictions only; it cannot train on in-sample upstream scores.</p></article>
+        <article><span>L3</span><h3>Post-entry lifecycle</h3><p>Position-management actions are learned only after honest upstream trade episodes; first actions are monotonic risk reduction rather than leverage expansion.</p></article>
+        <article><span>P</span><h3>Portfolio replay</h3><p>Concurrent positions share one global clock and hard capital/exposure constraints; independent-trade statistics are not treated as a portfolio equity curve.</p></article>
+        <article><span>R</span><h3>Robustness</h3><p>Finalists face block/episode Monte Carlo, cost/delay/funding/capacity stress and execution ambiguity rather than iid trade shuffling.</p></article>
+        <article><span>H</span><h3>Terminal holdout</h3><p>Approximately 20% remains one-shot and unavailable to search, threshold tuning or model selection until the full chain is frozen.</p></article>
       </div>
     </section>
 
     <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">Public developer surface</p><h2>One read model, multiple clients.</h2></div>
+      <div><p class="eyebrow">Operational signal intelligence</p><h2>Source observations become durable decisions through explicit gates.</h2></div>
       <div class="capability-grid">
-        <article><h3>FastAPI</h3><p>Summary, signals, lifecycle, results, track record, and verification endpoints over a public read model.</p></article>
-        <article><h3>CLI</h3><p>Human-readable and JSON access to signals, lifecycle, results, track record, and verification without reconstructing hidden fields.</p></article>
-        <article><h3>MCP</h3><p>Six read-only tools for MCP-compatible AI agents to inspect active signals, lifecycle, results, track record, and proofs.</p></article>
-        <article><h3>Omarchy</h3><p>A native Quattro widget/panel using delayed anonymous/public context only, with no private execution capability embedded in the client.</p></article>
+        <article><h3>Normalize source data</h3><p>External alpha-source observations are parsed into typed candidate events. Public-facing material describes the data semantics, not private source-channel or implementation identities.</p></article>
+        <article><h3>Deterministic candidate rules</h3><p>Scoring, confirmation/no-chase checks, failed-setup memory and hard risk rules establish a bounded candidate plan before downstream automation.</p></article>
+        <article><h3>Fail-closed ML quality gate</h3><p>A persisted LightGBM quality decision can accept or block a valid signal before automated trading or publication; the model does not create signals, change levels, resize risk or override kill switches.</p></article>
+        <article><h3>Restart-safe lifecycle</h3><p>Entry, targets, stop, breakeven, expiry, manual close, current/best progress and post-target runners are persisted and reconciled against market state across restarts.</p></article>
+        <article><h3>Guarded execution</h3><p>An isolated execution lane converts eligible persisted signal state into idempotent intents under hard risk, stale-intent and reconciliation boundaries; execution remains separate from subscriber publication.</p></article>
+        <article><h3>Durable reconciliation</h3><p>Account/order/fill state is reconciled rather than inferred from presentation state, preserving restart recovery and explicit operational authority.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section section-rule case-grid">
+      <div><p class="eyebrow">Product & distribution plane</p><h2>Downstream systems can fail without becoming trading authority.</h2></div>
+      <div class="capability-grid">
+        <article><h3>Subscriber delivery</h3><p>Approved signal/lifecycle state is scheduled for tiered realtime or delayed delivery with dedupe, restart-safe pending state and purpose-built lifecycle visuals.</p></article>
+        <article><h3>Content production</h3><p>One canonical read-only result contract drives native platform-specific media and copy, so social output does not recalculate trade outcomes or invent a second source of truth.</p></article>
+        <article><h3>Access & membership</h3><p>Onboarding, support, referrals, memberships and optional payment verification are a separate product authority. Access state never trains alpha or submits orders.</p></article>
+        <article><h3>Public verification</h3><p>A one-way sanitized projection feeds an isolated read model with immutable initial-plan records, append-only lifecycle, frozen terminal outcomes, entitlement-aware API views, CLI and six read-only MCP tools.</p></article>
       </div>
     </section>
 
     <section class="case-section section-rule">
-      <p class="eyebrow">Current public-platform status · v0.4.0 alpha</p>
-      <div class="status-table" role="table" aria-label="Curren public platform status">
-        <div role="row"><span role="cell">API / SQLite-WAL read model / entitlements</span><strong role="cell" class="status-ok">Implemented</strong></div>
-        <div role="row"><span role="cell">CLI / async client / read-only MCP / Omarchy plugin</span><strong role="cell" class="status-ok">Implemented</strong></div>
-        <div role="row"><span role="cell">Immutable plan / lifecycle / terminal proof controls</span><strong role="cell" class="status-ok">Implemented</strong></div>
-        <div role="row"><span role="cell">Private runtime publication projector</span><strong role="cell" class="status-wip">Pending integration</strong></div>
-        <div role="row"><span role="cell">api.curren.tech production deployment</span><strong role="cell" class="status-wip">Pending</strong></div>
-        <div role="row"><span role="cell">Live public signal feed / validated profitable alpha</span><strong role="cell">Not claimed</strong></div>
+      <p class="eyebrow">Public verification boundary</p>
+      <div class="decision-grid decision-grid-3">
+        <article><span>01</span><h3>One-way publication</h3><p>Private operational state is reduced to a strict sanitized projection. Public clients never connect to private signal/execution storage.</p></article>
+        <article><span>02</span><h3>Immutable initial plan</h3><p>The first accepted plan is hashed so side, entry, stop, targets and publication context cannot be silently rewritten after the fact.</p></article>
+        <article><span>03</span><h3>Append-only lifecycle</h3><p>Lifecycle identities are conflict-checked and protected by source-time watermarks so stale retries cannot move public state backward.</p></article>
+        <article><span>04</span><h3>Frozen terminal outcome</h3><p>Results and track-record rows are derived from immutable terminal records rather than mutable marketing state.</p></article>
+        <article><span>05</span><h3>Entitlement-aware views</h3><p>Public active context can be delayed or hidden while premium/agent views receive only fields authorized by server policy.</p></article>
+        <article><span>06</span><h3>Read-only agent interface</h3><p>API/CLI/MCP can inspect proof-backed state but expose no order placement or trading-control mutation surface.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section section-rule">
+      <p class="eyebrow">Current evidence state · 2026-09-02</p>
+      <div class="status-table" role="table" aria-label="Curren current engineering status">
+        <div role="row"><span role="cell">V9 causal core / event-store evidence authority</span><strong role="cell" class="status-ok">Locally verified · authority active through V9-120</strong></div>
+        <div role="row"><span role="cell">Structural-level V9 program</span><strong role="cell" class="status-ok">10 / 10 engines locally verified</strong></div>
+        <div role="row"><span role="cell">Nautilus execution bridge + offline/streaming/restart parity</span><strong role="cell" class="status-ok">Locally verified</strong></div>
+        <div role="row"><span role="cell">Next representative V9 economic run</span><strong role="cell" class="status-wip">Awaiting separate authorization · outcome not inspected</strong></div>
+        <div role="row"><span role="cell">Public API / read model / CLI / read-only MCP contracts</span><strong role="cell" class="status-ok">Implemented · v0.4.0 alpha</strong></div>
+        <div role="row"><span role="cell">Live public signal projector / api.curren.tech live feed</span><strong role="cell" class="status-wip">Not yet connected / not claimed</strong></div>
+        <div role="row"><span role="cell">Validated profitable alpha / guaranteed performance</span><strong role="cell">Not claimed</strong></div>
       </div>
     </section>
 
     <section class="case-section demo-placeholder">
       <div>
-        <p class="eyebrow">Public evidence boundary</p>
-        <h2>Expose proofs, not private alpha.</h2>
-        <p>The public repository intentionally excludes private strategy/research logic, raw-source ingestion, AI guard internals, exchange credentials, execution runtime, accounts, and the production trading database. The portfolio can show methodology, architecture, historical evidence, public contracts, and verification behavior without publishing the edge itself.</p>
+        <p class="eyebrow">Public disclosure boundary</p>
+        <h2>Show the engineering system, not the private edge.</h2>
+        <p>This case study intentionally abstracts private source identities, internal repository/package names, machine names, credentials, alpha parameters, model feature definitions and trading controls. What remains public is the part a technical reviewer can evaluate responsibly: authority boundaries, causal research methodology, system decomposition, reliability behavior, release evidence and public contracts.</p>
       </div>
-      <a class="button ghost" href={source}>GitHub source ↗</a>
+      <a class="button ghost" href={source}>Public source ↗</a>
     </section>
   </article>
 </BaseLayout>
+
+<style>
+  .archify-section { padding-top:22px; }
+  .archify-heading { display:flex; justify-content:space-between; align-items:end; gap:28px; margin-bottom:12px; }
+  .archify-heading h2 { margin:7px 0 0; max-width:780px; }
+  .archify-links { display:flex; flex-wrap:wrap; gap:9px; justify-content:flex-end; }
+  .archify-links a { padding:9px 11px; border:1px solid var(--line); border-radius:10px; color:var(--muted); font-size:.76rem; font-weight:700; text-decoration:none; }
+  .archify-links a:hover { color:var(--text); border-color:rgba(76,141,255,.48); }
+  .archify-note { max-width:900px; margin:0 0 18px; color:var(--muted); }
+  .archify-frame { overflow:hidden; border:1px solid var(--line); border-radius:22px; background:#07101d; box-shadow:0 28px 90px rgba(0,0,0,.22); }
+  .archify-frame iframe { display:block; width:100%; height:980px; border:0; background:#07101d; }
+  .research-flow-wide { gap:9px; padding-inline:20px; }
+  .research-flow-wide span { font-size:.62rem; }
+  @media (max-width:900px) {
+    .archify-heading { align-items:flex-start; flex-direction:column; }
+    .archify-links { justify-content:flex-start; }
+    .archify-frame iframe { height:1080px; }
+  }
+  @media (max-width:640px) {
+    .archify-frame { margin-inline:-8px; border-radius:16px; }
+    .archify-frame iframe { height:1180px; }
+  }
+</style>
