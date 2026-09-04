@@ -321,7 +321,7 @@ export const skillGroups = [
   },
   {
     title: 'Product, browser automation, cloud & delivery',
-    items: ['Next.js', 'React', 'TypeScript/JavaScript', 'Open edX', 'Playwright', 'browser/tool verification', 'Docker', 'Kubernetes', 'Linux', 'Windows', 'systemd', 'Nginx', 'AWS', 'Azure', 'Prometheus', 'Grafana'],
+    items: ['Next.js', 'React', 'TypeScript/JavaScript', 'Open edX', 'Playwright', 'browser/tool verification', 'Docker', 'Kubernetes', 'Linux', 'Windows', 'systemd', 'Nginx', 'AWS', 'Azure'],
   },
   {
     title: 'Languages',
