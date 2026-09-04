@@ -9,21 +9,39 @@ It is not a playground or a generic developer template. Every change should impr
 4. The site remains extremely fast, accessible, and safe to expose publicly.
 
 ## Positioning
-- Canonical broad positioning: Senior AI Engineer / Applied AI Lead.
+- Canonical broad positioning: **Senior AI Engineer · Applied AI Lead**.
 - Four depth domains: Applied AI/LLM/Agent Systems; Computer Vision/Video/Edge AI; Quantitative Research/Trading Systems; Research/Multimodal & Temporal ML.
 - Current professional anchor: Head of Artificial Intelligence at EPIC TECHNOLOGY.
 - Deep public case studies: Ho Chi Minh City Traditional Medicine Hospital Clinical AI and Curren.
 - Broader system portfolio should preserve ownership boundaries for EPIC/FPT work instead of presenting employer/client systems as unrelated personal projects.
+- `AI Agent`, `Computer Vision`, `Quant`, or similar specializations are depth/target labels, not replacements for the canonical broad title unless the user explicitly requests a target-specific public positioning change.
+
+## Upstream Career OS authority
+
+The private `sangtrx/Sang_Resume` repository is now Sang's Personal Career OS / second brain.
+
+For biography, title, chronology, engagement type, education, technical-experience level, project ownership and reusable personal claims, use this authority order:
+
+1. `Sang_Resume/brain/` — private reconciled truth;
+2. `Sang_Resume/public/profile.yaml` — sanitized public projection intended for this portfolio;
+3. current owning-project repository evidence for project implementation/deployment status;
+4. this repository's local presentation data.
+
+The portfolio is a **downstream public view**. It may compress or present facts, but must not create a new personal fact or silently upgrade a technology from conceptual/unsupported to hands-on/production.
+
+When `Sang_Resume/public/profile.yaml` conflicts with `src/data/site.ts` on a personal fact, reconcile the portfolio to the public projection unless newer primary evidence has first been reconciled upstream.
 
 ## Content truth rules
 - Never invent metrics, validation states, customer outcomes, users, revenue, uptime, performance numbers, deployment states, or profitability claims.
 - Distinguish `implemented`, `source complete`, `locally verified`, `tested`, `protected-UAT validated`, `deployed`, `accepted`, `production-ready`, `pending`, and `not claimed`.
-- Biography, chronology, employment type, project ownership, education, teaching, honors, publications, and broad skills must be reconciled against the current canonical files in private `sangtrx/Sang_Resume`.
-- Canonical résumé entrypoint is `resume_master.tex`. `resume.tex` is an alias; `resume_master_3page.tex` is legacy compatibility only.
-- Use `RESUME_VARIANTS.md` to understand the facts → domain evidence → target storytelling architecture.
-- Domain-specific depth comes from `cv/ai_systems_blocks.tex`, `cv/computer_vision_blocks.tex`, `cv/quant_research_blocks.tex`, and `cv/academic_blocks.tex`; do not flatten those into an inaccurate generic skills list.
+- Biography, chronology, employment type, project ownership, education, teaching, honors, publications, and broad skills must be reconciled against the current Career OS in private `sangtrx/Sang_Resume`.
+- Canonical broad title is `Senior AI Engineer · Applied AI Lead`.
+- Canonical résumé entrypoint/full personal career inventory view is `resume_master.tex`. `resume.tex` is an alias; `resume_master_3page.tex` is legacy compatibility only.
+- Use `RESUME_VARIANTS.md` to understand the brain truth → reusable evidence → target storytelling architecture.
+- Domain-specific depth comes from the relevant Career OS evidence/domain layers; do not flatten them into an inaccurate generic skills list.
 - Preserve the canonical boundaries from Sang_Resume: Curren starts Jun 2026 and is an independent side project / Solo Builder; A9 IOT is part-time / consulting; the Ho Chi Minh City Traditional Medicine Hospital project, production multi-camera video intelligence, and Open edX are projects under EPIC TECHNOLOGY rather than separate employers.
 - The completed University of Arkansas degree is Master of Engineering (MEng) in Computer Engineering, Jul 2021–Sep 2023, GPA 4.0/4.0. Prior PhD-track research may be described separately but must never imply a completed PhD.
+- Do not present Supabase, Hyperbrowser, LaunchDarkly, LangWatch or Sentry as prior direct production experience unless the upstream Career OS evidence registry is explicitly updated first.
 
 ### Hospital Clinical AI authority
 - Do not assume the default branch is the newest execution candidate. Before changing hospital architecture/status language, inspect current `main`, the latest active candidate/PR/branch that represents the newest worktree-equivalent source state, and the exact source files governing that path.
