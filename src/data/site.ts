@@ -1,6 +1,6 @@
 export const profile = {
   name: 'Sang Truong',
-  title: 'Senior AI Engineer · AI Agent & Applied AI Lead',
+  title: 'Senior AI Engineer · Applied AI Lead',
   eyebrow: 'Agentic AI · Voice & RAG · Computer Vision · Quantitative ML',
   intro:
     'Senior AI engineer and technical lead with 6+ years across agentic AI, LLM/RAG systems, voice and real-time AI, computer vision and video intelligence, multimodal learning, quantitative ML, time-series forecasting, edge inference, and production AI engineering. I own systems end to end from research and data acquisition through model/tool design, retrieval and orchestration, APIs, distributed workloads, product surfaces, deployment, observability, reliability, and stakeholder delivery.',
