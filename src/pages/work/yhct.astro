@@ -10,7 +10,7 @@ const jsonLd = [
     '@id': `${canonical}#case-study`,
     headline: 'Ho Chi Minh City Traditional Medicine Hospital — Clinical AI Platform',
     description: 'Case study of a clinician-facing AI chatbot and decision-support platform built under Sang Truong’s Head of AI role at EPIC TECHNOLOGY for Ho Chi Minh City Traditional Medicine Hospital, using a single semantic-owner clinical intelligence boundary, PostgreSQL Evidence Workspace, bounded approved-corpus research, deterministic clinical authority, exact citations, and explicit validation boundaries.',
-    dateModified: '2026-09-02T15:55:00+07:00',
+    dateModified: '2026-09-05T05:34:00+07:00',
     author: { '@type': 'Person', name: 'Sang Truong', url: new URL(withBase('/about'), Astro.site).href },
     mainEntityOfPage: canonical,
     about: ['Clinical AI', 'AI agents', 'RAG', 'FastAPI', 'Next.js', 'PostgreSQL', 'Qdrant', 'Clinical decision support'],
@@ -41,14 +41,14 @@ const jsonLd = [
       <div class="case-meta">
         <div><span>Role</span><strong>AI Architect / Lead Builder · EPIC TECHNOLOGY</strong></div>
         <div><span>Architecture</span><strong>Single semantic owner · bounded evidence research · deterministic clinical authority</strong></div>
-        <div><span>Validation</span><strong>Protected-UAT baseline accepted · latest architecture update awaiting execution validation</strong></div>
+        <div><span>Validation</span><strong>Validated/deployed protected-UAT baseline · clinician-feedback stabilization in progress</strong></div>
       </div>
-      <p class="case-verified">Reviewed against the latest active source state and current implementation boundary on <time datetime="2026-09-02">2 Sep 2026</time>. Source completeness and runtime validation are reported separately.</p>
+      <p class="case-verified">Reviewed against the latest active source state and current implementation boundary on <time datetime="2026-09-05">5 Sep 2026</time>. Baseline validation and the newer feedback-driven stabilization state are reported separately.</p>
     </header>
 
     <section class="evidence-band" aria-label="Hospital clinical AI evidence boundary">
-      <div><strong>Protected UAT</strong><span>a validated clinical-agent baseline was accepted in the protected clinician environment</span></div>
-      <div><strong>Source complete</strong><span>the latest architecture update consolidates the single-semantic-owner path; execution validation is pending</span></div>
+      <div><strong>Protected UAT</strong><span>a protected-UAT baseline was validated and deployed; later real clinician feedback superseded the previous doctor-ready snapshot</span></div>
+      <div><strong>Current stabilization</strong><span>feedback-driven fixes are in progress; the resulting source still requires exact validation and deliberate UAT redeployment before becoming the next baseline</span></div>
       <div><strong>One owner</strong><span>the main clinical agent owns request, reference, source/tool choice and answer scope semantics</span></div>
       <div><strong>No production claim</strong><span>production and hospital-information-system integration remain outside the authorized boundary</span></div>
     </section>
@@ -155,16 +155,16 @@ const jsonLd = [
     </section>
 
     <section class="case-section section-rule">
-      <p class="eyebrow">Validation state · reviewed 2026-09-02</p>
+      <p class="eyebrow">Validation state · reviewed 2026-09-05</p>
       <div class="status-table" role="table" aria-label="Hospital clinical AI validation status">
-        <div role="row"><span role="cell">Protected clinician-UAT baseline</span><strong role="cell" class="status-ok">Accepted</strong></div>
-        <div role="row"><span role="cell">Latest single-semantic-owner architecture update</span><strong role="cell" class="status-wip">Source complete · execution validation pending</strong></div>
+        <div role="row"><span role="cell">Protected clinician-UAT baseline</span><strong role="cell" class="status-ok">Validated and deployed</strong></div>
+        <div role="row"><span role="cell">Current clinician-feedback stabilization</span><strong role="cell" class="status-wip">In progress · not merge/deploy eligible yet</strong></div>
         <div role="row"><span role="cell">Semantic ownership</span><strong role="cell" class="status-ok">Main agent owns request / reference / source / tool / scope</strong></div>
         <div role="row"><span role="cell">Clinical authority</span><strong role="cell" class="status-ok">Deterministic approved facts remain non-redecidable</strong></div>
         <div role="row"><span role="cell">Evidence state</span><strong role="cell" class="status-ok">PostgreSQL canonical · vector search derived</strong></div>
         <div role="row"><span role="cell">Production / HIS authorization</span><strong role="cell">Not authorized · not claimed</strong></div>
       </div>
-      <p class="validation-note">Historical validation evidence is intentionally not transferred to a changed source revision until that revision is executed and accepted.</p>
+      <p class="validation-note">Validation and deployment evidence from the previous protected-UAT baseline is intentionally not transferred to the newer clinician-feedback stabilization source. The exact resulting source must pass its required gate before it is treated as the next UAT baseline.</p>
     </section>
 
     <section class="case-section demo-placeholder">
