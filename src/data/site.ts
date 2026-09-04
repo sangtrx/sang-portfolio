@@ -106,7 +106,7 @@ export const projects = [
       'A clinician-facing AI chatbot and decision-support platform with a single semantic-owner clinical-agent path, bounded approved-corpus evidence research, deterministic clinical fact authority, durable evidence state, exact citations, and explicit validation/production boundaries.',
     role: 'AI Architect / Lead Builder · EPIC TECHNOLOGY',
     year: '2026',
-    status: 'Protected-UAT baseline accepted · latest architecture update validation pending',
+    status: 'Validated/deployed protected-UAT baseline · clinician-feedback stabilization in progress',
     proof: ['Single semantic owner', 'PostgreSQL evidence truth', 'Deterministic clinical authority'],
     tags: ['Clinical AI', 'Agents', 'FastAPI', 'Next.js', 'PostgreSQL', 'Qdrant', 'RAG'],
     href: '/work/yhct',
@@ -136,7 +136,7 @@ export const systemPortfolio = [
     owner: 'EPIC TECHNOLOGY · AI Architect / Lead Builder',
     summary:
       'Clinical assistant for drug/herb lookup, interaction analysis, prescription review and governed knowledge Q&A using a single semantic-owner agent path, bounded local evidence research, deterministic clinical authority, durable observation/evidence state, exact citations and auditability.',
-    signal: 'Protected-UAT baseline accepted · latest architecture update validation pending',
+    signal: 'Validated/deployed protected-UAT baseline · clinician-feedback stabilization in progress',
     href: '/work/yhct',
   },
   {
