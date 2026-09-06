@@ -30,9 +30,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Astro site for user Pages
+      - name: Build Astro site for canonical domain
         env:
-          SITE_URL: https://sangtrx.github.io
+          SITE_URL: https://sangtruong.me
           BASE_PATH: /
         run: npm run build
 
@@ -63,11 +63,11 @@ jobs:
       - name: Notify IndexNow of canonical page updates
         env:
           INDEXNOW_KEY: ${{ vars.INDEXNOW_KEY }}
-          ORIGIN: https://sangtrx.github.io
+          ORIGIN: https://sangtruong.me
         run: |
           cat > /tmp/indexnow.json <<EOF
           {
-            "host": "sangtrx.github.io",
+            "host": "sangtruong.me",
             "key": "${INDEXNOW_KEY}",
             "keyLocation": "${ORIGIN}/${INDEXNOW_KEY}.txt",
             "urlList": [
