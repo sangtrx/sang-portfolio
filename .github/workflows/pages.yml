@@ -57,14 +57,20 @@ jobs:
 
   notify-indexnow:
     needs: deploy
-    if: ${{ vars.INDEXNOW_KEY != '' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
       - name: Notify IndexNow of canonical page updates
         env:
-          INDEXNOW_KEY: ${{ vars.INDEXNOW_KEY }}
           ORIGIN: https://sangtruong.me
         run: |
+          INDEXNOW_KEY_FILE="$(find public -maxdepth 1 -type f -name '*.txt' -print -quit)"
+          test -n "${INDEXNOW_KEY_FILE}"
+          INDEXNOW_KEY="$(basename "${INDEXNOW_KEY_FILE}" .txt)"
+          test "$(tr -d '\r\n' < "${INDEXNOW_KEY_FILE}")" = "${INDEXNOW_KEY}"
+
           cat > /tmp/indexnow.json <<EOF
           {
             "host": "sangtruong.me",
@@ -79,6 +85,7 @@ jobs:
             ]
           }
           EOF
+
           curl --fail-with-body --retry 3 --retry-all-errors \
             -H 'Content-Type: application/json; charset=utf-8' \
             --data-binary @/tmp/indexnow.json \
