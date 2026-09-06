@@ -1,8 +1,8 @@
-# sang-portfolio
+# sangtrx.github.io
 
 Public proof-of-work portfolio for **Sang Truong** — Senior AI Engineer & Applied AI Lead.
 
-**Live preview:** https://sangtrx.github.io/sang-portfolio/
+**GitHub Pages:** https://sangtrx.github.io/
 
 Target canonical domain: **https://sangtruong.me**
 
@@ -55,7 +55,7 @@ The repository includes:
 - entity disambiguation for `Sang Truong` / `sangtrx` / Ho Chi Minh City, Vietnam;
 - an entity-focused `/about` page;
 - semantic case studies with explicit evidence, project ownership boundaries and non-claims;
-- IndexNow notification after successful GitHub Pages deployment.
+- optional IndexNow notification after successful GitHub Pages deployment.
 
 See `docs/SEO_GEO.md` for the implementation rationale and launch checklist.
 
@@ -96,25 +96,27 @@ npm run build
 npm run preview
 ```
 
-## Preview hosting
+## Hosting
 
-On Cloudflare Pages, `CF_PAGES_URL` is detected automatically for preview builds. Once `sangtruong.me` is attached, set `SITE_URL=https://sangtruong.me` so canonical and social URLs point to the custom domain.
+The repository is intended to be the GitHub user-site repository `sangtrx/sangtrx.github.io`, so GitHub Pages serves it from the account root rather than a project subpath.
 
-The site also supports GitHub project-page hosting with:
+GitHub Pages root build:
 
 ```text
 SITE_URL=https://sangtrx.github.io
-BASE_PATH=/sang-portfolio
+BASE_PATH=/
 ```
 
-and root-domain hosting with:
+Custom-domain build:
 
 ```text
 SITE_URL=https://sangtruong.me
 BASE_PATH=/
 ```
 
-The same codebase can be deployed to GitHub Pages, Cloudflare Pages, or a self-hosted Linux origin. Avoid leaving multiple independently indexable copies online after `sangtruong.me` becomes canonical; redirect or de-index the old preview when practical.
+On Cloudflare Pages, `CF_PAGES_URL` is detected automatically for preview builds. Once `sangtruong.me` is attached, set `SITE_URL=https://sangtruong.me` so canonical and social URLs point to the custom domain.
+
+The same codebase can be deployed to GitHub Pages, Cloudflare Pages, or a self-hosted Linux origin. Avoid leaving multiple independently indexable copies online after `sangtruong.me` becomes canonical; redirect or de-index the old hostname when practical.
 
 ## Self-hosted deployment
 
