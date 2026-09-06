@@ -2,9 +2,9 @@
 
 Public proof-of-work portfolio for **Sang Truong** — Senior AI Engineer & Applied AI Lead.
 
-**GitHub Pages:** https://sangtrx.github.io/
+**Canonical site:** https://sangtruong.me/
 
-Target canonical domain: **https://sangtruong.me**
+GitHub user-site repository: `sangtrx/sangtrx.github.io`
 
 ## Purpose
 
@@ -98,27 +98,22 @@ npm run preview
 
 ## Hosting
 
-The repository is intended to be the GitHub user-site repository `sangtrx/sangtrx.github.io`, so GitHub Pages serves it from the account root rather than a project subpath.
+This is the GitHub user-site repository `sangtrx/sangtrx.github.io`, so GitHub Pages serves it from the account root rather than a project subpath. The custom domain is the canonical public identity.
 
-GitHub Pages root build:
-
-```text
-SITE_URL=https://sangtrx.github.io
-BASE_PATH=/
-```
-
-Custom-domain build:
+Production build:
 
 ```text
 SITE_URL=https://sangtruong.me
 BASE_PATH=/
 ```
 
-On Cloudflare Pages, `CF_PAGES_URL` is detected automatically for preview builds. Once `sangtruong.me` is attached, set `SITE_URL=https://sangtruong.me` so canonical and social URLs point to the custom domain.
+The GitHub-native `sangtrx.github.io` hostname is only the platform origin/fallback. Public links, canonical metadata, social cards, sitemap URLs and IndexNow notifications should use `sangtruong.me`.
 
-The same codebase can be deployed to GitHub Pages, Cloudflare Pages, or a self-hosted Linux origin. Avoid leaving multiple independently indexable copies online after `sangtruong.me` becomes canonical; redirect or de-index the old hostname when practical.
+Cloudflare Pages and the Caddy container remain optional preview/self-hosting paths. Do not leave an independently indexable second production copy online.
 
 ## Self-hosted deployment
+
+Optional self-hosting remains available:
 
 ```bash
 docker compose up -d --build
@@ -130,14 +125,11 @@ The compose file binds only to:
 127.0.0.1:3000
 ```
 
-Recommended public route:
+Current production route:
 
 ```text
 sangtruong.me
-  → Cloudflare
-  → Cloudflare Tunnel
-  → http://127.0.0.1:3000
-  → Caddy container
+  → GitHub Pages
   → Astro static site
 ```
 
