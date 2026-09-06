@@ -83,7 +83,7 @@ When `Sang_Resume/public/profile.yaml` conflicts with `src/data/site.ts` on a pe
 - Keep `robots.txt` crawlable and allow OAI-SearchBot for ChatGPT search discovery.
 - `llms.txt` is an optional machine-readable convenience, not an SEO ranking mechanism; keep it concise, factual, and aligned with canonical HTML.
 - Keep sitemap routes canonical and update `lastmod` only when content materially changes.
-- Preserve stable slugs when moving from preview hosting to the custom domain; use redirects rather than duplicate public copies when possible.
+- Preserve stable slugs when moving from GitHub Pages to the custom domain; use redirects rather than duplicate public copies when possible.
 
 ## Technical rules
 - Astro static-first; ship zero client JS unless an interaction genuinely needs it.
@@ -98,6 +98,7 @@ When `Sang_Resume/public/profile.yaml` conflicts with `src/data/site.ts` on a pe
 - Before a direct-main push, inspect the exact affected authority source and run the relevant build/CI checks when available.
 
 ## Deployment
-- The codebase must support a subpath preview (`/sang-portfolio/`) and a root custom-domain build (`/`).
+- The repository is the GitHub user-site source and must build at the root path `/`; the custom-domain build also uses `/`.
+- Do not reintroduce a GitHub project-page subpath.
 - A self-hosted origin, when used, binds only to `127.0.0.1:3000` and should sit behind Cloudflare Tunnel or another deliberate ingress boundary.
 - Cloudflare Pages or another static host may be used without changing public URL structure once the custom domain is attached.
