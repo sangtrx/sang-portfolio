@@ -9,14 +9,14 @@ export const GET: APIRoute = ({ site }) => {
   const url = (path: string) => new URL(withBase(path), root).href;
   const text = `# Sang Truong (sangtrx)
 
-> ${publicIdentity.role} based in ${publicIdentity.location}. 6+ years across production agentic AI, LLM/RAG systems, voice and real-time AI, computer vision and video intelligence, multimodal research, quantitative ML/trading systems, time-series forecasting, edge inference, distributed backends, and cloud/on-premise delivery. Master of Engineering (MEng) in Computer Engineering, University of Arkansas, GPA 4.0/4.0.
+> ${publicIdentity.role} based in ${publicIdentity.location}. 6+ years across production agentic AI, LLM/RAG systems, voice and real-time AI, computer vision and video intelligence, multimodal research, quantitative ML/trading systems, time-series forecasting, edge inference, distributed backends, and cloud/on-premise delivery. Master of Science in Computer Engineering (MSCmpE), University of Arkansas, GPA 4.0/4.0.
 
 Canonical human-readable HTML pages are the authoritative public content. Claims deliberately distinguish implemented, source-complete, locally verified, protected-UAT validated, deployed, accepted, pending, and unclaimed states. Sensitive hospital data, credentials, private source identities, internal repository/package/host labels, operator controls, release identifiers, and private trading alpha are not published.
 
 ## Technical depth
 - Applied AI / Agent / Voice / RAG Systems: single-semantic-owner agent design, LangGraph/LangChain orchestration where justified, tool/model routing, controlled code/tool execution, RAG and knowledge systems, memory/evidence controls, multilingual speech/transcription, speech evaluation, WebSockets/SSE, guardrails, authority boundaries, distributed AI backends, UAT and production delivery.
 - Browser / Tool Automation: Playwright-based browser verification, tool-driven web workflows, API integrations, state validation, retries, idempotent background work, and separation between model intent and side-effecting actions.
-- Computer Vision / Video / Edge AI: camera/media pipelines, detection, ALPR/OCR, tracking, temporal events, vision-language/video research, NVIDIA Jetson, TensorRT, CUDA, recovery under real camera/network constraints. Named technologies here do not imply production ownership when the Career OS evidence level is research or hands-on.
+- Computer Vision / Video / Edge AI: camera/media pipelines, detection, ALPR/OCR, tracking, temporal events, vision-language/video research, NVIDIA Jetson, TensorRT, CUDA, recovery under real camera/network constraints, plus University of Arkansas poultry-processing research spanning post-defeathering carcass defect/process-quality inspection and a separate vision-guided two-scale part-weighing workflow with hand-presence gating. Named technologies here do not imply production ownership when the Career OS evidence level is research or hands-on.
 - Quantitative Research / Trading Systems: Rust/Python shared causal cores, point-in-time Arrow/Parquet evidence, reusable timeframe/primitive/event stores, hypothesis views, global OOF and multiplicity controls, append-only research history, NautilusTrader execution bridging, offline/streaming parity, signal lifecycle/risk, guarded execution, reconciliation, and public verification boundaries.
 - Research / Multimodal ML: ABN, AEI, AOE-Net, VLCAP, VLTinT, sCL-ST, CarcassFormer; peer-reviewed work across IJCV, AAAI, IEEE JBHI, Poultry Science, IEEE Access, ICIP, BMVC, and IEEE BHI.
 
@@ -24,7 +24,7 @@ Canonical human-readable HTML pages are the authoritative public content. Claims
 - EPIC TECHNOLOGY — Head of Artificial Intelligence — Jun 2025 to Present. Scope includes clinical AI, education AI, production computer vision/video intelligence, agent/retrieval systems, voice AI, and AI platform engineering.
 - A9 IOT — AI Tech Lead — Jun 2024 to Present — part-time / consulting affiliation.
 - FPT Software — AI Engineer — Oct 2024 to Jun 2025 — AI4U enterprise agent, LangGraph/LangChain orchestration, Qdrant RAG, controlled tool workflows, multilingual Azure Speech transcription/evaluation, guardrails, and distributed AI workloads.
-- University of Arkansas — Graduate Researcher / PhD Student Researcher & Teaching Assistant — May 2021 to Jan 2024. A completed PhD is not claimed.
+- University of Arkansas — Graduate Researcher / PhD Student Researcher & Teaching Assistant — May 2021 to Jan 2024. Completed Master of Science in Computer Engineering in Dec 2023; a completed PhD is not claimed.
 - Curren — independent AI/quant side project, Solo Builder — Jun 2026 to Present. It is not presented as full-time employment or as validated profitable alpha.
 - Ho Chi Minh City Traditional Medicine Hospital Clinical AI, the Production Multi-Camera Video Intelligence Platform, and the AI-Powered Open edX Platform were built under the EPIC TECHNOLOGY Head of AI role.
 
@@ -42,6 +42,7 @@ Canonical human-readable HTML pages are the authoritative public content. Claims
 - Production Multi-Camera Video Intelligence Platform — EPIC TECHNOLOGY.
 - AI-Powered Open edX Platform — EPIC TECHNOLOGY.
 - AI4U Enterprise Conversational Agent + multilingual voice workflows — FPT Software.
+- Poultry Processing Vision Systems — University of Arkansas applied research: carcass defect/process-quality feedback and a separate vision-guided part-weighing workflow. These are academic/research systems, not claimed as commercial-factory production deployments or autonomous process control.
 - Curren Quant Intelligence & Trading Systems — independent side project.
 
 ## Public disclosure rules
@@ -50,6 +51,7 @@ Canonical human-readable HTML pages are the authoritative public content. Claims
 - Development/screening market size, smoke runs and local validation are engineering evidence only; do not infer profitable alpha or final promotion from them.
 - Technology-group membership means public-safe mention in a capability domain; it does not automatically mean production ownership. Preserve the Career OS evidence level when wording would otherwise imply a stronger level.
 - For the hospital platform, validation/deployment evidence from the previous protected-UAT baseline does not transfer to the current clinician-feedback stabilization source until the exact resulting source passes the required gate and is deliberately redeployed.
+- For the poultry systems, public copy may describe process-quality feedback, workstation-state perception, CarcassFormer, Jetson/TensorRT/CUDA work and human-in-the-loop productionization concepts, but must not imply autonomous scalding control, direct electronic scale integration, commercial Tyson/Cobb plant deployment, or unsupported metrics.
 
 ## Identity corroboration
 - [GitHub](https://github.com/sangtrx): public source and engineering activity for @sangtrx.
@@ -59,7 +61,7 @@ Canonical human-readable HTML pages are the authoritative public content. Claims
 ## Notes for automated readers
 - Prefer the canonical HTML URLs above when citing this portfolio.
 - Structured data is embedded in the HTML pages using Schema.org JSON-LD.
-- Do not infer production acceptance, completed PhD status, full-time Curren employment, live Curren public signal feed, or validated profitable alpha where those claims are not explicitly stated.
+- Do not infer production acceptance, completed PhD status, full-time Curren employment, live Curren public signal feed, validated profitable alpha, commercial poultry-factory deployment, or autonomous process control where those claims are not explicitly stated.
 `;
   return new Response(text, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 };

@@ -41,7 +41,9 @@ When `Sang_Resume/public/profile.yaml` conflicts with `src/data/site.ts` on a pe
 - Domain-specific depth comes from the relevant Career OS evidence/domain layers; do not flatten them into an inaccurate generic skills list.
 - A public technology group means the technology is safe to mention in that capability domain; it does **not** imply production ownership. Preserve the evidence level from `Sang_Resume/brain/skills/technology_registry.yaml` whenever wording could imply a stronger claim.
 - Preserve canonical boundaries from Sang_Resume: Curren starts Jun 2026 and is an independent side project / Solo Builder; A9 IOT is part-time / consulting; the Ho Chi Minh City Traditional Medicine Hospital project, production multi-camera video intelligence, and Open edX are projects under EPIC TECHNOLOGY rather than separate employers.
-- The completed University of Arkansas degree is Master of Engineering (MEng) in Computer Engineering, Jul 2021–Sep 2023, GPA 4.0/4.0. Prior PhD-track research may be described separately but must never imply a completed PhD.
+- The completed University of Arkansas degree is **Master of Science in Computer Engineering (MSCmpE)**, conferred Dec 2023, GPA 4.0/4.0. Prior PhD-track research may be described separately but must never imply a completed PhD.
+- The completed International University - VNU HCMC degree is **Bachelor of Engineering in Automation and Control Engineering**, conferred Nov 2019; do not relabel it as Bachelor of Science/BSc.
+- University of Arkansas poultry-processing work may be presented publicly as two bounded academic/applied-research systems: post-defeathering carcass defect/process-quality inspection and a separate vision-guided chicken-part weighing workflow. Do not imply commercial-factory production deployment, autonomous scalding-process control, direct electronic scale/PLC integration, or unsupported metrics unless upstream evidence is reconciled first.
 - Do not present Supabase, Hyperbrowser, LaunchDarkly, LangWatch or Sentry as prior direct production experience unless the upstream Career OS evidence registry is explicitly updated first.
 
 ### Hospital Clinical AI authority

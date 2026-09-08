@@ -14,7 +14,7 @@ export const profile = {
 export const credibility = [
   { label: 'Current role', value: 'Head of Artificial Intelligence' },
   { label: 'Applied AI experience', value: '6+ years' },
-  { label: 'Graduate degree', value: 'MEng Computer Engineering · 4.0/4.0' },
+  { label: 'Graduate degree', value: 'MS Computer Engineering · 4.0/4.0' },
   { label: 'Research', value: 'IJCV · AAAI Oral · IEEE JBHI · Poultry Science' },
 ];
 
@@ -65,7 +65,7 @@ export const capabilityDomains = [
       'Physical-world AI spanning camera/media ingest, perception, tracking, temporal events, evidence capture, edge inference, and recovery under unreliable real-world conditions.',
     evidence: [
       'Production multi-camera video intelligence: YOLO11, Vietnamese ALPR, ByteTrack, line crossing, event video, identity/freshness checks, watchdog recovery',
-      'University of Arkansas: temporal action understanding, vision-language modeling, industrial CV, CarcassFormer, YOLOv8 Jetson deployment',
+      'University of Arkansas poultry processing: post-defeathering carcass defect aggregation for process-quality feedback plus a separate two-scale chicken-part weighing workflow with hand-presence gating; CarcassFormer and Jetson/TensorRT/CUDA edge work',
       '5D Agriculture: autonomous braking, face recognition, Intel RealSense D435 RGB-D livestock measurement, embedded AI',
     ],
     stack: 'PyTorch · TensorFlow · OpenCV · YOLO11/YOLOv8 · Fast-ALPR · ByteTrack · TensorRT · CUDA · ONNX Runtime · Jetson · FFmpeg · MediaMTX',
@@ -164,6 +164,14 @@ export const systemPortfolio = [
     signal: 'Enterprise agent + voice platform',
   },
   {
+    period: '2021 — 2024',
+    title: 'Poultry Processing Vision Systems',
+    owner: 'University of Arkansas · Applied Research',
+    summary:
+      'Two distinct physical-workflow CV systems: post-defeathering carcass inspection that aggregates visible defect evidence into a process-quality signal, and a vision-guided two-scale weighing workflow that uses station localization, hand-presence gating, and nine-class part recognition to reduce manual sequence monitoring.',
+    signal: 'Industrial CV · process feedback · workstation state · edge inference',
+  },
+  {
     period: 'Jun 2026 — Present',
     title: 'Curren Quant Intelligence & Trading Systems',
     owner: 'Independent side project · Solo Builder',
@@ -216,12 +224,12 @@ export const experience = [
     role: 'Graduate Researcher / PhD Student Researcher & Teaching Assistant',
     company: 'University of Arkansas',
     summary:
-      'Graduate research in multimodal video understanding, temporal representation learning, vision-language modeling, medical time-series learning, industrial computer vision, and real-time edge inference; completed an MEng in Computer Engineering during this period.',
+      'Graduate research in multimodal video understanding, temporal representation learning, vision-language modeling, medical time-series learning, industrial computer vision, and real-time edge inference; completed a Master of Science in Computer Engineering during this period.',
     details: [
       'Co-developed ABN, AEI, and AOE-Net for temporal action proposal generation and actor/object/environment interaction modeling in long untrimmed videos.',
       'Co-developed VLCAP and VLTinT for coherent video paragraph captioning; VLTinT was selected as an AAAI 2023 Oral.',
-      'Worked on sCL-ST for multi-lead ECG arrhythmia classification and CarcassFormer/poultry-defect inspection for industrial computer vision.',
-      'Built data/annotation workflows and optimized YOLOv8 on NVIDIA Jetson with TensorRT, FP16, CUDA streams, CUDA preprocessing, and memory-oriented tuning.',
+      'Built applied poultry-processing CV workflows: post-defeathering carcass inspection/defect aggregation for process-quality feedback and a separate two-scale chicken-part weighing workflow using scale localization, hand-presence gating, and nine-class recognition.',
+      'Co-authored CarcassFormer for poultry carcass defect localization/segmentation/classification and optimized YOLOv8 on NVIDIA Jetson with TensorRT, FP16, CUDA streams, CUDA preprocessing, and memory-oriented tuning.',
     ],
   },
 ];
@@ -331,16 +339,16 @@ export const skillGroups = [
 
 export const education = [
   {
-    period: 'Jul 2021 — Sep 2023',
-    title: 'Master of Engineering (MEng) in Computer Engineering',
+    period: 'Jul 2021 — Dec 2023',
+    title: 'Master of Science in Computer Engineering (MSCmpE)',
     institution: 'University of Arkansas',
     detail: 'GPA 4.0/4.0 · thesis: “Towards Multi-modal Interpretable Video Understanding” · advisor: Prof. Ngan Le · fully funded Ph.D. admission in 2021 followed by endowed graduate scholarships in 2022 and 2023.',
   },
   {
-    period: '2015 — 2019',
-    title: 'Bachelor of Science in Automation and Control Engineering',
+    period: '2015 — Nov 2019',
+    title: 'Bachelor of Engineering in Automation and Control Engineering',
     institution: 'International University — VNU HCMC',
-    detail: 'GPA 3.5/4.0 · Top 1% · half-tuition scholarship recipient.',
+    detail: 'GPA 3.50/4.00 · Very Good · Top 1% · half-tuition scholarship recipient.',
   },
 ];
 
@@ -358,7 +366,7 @@ export const researchTrajectory = [
   {
     period: '2021 → 2024',
     title: 'Medical & industrial ML',
-    detail: 'sCL-ST for multi-lead ECG representation learning and CarcassFormer for poultry defect localization, segmentation, and classification, alongside Jetson/TensorRT deployment work.',
+    detail: 'sCL-ST for multi-lead ECG representation learning plus poultry-processing vision for carcass defect/process-quality inspection and weighing-workstation state; CarcassFormer and Jetson/TensorRT deployment work connect research methods to physical systems.',
   },
 ];
 
