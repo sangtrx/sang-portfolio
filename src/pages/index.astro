@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import ProjectProofs from '../components/ProjectProofs.astro';
 import {
   capabilityDomains,
   credibility,
@@ -27,7 +28,7 @@ const jsonLd = [
     name: 'Sang Truong | Senior AI Engineer & Applied AI Lead',
     description: 'Proof-of-work portfolio for Sang Truong (sangtrx), a senior AI engineer and applied AI lead spanning LLM/agent systems, computer vision/video AI, quantitative ML, multimodal research, and production engineering.',
     inLanguage: 'en',
-    dateModified: '2026-08-28T14:50:00+07:00',
+    dateModified: '2026-09-09T20:16:00+07:00',
     isPartOf: { '@id': websiteId(root) },
     about: { '@id': personId(root) },
     mainEntity: { '@id': personId(root) },
@@ -92,6 +93,8 @@ const jsonLd = [
       {projects.map((project) => <ProjectCard project={project} />)}
     </div>
   </section>
+
+  <ProjectProofs />
 
   <section class="container section section-rule">
     <div class="section-heading">
