@@ -28,9 +28,9 @@ const jsonLd = [
     '@id': `${canonical}#profile`,
     name: 'Résumé — Sang Truong',
     url: canonical,
-    description: `Résumé for Sang Truong (${publicIdentity.handle}), senior AI engineer and applied AI lead in ${publicIdentity.location}.`,
+    description: `Résumé for Sang Truong (${publicIdentity.handle}), senior AI engineer building applied AI systems in ${publicIdentity.location}.`,
     inLanguage: 'en',
-    dateModified: '2026-09-09T00:00:00+07:00',
+    dateModified: '2026-09-10T10:04:00+07:00',
     isPartOf: { '@id': websiteId(root) },
     mainEntity: { '@id': personId(root) },
     about: { '@id': personId(root) },
@@ -38,10 +38,10 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="Résumé — Sang Truong | Senior AI Engineer & Applied AI Lead"
-  description="Résumé of Sang Truong (sangtrx), senior AI engineer and applied AI lead in Ho Chi Minh City, Vietnam, with 6+ years across LLM/RAG/agents, computer vision/video AI, multimodal research, quantitative ML, speech, edge inference, distributed backends, and production delivery."
+  title="Résumé — Sang Truong | Senior AI Engineer · Applied AI Systems"
+  description="Résumé of Sang Truong (sangtrx), senior AI engineer in Ho Chi Minh City with 6+ years across LLM/RAG/agents, computer vision/video AI, multimodal research, quantitative ML, speech, edge inference, distributed backends, and production delivery."
   image="og-resume.png"
-  imageAlt="Résumé of Sang Truong — Senior AI Engineer and Applied AI Lead"
+  imageAlt="Résumé of Sang Truong — Senior AI Engineer · Applied AI Systems"
   pageType="profile"
   jsonLd={jsonLd}
 >
@@ -187,8 +187,8 @@ const jsonLd = [
     </section>
 
     <section class="resume-block resume-source">
-      <h2>Source & evidence</h2>
-      <p>The public web résumé follows the current canonical résumé architecture: shared chronology and factual boundaries, plus separate depth layers for Applied AI/LLM systems, Computer Vision/Video AI, Quantitative Research/Trading Systems, and academic research. Public evidence is exposed through case studies, GitHub activity, and Google Scholar; confidential project material, credentials, internal infrastructure labels, patient data, and private trading alpha remain excluded.</p>
+      <h2>Public evidence boundary</h2>
+      <p>This web résumé follows the current canonical Career OS while intentionally compressing project implementation detail. Public evidence is exposed through bounded case studies, public GitHub work, and Google Scholar; confidential project material, credentials, internal infrastructure labels, patient data, private trading strategy, and operational runbooks remain excluded.</p>
       <div class="hero-actions"><a class="button ghost" href={withBase('/#work')}>Project case studies</a><a class="button ghost" href={profile.scholar}>Google Scholar ↗</a></div>
     </section>
   </article>
