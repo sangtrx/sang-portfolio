@@ -1,0 +1,174 @@
+/* 2026 public showcase layer.
+   Strong systems feel without neon/cyber styling or additional disclosure. */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 24px 0 72px;
+  pointer-events: none;
+  opacity: .28;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.85) 44%, transparent 92%);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 78px;
+  width: 2px;
+  height: min(260px, 30vw);
+  background: var(--accent);
+  opacity: .8;
+}
+
+.hero h1 {
+  max-width: 12ch;
+  text-shadow: 0 1px 0 color-mix(in srgb, var(--text) 8%, transparent);
+}
+
+.role-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.role-line::before {
+  content: '';
+  width: 26px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.credibility-rail {
+  border-top-color: var(--line-strong);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-card {
+  box-shadow: none;
+  border-color: var(--line-strong);
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 48%, var(--line-strong));
+}
+
+.project-visual {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 16%, transparent), transparent 42%),
+    #07111f;
+}
+
+.project-visual::after {
+  content: '';
+  position: absolute;
+  inset: 22px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  border-left: 1px solid rgba(255,255,255,.12);
+  pointer-events: none;
+}
+
+.visual-flow {
+  max-width: calc(100% - 48px);
+}
+
+.visual-flow span {
+  border-radius: 7px;
+  letter-spacing: .055em;
+}
+
+.visual-flow span.hot {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.visual-label,
+.visual-status,
+.project-topline-visible,
+.proof-row,
+.system-index,
+.system-signal {
+  font-variant-numeric: tabular-nums;
+}
+
+.domain-card,
+.ownership-card {
+  position: relative;
+}
+
+.domain-card::before,
+.ownership-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+  opacity: .7;
+}
+
+.boundary-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.boundary-card::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 64px;
+  height: 64px;
+  border-top: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-right: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  pointer-events: none;
+}
+
+.safe-architecture article {
+  transition: background .18s ease;
+}
+
+.safe-architecture article:hover {
+  background: color-mix(in srgb, var(--surface) 92%, var(--accent));
+}
+
+.principle-panel blockquote {
+  position: relative;
+}
+
+.principle-panel blockquote::before {
+  content: 'SYSTEM PRINCIPLE';
+  display: block;
+  margin-bottom: 18px;
+  color: var(--accent);
+  font: 650 .68rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .1em;
+}
+
+@media (max-width: 760px) {
+  .hero::before {
+    inset-inline: -20px;
+    opacity: .2;
+    mask-image: linear-gradient(#000, transparent 88%);
+  }
+
+  .hero::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .safe-architecture article { transition: none; }
+}
