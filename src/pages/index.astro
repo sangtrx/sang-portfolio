@@ -25,10 +25,10 @@ const jsonLd = [
     '@type': 'WebPage',
     '@id': `${canonical}#webpage`,
     url: canonical,
-    name: 'Sang Truong | Senior AI Engineer & Applied AI Lead',
-    description: 'Proof-of-work portfolio for Sang Truong (sangtrx), a senior AI engineer and applied AI lead spanning LLM/agent systems, computer vision/video AI, quantitative ML, multimodal research, and production engineering.',
+    name: 'Sang Truong | Senior AI Engineer · Applied AI Systems',
+    description: 'Proof-of-work portfolio for Sang Truong (sangtrx), a senior AI engineer building applied AI systems across agents and knowledge, computer vision/video, quantitative ML, multimodal research, and production engineering.',
     inLanguage: 'en',
-    dateModified: '2026-09-09T20:16:00+07:00',
+    dateModified: '2026-09-10T10:04:00+07:00',
     isPartOf: { '@id': websiteId(root) },
     about: { '@id': personId(root) },
     mainEntity: { '@id': personId(root) },
@@ -36,15 +36,15 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="Sang Truong | Senior AI Engineer & Applied AI Lead"
-  description="Sang Truong (sangtrx) is a senior AI engineer and applied AI lead in Ho Chi Minh City, Vietnam, with 6+ years across LLM/RAG/agents, computer vision and video intelligence, multimodal AI, quantitative ML, speech, edge inference, distributed backends, and production delivery."
+  title="Sang Truong | Senior AI Engineer · Applied AI Systems"
+  description="Sang Truong (sangtrx) is a senior AI engineer in Ho Chi Minh City building applied AI systems across LLM/RAG/agents, computer vision and video intelligence, quantitative ML, multimodal research, speech, edge inference, and production delivery."
   jsonLd={jsonLd}
 >
   <section class="hero container section">
     <div class="hero-grid">
       <div>
         <p class="role-line">{profile.name} · {profile.title}</p>
-        <h1>I build AI systems that have to work.</h1>
+        <h1>I build AI systems that survive contact with reality.</h1>
       </div>
       <div class="hero-side">
         <p class="hero-intro">{profile.intro}</p>
@@ -65,9 +65,9 @@ const jsonLd = [
     <div class="section-heading">
       <div>
         <p class="eyebrow">Technical depth</p>
-        <h2>One career, four deep engineering domains.</h2>
+        <h2>One engineer. Four deep system domains.</h2>
       </div>
-      <p class="section-note">The current résumé family separates domain evidence instead of flattening everything into one generic skills list. The portfolio follows the same model: broad senior ownership, with inspectable depth in each domain.</p>
+      <p class="section-note">The headline stays simple. The depth comes from owning the hard boundaries: model versus truth, research versus runtime, camera versus evidence, implementation versus acceptance.</p>
     </div>
     <div class="domain-grid">
       {capabilityDomains.map((domain) => (
@@ -84,10 +84,10 @@ const jsonLd = [
   <section id="work" class="container section section-rule">
     <div class="section-heading">
       <div>
-        <p class="eyebrow">Deep case studies</p>
-        <h2>Two systems with architecture and evidence exposed.</h2>
+        <p class="eyebrow">Flagship systems</p>
+        <h2>High signal. Deliberately low disclosure.</h2>
       </div>
-      <p class="section-note">YHCT shows bounded clinical AI under a real hospital UAT boundary. Curren shows point-in-time quantitative research, live-system state, and a one-way public verification architecture. Both distinguish implementation, validation, deployment, and non-claims.</p>
+      <p class="section-note">The case studies expose the engineering decisions a technical interviewer needs to judge depth — authority, state, evidence, causality, failure, deployment — while withholding private corpus, strategy, credentials, topology, runbooks, and internal identifiers.</p>
     </div>
     <div class="project-list">
       {projects.map((project) => <ProjectCard project={project} />)}
@@ -102,7 +102,7 @@ const jsonLd = [
         <p class="eyebrow">System portfolio</p>
         <h2>The work is broader than two case studies.</h2>
       </div>
-      <p class="section-note">Selected systems across healthcare, education, enterprise agents, physical-world video AI, and quantitative research. Ownership labels are explicit so client/employer work is not presented as unrelated personal projects.</p>
+      <p class="section-note">Selected work across healthcare, education, enterprise agents, physical-world AI, quantitative systems, and research. Client/employer ownership stays explicit; sensitive implementation stays private.</p>
     </div>
     <div class="system-portfolio">
       {systemPortfolio.map((system, index) => {
@@ -128,7 +128,7 @@ const jsonLd = [
         <p class="eyebrow">End-to-end ownership</p>
         <h2>Beyond the model call.</h2>
       </div>
-      <p class="section-note">The recurring pattern is turning research/model capability into a bounded system with explicit data, authority, failure, evaluation, operations, and acceptance contracts.</p>
+      <p class="section-note">The recurring pattern is taking an uncertain research or product goal and making the ownership, system state, failure modes, evaluation, operations, and acceptance boundary explicit.</p>
     </div>
     <div class="ownership-grid ownership-grid-expanded">
       {ownership.map((item) => (
@@ -144,9 +144,9 @@ const jsonLd = [
     <div class="section-heading">
       <div>
         <p class="eyebrow">Career</p>
-        <h2>Research depth, product ownership, production constraints.</h2>
+        <h2>Research depth. Product ownership. Production constraints.</h2>
       </div>
-      <p class="section-note">From embedded computer vision and quantitative systems to multimodal research, enterprise agents, hospital AI, education platforms, and production video intelligence.</p>
+      <p class="section-note">A broad engineering path across embedded vision, quantitative systems, multimodal research, enterprise agents, clinical AI, education platforms, and production video intelligence.</p>
     </div>
     <div class="timeline">
       {experience.map((item) => (
@@ -183,7 +183,7 @@ const jsonLd = [
 
   <section class="container section section-rule principle-panel">
     <blockquote>Research rigor is only useful in production if the system preserves the contract that made the result valid.</blockquote>
-    <p class="muted">In clinical AI that means explicit fact authority, provenance, and acceptance states. In quantitative systems it means point-in-time data, leakage controls, reproducible evaluation, and a clean boundary between research artifacts and live state.</p>
+    <p class="muted">That means explicit authority in clinical AI, causal evidence in quantitative systems, and source/failure awareness in physical-world AI.</p>
   </section>
 
   <section class="container section contact-panel">
