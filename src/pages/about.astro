@@ -13,10 +13,10 @@ const jsonLd = [
     '@type': 'ProfilePage',
     '@id': `${canonical}#profile`,
     url: canonical,
-    name: 'About Sang Truong | Senior AI Engineer & Applied AI Lead',
-    description: `Public profile for Sang Truong (${publicIdentity.handle}), a senior AI engineer and applied AI lead based in ${publicIdentity.location}.`,
+    name: 'About Sang Truong | Senior AI Engineer · Applied AI Systems',
+    description: `Public profile for Sang Truong (${publicIdentity.handle}), a senior AI engineer building applied AI systems based in ${publicIdentity.location}.`,
     inLanguage: 'en',
-    dateModified: '2026-08-28T14:50:00+07:00',
+    dateModified: '2026-09-10T10:04:00+07:00',
     isPartOf: { '@id': websiteId(root) },
     mainEntity: { '@id': personId(root) },
     about: { '@id': personId(root) },
@@ -24,8 +24,8 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="About Sang Truong | Senior AI Engineer & Applied AI Lead"
-  description="About Sang Truong (sangtrx), a senior AI engineer and applied AI lead in Ho Chi Minh City, Vietnam, with deep experience across LLM/agent systems, computer vision/video AI, multimodal research, quantitative ML, edge inference, distributed backends, and production delivery."
+  title="About Sang Truong | Senior AI Engineer · Applied AI Systems"
+  description="About Sang Truong (sangtrx), a senior AI engineer in Ho Chi Minh City with deep experience across LLM/agent systems, computer vision/video AI, multimodal research, quantitative ML, edge inference, distributed backends, and production delivery."
   image="og-about.png"
   pageType="profile"
   jsonLd={jsonLd}
@@ -34,7 +34,7 @@ const jsonLd = [
     <header class="about-hero">
       <p class="eyebrow">About</p>
       <h1>Research-trained. Systems-minded. Production accountable.</h1>
-      <p class="about-lede">I'm Sang Truong (<a href={profile.github}>@{publicIdentity.handle}</a>), a senior AI engineer and applied AI lead based in {publicIdentity.location}. My work spans model research, LLM/agent systems, computer vision and video intelligence, quantitative ML, distributed backends, product engineering, cloud/edge deployment, and the operational boundaries that decide whether an AI system is actually trustworthy.</p>
+      <p class="about-lede">I'm Sang Truong (<a href={profile.github}>@{publicIdentity.handle}</a>), a senior AI engineer based in {publicIdentity.location}. My work spans model research, LLM/agent systems, computer vision and video intelligence, quantitative ML, distributed backends, product engineering, cloud/edge deployment, and the operational boundaries that decide whether an AI system is actually trustworthy.</p>
     </header>
 
     <section class="about-grid section-rule">
@@ -51,8 +51,8 @@ const jsonLd = [
 
     <section class="section-rule">
       <div class="section-heading compact-heading">
-        <div><p class="eyebrow">Domain depth</p><h2>Specialized depth without amputating the rest of the career.</h2></div>
-        <p class="section-note">The résumé architecture intentionally keeps one canonical chronology while expanding evidence by domain. These are the four recurring technical centers.</p>
+        <div><p class="eyebrow">Domain depth</p><h2>Broad systems ownership, with real depth where it matters.</h2></div>
+        <p class="section-note">The résumé keeps one canonical chronology while expanding evidence by domain. These are the four recurring technical centers.</p>
       </div>
       <div class="domain-grid">
         {capabilityDomains.map((domain) => (
@@ -77,7 +77,7 @@ const jsonLd = [
         <article><strong>Preserve evidence.</strong><p>Separate fluent output from the source, tool result, experiment, runtime observation, or acceptance gate that supports it.</p></article>
         <article><strong>Design for operation.</strong><p>State, retries, idempotency, restart behavior, monitoring, recovery, access control, deployment and handoff are part of the product.</p></article>
         <article><strong>Optimize on target hardware.</strong><p>For physical-world AI, camera/media reliability and target-device inference behavior matter more than isolated benchmark numbers.</p></article>
-        <article><strong>State the boundary.</strong><p>Implemented, tested, deployed, accepted, and production-ready are different claims. I try to keep them different.</p></article>
+        <article><strong>State the boundary.</strong><p>Implemented, tested, deployed, accepted, and production-ready are different claims. I keep them different.</p></article>
       </div>
     </section>
 
