@@ -1,14 +1,14 @@
 export const profile = {
   name: 'Sang Truong',
-  title: 'Senior AI Engineer · Applied AI Lead',
-  eyebrow: 'Agentic AI · Voice & RAG · Computer Vision · Quantitative ML',
+  title: 'Senior AI Engineer · Applied AI Systems',
+  eyebrow: 'AI Systems · Computer Vision · Quantitative ML · Research',
   intro:
-    'Senior AI engineer and technical lead with 6+ years across agentic AI, LLM/RAG systems, voice and real-time AI, computer vision and video intelligence, multimodal learning, quantitative ML, time-series forecasting, edge inference, and production AI engineering. I own systems end to end from research and data acquisition through model/tool design, retrieval and orchestration, APIs, distributed workloads, product surfaces, deployment, observability, reliability, and stakeholder delivery.',
+    'Senior AI engineer and technical lead with 6+ years building applied AI across agents and knowledge systems, computer vision and video, quantitative ML, speech, edge inference, and production software. I work end to end: from research and data contracts to application architecture, deployment, evaluation, reliability, and stakeholder acceptance.',
   email: 'tqsang97@gmail.com',
   github: 'https://github.com/sangtrx',
   linkedin: 'https://linkedin.com/in/tqsang',
   scholar: 'https://scholar.google.com/citations?user=JG2yzhgAAAAJ',
-  resumeSource: 'https://github.com/sangtrx/Sang_Resume',
+  resumeSource: '/resume',
 };
 
 export const credibility = [
@@ -20,28 +20,28 @@ export const credibility = [
 
 export const ownership = [
   {
-    title: 'AI & system architecture',
-    detail: 'Translate ambiguous product goals into model/data contracts, authority boundaries, APIs, state, deployment, testing, observability, and acceptance criteria.',
+    title: 'Architecture & authority',
+    detail: 'Turn ambiguous requirements into clear system boundaries, data ownership, interfaces, permissions, state, and acceptance criteria.',
   },
   {
-    title: 'Model, tools & knowledge',
-    detail: 'Design agent orchestration, retrieval, tool/model routing, context and memory, browser/tool workflows, structured outputs, guardrails, provenance, and safe boundaries around side effects and fact ownership.',
+    title: 'AI, tools & knowledge',
+    detail: 'Design model, retrieval, tool, memory, and human-review paths without letting probabilistic output silently become system truth.',
   },
   {
-    title: 'Backend & product engineering',
-    detail: 'Build the application path around the model: FastAPI services, durable state, async workers, streaming, integrations, product surfaces, permissions, and operational controls.',
+    title: 'Backend & product',
+    detail: 'Build the software around the model: APIs, durable state, async work, streaming, integrations, product surfaces, and operational controls.',
   },
   {
     title: 'Evaluation & reliability',
-    detail: 'Define what “working” means, separate implemented from validated, test retrieval/response/speech and failure behavior, and make evidence visible instead of hiding uncertainty behind fluent output.',
+    detail: 'Separate implemented from validated, make failure modes observable, and use evidence rather than fluent output as the acceptance boundary.',
   },
   {
     title: 'Cloud, edge & deployment',
-    detail: 'Carry systems through Docker/Linux, cloud and on-prem delivery, GPU/edge optimization, networking, observability, recovery, runtime verification, and stakeholder handoff.',
+    detail: 'Carry systems through Docker/Linux, cloud or on-prem delivery, GPU/edge constraints, monitoring, recovery, and handoff.',
   },
   {
     title: 'Research to production',
-    detail: 'Move from experimental methods and reproducible evaluation into constrained production systems without erasing the assumptions that made the research valid.',
+    detail: 'Preserve causality, provenance, reproducibility, and experimental assumptions while turning research into usable systems.',
   },
 ];
 
@@ -50,37 +50,37 @@ export const capabilityDomains = [
     index: '01',
     title: 'Applied AI · Agents · Voice · RAG',
     summary:
-      'Production AI systems where retrieval, tools, memory, voice/real-time interaction, authority, safety, evaluation, and distributed application state matter as much as the model call.',
+      'Production AI where knowledge, tools, state, safety, evaluation, and user workflows matter as much as the model call.',
     evidence: [
-      'Ho Chi Minh City Traditional Medicine Hospital clinical AI: one semantic owner for request/reference/source/tool/scope, bounded approved-corpus research, durable Evidence Workspace, deterministic clinical authority and exact citations',
-      'FPT AI4U: Azure OpenAI, LangGraph/LangChain, Qdrant RAG, tool/model routing, code execution, web search, memory controls and guardrails',
-      'Voice and tool workflows: multilingual Azure Speech transcription/evaluation, Vietnamese ASR/TTS, WebSockets/SSE, Playwright-based browser verification and failure handling',
+      'Clinical decision support with governed knowledge, citations, deterministic application authority, and explicit human/production boundaries',
+      'Enterprise conversational AI with retrieval, tool/model routing, memory controls, guardrails, and distributed workloads',
+      'Multilingual speech and real-time interaction across API, worker, and browser-facing paths',
     ],
-    stack: 'FastAPI · LangGraph · LangChain · Azure OpenAI · Azure Speech · Qdrant · Milvus · pgvector · Playwright · Celery · RabbitMQ · Redis · PostgreSQL · Docker',
+    stack: 'Python · FastAPI · LangGraph/LangChain · Azure OpenAI · Qdrant/Milvus/pgvector · PostgreSQL · Playwright · Celery/RabbitMQ/Redis',
   },
   {
     index: '02',
     title: 'Computer Vision · Video · Edge AI',
     summary:
-      'Physical-world AI spanning camera/media ingest, perception, tracking, temporal events, evidence capture, edge inference, and recovery under unreliable real-world conditions.',
+      'Physical-world AI spanning camera/media input, perception, tracking, temporal state, evidence, target-device inference, and recovery.',
     evidence: [
-      'Production multi-camera video intelligence: YOLO11, Vietnamese ALPR, ByteTrack, line crossing, event video, identity/freshness checks, watchdog recovery',
-      'University of Arkansas poultry processing: post-defeathering carcass defect aggregation for process-quality feedback plus a separate two-scale chicken-part weighing workflow with hand-presence gating; CarcassFormer and Jetson/TensorRT/CUDA edge work',
-      '5D Agriculture: autonomous braking, face recognition, Intel RealSense D435 RGB-D livestock measurement, embedded AI',
+      'Production multi-camera video intelligence across heterogeneous real-world sources and operational failure modes',
+      'Industrial and academic vision workflows for inspection, recognition, tracking, and workstation state',
+      'Edge optimization with TensorRT/CUDA/Jetson plus RGB-D and embedded perception work',
     ],
-    stack: 'PyTorch · TensorFlow · OpenCV · YOLO11/YOLOv8 · Fast-ALPR · ByteTrack · TensorRT · CUDA · ONNX Runtime · Jetson · FFmpeg · MediaMTX',
+    stack: 'PyTorch · TensorFlow · OpenCV · YOLO · ALPR · Tracking · TensorRT · CUDA · ONNX Runtime · Jetson · RTSP/HLS · FFmpeg',
   },
   {
     index: '03',
     title: 'Quantitative Research · Trading Systems',
     summary:
-      'A research-to-production stack built around point-in-time evidence, reusable causal computation, leakage/multiplicity control, durable signal/risk state, execution/reconciliation, and public verification boundaries.',
+      'Research and runtime engineering built around point-in-time evidence, causal computation, disciplined evaluation, durable state, and guarded execution boundaries.',
     evidence: [
-      'Curren research: Rust/Python causal core, Arrow/Parquet PIT evidence, shared timeframes/primitives/events, versioned event store, hypothesis views, global OOF and append-only Alpha History',
-      'Curren production path: normalized external alpha-source data, fail-closed ML quality gate, restart-safe lifecycle/risk, guarded execution, reconciliation and research↔streaming parity',
-      'Confidential Fund + Bluebelt: equity/crypto/FX quantitative research, ML ensembles, sentiment-derived signals, AWS execution and MLflow experimentation',
+      'Curren: point-in-time research pipeline and shared research/runtime semantics without exposing strategy internals',
+      'Leakage-aware evaluation, reproducible data artifacts, selection controls, lifecycle/risk state, and reconciliation',
+      'Earlier equity, crypto, and FX research with ML ensembles, market data, cloud execution, and experiment tracking',
     ],
-    stack: 'Rust · Python · Arrow · PyArrow/Parquet · Polars · DuckDB · LightGBM · CatBoost · XGBoost · SciPy · Statsmodels · Optuna · NautilusTrader',
+    stack: 'Rust · Python · Arrow/Parquet · Polars · DuckDB · LightGBM · CatBoost · XGBoost · Scikit-learn · SciPy · Statsmodels · Optuna · NautilusTrader',
   },
   {
     index: '04',
@@ -88,9 +88,9 @@ export const capabilityDomains = [
     summary:
       'Peer-reviewed research across temporal video understanding, vision-language learning, medical time-series representation learning, and industrial computer vision.',
     evidence: [
-      'ABN → AEI → AOE-Net: action boundaries and actor/object/environment interaction modeling for long untrimmed video',
-      'VLCAP → VLTinT: contrastive vision-language learning and coherent video paragraph captioning; VLTinT was an AAAI 2023 Oral',
-      'sCL-ST + CarcassFormer: medical time-series contrastive learning and industrial localization/segmentation/classification',
+      'Temporal action proposal generation and interaction modeling for long untrimmed video',
+      'Vision-language learning and coherent video paragraph captioning, including an AAAI 2023 Oral',
+      'Medical time-series representation learning and industrial visual inspection research',
     ],
     stack: 'Transformers · Contrastive Learning · PyTorch · TensorFlow · Detectron2 · MATLAB · NumPy · SciPy · Scikit-learn · Weights & Biases',
   },
@@ -100,15 +100,15 @@ export const projects = [
   {
     slug: 'yhct',
     index: '01',
-    title: 'Ho Chi Minh City Traditional Medicine Hospital',
+    title: 'Clinical AI for a Traditional Medicine Hospital',
     kicker: 'EPIC TECHNOLOGY · Clinical AI & Decision Support',
     summary:
-      'A clinician-facing AI chatbot and decision-support platform with a single semantic-owner clinical-agent path, bounded approved-corpus evidence research, deterministic clinical fact authority, durable evidence state, exact citations, and explicit validation/production boundaries.',
+      'A clinician-facing AI system for knowledge lookup, interaction analysis, prescription review, and grounded Q&A. The public case study shows the engineering boundary and safety model while intentionally withholding private corpus, deployment, and implementation detail.',
     role: 'AI Architect / Lead Builder · EPIC TECHNOLOGY',
     year: '2026',
-    status: 'Validated/deployed protected-UAT baseline · clinician-feedback stabilization in progress',
-    proof: ['Single semantic owner', 'PostgreSQL evidence truth', 'Deterministic clinical authority'],
-    tags: ['Clinical AI', 'Agents', 'FastAPI', 'Next.js', 'PostgreSQL', 'Qdrant', 'RAG'],
+    status: 'Clinician-facing system · governed validation and deployment boundary',
+    proof: ['Governed knowledge', 'Durable application state', 'Explicit clinical authority'],
+    tags: ['Clinical AI', 'Agents', 'RAG', 'FastAPI', 'PostgreSQL', 'On-prem'],
     href: '/work/yhct',
     accent: 'blue',
   },
@@ -118,33 +118,33 @@ export const projects = [
     title: 'Curren',
     kicker: 'Independent quantitative intelligence & trading-systems project',
     summary:
-      'A solo-built multi-system platform spanning point-in-time research evidence, shared Rust/Python causal event infrastructure, OOF/multiplicity governance, real-time signal intelligence, fail-closed ML quality filtering, lifecycle/risk/execution, access/distribution, and an isolated public verification layer.',
+      'A solo-built quantitative research and systems platform connecting point-in-time evidence, reproducible evaluation, shared research/runtime semantics, guarded operational state, and a sanitized public verification surface — without publishing strategy internals.',
     role: 'Independent AI/Quant Side Project · Solo Builder',
     year: 'Jun 2026 — Present',
-    status: 'Research evidence path active · live public feed/profitable alpha not claimed',
-    proof: ['Shared causal event evidence', 'Research↔streaming parity', 'Read-only API · CLI · MCP'],
-    tags: ['Quant Research', 'Rust', 'PIT Data', 'NautilusTrader', 'MCP', 'Trading Systems'],
+    status: 'Research + platform engineering · no profitability claim',
+    proof: ['Point-in-time evidence', 'Research/runtime parity', 'Read-only public surface'],
+    tags: ['Quant Research', 'Rust', 'Python', 'PIT Data', 'Trading Systems', 'MCP'],
     href: '/work/curren',
-    accent: 'cyan',
+    accent: 'blue',
   },
 ];
 
 export const systemPortfolio = [
   {
     period: '2026',
-    title: 'Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform',
+    title: 'Hospital Clinical AI & Decision Support',
     owner: 'EPIC TECHNOLOGY · AI Architect / Lead Builder',
     summary:
-      'Clinical assistant for drug/herb lookup, interaction analysis, prescription review and governed knowledge Q&A using a single semantic-owner agent path, bounded local evidence research, deterministic clinical authority, durable observation/evidence state, exact citations and auditability.',
-    signal: 'Validated/deployed protected-UAT baseline · clinician-feedback stabilization in progress',
+      'Clinician-facing lookup, interaction analysis, prescription review, and knowledge Q&A with governed evidence, citations, durable state, and explicit clinical authority boundaries.',
+    signal: 'Clinical AI · governed knowledge',
     href: '/work/yhct',
   },
   {
     period: '2025 — Present',
-    title: 'Production Multi-Camera Video Intelligence Platform',
+    title: 'Production Multi-Camera Video Intelligence',
     owner: 'EPIC TECHNOLOGY · AI / Computer Vision Systems Lead',
     summary:
-      'Real-time multi-camera system covering media acquisition, stream normalization, YOLO11 perception, Vietnamese ALPR, ByteTrack tracking, temporal event logic, evidence capture, alerts, access control, monitoring, and automated recovery.',
+      'Physical-world video AI spanning heterogeneous media sources, perception and tracking, temporal events, evidence, monitoring, and recovery under constrained hardware and vendor interfaces.',
     signal: 'Production physical-world AI',
   },
   {
@@ -152,32 +152,32 @@ export const systemPortfolio = [
     title: 'AI-Powered Open edX Platform',
     owner: 'EPIC TECHNOLOGY · AI Architect / Lead Builder',
     summary:
-      'Teacher-reviewable course generation from textbooks/syllabi into lessons and OLX packages, plus Milvus-backed tutoring, secure question context and answer-key handling, Vietnamese ASR/TTS, WebSockets, Live2D browser interaction, Playwright verification, and Tutor/Docker/Nginx operations.',
-    signal: 'Education AI platform',
+      'Teacher-reviewable content generation and AI tutoring with retrieval, Vietnamese speech, real-time interaction, platform integration, browser verification, and operational delivery.',
+    signal: 'Education AI · human review',
   },
   {
     period: '2024 — 2025',
     title: 'AI4U Enterprise Conversational Agent',
     owner: 'FPT Software · AI Engineer',
     summary:
-      'Azure OpenAI agent with LangGraph/LangChain orchestration, Qdrant RAG, model/tool routing, controlled code/tool execution, web search, Mermaid generation, token-aware memory, content safety, multilingual speech/transcription evaluation, and distributed AI workloads.',
-    signal: 'Enterprise agent + voice platform',
+      'Enterprise conversational AI with retrieval, tool/model routing, memory and safety controls, multilingual speech workflows, distributed background work, and production APIs.',
+    signal: 'Enterprise agents · voice · RAG',
   },
   {
     period: '2021 — 2024',
-    title: 'Poultry Processing Vision Systems',
+    title: 'Industrial & Poultry Vision Research',
     owner: 'University of Arkansas · Applied Research',
     summary:
-      'Two distinct physical-workflow CV systems: post-defeathering carcass inspection that aggregates visible defect evidence into a process-quality signal, and a vision-guided two-scale weighing workflow that uses station localization, hand-presence gating, and nine-class part recognition to reduce manual sequence monitoring.',
-    signal: 'Industrial CV · process feedback · workstation state · edge inference',
+      'Visual inspection and workstation-state research connecting perception models to bounded physical-process evidence, alongside Jetson/TensorRT/CUDA edge optimization.',
+    signal: 'Industrial CV · edge inference',
   },
   {
     period: 'Jun 2026 — Present',
     title: 'Curren Quant Intelligence & Trading Systems',
     owner: 'Independent side project · Solo Builder',
     summary:
-      'Causal research evidence, versioned event/hypothesis infrastructure, OOF/selection governance, signal intelligence, ML quality gating, durable lifecycle/risk/execution, reconciliation, access/distribution, and public API/CLI/MCP verification boundaries.',
-    signal: 'Research evidence → production state → public verification',
+      'Point-in-time research evidence, reproducible evaluation, shared causal semantics, durable lifecycle/risk state, guarded execution boundaries, and sanitized public verification.',
+    signal: 'Research discipline · system parity',
     href: '/work/curren',
   },
 ];
@@ -188,12 +188,11 @@ export const experience = [
     role: 'Head of Artificial Intelligence',
     company: 'EPIC TECHNOLOGY',
     summary:
-      'Leading architecture and delivery across clinical AI, education AI, production computer vision/video intelligence, and AI platform engineering; owning requirements decomposition, data/model contracts, APIs, authority boundaries, deployment, testing, observability, and stakeholder acceptance.',
+      'Leading hands-on architecture and delivery across clinical AI, education AI, computer vision/video intelligence, and AI platform engineering.',
     details: [
-      'Built the Ho Chi Minh City Traditional Medicine Hospital AI Chatbot & Clinical Decision-Support Platform, including a single semantic-owner clinical-agent path, bounded approved-corpus research, deterministic clinical authority, durable evidence state, exact citations, role-scoped access and auditability.',
-      'Built an AI-powered Open edX platform with teacher-reviewable course generation, Milvus-backed AI tutoring, secure question context and answer-key handling, Vietnamese ASR/TTS, WebSockets, Live2D interaction, OLX automation, Tutor/Docker/Nginx operations, and Playwright verification.',
-      'Built and operate a production multi-camera AI program with video acquisition, stream normalization, YOLO11 detection, Vietnamese ALPR, ByteTrack tracking, temporal event logic, evidence capture, monitoring, and automated recovery.',
-      'Technologies include Python, FastAPI, AsyncIO, WebSockets/SSE, Next.js, React, PostgreSQL, pgvector/Qdrant, RabbitMQ, Celery, Open edX, Tutor/Django, Milvus, LangChain/LLMs, ASR/TTS, PyTorch, ONNX Runtime, OpenCV, YOLO11, Fast-ALPR, ByteTrack, MediaMTX, Docker, Nginx, Linux, and Playwright.',
+      'Own system boundaries, architecture, implementation, deployment, evaluation, observability, recovery, and stakeholder acceptance across applied AI programs.',
+      'Built clinician-facing clinical AI with governed knowledge and explicit fact/safety boundaries.',
+      'Built education AI and production multi-camera vision systems under real infrastructure, hardware, and operational constraints.',
     ],
   },
   {
@@ -201,10 +200,9 @@ export const experience = [
     role: 'AI Tech Lead · Part-time / Consulting',
     company: 'A9 IOT',
     summary:
-      'Leading real-time environmental IoT forecasting with continuous preprocessing, evaluation, inference, visualization, and stakeholder-facing reporting across LSTM, XGBoost, ARIMA, and Prophet workflows.',
+      'Leading environmental IoT forecasting workflows from preprocessing and evaluation through inference, visualization, and stakeholder reporting.',
     details: [
-      'Built continuous sensor preprocessing, model training/evaluation, inference, visualization, and reporting workflows.',
-      'Technologies include Python, TensorFlow, XGBoost, ARIMA, Prophet, Pandas, NumPy, Matplotlib, and Jupyter.',
+      'Worked across LSTM, XGBoost, ARIMA, Prophet, continuous sensor processing, model evaluation, and reporting.',
     ],
   },
   {
@@ -212,11 +210,10 @@ export const experience = [
     role: 'AI Engineer',
     company: 'FPT Software',
     summary:
-      'Built enterprise conversational agents and multilingual voice/real-time AI systems with Azure OpenAI, LangGraph/LangChain, Qdrant RAG, tool/model routing, distributed workers, guardrails, evaluation workflows, and production APIs.',
+      'Built enterprise conversational agents and multilingual voice/real-time AI systems with retrieval, orchestration, distributed workers, guardrails, and production APIs.',
     details: [
-      'Developed AI4U with Azure OpenAI, LangGraph/LangChain orchestration, Qdrant-backed RAG, multi-stage dialogue state, model/tool routing, controlled code/tool execution, web search, diagram generation, memory controls, and content safety.',
-      'Built multilingual recording/transcription and speech-evaluation services for English, Japanese, Korean, and Vietnamese with Azure Speech/OpenAI, FastAPI, Celery, RabbitMQ, Redis, distributed crawling, retries, and production controls.',
-      'Technologies included Python, FastAPI, Azure OpenAI, Azure Speech, LangChain, LangGraph, Qdrant, NeMo Guardrails, RabbitMQ, Redis, Celery, MongoDB, Docker, Kubernetes, Playwright, and Azure Blob Storage.',
+      'Developed stateful enterprise AI with Azure OpenAI, LangGraph/LangChain, Qdrant RAG, tool/model routing, memory controls, and safety boundaries.',
+      'Built multilingual transcription and speech-evaluation services with FastAPI and distributed background processing.',
     ],
   },
   {
@@ -224,12 +221,11 @@ export const experience = [
     role: 'Graduate Researcher / PhD Student Researcher & Teaching Assistant',
     company: 'University of Arkansas',
     summary:
-      'Graduate research in multimodal video understanding, temporal representation learning, vision-language modeling, medical time-series learning, industrial computer vision, and real-time edge inference; completed a Master of Science in Computer Engineering during this period.',
+      'Graduate research in multimodal video understanding, vision-language learning, medical time-series learning, industrial computer vision, and edge inference; completed an MS in Computer Engineering.',
     details: [
-      'Co-developed ABN, AEI, and AOE-Net for temporal action proposal generation and actor/object/environment interaction modeling in long untrimmed videos.',
-      'Co-developed VLCAP and VLTinT for coherent video paragraph captioning; VLTinT was selected as an AAAI 2023 Oral.',
-      'Built applied poultry-processing CV workflows: post-defeathering carcass inspection/defect aggregation for process-quality feedback and a separate two-scale chicken-part weighing workflow using scale localization, hand-presence gating, and nine-class recognition.',
-      'Co-authored CarcassFormer for poultry carcass defect localization/segmentation/classification and optimized YOLOv8 on NVIDIA Jetson with TensorRT, FP16, CUDA streams, CUDA preprocessing, and memory-oriented tuning.',
+      'Co-developed peer-reviewed temporal action and video-language methods including ABN, AEI, AOE-Net, VLCAP, and VLTinT.',
+      'Worked on medical time-series representation learning and poultry/industrial vision, including CarcassFormer.',
+      'Optimized target-hardware inference using NVIDIA Jetson, TensorRT, CUDA, and FP16 techniques.',
     ],
   },
 ];
@@ -240,7 +236,7 @@ export const additionalExperience = [
     role: 'Quantitative Researcher / Data Scientist',
     company: 'Confidential Fund · NDA Project',
     details: [
-      'Developed alpha-focused equity prediction research using feature engineering, LightGBM/XGBoost ensembles, sentiment-analysis agents, iterative market-data evaluation/backtesting, constrained AWS execution, parallel processing, and MLflow experiment tracking.',
+      'Developed equity-prediction research with feature engineering, gradient-boosting ensembles, sentiment-derived signals, market-data evaluation/backtesting, constrained AWS execution, and MLflow tracking.',
     ],
   },
   {
@@ -248,7 +244,7 @@ export const additionalExperience = [
     role: 'AI Engineer / Data Scientist · Contract',
     company: 'Crypto Communities Chatbot Development',
     details: [
-      'Designed LLM/RAG community chatbots with LangChain and Pinecone for knowledge-grounded support automation across social platforms.',
+      'Designed LLM/RAG community assistants with LangChain and Pinecone for grounded support automation.',
     ],
   },
   {
@@ -256,7 +252,7 @@ export const additionalExperience = [
     role: 'Quantitative Researcher / Data Scientist',
     company: 'Bluebelt Group',
     details: [
-      'Built Python/FastAPI infrastructure for cryptocurrency and FX trading signals and quantitative/ML experimentation, providing an early production foundation for later fund and Curren research work.',
+      'Built Python/FastAPI infrastructure for cryptocurrency and FX trading signals and quantitative/ML experimentation.',
     ],
   },
   {
@@ -264,8 +260,7 @@ export const additionalExperience = [
     role: 'AI Engineer · Computer Vision / Embedded AI',
     company: '5D Agriculture Solutions JSC',
     details: [
-      'Built computer-vision systems for autonomous braking, face-recognition attendance, and contactless livestock-weight estimation with Intel RealSense D435 RGB-D sensing.',
-      'Worked across camera acquisition, image/depth preprocessing, model inference, application/control logic, NVIDIA Jetson/Raspberry Pi integration, and real-time system behavior.',
+      'Built computer-vision systems for autonomous braking, face recognition, and contactless livestock measurement with RGB-D sensing and embedded devices.',
     ],
   },
 ];
@@ -283,7 +278,7 @@ export const teachingExperience = [
     period: 'May 2019 — Aug 2019',
     role: "Teaching Assistant · Master's Computer Vision course",
     company: 'HCMC University of Technology and Education',
-    detail: 'Prepared course material and instructed graduate Computer Vision practice sessions across image processing, classical/learning-based vision, implementation, and experiment interpretation.',
+    detail: 'Prepared course material and instructed graduate Computer Vision practice sessions.',
   },
   {
     period: '2018 — 2019',
@@ -305,31 +300,31 @@ export const achievements = [
 export const skillGroups = [
   {
     title: 'Applied AI / LLM / agents',
-    items: ['LLM/RAG/agents', 'LangGraph/LangChain orchestration', 'tool/model routing', 'code/tool execution', 'web-search workflows', 'memory/context management', 'grounded generation', 'guardrails', 'human-review boundaries', 'evaluation', 'authority separation'],
+    items: ['LLM/RAG/agents', 'LangGraph/LangChain', 'tool/model routing', 'memory/context', 'grounded generation', 'guardrails', 'human-review boundaries', 'evaluation'],
   },
   {
     title: 'Retrieval & knowledge systems',
-    items: ['Qdrant', 'Milvus', 'Pinecone', 'pgvector', 'embeddings', 'chunking/metadata strategy', 'governed ingestion', 'metadata/permission filtering', 'exact citations', 'immutable provenance', 'retrieval evaluation', 'retrieval failure handling'],
+    items: ['Qdrant', 'Milvus', 'Pinecone', 'pgvector', 'PostgreSQL', 'embeddings', 'governed ingestion', 'metadata filtering', 'citations', 'provenance'],
   },
   {
     title: 'Voice / real-time AI',
-    items: ['Azure Speech', 'multilingual ASR/transcription', 'Vietnamese ASR/TTS', 'speech evaluation', 'WebSockets/SSE', 'real-time conversation state', 'AsyncIO', 'background processing'],
+    items: ['Azure Speech', 'multilingual ASR', 'Vietnamese ASR/TTS', 'speech evaluation', 'WebSockets/SSE', 'AsyncIO', 'background processing'],
   },
   {
     title: 'Computer vision / video / edge',
-    items: ['YOLO11/YOLOv8', 'PyTorch', 'TensorFlow', 'OpenCV', 'Detectron2', 'Fast-ALPR', 'ByteTrack', 'TensorRT', 'ONNX Runtime', 'NVIDIA Jetson', 'CUDA', 'RGB-D', 'MediaMTX', 'RTSP/HLS', 'FFmpeg'],
+    items: ['PyTorch', 'TensorFlow', 'OpenCV', 'YOLO', 'Detectron2', 'ALPR', 'tracking', 'TensorRT', 'ONNX Runtime', 'CUDA', 'Jetson', 'RGB-D', 'RTSP/HLS', 'FFmpeg'],
   },
   {
     title: 'Quantitative ML & research data',
-    items: ['Rust/Python causal core', 'Point-in-time data', 'Arrow/PyArrow/Parquet', 'versioned event stores', 'global OOF', 'purge/embargo', 'multiple-testing controls', 'Alpha History', 'LightGBM', 'CatBoost', 'XGBoost', 'Scikit-learn', 'Polars', 'DuckDB', 'SciPy', 'Statsmodels', 'Optuna', 'NautilusTrader'],
+    items: ['Rust', 'Python', 'point-in-time data', 'Arrow/Parquet', 'Polars', 'DuckDB', 'LightGBM', 'CatBoost', 'XGBoost', 'Scikit-learn', 'SciPy', 'Statsmodels', 'Optuna', 'NautilusTrader'],
   },
   {
     title: 'Backend & distributed systems',
-    items: ['Python', 'FastAPI', 'AsyncIO', 'REST/SSE', 'WebSockets', 'Celery', 'RabbitMQ', 'Redis', 'PostgreSQL', 'SQLite', 'MongoDB', 'MinIO/S3', 'retries', 'idempotency', 'durable state'],
+    items: ['Python', 'FastAPI', 'REST/SSE', 'WebSockets', 'Celery', 'RabbitMQ', 'Redis', 'PostgreSQL', 'SQLite', 'MongoDB', 'MinIO/S3', 'retries', 'idempotency', 'durable state'],
   },
   {
-    title: 'Product, browser automation, cloud & delivery',
-    items: ['Next.js', 'React', 'TypeScript/JavaScript', 'Open edX', 'Playwright', 'browser/tool verification', 'Docker', 'Kubernetes', 'Linux', 'Windows', 'systemd', 'Nginx', 'AWS', 'Azure'],
+    title: 'Product, cloud & delivery',
+    items: ['Next.js', 'React', 'TypeScript/JavaScript', 'Open edX', 'Playwright', 'Docker', 'Kubernetes', 'Linux', 'systemd', 'Nginx', 'AWS', 'Azure'],
   },
   {
     title: 'Languages',
@@ -342,7 +337,7 @@ export const education = [
     period: 'Jul 2021 — Dec 2023',
     title: 'Master of Science in Computer Engineering (MSCmpE)',
     institution: 'University of Arkansas',
-    detail: 'GPA 4.0/4.0 · thesis: “Towards Multi-modal Interpretable Video Understanding” · advisor: Prof. Ngan Le · fully funded Ph.D. admission in 2021 followed by endowed graduate scholarships in 2022 and 2023.',
+    detail: 'GPA 4.0/4.0 · thesis: “Towards Multi-modal Interpretable Video Understanding” · advisor: Prof. Ngan Le.',
   },
   {
     period: '2015 — Nov 2019',
@@ -356,7 +351,7 @@ export const researchTrajectory = [
   {
     period: '2021 → 2023',
     title: 'Temporal action understanding',
-    detail: 'ABN → AEI → AOE-Net: action-boundary and actor/object/environment interaction modeling for long untrimmed video, culminating in IJCV.',
+    detail: 'ABN → AEI → AOE-Net: action-boundary and interaction modeling for long untrimmed video, culminating in IJCV.',
   },
   {
     period: '2022 → 2023',
@@ -366,7 +361,7 @@ export const researchTrajectory = [
   {
     period: '2021 → 2024',
     title: 'Medical & industrial ML',
-    detail: 'sCL-ST for multi-lead ECG representation learning plus poultry-processing vision for carcass defect/process-quality inspection and weighing-workstation state; CarcassFormer and Jetson/TensorRT deployment work connect research methods to physical systems.',
+    detail: 'Medical time-series representation learning plus industrial/poultry vision and target-hardware edge optimization.',
   },
 ];
 
