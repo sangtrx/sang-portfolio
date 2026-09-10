@@ -1,216 +1,124 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { profile } from '../../data/site';
+import { personId, personSchema, websiteId, websiteSchema } from '../../lib/identity';
 import { withBase } from '../../lib/paths';
 
-const hospitalUrl = 'https://www.yhct.vn/';
-const canonical = new URL(withBase('/work/yhct'), Astro.site).href;
+const root = Astro.site ?? new URL('https://sangtruong.me');
+const canonical = new URL(withBase('/work/yhct'), root).href;
 const jsonLd = [
+  personSchema(root),
+  websiteSchema(root),
   {
-    '@type': 'Article',
+    '@type': 'CreativeWork',
     '@id': `${canonical}#case-study`,
-    headline: 'Ho Chi Minh City Traditional Medicine Hospital — Clinical AI Platform',
-    description: 'Case study of a clinician-facing AI chatbot and decision-support platform built under Sang Truong’s Head of AI role at EPIC TECHNOLOGY for Ho Chi Minh City Traditional Medicine Hospital, using a single semantic-owner clinical intelligence boundary, PostgreSQL Evidence Workspace, bounded approved-corpus research, deterministic clinical authority, exact citations, and explicit validation boundaries.',
-    dateModified: '2026-09-05T05:34:00+07:00',
-    author: { '@type': 'Person', name: 'Sang Truong', url: new URL(withBase('/about'), Astro.site).href },
-    mainEntityOfPage: canonical,
-    about: ['Clinical AI', 'AI agents', 'RAG', 'FastAPI', 'Next.js', 'PostgreSQL', 'Qdrant', 'Clinical decision support'],
-  },
-  {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: new URL(withBase('/'), Astro.site).href },
-      { '@type': 'ListItem', position: 2, name: 'Ho Chi Minh City Traditional Medicine Hospital', item: canonical },
-    ],
+    url: canonical,
+    name: 'Clinical AI & Decision Support — Sang Truong',
+    description: 'Public, intentionally bounded case study of a clinician-facing AI decision-support platform built under EPIC TECHNOLOGY.',
+    author: { '@id': personId(root) },
+    isPartOf: { '@id': websiteId(root) },
+    inLanguage: 'en',
+    dateModified: '2026-09-10T10:04:00+07:00',
   },
 ];
+
+const layers = [
+  ['01', 'Clinical workflow', 'Questions, medication and herbal workflows, prescription review, follow-up context.'],
+  ['02', 'AI reasoning', 'Language understanding and synthesis operate inside bounded application contracts.'],
+  ['03', 'Evidence & authority', 'Governed knowledge, citations, deterministic facts, permissions, and durable state stay explicit.'],
+  ['04', 'Delivery boundary', 'Validation, failure behavior, deployment constraints, and human use are treated as engineering concerns.'],
+];
 ---
+
 <BaseLayout
-  title="Ho Chi Minh City Traditional Medicine Hospital — Clinical AI Platform | Sang Truong"
-  description="Deep technical case study of the EPIC TECHNOLOGY project for Ho Chi Minh City Traditional Medicine Hospital: single-owner clinical intelligence, bounded evidence research, deterministic clinical authority, durable evidence state, and explicit UAT/validation boundaries."
+  title="Clinical AI & Decision Support | Sang Truong"
+  description="A public, deliberately abstracted case study of Sang Truong's clinician-facing clinical AI and decision-support work under EPIC TECHNOLOGY."
   image="og-yhct.png"
+  imageAlt="Clinical AI case study by Sang Truong"
   pageType="article"
   jsonLd={jsonLd}
 >
-  <article class="case container section">
-    <a class="back-link" href={withBase('#work')}>← Selected work</a>
-    <header class="case-hero">
-      <p class="eyebrow">Case Study 01 · EPIC TECHNOLOGY · Clinical AI · 2026</p>
-      <h1>Ho Chi Minh City Traditional Medicine Hospital</h1>
-      <p class="case-subtitle">Clinical AI & Decision-Support Platform</p>
-      <p class="case-lede">Under my Head of Artificial Intelligence role at EPIC TECHNOLOGY, I architected and built a clinician-facing AI chatbot and clinical decision-support platform for <a href={hospitalUrl} target="_blank" rel="noreferrer">Ho Chi Minh City Traditional Medicine Hospital ↗</a>. The system gives one main clinical agent semantic ownership of the clinician turn while keeping clinical facts, evidence, permissions, persistence, provenance and publication safety under deterministic application control.</p>
+  <article class="case container">
+    <a class="back-link" href={withBase('/#work')}>← Flagship systems</a>
+
+    <header class="case-hero safe-case-hero">
+      <p class="eyebrow">Clinical AI · EPIC TECHNOLOGY</p>
+      <h1>AI that can reason without becoming the source of truth.</h1>
+      <p class="case-lede">I architected and built a clinician-facing AI platform for Ho Chi Minh City Traditional Medicine Hospital. The interesting part is not the chat box — it is keeping reasoning, evidence, clinical authority, state, failure behavior, and deployment constraints from collapsing into one opaque model call.</p>
       <div class="case-meta">
-        <div><span>Role</span><strong>AI Architect / Lead Builder · EPIC TECHNOLOGY</strong></div>
-        <div><span>Architecture</span><strong>Single semantic owner · bounded evidence research · deterministic clinical authority</strong></div>
-        <div><span>Validation</span><strong>Validated/deployed protected-UAT baseline · clinician-feedback stabilization in progress</strong></div>
+        <div><span>Role</span><strong>AI Architect / Lead Builder</strong></div>
+        <div><span>Setting</span><strong>Hospital clinical workflows</strong></div>
+        <div><span>Public scope</span><strong>Architecture boundary only</strong></div>
       </div>
-      <p class="case-verified">Reviewed against the latest active source state and current implementation boundary on <time datetime="2026-09-05">5 Sep 2026</time>. Baseline validation and the newer feedback-driven stabilization state are reported separately.</p>
     </header>
 
-    <section class="evidence-band" aria-label="Hospital clinical AI evidence boundary">
-      <div><strong>Protected UAT</strong><span>a protected-UAT baseline was validated and deployed; later real clinician feedback superseded the previous doctor-ready snapshot</span></div>
-      <div><strong>Current stabilization</strong><span>feedback-driven fixes are in progress; the resulting source still requires exact validation and deliberate UAT redeployment before becoming the next baseline</span></div>
-      <div><strong>One owner</strong><span>the main clinical agent owns request, reference, source/tool choice and answer scope semantics</span></div>
-      <div><strong>No production claim</strong><span>production and hospital-information-system integration remain outside the authorized boundary</span></div>
-    </section>
-
-    <section class="case-section archify-section" aria-labelledby="architecture-map-title">
-      <div class="archify-heading">
-        <div>
-          <p class="eyebrow">Interactive architecture map</p>
-          <h2 id="architecture-map-title">Semantic freedom inside a deliberately narrow authority boundary.</h2>
-        </div>
-        <div class="archify-links">
-          <a href={withBase('/yhct-clinical-architecture.html')} target="_blank" rel="noreferrer">Open fullscreen ↗</a>
-          <a href={withBase('/yhct-clinical-architecture.json')} target="_blank" rel="noreferrer">Architecture JSON ↗</a>
-        </div>
-      </div>
-      <p class="archify-note">The public map uses capability-level names instead of internal branches, release labels, hosts or operator identifiers. Focused views isolate the clinician turn, evidence-research path and deterministic clinical-authority path.</p>
-      <div class="archify-frame">
-        <iframe
-          src={withBase('/yhct-clinical-architecture.html')}
-          title="Interactive hospital clinical intelligence architecture"
-          loading="lazy"
-          sandbox="allow-scripts"
-        ></iframe>
-      </div>
-    </section>
-
-    <section class="case-section section-rule tech-section">
-      <div class="tech-heading">
-        <div><p class="eyebrow">Technology & system decisions</p><h2>The stack follows authority boundaries, not a framework checklist.</h2></div>
-        <p>Each technology has a narrow job: clinician interaction, semantic reasoning, durable evidence, derived retrieval, asynchronous work, or deployability. The architecture deliberately avoids making the LLM, vector index, or orchestration framework the system of record.</p>
-      </div>
-      <div class="tech-grid">
-        <article><span>Interaction</span><h3>Next.js · React · TypeScript</h3><p>Clinician-facing UI, streaming interaction and document-oriented workflows stay separated from clinical intelligence and persistence concerns.</p></article>
-        <article><span>Application boundary</span><h3>Python · FastAPI · AsyncIO · SSE/WebSockets</h3><p>Typed API contracts, authenticated conversation state and bounded model/tool execution provide a controllable boundary around probabilistic behavior.</p></article>
-        <article><span>Clinical intelligence</span><h3>LLMs · owned tool loop · deterministic clinical services</h3><p>The model owns language and source/tool choice; approved clinical facts, permissions and publication rules remain application-owned rather than model-redecidable.</p></article>
-        <article><span>Evidence & retrieval</span><h3>PostgreSQL · vector/hybrid search · Qdrant</h3><p>PostgreSQL is canonical for turns, observations, evidence identity and audit. Vector search is derived and rebuildable, so retrieval cannot silently become a competing memory store.</p></article>
-        <article><span>Asynchronous workflows</span><h3>Celery · RabbitMQ</h3><p>Long-running ingestion and background workloads are isolated from the clinician request path with explicit retry and failure boundaries.</p></article>
-        <article><span>Delivery & verification</span><h3>Docker · Linux · Nginx · Playwright</h3><p>Portable on-prem-oriented deployment, reverse-proxy boundaries and browser-level verification support a protected hospital environment without coupling the design to one cloud runtime.</p></article>
-      </div>
-    </section>
-
-    <section class="case-section case-grid">
-      <div><p class="eyebrow">Problem</p><h2>A hospital assistant cannot let fluent prose become clinical truth.</h2></div>
-      <div class="case-copy">
-        <p>A useful clinician assistant must understand natural Vietnamese follow-ups, prescriptions, tables and documents while remembering exactly what was observed, which approved source or clinical service owns each fact, what evidence remains valid across turns, and what happens when evidence is missing or inconsistent.</p>
-        <p>The difficult architecture problem is therefore not “add an LLM to a medical UI.” It is deciding where probabilistic semantic reasoning is valuable and where it must stop.</p>
-      </div>
-    </section>
-
-    <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">My ownership</p><h2>One clinician-intelligence path on top of a proven hospital application shell.</h2></div>
-      <div class="ownership-list">
-        <article><strong>Clinical intelligence composition</strong><p>Consolidated model-visible context, research, exact-handle observation recall, executable tools, model-round budgets, deadline policy and answer publication into one owned composition boundary rather than spreading semantic decisions across multiple framework layers.</p></article>
-        <article><strong>Single semantic owner</strong><p>The main agent resolves clinician intent, references, source needs, tool choice and answer scope itself, avoiding multiple semantic components that can disagree about the same turn.</p></article>
-        <article><strong>Clinical fact authority</strong><p>Interaction findings, prescription findings, approved entity mappings, severity/rating fields and approved knowledge identity remain deterministic. The agent may decide when to call a clinical tool and how to explain the result, but it cannot invert or override approved facts.</p></article>
-        <article><strong>Evidence, publication and reliability</strong><p>Made durable evidence state canonical in PostgreSQL, kept vector search derived and rebuildable, bounded approved-corpus research, treated retrieved content as data rather than instructions, and retained conditional exact-support verification plus deterministic guards before publication.</p></article>
-      </div>
-    </section>
-
-    <section class="case-section section-rule">
-      <p class="eyebrow">Runtime contract</p>
-      <div class="contract-grid">
-        <div class="code-card"><span class="code-comment">// one semantic owner per clinician turn</span><strong>clinician → main agent ↔ approved tools/evidence → guarded publication</strong><span class="code-comment">// bounded rounds, bounded research, bounded deadline</span></div>
-        <div class="principle-card"><span>MODEL</span><strong>language · references · research planning · tool/source choice · answer scope</strong><span>APPLICATION / APPROVED DATA</span><strong>permissions · persistence · provenance · contracts · deterministic clinical facts</strong></div>
-      </div>
-    </section>
-
-    <section class="case-section section-rule">
-      <p class="eyebrow">Architecture decisions</p>
-      <div class="decision-grid decision-grid-3">
-        <article><span>01</span><h3>One semantic owner</h3><p>The main agent owns the semantic turn. A separate intent classifier/router does not constrain the main decision, reducing control-loop disagreement.</p></article>
-        <article><span>02</span><h3>Owned composition boundary</h3><p>The clinical intelligence layer owns context projection, research execution, recall contracts, executable tools, model budget and publication behavior; shared application code stays focused on transport, auth, persistence and mature bounded kernels.</p></article>
-        <article><span>03</span><h3>No ceremonial graph</h3><p>A graph abstraction is used only when it owns meaningful state transitions. The active clinician path favors a simpler bounded application kernel instead of framework ceremony.</p></article>
-        <article><span>04</span><h3>PostgreSQL is canonical</h3><p>Conversation turns, typed clinical observations, evidence references, source metadata, audit and owner/ACL state remain canonical durable truth.</p></article>
-        <article><span>05</span><h3>Search is derived</h3><p>Vector/hybrid retrieval accelerates approved-corpus research but cannot become competing clinical memory. Published evidence is rebound to canonical authorized source identity.</p></article>
-        <article><span>06</span><h3>Evidence is data</h3><p>Retrieved documents and tool payloads can inform the model but never act as instructions that override the system’s tool, permission, clinical-authority or publication contracts.</p></article>
-      </div>
-    </section>
-
-    <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">Evidence Workspace</p><h2>Chat history is linguistic context; persisted observations are the clinical notebook.</h2></div>
-      <div class="case-copy">
-        <p>The system projects typed prior observations and exact evidence into the next clinician turn. Follow-up resolution stays generic and owner/conversation scoped rather than adding a phrase-specific function for every Vietnamese wording pattern.</p>
-        <p>This lets the model understand “cái thuốc lúc nãy” or a narrow follow-up semantically while the system still knows which persisted observation and source handle can actually support the answer.</p>
-      </div>
-    </section>
-
-    <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">Bounded evidence research</p><h2>Search enough to answer; stop before research becomes an uncontrolled agent.</h2></div>
-      <div class="case-copy">
-        <p>For knowledge-grounded questions, the main turn can delegate a bounded research objective over the approved local corpus. The research path plans a small set of semantic queries, retrieves in parallel, deduplicates and curates evidence, assesses sufficiency, and permits at most one targeted refinement before returning a compact evidence pack.</p>
-        <p>The clinician runtime does not browse arbitrary live websites. This makes provenance, latency, source governance and reproducibility explicit rather than mixing them with open-ended web exploration.</p>
-      </div>
-    </section>
-
-    <section class="case-section section-rule case-grid">
-      <div><p class="eyebrow">Answer publication</p><h2>Verification supports the main decision; it does not become another semantic brain.</h2></div>
-      <div class="capability-grid">
-        <article><h3>Main answer owns scope</h3><p>Narrow questions stay narrow and bounded lists stay bounded in the original main-agent response rather than being reclassified by a second semantic controller.</p></article>
-        <article><h3>Deterministic fast path</h3><p>Pure clinical-tool or compute-supported answers can pass deterministic grounding/application guards without an unnecessary extra model round.</p></article>
-        <article><h3>Source-grounded verification</h3><p>Corpus/document/mixed prose can receive a bounded exact-support check before publication where evidence semantics actually require it.</p></article>
-        <article><h3>Durable answer record</h3><p>Published output retains citations, source identity and durable state; the assistant’s prose is not itself the system of record.</p></article>
-      </div>
-    </section>
-
-    <section class="case-section section-rule">
-      <p class="eyebrow">Validation state · reviewed 2026-09-05</p>
-      <div class="status-table" role="table" aria-label="Hospital clinical AI validation status">
-        <div role="row"><span role="cell">Protected clinician-UAT baseline</span><strong role="cell" class="status-ok">Validated and deployed</strong></div>
-        <div role="row"><span role="cell">Current clinician-feedback stabilization</span><strong role="cell" class="status-wip">In progress · not merge/deploy eligible yet</strong></div>
-        <div role="row"><span role="cell">Semantic ownership</span><strong role="cell" class="status-ok">Main agent owns request / reference / source / tool / scope</strong></div>
-        <div role="row"><span role="cell">Clinical authority</span><strong role="cell" class="status-ok">Deterministic approved facts remain non-redecidable</strong></div>
-        <div role="row"><span role="cell">Evidence state</span><strong role="cell" class="status-ok">PostgreSQL canonical · vector search derived</strong></div>
-        <div role="row"><span role="cell">Production / HIS authorization</span><strong role="cell">Not authorized · not claimed</strong></div>
-      </div>
-      <p class="validation-note">Validation and deployment evidence from the previous protected-UAT baseline is intentionally not transferred to the newer clinician-feedback stabilization source. The exact resulting source must pass its required gate before it is treated as the next UAT baseline.</p>
-    </section>
-
-    <section class="case-section demo-placeholder">
+    <section class="case-section section-rule safe-split">
       <div>
-        <p class="eyebrow">Public disclosure boundary</p>
-        <h2>Show architecture and evidence, never hospital internals.</h2>
-        <p>The portfolio omits patient data, private corpus contents, credentials, internal hosts, exact deployment identifiers, transient source revisions and operator-only runbooks. A future public demo should use synthetic prescriptions, sanitized knowledge and isolated credentials rather than exposing the protected hospital environment.</p>
+        <p class="eyebrow">The engineering problem</p>
+        <h2>A useful answer is not automatically a safe system.</h2>
       </div>
-      <span class="status-pill">Protected environment is not a public demo</span>
+      <div class="prose-stack">
+        <p>The product has to understand natural language and synthesize useful responses, while application-owned facts, source provenance, permissions, conversation state, and clinical constraints remain independently inspectable.</p>
+        <p>I designed the system so AI reasoning can be flexible where it helps, but it cannot silently redefine authoritative knowledge or erase uncertainty when a dependency fails.</p>
+      </div>
+    </section>
+
+    <section class="case-section section-rule">
+      <div class="section-heading compact-heading">
+        <div><p class="eyebrow">Public system cut</p><h2>Four layers. Clear authority.</h2></div>
+        <p class="section-note">This is intentionally not the deployment diagram. It shows what each layer is responsible for, without publishing private corpus structure, prompts, provider configuration, infrastructure topology, or operational controls.</p>
+      </div>
+      <div class="safe-architecture">
+        {layers.map(([index, title, detail]) => (
+          <article>
+            <span>{index}</span>
+            <div><h3>{title}</h3><p>{detail}</p></div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="case-section section-rule safe-split">
+      <div><p class="eyebrow">What I owned</p><h2>From ambiguous requirement to acceptance boundary.</h2></div>
+      <div class="decision-list">
+        <article><strong>System semantics.</strong><p>Defined where language-model reasoning ends and application/source authority begins.</p></article>
+        <article><strong>Product & backend path.</strong><p>Built the clinician-facing workflow, APIs, durable state, retrieval/evidence path, permissions, and streaming behavior.</p></article>
+        <article><strong>Failure design.</strong><p>Kept dependency and provider failures explicit rather than converting them into plausible-looking clinical output.</p></article>
+        <article><strong>Delivery.</strong><p>Designed around on-premise constraints, testability, observability, provider portability, and clinician-facing acceptance.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section section-rule privacy-panel">
+      <div>
+        <p class="eyebrow">Deliberately withheld</p>
+        <h2>The public case study stops before the sensitive layer.</h2>
+      </div>
+      <p>Private clinical corpus details, prompt/system instructions, internal schemas, credentials, deployment topology, machine identities, release artifacts, runbooks, clinician data, and exact operational controls are not published. The goal is to demonstrate engineering judgment — not ship a map of the hospital system.</p>
+    </section>
+
+    <section class="case-section section-rule principle-panel">
+      <blockquote>The model may own synthesis. It should not silently own truth, permission, or evidence.</blockquote>
+      <p class="muted">That boundary is the reusable part of this project: it applies to any high-consequence AI product where a fluent answer is weaker evidence than the system state behind it.</p>
+    </section>
+
+    <section class="case-section section-rule case-cta">
+      <p class="eyebrow">Explore more</p>
+      <h2>The résumé carries the breadth. This page carries the boundary.</h2>
+      <div class="hero-actions"><a class="button primary" href={withBase('/resume')}>Full résumé</a><a class="button ghost" href={`mailto:${profile.email}`}>Contact</a></div>
     </section>
   </article>
 </BaseLayout>
 
 <style>
-  .case-subtitle { margin:-14px 0 20px; color:var(--muted); font-size:clamp(1.15rem,2.2vw,1.55rem); font-weight:620; }
-  .case-lede a { color:inherit; text-decoration-color:rgba(76,141,255,.55); text-underline-offset:3px; }
-  .archify-section { padding-top:22px; }
-  .archify-heading { display:flex; justify-content:space-between; align-items:end; gap:28px; margin-bottom:12px; }
-  .archify-heading h2 { margin:7px 0 0; max-width:780px; }
-  .archify-links { display:flex; flex-wrap:wrap; gap:9px; justify-content:flex-end; }
-  .archify-links a { padding:9px 11px; border:1px solid var(--line); border-radius:10px; color:var(--muted); font-size:.76rem; font-weight:700; text-decoration:none; }
-  .archify-links a:hover { color:var(--text); border-color:rgba(76,141,255,.48); }
-  .archify-note,.validation-note { max-width:900px; color:var(--muted); }
-  .archify-note { margin:0 0 18px; }
-  .validation-note { margin:18px 0 0; font-size:.86rem; }
-  .archify-frame { overflow:hidden; border:1px solid var(--line); border-radius:22px; background:#07101d; box-shadow:0 28px 90px rgba(0,0,0,.22); }
-  .archify-frame iframe { display:block; width:100%; height:820px; border:0; background:#07101d; }
-  .tech-heading { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr); gap:36px; align-items:end; margin-bottom:22px; }
-  .tech-heading h2 { margin:7px 0 0; max-width:720px; }
-  .tech-heading > p { margin:0; color:var(--muted); line-height:1.7; }
-  .tech-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
-  .tech-grid article { min-height:178px; padding:19px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(180deg,rgba(76,141,255,.035),transparent); }
-  .tech-grid span { display:block; margin-bottom:10px; color:var(--muted); font:700 .66rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.08em; text-transform:uppercase; }
-  .tech-grid h3 { margin:0 0 10px; font-size:1rem; }
-  .tech-grid p { margin:0; color:var(--muted); font-size:.85rem; line-height:1.62; }
-  code { font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:.92em; }
-  @media (max-width:900px) {
-    .archify-heading { align-items:flex-start; flex-direction:column; }
-    .archify-links { justify-content:flex-start; }
-    .archify-frame iframe { height:940px; }
-    .tech-heading { grid-template-columns:1fr; gap:14px; }
-    .tech-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  }
-  @media (max-width:640px) {
-    .archify-frame { margin-inline:-8px; border-radius:16px; }
-    .archify-frame iframe { height:1080px; }
-    .tech-grid { grid-template-columns:1fr; }
-  }
+  .safe-case-hero h1 { max-width: 12ch; }
+  .safe-split { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(40px, 8vw, 100px); align-items: start; }
+  .prose-stack p { margin-top: 0; color: var(--muted); font-size: 1.05rem; }
+  .safe-architecture { border-top: 1px solid var(--line); }
+  .safe-architecture article { display: grid; grid-template-columns: 72px 1fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+  .safe-architecture article > span { color: var(--accent); font: 650 .78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .safe-architecture h3 { margin: 0 0 6px; font-size: clamp(1.25rem, 2.5vw, 2rem); letter-spacing: -.035em; }
+  .safe-architecture p { margin: 0; max-width: 68ch; color: var(--muted); }
+  .privacy-panel { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(36px, 8vw, 110px); background: color-mix(in srgb, var(--surface) 94%, var(--accent)); padding-inline: clamp(24px, 5vw, 64px); border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
+  .privacy-panel p:last-child { margin: 0; color: var(--muted); font-size: 1.02rem; }
+  @media (max-width: 800px) { .safe-split, .privacy-panel { grid-template-columns: 1fr; } }
 </style>
