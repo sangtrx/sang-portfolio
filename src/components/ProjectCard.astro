@@ -25,11 +25,11 @@ const { project } = Astro.props;
     <span class="visual-label">SYSTEM / {project.slug.toUpperCase()}</span>
     {project.slug === 'yhct' ? (
       <div class="visual-flow">
-        <span>CLINICIAN</span><i>→</i><span class="hot">AGENT</span><i>→</i><span>TOOLS</span><i>→</i><span>EVIDENCE</span>
+        <span>WORKFLOW</span><i>→</i><span class="hot">REASONING</span><i>→</i><span>EVIDENCE</span><i>→</i><span>AUTHORITY</span>
       </div>
     ) : (
       <div class="visual-flow">
-        <span>PIT DATA</span><i>→</i><span class="hot">OOS</span><i>→</i><span>SIGNAL</span><i>→</i><span>API · MCP</span>
+        <span>EVIDENCE</span><i>→</i><span class="hot">RESEARCH</span><i>→</i><span>STATE</span><i>→</i><span>VERIFY</span>
       </div>
     )}
     <div class="visual-status">{project.status}</div>
