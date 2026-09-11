@@ -1,0 +1,296 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { profile } from '../data/site';
+import { personId, personSchema, websiteId, websiteSchema } from '../lib/identity';
+import { withBase } from '../lib/paths';
+
+const root = Astro.site ?? new URL('https://sangtruong.me');
+const canonical = new URL(withBase('/yhct'), root).href;
+
+const jsonLd = [
+  personSchema(root),
+  websiteSchema(root),
+  {
+    '@type': 'TechArticle',
+    '@id': `${canonical}#architecture-explainer`,
+    url: canonical,
+    name: 'Kiến trúc Clinical AI & Decision Support — Sang Truong',
+    description: 'Bản giải thích tiếng Việt, public-safe về kiến trúc một nền tảng AI hỗ trợ bác sĩ: authority, evidence, deterministic clinical logic, trạng thái, failure handling và delivery boundary.',
+    author: { '@id': personId(root) },
+    isPartOf: { '@id': websiteId(root) },
+    inLanguage: 'vi',
+    dateModified: '2026-09-11T21:14:00+07:00',
+  },
+];
+
+const summary = [
+  ['LLM không phải nguồn sự thật', 'Mô hình ngôn ngữ được dùng để hiểu câu hỏi và tổng hợp câu trả lời. Quyền quyết định dữ kiện lâm sàng, bằng chứng, quyền truy cập và trạng thái ứng dụng vẫn thuộc hệ thống.'],
+  ['Clinical logic phải kiểm chứng được', 'Những kiểm tra có tính quy tắc như tương tác thuốc, rà soát đơn và các clinical facts quan trọng được giữ trong các thành phần deterministic, thay vì giao cho model tự “suy đoán”.'],
+  ['Evidence đi cùng câu trả lời', 'Retrieval chỉ là bước lấy ứng viên. Trước khi phát hành câu trả lời, hệ thống còn phải giữ source scope, provenance, sufficiency và ràng buộc quyền truy cập.'],
+  ['Failure phải hiện đúng bản chất', 'Provider timeout, thiếu bằng chứng, lỗi quyền truy cập hay trạng thái chưa chắc chắn không được biến thành một câu trả lời trôi chảy nhưng sai ngữ nghĩa.'],
+];
+
+const viewpoints = [
+  {
+    n: '01',
+    title: 'Tổng quan hệ thống',
+    question: 'Từ câu hỏi của bác sĩ đến câu trả lời cuối cùng đi qua những lớp nào?',
+    answer: 'Clinician workspace gửi yêu cầu vào application boundary có xác thực. Runtime phân tích mục tiêu, gọi các công cụ lâm sàng hoặc research bị giới hạn, gom evidence, kiểm tra điều kiện phát hành rồi mới tổng hợp câu trả lời. Audit và trạng thái bền vững nằm ngoài model call.',
+  },
+  {
+    n: '02',
+    title: 'Frontend / clinician workspace',
+    question: 'UI có chỉ là một chat box không?',
+    answer: 'Không. UI phải giữ identity, conversation/task context, trạng thái đang xử lý, lỗi có kiểu rõ ràng, retry semantics và các dấu hiệu evidence cần cho bác sĩ. Mục tiêu là một workspace lâm sàng có thể hiểu được, không phải một cửa sổ chat “best effort”.',
+  },
+  {
+    n: '03',
+    title: 'Backend contracts',
+    question: 'Backend ngăn model “nuốt” hết business logic bằng cách nào?',
+    answer: 'Backend tách authority thành các contract: application state, access control, clinical tools, research/evidence, synthesis và publication gate. Model chỉ hoạt động qua các cổng đã định nghĩa; nó không tự ghi lại sự thật, tự bỏ qua quyền hay tự đánh dấu một turn là thành công.',
+  },
+  {
+    n: '04',
+    title: 'Clinical AI reasoning',
+    question: 'AI được linh hoạt ở đâu và bị khóa ở đâu?',
+    answer: 'AI được linh hoạt khi hiểu ý định, lập kế hoạch tìm kiếm và diễn đạt. Khi chạm đến clinical truth, deterministic checks, named evidence, quyền truy cập hoặc release policy, hệ thống chuyển sang contract chặt hơn. Nếu bằng chứng chưa đủ, hệ thống phải giữ được trạng thái “chưa đủ” thay vì bịa cho tròn câu.',
+  },
+  {
+    n: '05',
+    title: 'Data governance',
+    question: 'Dữ liệu nào là nguồn chuẩn, dữ liệu nào chỉ là bản dẫn xuất?',
+    answer: 'Durable application state và metadata được coi là canonical. Search index/vector representation chỉ là derived state để tăng tốc retrieval và phải có khả năng rebuild. Source objects, publication status và provenance được quản lý tách biệt để một index nhanh không vô tình trở thành nguồn sự thật.',
+  },
+  {
+    n: '06',
+    title: 'Runtime / on-premise boundary',
+    question: 'Thiết kế có phụ thuộc một nhà cung cấp model hay cloud cụ thể không?',
+    answer: 'Production boundary được thiết kế theo hướng local/on-premise và provider-portable. AI endpoints có thể thay đổi, nhưng application authority, clinical tools, evidence contract, state và audit không đổi theo model. Startup/health dependency cũng phải fail rõ ràng trước khi nhận workload.',
+  },
+  {
+    n: '07',
+    title: 'Security & observability',
+    question: 'Làm sao biết ai được xem gì và lỗi xảy ra ở đâu?',
+    answer: 'Identity và authorization được xử lý trước retrieval. Evidence scope phải tôn trọng quyền. Telemetry phân biệt provider failure, retrieval insufficiency, policy rejection và application error để vận hành không phải đoán từ một lỗi 500 chung chung.',
+  },
+  {
+    n: '08',
+    title: 'Quality & release',
+    question: 'Khi nào một thay đổi được coi là đủ an toàn để bác sĩ thử lại?',
+    answer: 'Một release cần đi qua test theo contract, clinical correctness checks, evidence/provenance checks và protected UAT. “Build xanh” chưa đủ nếu exact behavior ở clinician flow chưa được quan sát. Release acceptance phải gắn với bằng chứng kiểm thử cụ thể, không chỉ với việc deploy thành công.',
+  },
+  {
+    n: '09',
+    title: 'Multi-turn resilience',
+    question: 'Vì sao chat nhiều vòng dễ hỏng hơn một câu hỏi đơn?',
+    answer: 'Multi-turn kéo theo lineage, context projection, idempotency, timeout budget và replay semantics. Nếu những phần này không có authority rõ, một turn mới có thể dùng nhầm context, chạy lại side effect hoặc báo lỗi trong khi backend đã commit kết quả. Thiết kế vì vậy tách “attempt” khỏi “durable result”.',
+  },
+  {
+    n: '10',
+    title: 'Turn lifecycle',
+    question: 'Một turn tốt cần những trạng thái nào?',
+    answer: 'Nhận yêu cầu → xác thực và bind context → hiểu mục tiêu → chạy clinical/research tools có giới hạn → đánh giá evidence → synthesize → verify/publication gate → commit result và provenance. Nếu fail ở bất kỳ bước nào, failure identity phải còn nguyên để UI và operator biết chính xác điều gì xảy ra.',
+  },
+];
+
+const lifecycle = [
+  ['1', 'Bind identity & context', 'Xác thực người dùng, workspace và task/conversation lineage trước khi reasoning.'],
+  ['2', 'Understand the clinical intent', 'Phân loại mục tiêu và xác định câu hỏi cần clinical tool, research hay cả hai.'],
+  ['3', 'Run bounded tools', 'Clinical logic deterministic và retrieval/research chạy qua contract có giới hạn.'],
+  ['4', 'Build an evidence pack', 'Gom nguồn, provenance, scope, thiếu hụt và xung đột thay vì đưa raw search thẳng cho model.'],
+  ['5', 'Synthesize with constraints', 'Model diễn đạt trên evidence đã được phép; không tự nâng derived state thành clinical truth.'],
+  ['6', 'Verify before publish', 'Kiểm tra deterministic facts, evidence binding, policy và failure state trước khi phát hành.'],
+  ['7', 'Commit durable result', 'Lưu trạng thái kết quả/provenance để retry hoặc reconnect không làm thay đổi semantics của turn đã hoàn tất.'],
+];
+
+const withheld = [
+  'Dữ liệu bệnh nhân, bác sĩ hoặc corpus nội bộ.',
+  'Prompt/system instruction và schema nội bộ chi tiết.',
+  'Hostname, IP, port, network layout, machine identity hoặc runbook vận hành.',
+  'Credential, secret, token, provider account state hoặc private release receipt.',
+  'Raw architecture HTML/JSON có thể biến thành implementation blueprint.',
+];
+---
+
+<BaseLayout
+  title="Kiến trúc Clinical AI cho bệnh viện | Sang Truong"
+  description="Giải thích tiếng Việt, public-safe về kiến trúc Clinical AI & Decision Support: authority, deterministic clinical logic, evidence, data governance, multi-turn resilience và release boundary."
+  image="og-yhct.png"
+  imageAlt="Kiến trúc Clinical AI & Decision Support — Sang Truong"
+  pageType="article"
+  jsonLd={jsonLd}
+  lang="vi"
+  ogLocale="vi_VN"
+>
+  <article class="case container vi-case">
+    <a class="back-link" href={withBase('/work/yhct')}>← English case study</a>
+
+    <header class="case-hero vi-hero">
+      <p class="eyebrow">Clinical AI · Bệnh viện Y học Cổ truyền TP.HCM</p>
+      <h1>AI có thể suy luận. Nhưng không được tự trở thành nguồn sự thật.</h1>
+      <p class="case-lede">Đây là bản giải thích tiếng Việt, tập trung vào câu hỏi mà manager, bác sĩ hoặc technical reviewer thường cần biết: hệ thống giữ authority ở đâu, LLM được phép làm gì, bằng chứng đi qua những bước nào, dữ liệu nào là canonical, multi-turn thất bại ra sao và khi nào một thay đổi đủ điều kiện để đưa lại cho bác sĩ kiểm thử.</p>
+      <div class="case-meta">
+        <div><span>Vai trò</span><strong>AI Architect / Lead Builder</strong></div>
+        <div><span>Phạm vi</span><strong>Clinical platform & decision support</strong></div>
+        <div><span>Mức công khai</span><strong>Public-safe architecture explainer</strong></div>
+      </div>
+    </header>
+
+    <section class="case-section section-rule disclosure-note" aria-labelledby="disclosure-title">
+      <div>
+        <p class="eyebrow">Đọc trang này như thế nào</p>
+        <h2 id="disclosure-title">Đủ sâu để hiểu kiến trúc, không sâu đến mức lộ blueprint vận hành.</h2>
+      </div>
+      <p>Atlas kỹ thuật nội bộ có nhiều góc nhìn và receipt kiểm chứng chi tiết hơn. Bản public này cố ý loại bỏ topology, tên máy, runbook, private corpus và implementation detail nhạy cảm. Những gì giữ lại là phần có giá trị nhất về mặt kiến trúc: <strong>authority, state, evidence, failure semantics và delivery boundary</strong>.</p>
+    </section>
+
+    <section class="case-section section-rule" aria-labelledby="principles-title">
+      <div class="section-heading compact-heading">
+        <div><p class="eyebrow">Bốn nguyên tắc nền</p><h2 id="principles-title">Tách reasoning khỏi truth, state và permission.</h2></div>
+        <p class="section-note">Nếu một hệ thống clinical AI không nói rõ bốn điều này, model rất dễ trở thành nơi “ôm” cả hiểu câu hỏi, business logic, source of truth và failure handling.</p>
+      </div>
+      <div class="principle-grid">
+        {summary.map(([title, detail]) => (
+          <article>
+            <h3>{title}</h3>
+            <p>{detail}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="case-section section-rule" aria-labelledby="public-cut-title">
+      <div class="section-heading compact-heading">
+        <div><p class="eyebrow">Public system cut</p><h2 id="public-cut-title">Một request đi qua các responsibility boundary, không đi thẳng vào model.</h2></div>
+        <p class="section-note">Sơ đồ dưới đây chỉ dùng tên trách nhiệm, không dùng tên service/package/vendor nội bộ.</p>
+      </div>
+      <ol class="system-flow" aria-label="Luồng kiến trúc Clinical AI public-safe">
+        <li><span>01</span><div><strong>Clinician workspace</strong><p>Câu hỏi, đơn thuốc, thảo dược, follow-up context và trạng thái hiển thị cho bác sĩ.</p></div></li>
+        <li><span>02</span><div><strong>Authenticated application boundary</strong><p>Identity, permission, durable request/result state, idempotency và failure envelope.</p></div></li>
+        <li><span>03</span><div><strong>Clinical reasoning runtime</strong><p>Hiểu mục tiêu, lập kế hoạch bounded và quyết định khi nào gọi clinical tool hay evidence research.</p></div></li>
+        <li><span>04</span><div><strong>Deterministic clinical tools</strong><p>Tương tác thuốc, rà soát đơn và clinical facts có quy tắc được giữ ngoài LLM.</p></div></li>
+        <li><span>05</span><div><strong>Governed evidence layer</strong><p>Source scope, provenance, retrieval candidates, sufficiency và conflict được chuẩn hóa trước synthesis.</p></div></li>
+        <li><span>06</span><div><strong>Grounded synthesis + publication gate</strong><p>Model diễn đạt trên evidence đã được cho phép; verifier/policy quyết định có thể phát hành hay phải fail closed.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="case-section section-rule" aria-labelledby="views-title">
+      <div class="section-heading compact-heading">
+        <div><p class="eyebrow">10 góc nhìn kiến trúc</p><h2 id="views-title">Mỗi góc nhìn trả lời một câu hỏi quản lý khác nhau.</h2></div>
+        <p class="section-note">Đây là phần giải thích tương ứng với atlas kỹ thuật, nhưng đã được sanitize để public.</p>
+      </div>
+      <div class="view-list">
+        {viewpoints.map((view) => (
+          <article>
+            <span class="view-index">{view.n}</span>
+            <div class="view-copy">
+              <h3>{view.title}</h3>
+              <p class="view-question">{view.question}</p>
+              <p>{view.answer}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="case-section section-rule lifecycle-section" aria-labelledby="lifecycle-title">
+      <div>
+        <p class="eyebrow">Turn lifecycle</p>
+        <h2 id="lifecycle-title">Một câu trả lời tốt là kết quả của một chuỗi kiểm soát, không phải một model call.</h2>
+        <p class="muted">Điểm quan trọng nhất: từng stage có semantics riêng. Retry ở transport không được làm clinical tool chạy lặp; provider timeout không được xóa durable result; thiếu evidence không được giả thành “model không biết”.</p>
+      </div>
+      <ol class="lifecycle-list">
+        {lifecycle.map(([n, title, detail]) => (
+          <li><span>{n}</span><div><strong>{title}</strong><p>{detail}</p></div></li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="case-section section-rule safe-split" aria-labelledby="data-title">
+      <div>
+        <p class="eyebrow">Canonical vs derived</p>
+        <h2 id="data-title">Search index giúp tìm nhanh. Nó không được quyền trở thành source of truth.</h2>
+      </div>
+      <div class="prose-stack">
+        <p><strong>Canonical state</strong> là những gì hệ thống phải giữ bền vững và có thể audit: identity-scoped application state, publication metadata, task/conversation lineage và provenance.</p>
+        <p><strong>Derived state</strong> là những representation phục vụ tìm kiếm hoặc tăng tốc. Chúng có thể rebuild từ nguồn đã quản trị. Nếu derived state mất hoặc lệch, hệ thống phải ưu tiên tính đúng của authority trước tốc độ retrieval.</p>
+        <p>Cách phân chia này giúp thay đổi embedding/model/index mà không làm thay đổi định nghĩa “dữ kiện nào là thật” trong application.</p>
+      </div>
+    </section>
+
+    <section class="case-section section-rule safe-split" aria-labelledby="failure-title">
+      <div>
+        <p class="eyebrow">Failure semantics</p>
+        <h2 id="failure-title">Trong clinical AI, “không chắc chuyện gì vừa xảy ra” là một trạng thái cần thiết kế.</h2>
+      </div>
+      <div class="decision-list">
+        <article><strong>Provider failure.</strong><p>Timeout hoặc upstream error giữ nguyên identity thay vì bị biến thành câu trả lời rỗng hoặc success giả.</p></article>
+        <article><strong>Evidence insufficient.</strong><p>Không đủ nguồn hoặc có xung đột phải được phản ánh trong result, không được lấp bằng fluent synthesis.</p></article>
+        <article><strong>Authorization failure.</strong><p>Không có quyền truy cập không phải là “không tìm thấy dữ liệu”. Hai failure class phải tách biệt.</p></article>
+        <article><strong>Completion uncertain.</strong><p>Nếu client mất kết nối gần lúc commit, retry phải tra durable result trước khi quyết định chạy lại.</p></article>
+      </div>
+    </section>
+
+    <section class="case-section section-rule privacy-panel" aria-labelledby="withheld-title">
+      <div>
+        <p class="eyebrow">Không công bố</p>
+        <h2 id="withheld-title">Chi tiết nhạy cảm được giữ ngoài portfolio public.</h2>
+      </div>
+      <ul>
+        {withheld.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="case-section section-rule principle-panel">
+      <blockquote>Model có thể sở hữu phần diễn đạt. Nó không được âm thầm sở hữu truth, permission, evidence hay durable state.</blockquote>
+      <p class="muted">Đó là nguyên tắc có thể tái sử dụng cho mọi hệ thống AI có hậu quả cao: clinical, finance, compliance hoặc enterprise operations.</p>
+    </section>
+
+    <section class="case-section section-rule case-cta">
+      <p class="eyebrow">Liên hệ / bản tiếng Anh</p>
+      <h2>Trang này giải thích kiến trúc. Case study tiếng Anh giữ bản tóm tắt dành cho recruiter.</h2>
+      <div class="hero-actions">
+        <a class="button primary" href={withBase('/work/yhct')}>English case study</a>
+        <a class="button ghost" href={`mailto:${profile.email}`}>Liên hệ</a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .vi-case { padding-bottom: clamp(72px, 10vw, 140px); }
+  .vi-hero h1 { max-width: 15ch; }
+  .vi-hero .case-lede { max-width: 77ch; }
+  .disclosure-note, .safe-split, .lifecycle-section { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(36px, 8vw, 104px); align-items: start; }
+  .disclosure-note > p, .prose-stack p { margin-top: 0; color: var(--muted); font-size: 1.03rem; }
+  .principle-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+  .principle-grid article { padding: 30px 0; border-bottom: 1px solid var(--line); }
+  .principle-grid article:nth-child(odd) { padding-right: clamp(22px, 4vw, 52px); border-right: 1px solid var(--line); }
+  .principle-grid article:nth-child(even) { padding-left: clamp(22px, 4vw, 52px); }
+  .principle-grid h3 { margin: 0 0 9px; font-size: clamp(1.2rem, 2.4vw, 1.75rem); letter-spacing: -.03em; }
+  .principle-grid p { margin: 0; color: var(--muted); }
+  .system-flow, .lifecycle-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+  .system-flow li, .lifecycle-list li { display: grid; grid-template-columns: 72px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+  .system-flow li > span, .lifecycle-list li > span, .view-index { color: var(--accent); font: 650 .78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace; padding-top: .35rem; }
+  .system-flow strong, .lifecycle-list strong { display: block; margin-bottom: 6px; font-size: 1.05rem; }
+  .system-flow p, .lifecycle-list p { margin: 0; color: var(--muted); max-width: 75ch; }
+  .view-list { border-top: 1px solid var(--line); }
+  .view-list article { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 24px; padding: 30px 0; border-bottom: 1px solid var(--line); }
+  .view-copy { display: grid; grid-template-columns: minmax(180px, .65fr) minmax(220px, .9fr) minmax(280px, 1.35fr); gap: clamp(20px, 4vw, 52px); align-items: start; }
+  .view-copy h3 { margin: 0; font-size: clamp(1.25rem, 2.3vw, 1.8rem); letter-spacing: -.035em; }
+  .view-copy p { margin: 0; color: var(--muted); }
+  .view-copy .view-question { color: var(--text); font-weight: 600; }
+  .lifecycle-section > div:first-child { position: sticky; top: 112px; }
+  .privacy-panel { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(36px, 8vw, 110px); background: color-mix(in srgb, var(--surface) 94%, var(--accent)); padding-inline: clamp(24px, 5vw, 64px); border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
+  .privacy-panel ul { margin: 0; padding-left: 1.15rem; color: var(--muted); }
+  .privacy-panel li + li { margin-top: 12px; }
+  @media (max-width: 900px) {
+    .view-copy { grid-template-columns: 1fr; gap: 10px; }
+    .lifecycle-section > div:first-child { position: static; }
+  }
+  @media (max-width: 800px) {
+    .disclosure-note, .safe-split, .lifecycle-section, .privacy-panel { grid-template-columns: 1fr; }
+    .principle-grid { grid-template-columns: 1fr; }
+    .principle-grid article:nth-child(odd), .principle-grid article:nth-child(even) { padding-inline: 0; border-right: 0; }
+  }
+</style>
