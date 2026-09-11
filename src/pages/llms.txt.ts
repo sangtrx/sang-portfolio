@@ -30,7 +30,8 @@ Canonical human-readable HTML pages are the authoritative public content. The po
 - [Portfolio](${url('/')}) — positioning, technical depth, flagship systems, broader work, career, research, and contact.
 - [About](${url('/about')}) — operating model, engineering principles, technical stack, research trajectory, education, and publications.
 - [Résumé](${url('/resume')}) — public chronology and evidence.
-- [Clinical AI case study](${url('/work/yhct')}) — deliberately abstracted hospital clinical-AI system boundary.
+- [Clinical AI architecture — Vietnamese](${url('/yhct')}) — detailed, public-safe Vietnamese explainer covering authority, deterministic clinical logic, evidence, data governance, failure semantics, multi-turn resilience, and release boundaries.
+- [Clinical AI case study](${url('/work/yhct')}) — deliberately abstracted English hospital clinical-AI system boundary.
 - [Curren case study](${url('/work/curren')}) — deliberately abstracted quantitative research/runtime/public-verification boundary.
 
 ## Selected work
