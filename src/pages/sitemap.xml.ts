@@ -7,7 +7,8 @@ const routes = [
   { path: '/', lastmod: '2026-09-10' },
   { path: '/about', lastmod: '2026-09-10' },
   { path: '/resume', lastmod: '2026-09-10' },
-  { path: '/work/yhct', lastmod: '2026-09-10' },
+  { path: '/yhct', lastmod: '2026-09-11' },
+  { path: '/work/yhct', lastmod: '2026-09-11' },
   { path: '/work/curren', lastmod: '2026-09-10' },
 ];
 
