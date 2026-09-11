@@ -14,31 +14,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Inspect temporary encrypted transfer share
+      - name: Inspect encrypted transfer client endpoint
         env:
           SHARE_URL: https://firestorage.ai/ja/f/McTMlZBwcW80
         run: |
           set -euo pipefail
           curl -fsSL --retry 3 --retry-all-errors "$SHARE_URL" -o /tmp/share.html
-          python3 - <<'PY'
-          import html, re
+          python3 - <<'PY' > /tmp/page-js-url
+          import re
           from pathlib import Path
           from urllib.parse import urljoin
-
           page = Path('/tmp/share.html').read_text('utf-8', errors='replace')
-          print(f'share_html_bytes={len(page.encode())}')
-          needles = ('download', '.zip', 'api/', 'file_id', 'public_id', 'storage')
-          for needle in needles:
-              print(f'contains_{needle.replace("/", "_").replace(".", "_")}={needle.lower() in page.lower()}')
-
-          urls = set()
-          for match in re.findall(r'''(?:href|src)=["']([^"']+)["']''', page, re.I):
-              urls.add(urljoin('https://firestorage.ai', html.unescape(match)))
-          for match in re.findall(r'https?://[^"\'<>\\s]+', page):
-              urls.add(html.unescape(match))
-
-          candidates = [u for u in sorted(urls) if any(k in u.lower() for k in ('download', 'api/', '.zip', 'storage'))]
-          print(f'candidate_count={len(candidates)}')
-          for u in candidates[:40]:
-              print(f'candidate={u[:500]}')
+          scripts = re.findall(r'''src=["']([^"']+)["']''', page, re.I)
+          matches = [urljoin('https://firestorage.ai', s) for s in scripts if '/app/(files)/ja/f/page-' in s]
+          if len(matches) != 1:
+              raise SystemExit(f'expected one share page bundle, got {matches}')
+          print(matches[0])
+          PY
+          PAGE_JS="$(cat /tmp/page-js-url)"
+          curl -fsSL --retry 3 --retry-all-errors "$PAGE_JS" -o /tmp/page.js
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          js = Path('/tmp/page.js').read_text('utf-8', errors='replace')
+          print(f'page_js_bytes={len(js.encode())}')
+          terms = ('download', 'signed', 'presign', 'share', '/api/', 'files/', 'storage')
+          for term in terms:
+              print(f'contains_{term.replace("/", "_")}={term.lower() in js.lower()}')
+          strings = re.findall(r'''["'`]([^"'`]{1,500})["'`]''', js)
+          hits = []
+          for s in strings:
+              low = s.lower()
+              if any(t in low for t in ('download', 'presign', '/api/', 'files/', 'share/')):
+                  hits.append(s)
+          seen=set()
+          for s in hits:
+              if s not in seen:
+                  seen.add(s)
+                  print('hit=' + s[:500])
           PY
