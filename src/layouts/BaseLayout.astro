@@ -18,6 +18,8 @@ interface Props {
   pageType?: 'website' | 'article' | 'profile';
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   noindex?: boolean;
+  lang?: 'en' | 'vi';
+  ogLocale?: string;
 }
 
 const {
@@ -28,6 +30,8 @@ const {
   pageType = 'website',
   jsonLd,
   noindex = false,
+  lang = 'en',
+  ogLocale = 'en_US',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -39,7 +43,7 @@ const schema = Array.isArray(jsonLd)
   : jsonLd;
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -68,7 +72,7 @@ const schema = Array.isArray(jsonLd)
     <meta property="og:image:alt" content={imageAlt} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={ogLocale} />
     {pageType === 'profile' && <meta property="profile:username" content="sangtrx" />}
 
     <meta name="twitter:card" content="summary_large_image" />

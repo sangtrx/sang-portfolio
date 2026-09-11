@@ -80,6 +80,7 @@ jobs:
               "${ORIGIN}/",
               "${ORIGIN}/about",
               "${ORIGIN}/resume",
+              "${ORIGIN}/yhct",
               "${ORIGIN}/work/yhct",
               "${ORIGIN}/work/curren"
             ]
