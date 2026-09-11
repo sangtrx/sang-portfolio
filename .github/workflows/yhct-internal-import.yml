@@ -10,43 +10,99 @@ permissions:
   contents: write
 
 jobs:
-  inspect-transfer:
+  import-transfer:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Locate encrypted transfer download API
+      - name: Download, verify, and import encrypted atlas
         env:
-          SHARE_URL: https://firestorage.ai/ja/f/McTMlZBwcW80
+          API_BASE: https://api.firestorage.ai/dev/file
+          SHARE_ID: McTMlZBwcW80
+          EXPECTED_ZIP_SHA256: 06ce150662a2c0bbcfa241df8e2a9561e3cf1b0454d11dd355115e26d36b7217
         run: |
           set -euo pipefail
-          curl -fsSL --retry 3 --retry-all-errors "$SHARE_URL" -o /tmp/share.html
-          python3 - <<'PY'
-          import re, subprocess
-          from pathlib import Path
-          from urllib.parse import urljoin, urlparse
+          curl -fsSL --retry 3 --retry-all-errors \
+            "$API_BASE/shares/$SHARE_ID/files?maxResults=1000" \
+            -o /tmp/files.json
 
-          page = Path('/tmp/share.html').read_text('utf-8', errors='replace')
-          scripts = [urljoin('https://firestorage.ai', s) for s in re.findall(r'''src=["']([^"']+)["']''', page, re.I)]
-          scripts = [s for s in scripts if '/_next/static/chunks/' in s and s.endswith('.js')]
-          print(f'script_count={len(scripts)}')
-          out = Path('/tmp/chunks'); out.mkdir(exist_ok=True)
-          for i, url in enumerate(scripts):
-              path = out / f'{i:02d}-{Path(urlparse(url).path).name}'
-              subprocess.run(['curl','-fsSL','--retry','3','--retry-all-errors',url,'-o',str(path)], check=True)
-              text = path.read_text('utf-8', errors='replace')
-              print(f'chunk={path.name} bytes={len(text.encode())}')
-              contexts=[]
-              for term in ('download','presign','signed','/api/','share','file_id','public_id'):
-                  low=text.lower(); start=0
-                  while True:
-                      idx=low.find(term,start)
-                      if idx<0: break
-                      a=max(0,idx-180); b=min(len(text),idx+260)
-                      contexts.append(text[a:b].replace('\n',' '))
-                      start=idx+len(term)
-              seen=set()
-              for c in contexts:
-                  if c not in seen:
-                      seen.add(c)
-                      print('context=' + c[:500])
+          python3 - <<'PY' > /tmp/file-id
+          import json
+          from pathlib import Path
+          data = json.loads(Path('/tmp/files.json').read_text())
+          files = data.get('files') or []
+          if len(files) != 1:
+              raise SystemExit(f'expected exactly one transfer file, got {len(files)}')
+          item = files[0]
+          file_id = item.get('fileId')
+          if not file_id:
+              raise SystemExit('missing fileId')
+          print(file_id)
           PY
+
+          FILE_ID="$(cat /tmp/file-id)"
+          curl -fsSL --retry 3 --retry-all-errors -X POST \
+            "$API_BASE/shares/$SHARE_ID/files/$FILE_ID/download" \
+            -o /tmp/download.json
+
+          python3 - <<'PY' > /tmp/download-url
+          import json
+          from pathlib import Path
+          data = json.loads(Path('/tmp/download.json').read_text())
+          url = data.get('downloadUrl')
+          if not isinstance(url, str) or not url.startswith('https://'):
+              raise SystemExit('missing valid downloadUrl')
+          print(url)
+          PY
+
+          curl -fsSL --retry 3 --retry-all-errors "$(cat /tmp/download-url)" -o /tmp/yhct-atlas.zip
+          echo "$EXPECTED_ZIP_SHA256  /tmp/yhct-atlas.zip" | sha256sum -c -
+
+          rm -rf /tmp/yhct-atlas public/yhct-internal
+          mkdir -p /tmp/yhct-atlas public/yhct-internal
+          unzip -q /tmp/yhct-atlas.zip -d /tmp/yhct-atlas
+
+          python3 - <<'PY'
+          import json, re
+          from pathlib import Path
+
+          root = Path('/tmp/yhct-atlas')
+          expected = {'index.html', 'manifest.json', 'assets'}
+          if {p.name for p in root.iterdir()} != expected:
+              raise SystemExit(f'unexpected top-level payload: {[p.name for p in root.iterdir()]}')
+          manifest = json.loads((root / 'manifest.json').read_text('utf-8'))
+          maps = manifest.get('maps') or []
+          if len(maps) != 10:
+              raise SystemExit(f'expected 10 maps, got {len(maps)}')
+          files = sorted((root / 'assets').glob('map-*.enc'))
+          if len(files) != 10:
+              raise SystemExit(f'expected 10 encrypted payloads, got {len(files)}')
+          names = [p.name for p in files]
+          if names != [f'map-{i:02d}.enc' for i in range(1, 11)]:
+              raise SystemExit(f'unexpected encrypted payload names: {names}')
+          public_text = (root / 'index.html').read_text('utf-8') + '\n' + (root / 'manifest.json').read_text('utf-8')
+          banned = [
+              'YHCT-Atlas-v1K6BQ2AGBsiS4YpjEw',
+              'SAN-282',
+              'ffbe4d2a50832e0475a8e4543ed5c092a0a9990f',
+              'big-linux',
+              'tail71d60f',
+          ]
+          for term in banned:
+              if term in public_text:
+                  raise SystemExit(f'banned public metadata term found: {term}')
+          if 'noindex,nofollow,noarchive' not in public_text:
+              raise SystemExit('missing noindex metadata')
+          if manifest.get('kdf', {}).get('iterations', 0) < 400000:
+              raise SystemExit('KDF iterations below policy')
+          if manifest.get('cipher') != 'AES-GCM-256':
+              raise SystemExit('unexpected cipher')
+          print('atlas_validation=10_encrypted_maps_ok')
+          PY
+
+          cp -a /tmp/yhct-atlas/. public/yhct-internal/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/yhct-internal
+          git diff --cached --check
+          git commit -m 'feat: add encrypted internal YHCT architecture atlas'
+          git push
