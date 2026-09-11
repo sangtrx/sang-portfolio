@@ -1,113 +1,100 @@
 {
-  "version": 1,
+  "version": 2,
   "kdf": {
     "name": "PBKDF2",
     "hash": "SHA-256",
     "iterations": 450000,
-    "salt": "GXawpA6fjuIYWe3c2UTyaw=="
+    "salt": "i0bFNvLWhRnvkJpyG/ftwg=="
   },
   "compression": "gzip",
   "cipher": "AES-GCM-256",
   "maps": [
     {
       "id": "01",
-      "title": "Tổng quan hệ thống",
-      "description": "Luồng tổng thể và ranh giới trách nhiệm.",
       "file": "assets/map-01.enc",
-      "iv": "6vStpfivKrudjR1b",
+      "iv": "mBLBjoWrCt6bl/3k",
       "aad": "map-01",
       "sha256": "805525c5dbe7454dff8d09774d10074299b2ba9a999e4031c6262d5740e31c1a",
       "bytes": 821388
     },
     {
       "id": "02",
-      "title": "Frontend",
-      "description": "Clinician workspace, state và failure presentation.",
       "file": "assets/map-02.enc",
-      "iv": "G4RpUzHePMvaumZY",
+      "iv": "Xyv/jKMo+tZjICm1",
       "aad": "map-02",
       "sha256": "7b2f60674c6168e510dce669458d398f95a5c4ef52778987dc52a4c42c0b3377",
       "bytes": 817856
     },
     {
       "id": "03",
-      "title": "Backend",
-      "description": "Application contracts và durable semantics.",
       "file": "assets/map-03.enc",
-      "iv": "On0lDrZ+nY7m6G5H",
+      "iv": "2B++3cxkp8EJAr1G",
       "aad": "map-03",
       "sha256": "57c264cd9a40190faad1e6554110731f73aef164110f2e76ddc49b653d348eb3",
       "bytes": 816706
     },
     {
       "id": "04",
-      "title": "Clinical AI",
-      "description": "Reasoning, clinical tools, evidence và publication gate.",
       "file": "assets/map-04.enc",
-      "iv": "kz3EnGxpj+scNOY9",
+      "iv": "4GCvzNR/RdYp4zs2",
       "aad": "map-04",
       "sha256": "0f77eab37ae5f59d0e7da47a6f1632f8633bb0f0685ab4cbada2b9d4f4ed4da6",
       "bytes": 818840
     },
     {
       "id": "05",
-      "title": "Data Governance",
-      "description": "Canonical/derived state, provenance và rebuild semantics.",
       "file": "assets/map-05.enc",
-      "iv": "IzcgMhhwTBShjTmN",
+      "iv": "x+AttKCSrf9oUSFy",
       "aad": "map-05",
       "sha256": "3471755a9da1ba66dd50ac83f251834d0d578e06af5a1804f129f2b494be0c6c",
       "bytes": 817475
     },
     {
       "id": "06",
-      "title": "DevOps Runtime",
-      "description": "Runtime, health sequencing và release boundary.",
       "file": "assets/map-06.enc",
-      "iv": "dIWsTDUSIdE4dM+2",
+      "iv": "5oxxDvbpNPdUGFLo",
       "aad": "map-06",
       "sha256": "924a8179dcbfc9f76bb8cffbb61bd88b2bdb278ab519750a74695156f88c348c",
       "bytes": 820600
     },
     {
       "id": "07",
-      "title": "Security & Observability",
-      "description": "Identity, authorization, auditability và failure identity.",
       "file": "assets/map-07.enc",
-      "iv": "VoKQCwHkKSxmFv+i",
+      "iv": "lPXVeCWnWZpw8gRU",
       "aad": "map-07",
       "sha256": "1bc025df53585988c930f42469d5d4c11197a9f94fe1668b7a3ae9e1cc563b5c",
       "bytes": 815081
     },
     {
       "id": "08",
-      "title": "Quality & Release",
-      "description": "Validation layers, UAT và release acceptance.",
       "file": "assets/map-08.enc",
-      "iv": "u33R9ldbx7iXDODJ",
+      "iv": "41hsIz31ueT0ZoXl",
       "aad": "map-08",
       "sha256": "fb4a0bdf08c50efbd4404c6bb9fd32a163e4ffdc92268aee66efc6647ec8bbe4",
       "bytes": 814065
     },
     {
       "id": "09",
-      "title": "Multi-turn Resilience",
-      "description": "Retry, replay và resilient multi-turn execution.",
       "file": "assets/map-09.enc",
-      "iv": "NseMcGBWCd0NS865",
+      "iv": "AYpDtYO764KEuS5c",
       "aad": "map-09",
       "sha256": "f66a6bfd936e73182fcc5fa602e35615760ff489cc4d9df27ffbbab5e1a8b87c",
       "bytes": 816807
     },
     {
       "id": "10",
-      "title": "Turn Lifecycle",
-      "description": "Lifecycle một clinical turn từ identity đến commit.",
       "file": "assets/map-10.enc",
-      "iv": "rPXZoNSuX//RGlqW",
+      "iv": "wFgNzGqOT8iH3u/I",
       "aad": "map-10",
       "sha256": "9a2a3a6104341d224227a1ab1428fcc49a5cd487a91ae5b7cef25b2b9a96b7c1",
       "bytes": 813858
     }
-  ]
+  ],
+  "notes": {
+    "file": "assets/notes.enc",
+    "iv": "tZEipCxNYsWJNf+U",
+    "aad": "notes-v2",
+    "sha256": "f0822ade7b1c6c170fb0c3b8e9edd47207f809d0afd646248d41e1b10c9b5943",
+    "bytes": 29029
+  }
 }
