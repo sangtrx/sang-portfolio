@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Inspect encrypted transfer client endpoint
+      - name: Trace encrypted transfer client chunks
         env:
           SHARE_URL: https://firestorage.ai/ja/f/McTMlZBwcW80
         run: |
@@ -33,23 +33,14 @@ jobs:
           PY
           PAGE_JS="$(cat /tmp/page-js-url)"
           curl -fsSL --retry 3 --retry-all-errors "$PAGE_JS" -o /tmp/page.js
+          echo 'page_bundle_start'
+          cat /tmp/page.js
+          echo
+          echo 'page_bundle_end'
           python3 - <<'PY'
           import re
           from pathlib import Path
           js = Path('/tmp/page.js').read_text('utf-8', errors='replace')
-          print(f'page_js_bytes={len(js.encode())}')
-          terms = ('download', 'signed', 'presign', 'share', '/api/', 'files/', 'storage')
-          for term in terms:
-              print(f'contains_{term.replace("/", "_")}={term.lower() in js.lower()}')
-          strings = re.findall(r'''["'`]([^"'`]{1,500})["'`]''', js)
-          hits = []
-          for s in strings:
-              low = s.lower()
-              if any(t in low for t in ('download', 'presign', '/api/', 'files/', 'share/')):
-                  hits.append(s)
-          seen=set()
-          for s in hits:
-              if s not in seen:
-                  seen.add(s)
-                  print('hit=' + s[:500])
+          ids = sorted(set(re.findall(r'\b\d{3,6}\b', js)))
+          print('chunk_ids=' + ','.join(ids))
           PY
