@@ -14,33 +14,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Trace encrypted transfer client chunks
+      - name: Locate encrypted transfer download API
         env:
           SHARE_URL: https://firestorage.ai/ja/f/McTMlZBwcW80
         run: |
           set -euo pipefail
           curl -fsSL --retry 3 --retry-all-errors "$SHARE_URL" -o /tmp/share.html
-          python3 - <<'PY' > /tmp/page-js-url
-          import re
-          from pathlib import Path
-          from urllib.parse import urljoin
-          page = Path('/tmp/share.html').read_text('utf-8', errors='replace')
-          scripts = re.findall(r'''src=["']([^"']+)["']''', page, re.I)
-          matches = [urljoin('https://firestorage.ai', s) for s in scripts if '/app/(files)/ja/f/page-' in s]
-          if len(matches) != 1:
-              raise SystemExit(f'expected one share page bundle, got {matches}')
-          print(matches[0])
-          PY
-          PAGE_JS="$(cat /tmp/page-js-url)"
-          curl -fsSL --retry 3 --retry-all-errors "$PAGE_JS" -o /tmp/page.js
-          echo 'page_bundle_start'
-          cat /tmp/page.js
-          echo
-          echo 'page_bundle_end'
           python3 - <<'PY'
-          import re
+          import re, subprocess
           from pathlib import Path
-          js = Path('/tmp/page.js').read_text('utf-8', errors='replace')
-          ids = sorted(set(re.findall(r'\b\d{3,6}\b', js)))
-          print('chunk_ids=' + ','.join(ids))
+          from urllib.parse import urljoin, urlparse
+
+          page = Path('/tmp/share.html').read_text('utf-8', errors='replace')
+          scripts = [urljoin('https://firestorage.ai', s) for s in re.findall(r'''src=["']([^"']+)["']''', page, re.I)]
+          scripts = [s for s in scripts if '/_next/static/chunks/' in s and s.endswith('.js')]
+          print(f'script_count={len(scripts)}')
+          out = Path('/tmp/chunks'); out.mkdir(exist_ok=True)
+          for i, url in enumerate(scripts):
+              path = out / f'{i:02d}-{Path(urlparse(url).path).name}'
+              subprocess.run(['curl','-fsSL','--retry','3','--retry-all-errors',url,'-o',str(path)], check=True)
+              text = path.read_text('utf-8', errors='replace')
+              print(f'chunk={path.name} bytes={len(text.encode())}')
+              contexts=[]
+              for term in ('download','presign','signed','/api/','share','file_id','public_id'):
+                  low=text.lower(); start=0
+                  while True:
+                      idx=low.find(term,start)
+                      if idx<0: break
+                      a=max(0,idx-180); b=min(len(text),idx+260)
+                      contexts.append(text[a:b].replace('\n',' '))
+                      start=idx+len(term)
+              seen=set()
+              for c in contexts:
+                  if c not in seen:
+                      seen.add(c)
+                      print('context=' + c[:500])
           PY
